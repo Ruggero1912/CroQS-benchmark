@@ -1,0 +1,6 @@
+lib/methods/clipcap/pretrained_models/
+__pycache__/
+lib/__pycache__/
+*.json
+code/_data/*
+.env
