@@ -219,6 +219,7 @@ class GroupCapLLM:
             dtype=torch.int8
         elif llm_type == LLMTypes.Gemma2b_IT:
             model_id = "google/gemma-2b-it"
+            quantization_config = BitsAndBytesConfig(load_in_4bit=True)
         elif llm_type == LLMTypes.Mistral7b_IT:
             model_id = "mistralai/Mistral-7B-Instruct-v0.2"
             quantization_config = BitsAndBytesConfig(load_in_4bit=True)
