@@ -1,1 +1,4 @@
 bert-score
+bitsandbytes
+jinja2
+accelerate
