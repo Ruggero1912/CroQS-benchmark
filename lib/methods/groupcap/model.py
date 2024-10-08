@@ -13,6 +13,7 @@ from lib.sorting import dissimilarity_ranking
 class LLMTypes(Enum):
     Gemma7b_IT     = 'Gemma7b_IT'
     Gemma2b_IT     = 'Gemma2b_IT'
+    Gemma2_2b   = 'Gemma2-2b'
     Mistral7b_IT   = 'Mistral7b_IT'
     LLama2_7b   = 'LLama2_7b'
     LLama3_8b   = 'LLama3_8b'
@@ -118,7 +119,10 @@ class GroupCapLLM:
         
         if self.debug: print(f"Generated prompt:\n", prompt)
         
-        generated_answer = self.send_chat_message(prompt)
+        if self.instruction_tuned == True:
+            generated_answer = self.send_chat_message(prompt)
+        else:
+            generated_answer = self.pipeline(prompt)[0]['generated_text']#[-1]#['content']
 
         return [ generated_answer ]
     
@@ -179,7 +183,7 @@ class GroupCapLLM:
         inputs = self.tokenizer.encode(
             prompt, add_special_tokens=False, return_tensors="pt")
 
-        outputs = self.model.generate(input_ids=inputs.to(self.model.device), max_new_tokens=150)
+        outputs = self.model.generate(input_ids=inputs.to(self.model.device), max_new_tokens=150, max_length=1000)
         generated_chat = self.tokenizer.decode(outputs[0])
         new_ret = generated_chat.replace("<s>", "").replace("</s>", "").replace(prompt.replace("<s>", "").replace("</s>", ""), "")
         
@@ -204,37 +208,51 @@ class GroupCapLLM:
         
         self.base_prompt = base_prompt.value
 
+    instruction_tuned = True
+
     def _load_llm(self, llm_type : LLMTypes, device_map : str):
         """
         loads the llm object.
 
         It downloads it too eventually
         """
-        dtype=torch.bfloat16
+        dtype=torch.float16
         quantization_config=None
 
         if llm_type == LLMTypes.Gemma7b_IT:
             model_id = "google/gemma-7b-it"
             quantization_config = BitsAndBytesConfig(load_in_4bit=True)
             dtype=torch.int8
+            self.instruction_tuned = True
         elif llm_type == LLMTypes.Gemma2b_IT:
             model_id = "google/gemma-2b-it"
             quantization_config = BitsAndBytesConfig(load_in_4bit=True)
+            dtype=None
+            self.instruction_tuned = True
+        elif llm_type == LLMTypes.Gemma2_2b:
+            model_id = "google/gemma-2-2b"
+            quantization_config = BitsAndBytesConfig(load_in_4bit=True)
+            dtype=None
+            self.instruction_tuned = False
         elif llm_type == LLMTypes.Mistral7b_IT:
             model_id = "mistralai/Mistral-7B-Instruct-v0.2"
             quantization_config = BitsAndBytesConfig(load_in_4bit=True)
             dtype=None #torch.bfloat16
+            self.instruction_tuned = True
         elif llm_type == LLMTypes.LLama3_8b:
             model_id = "meta-llama/Meta-Llama-3-8B"
             quantization_config = BitsAndBytesConfig(load_in_4bit=True)
             dtype=None #torch.bfloat16
+            self.instruction_tuned = False
         elif llm_type == LLMTypes.LLama3_8b_IT:
             model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
             quantization_config = BitsAndBytesConfig(load_in_4bit=True)
             dtype=None #torch.bfloat16
+            self.instruction_tuned = True
         else:
             #case default
             model_id = "google/gemma-7b-it"
+            self.instruction_tuned = True
             print(f"Undefined model for { llm_type = } | using default { model_id = }")
 
         if not ( hasattr(GroupCapLLM, f"model_{model_id}") and hasattr(GroupCapLLM, f"tokenizer_{model_id}") ):
@@ -249,7 +267,7 @@ class GroupCapLLM:
         self.model = getattr(GroupCapLLM, f"model_{model_id}")
 
         if self.use_pipeline:
-            self.pipeline = pipeline("text-generation", model=self.model, tokenizer=self.tokenizer)
+            self.pipeline = pipeline("text-generation", model=self.model, tokenizer=self.tokenizer, max_new_tokens=150)
         else:
             self.pipeline = None
 
