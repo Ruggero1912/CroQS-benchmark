@@ -1,1 +1,348 @@
-Hello world
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Maybe you are looking for CroQS 🐊 Cross-modal Query Suggestion for Text-to-Image Retrieval">
+  <meta name="keywords" content="Text-To-Image Retrieval, Query Suggestion, Cross-modal Retrieval, Image Group Captioning">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maybe you are looking for CroQS 🐊 Cross-modal Query Suggestion for Text-to-Image Retrieval</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/icon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<!-- More Research -->
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        
+        <!-- <a class="navbar-item" href="https://concept-fusion.github.io">
+        <span class="icon">
+            <i class="fas fa-home"></i>
+        </span>
+        </a> -->
+  
+        <!-- <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Related Research
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="">
+              any
+            </a>
+          </div>
+        </div> -->
+      </div>
+  
+    </div>
+  </nav>
+
+<!-- More Research
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="#">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="#">
+            Project 1
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+-->
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <header class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            Maybe you are looking for CroQS 🐊
+            <p class="title publication-title">Cross-modal Query Suggestion for Text-to-Image Retrieval</p>
+            <!-- <p class="is-size-4 publication-awards">Any</p> -->
+          </h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/giacomo-pacini/">Giacomo Pacini</a><sup>1,2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/fabio-carrara-b28a2b111//">Fabio Carrara</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/nicola-messina-a33848164/">Nicola Messina</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+                <a href="">Nicola Tonellotto</a><sup>1,2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Giuseppe Amato</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://fabriziofalchi.it">Fabrizio Falchi</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup><a href="https://www.isti.cnr.it/">ISTI CNR</a></span>
+            <span class="author-block"><sup>2</sup>University of Pisa</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span> -->
+              <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-image"></i>
+                  </span>
+                  <span>Poster</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/Ruggero1912/CroQS-benchmark"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://github.com/Ruggero1912/CroQS-benchmark"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+              <!-- Video Link.
+              <span class="link-block">
+                <a href=""
+                class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+            </div>
+          </div>
+        </header>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Carousel.
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-1"></div>
+        <div class="item item-2"></div>
+      </div>
+    </div>
+  </div>
+</section>
+-->
+
+<!-- <section class="teaser">
+  <div class="container is-max-desktop">
+    < !-- Paper video. -- >
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video Summary</h2>
+        <figure class="content publication-video image is-16by9">
+          <iframe class="has-ratio" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </figure>
+      </div>
+    </div>
+    < !--/ Paper video. -- >
+  </div>
+</section> -->
+
+<section class="section pt-0">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <!-- Teaser. -->
+        <div class="hero-body">
+          <h2 class="title is-3">Abstract</h2>
+          <img src="./static/images/cross-modal-query-suggestion-architecture.webp" alt="Cross-modal query suggestion architecture" class="teaser-image">
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            Query suggestion, a technique widely adopted in information retrieval, enhances system interactivity and the browsing experience of document collections.
+            In cross-modal retrieval, many works have focused on retrieving relevant items from natural language queries, while few have explored query suggestion solutions. 
+          </p>
+          <p>
+            In this work, we address query suggestion in cross-modal retrieval, introducing a novel task that focuses on suggesting minimal textual modifications needed to explore visually consistent subsets of the collection, following the premise of &ldquo;Maybe you are looking for &rdquo;.
+            To facilitate the evaluation and development of methods, we present a comprehensive benchmark named CroQS.
+            This dataset comprises initial queries, grouped result sets, and human-defined suggested queries for each group.
+            We establish dedicated metrics to rigorously evaluate the performance of various methods on this task, measuring representativeness, cluster specificity, and similarity of the suggested queries to the original ones.
+            Baseline methods from related fields, such as image captioning and content summarization, are adapted for this task to provide reference performance scores.
+
+          </p>
+          <p>
+            Although rather far from human performance, our experiments reveal that both LLM-based and captioning-based methods achieve competitive results on CroQS, improving the recall on cluster specificity by more than 122% and representativeness mAP by more than 23% with respect to the initial query.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+<!-- Examples -->
+
+<section class="section pt-0">
+  <div class="container is-max-desktop">
+    <div class="content is-four-fifths">
+      <div class="hero-body">
+        <img src="./static/images/examples.png" alt="Examples" class="teaser-image">
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Results -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Results</h2>
+        <div class="content has-text-justified">
+          <p></p>
+          <figure>
+            <img src="./static/images/" alt="Examples" class="teaser-image">
+          </figure>
+          <p></p>
+          <figure>
+            <img src="./static/images/" alt="Examples" class="teaser-image">
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Concurrent Work.
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Related Links</h2>
+        <div class="content has-text-justified">
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+-->
+
+
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+</code></pre>
+  </div>
+</section> -->
+
+
+<section class="section" id="ack">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Acknowledgements</h2>
+    <p>
+    </p>
+    <p>
+    </p>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <!-- <a class="icon-link" href="" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a> -->
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This website is borrowed from <a
+              href="https://github.com/nerfies/nerfies.github.io">nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
