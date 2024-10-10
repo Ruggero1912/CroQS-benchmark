@@ -259,7 +259,13 @@
   <div class="container is-max-desktop">
 
       <div class="column is-full-width">
-        <h2 class="title is-3">Methods</h2>
+        <h2 class="title is-2">Methods</h2>
+        <div class="content has-text-justified">
+          <p>
+            We studied existing methods from related fields to develop a set of baseline methods for the cross-modal query suggestion task.
+
+          </p>
+        </div>
       </div>
 
     <div class="columns is-centered">
@@ -267,16 +273,19 @@
       <!-- Captioning derived. -->
       <div class="column">
         <div class="content">
-          <h2 class="title is-3">Captioning-derived Methods</h2>
+          <h3 class="title is-4">Captioning-derived Methods</h3>
+          <div style="min-height: 150px; align-content: center;">
+          <img src="./static/images/captioning-group-prototype.webp"
+                 class="image-full-width"
+            alt="Captioning image group prototype"/>
+          </div>
           <p>
             We adapted models that build a caption from a semantic space (such CLIP) by exploiting the 
             spatial properties of semantic spaces. 
             We considered the representation of 
             By giving a prototype point in input to those methods, we used the caption for that point as the suggested query for the image group.
           </p>
-          <img src="./static/images/captioning-group-prototype.webp"
-                 class="image-full-width"
-            alt="Captioning image group prototype"/>
+          
         </div>
       </div>
       <!--/ Captioning derived. -->
@@ -284,14 +293,17 @@
       <!-- GroupCap LLM -->
       <div class="column">
         <div class="content">
-          <h2 class="title is-3"><strong>GroupCap</strong>: LLM-based approach</h2>
+          <h3 class="title is-4"><strong>GroupCap</strong>: LLM-based approach</h3>
+          <div style="min-height: 150px; align-content: center;">
+          <img src="./static/images/groupcap-llm-schema.webp"
+                 class="image-full-width"
+            alt="Captioning image group prototype"/>
+          </div>
           <p>
             An LLM receives the captions of the most representative 
             images and builds a query suggestion from them and q<sub>0</sub>.
           </p>
-          <img src="./static/images/groupcap-llm-schema.webp"
-                 class="image-full-width"
-            alt="Captioning image group prototype"/>
+          
         </div>
       </div>
       <!--/ GroupCap LLM -->
