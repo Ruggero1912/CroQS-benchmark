@@ -150,3 +150,8 @@ body {
   float: left;
   margin-right: 15px;
 }
+
+.side-by-side-images-containers{
+  min-height: 220px; 
+  align-content: center;
+}
