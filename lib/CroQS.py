@@ -34,7 +34,6 @@ import os
 jinja_env = Environment(loader=FileSystemLoader('templates'))
 clusters_template = jinja_env.get_template('clusters.html')
 
-
 class CroQS:
 
     queries = None
@@ -80,7 +79,7 @@ class CroQS:
         """
         if render is true, render the html in a ipynb, else returns the html as a string
         """
-        html = clusters_template.render(clusters_dict=self.queries[query])
+        html = clusters_template.render(initial_query=query, clusters_dict=self.queries[query])
 
         if render:
             display(HTML(html))

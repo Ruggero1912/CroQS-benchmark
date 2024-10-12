@@ -1,90 +1,163 @@
-<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #pinco {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .images-for-query-by-clusters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+        .images-for-cluster-column-container {
+            background-color: #ffffff;
+            width: 380px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cluster-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .cluster-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px;
+        }
+        .coco-img-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .images-for-cluster-column-container:nth-child(5n) {
+            border-top: 5px solid #07730d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+1) {
+            border-top: 5px solid #2a51bb;
+        }
+        .images-for-cluster-column-container:nth-child(5n+2) {
+            border-top: 5px solid #b4c51d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+3) {
+            border-top: 5px solid #c51d1d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+4) {
+            border-top: 5px solid #1dc5c5;
+        }
 
-    {% for cluster, infos in clusters_dict.items() %}
+        .container {
+            width: 80%;
+            /* max-width: 800px; */
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .container-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .query-highlight {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            background-color: #e0f7f4;
+            padding: 0.2em 0.4em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="pinco">
 
-    {% set caption = infos["caption"] %}
 
-    <div class="images-for-cluster-column-container" currentCluster="{{cluster}}">
-        <div class="images-for-query-row">
-            <div>
-                <div style="display: flex; justify-content: center; align-items: center;">
-                    <!-- <p style="font-family: monospace; width: 80px;">{{key}}</p> -->
-                    <p style="text-align: center;"> {{caption}}</p>
-                </div>
-
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="#">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
             </div>
         </div>
+    </div>
+</nav>
 
-    {% set coco_ids = infos["items"] %}
-
-        {% for coco_id in coco_ids %}
-                <div class="image-for-query-div">
-                    <div>
-                    <img class="coco-img-preview image-{{coco_id}}" src="http://images.cocodataset.org/train2017/{{(coco_id|string).rjust(12, '0')}}.jpg" 
-                        alt="{{coco_id}}" title="{{coco_id}} - {{caption}}"/>
-                    <br>
-                    </div>
-                </div>
+<!-- Title Section -->
+ <div class="container-container">
+    <div class="container">
+        <h1>CroQS Dataset</h1>
+        <h3>Semantic Clusters for the Initial Query: <span class="query-highlight">{{initial_query}}</span></h3>
+    </div>
+</div>
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+    {% for cluster, infos in clusters_dict.items() %}
+        {% set caption = infos["caption"] %}
+        
+        <div class="images-for-cluster-column-container" currentCluster="{{cluster}}">
+            <div class="cluster-title">{{ caption }}</div>
             
-        {% endfor %}
+            <div class="cluster-images-grid">
+                {% set coco_ids = infos["items"] %}
+                {% for coco_id in coco_ids %}
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-{{coco_id}}" 
+                             src="http://images.cocodataset.org/train2017/{{(coco_id|string).rjust(12, '0')}}.jpg" 
+                             alt="{{coco_id}}" title="{{coco_id}} - {{caption}}"/>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
-        {% endfor %}
-        </div>
+    {% endfor %}
 </div>
 
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
 
-
-
-<style>
-    .images-for-query{
-        display: block;
-    }
-    .images-for-query-row-container{
-        display: inline-block;
-        width: 45%;
-    }
-    .images-for-query-row{
-        display: flex;
-        padding: 5px;
-        align-items: center;
-        justify-content: center;
-    }
-    .img-infos-div{
-        margin-left: 5px;
-        margin-right: 5px;
-        min-width: 170px;
-    }
-    .coco-img-preview{
-        width: 170px;
-        height: 170px;
-    }
-    .images-for-query-by-clusters-container{
-        display: inline-flex;
-        align-items: start;
-    }
-    #images-by-cluster-container div:nth-child(5n){
-        border-color: rgb(7, 115, 13);
-    }
-    #images-by-cluster-container div:nth-child(5n+1){
-        border-color: rgb(42, 81, 187);
-    }
-    #images-by-cluster-container div:nth-child(5n+2){
-        border-color: rgb(180, 197, 29);
-    }
-    #images-by-cluster-container div:nth-child(5n+3){
-        border-color: rgb(197, 29, 29);
-    }
-    #images-by-cluster-container div:nth-child(5n+4){
-        border-color: rgb(29, 197, 197);
-    }
-    .images-for-cluster-column-container{
-        display: inline-block;
-        width: 400px;
-        border: 5px solid;
-    }
-    .image-for-query-div{
-        display: inline-flex;
-        padding: 5px;
-        align-items: center;
-    }
-</style>
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>

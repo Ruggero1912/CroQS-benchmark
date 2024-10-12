@@ -1,0 +1,90 @@
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+
+    {% for cluster, infos in clusters_dict.items() %}
+
+    {% set caption = infos["caption"] %}
+
+    <div class="images-for-cluster-column-container" currentCluster="{{cluster}}">
+        <div class="images-for-query-row">
+            <div>
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <!-- <p style="font-family: monospace; width: 80px;">{{key}}</p> -->
+                    <p style="text-align: center;"> {{caption}}</p>
+                </div>
+
+            </div>
+        </div>
+
+    {% set coco_ids = infos["items"] %}
+
+        {% for coco_id in coco_ids %}
+                <div class="image-for-query-div">
+                    <div>
+                    <img class="coco-img-preview image-{{coco_id}}" src="http://images.cocodataset.org/train2017/{{(coco_id|string).rjust(12, '0')}}.jpg" 
+                        alt="{{coco_id}}" title="{{coco_id}} - {{caption}}"/>
+                    <br>
+                    </div>
+                </div>
+            
+        {% endfor %}
+        </div>
+        {% endfor %}
+        </div>
+</div>
+
+
+
+
+<style>
+    .images-for-query{
+        display: block;
+    }
+    .images-for-query-row-container{
+        display: inline-block;
+        width: 45%;
+    }
+    .images-for-query-row{
+        display: flex;
+        padding: 5px;
+        align-items: center;
+        justify-content: center;
+    }
+    .img-infos-div{
+        margin-left: 5px;
+        margin-right: 5px;
+        min-width: 170px;
+    }
+    .coco-img-preview{
+        width: 170px;
+        height: 170px;
+    }
+    .images-for-query-by-clusters-container{
+        display: inline-flex;
+        align-items: start;
+    }
+    #images-by-cluster-container div:nth-child(5n){
+        border-color: rgb(7, 115, 13);
+    }
+    #images-by-cluster-container div:nth-child(5n+1){
+        border-color: rgb(42, 81, 187);
+    }
+    #images-by-cluster-container div:nth-child(5n+2){
+        border-color: rgb(180, 197, 29);
+    }
+    #images-by-cluster-container div:nth-child(5n+3){
+        border-color: rgb(197, 29, 29);
+    }
+    #images-by-cluster-container div:nth-child(5n+4){
+        border-color: rgb(29, 197, 197);
+    }
+    .images-for-cluster-column-container{
+        display: inline-block;
+        width: 400px;
+        border: 5px solid;
+    }
+    .image-for-query-div{
+        display: inline-flex;
+        padding: 5px;
+        align-items: center;
+    }
+</style>
