@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #pinco {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .images-for-query-by-clusters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+        .images-for-cluster-column-container {
+            background-color: #ffffff;
+            width: 380px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cluster-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .cluster-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px;
+        }
+        .coco-img-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .images-for-cluster-column-container:nth-child(5n) {
+            border-top: 5px solid #07730d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+1) {
+            border-top: 5px solid #2a51bb;
+        }
+        .images-for-cluster-column-container:nth-child(5n+2) {
+            border-top: 5px solid #b4c51d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+3) {
+            border-top: 5px solid #c51d1d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+4) {
+            border-top: 5px solid #1dc5c5;
+        }
+
+        .container {
+            width: 80%;
+            /* max-width: 800px; */
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .container-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .query-highlight {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            background-color: #e0f7f4;
+            padding: 0.2em 0.4em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="pinco">
+
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="../index.html">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Title Section -->
+ <div class="container-container">
+    <div class="container">
+        <h1>CroQS Dataset</h1>
+        <h3>Semantic Clusters for the Initial Query: <span class="query-highlight">football</span></h3>
+    </div>
+</div>
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="0">
+            <div class="cluster-title">people playing football</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-101985" 
+                             src="http://images.cocodataset.org/train2017/000000101985.jpg" 
+                             alt="101985" title="101985 - people playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-121211" 
+                             src="http://images.cocodataset.org/train2017/000000121211.jpg" 
+                             alt="121211" title="121211 - people playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-126054" 
+                             src="http://images.cocodataset.org/train2017/000000126054.jpg" 
+                             alt="126054" title="126054 - people playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-152633" 
+                             src="http://images.cocodataset.org/train2017/000000152633.jpg" 
+                             alt="152633" title="152633 - people playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-210431" 
+                             src="http://images.cocodataset.org/train2017/000000210431.jpg" 
+                             alt="210431" title="210431 - people playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-242712" 
+                             src="http://images.cocodataset.org/train2017/000000242712.jpg" 
+                             alt="242712" title="242712 - people playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-29146" 
+                             src="http://images.cocodataset.org/train2017/000000029146.jpg" 
+                             alt="29146" title="29146 - people playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-319031" 
+                             src="http://images.cocodataset.org/train2017/000000319031.jpg" 
+                             alt="319031" title="319031 - people playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-32206" 
+                             src="http://images.cocodataset.org/train2017/000000032206.jpg" 
+                             alt="32206" title="32206 - people playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-327970" 
+                             src="http://images.cocodataset.org/train2017/000000327970.jpg" 
+                             alt="327970" title="327970 - people playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-334837" 
+                             src="http://images.cocodataset.org/train2017/000000334837.jpg" 
+                             alt="334837" title="334837 - people playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-355956" 
+                             src="http://images.cocodataset.org/train2017/000000355956.jpg" 
+                             alt="355956" title="355956 - people playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-382263" 
+                             src="http://images.cocodataset.org/train2017/000000382263.jpg" 
+                             alt="382263" title="382263 - people playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-401797" 
+                             src="http://images.cocodataset.org/train2017/000000401797.jpg" 
+                             alt="401797" title="401797 - people playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-433438" 
+                             src="http://images.cocodataset.org/train2017/000000433438.jpg" 
+                             alt="433438" title="433438 - people playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-451184" 
+                             src="http://images.cocodataset.org/train2017/000000451184.jpg" 
+                             alt="451184" title="451184 - people playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-467182" 
+                             src="http://images.cocodataset.org/train2017/000000467182.jpg" 
+                             alt="467182" title="467182 - people playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-49648" 
+                             src="http://images.cocodataset.org/train2017/000000049648.jpg" 
+                             alt="49648" title="49648 - people playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-499912" 
+                             src="http://images.cocodataset.org/train2017/000000499912.jpg" 
+                             alt="499912" title="499912 - people playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-558942" 
+                             src="http://images.cocodataset.org/train2017/000000558942.jpg" 
+                             alt="558942" title="558942 - people playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-558955" 
+                             src="http://images.cocodataset.org/train2017/000000558955.jpg" 
+                             alt="558955" title="558955 - people playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-55922" 
+                             src="http://images.cocodataset.org/train2017/000000055922.jpg" 
+                             alt="55922" title="55922 - people playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-60904" 
+                             src="http://images.cocodataset.org/train2017/000000060904.jpg" 
+                             alt="60904" title="60904 - people playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-65383" 
+                             src="http://images.cocodataset.org/train2017/000000065383.jpg" 
+                             alt="65383" title="65383 - people playing football"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="1">
+            <div class="cluster-title">group of people playing football on grassy field</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-105200" 
+                             src="http://images.cocodataset.org/train2017/000000105200.jpg" 
+                             alt="105200" title="105200 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-107564" 
+                             src="http://images.cocodataset.org/train2017/000000107564.jpg" 
+                             alt="107564" title="107564 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-110006" 
+                             src="http://images.cocodataset.org/train2017/000000110006.jpg" 
+                             alt="110006" title="110006 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-111756" 
+                             src="http://images.cocodataset.org/train2017/000000111756.jpg" 
+                             alt="111756" title="111756 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-118069" 
+                             src="http://images.cocodataset.org/train2017/000000118069.jpg" 
+                             alt="118069" title="118069 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-120872" 
+                             src="http://images.cocodataset.org/train2017/000000120872.jpg" 
+                             alt="120872" title="120872 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-152012" 
+                             src="http://images.cocodataset.org/train2017/000000152012.jpg" 
+                             alt="152012" title="152012 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-154785" 
+                             src="http://images.cocodataset.org/train2017/000000154785.jpg" 
+                             alt="154785" title="154785 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-162578" 
+                             src="http://images.cocodataset.org/train2017/000000162578.jpg" 
+                             alt="162578" title="162578 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-170292" 
+                             src="http://images.cocodataset.org/train2017/000000170292.jpg" 
+                             alt="170292" title="170292 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-187496" 
+                             src="http://images.cocodataset.org/train2017/000000187496.jpg" 
+                             alt="187496" title="187496 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-202328" 
+                             src="http://images.cocodataset.org/train2017/000000202328.jpg" 
+                             alt="202328" title="202328 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-207366" 
+                             src="http://images.cocodataset.org/train2017/000000207366.jpg" 
+                             alt="207366" title="207366 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-226498" 
+                             src="http://images.cocodataset.org/train2017/000000226498.jpg" 
+                             alt="226498" title="226498 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-227042" 
+                             src="http://images.cocodataset.org/train2017/000000227042.jpg" 
+                             alt="227042" title="227042 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-242716" 
+                             src="http://images.cocodataset.org/train2017/000000242716.jpg" 
+                             alt="242716" title="242716 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-257387" 
+                             src="http://images.cocodataset.org/train2017/000000257387.jpg" 
+                             alt="257387" title="257387 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-271741" 
+                             src="http://images.cocodataset.org/train2017/000000271741.jpg" 
+                             alt="271741" title="271741 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-282847" 
+                             src="http://images.cocodataset.org/train2017/000000282847.jpg" 
+                             alt="282847" title="282847 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-286064" 
+                             src="http://images.cocodataset.org/train2017/000000286064.jpg" 
+                             alt="286064" title="286064 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-287374" 
+                             src="http://images.cocodataset.org/train2017/000000287374.jpg" 
+                             alt="287374" title="287374 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-289915" 
+                             src="http://images.cocodataset.org/train2017/000000289915.jpg" 
+                             alt="289915" title="289915 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-333014" 
+                             src="http://images.cocodataset.org/train2017/000000333014.jpg" 
+                             alt="333014" title="333014 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-344231" 
+                             src="http://images.cocodataset.org/train2017/000000344231.jpg" 
+                             alt="344231" title="344231 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-356908" 
+                             src="http://images.cocodataset.org/train2017/000000356908.jpg" 
+                             alt="356908" title="356908 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-371532" 
+                             src="http://images.cocodataset.org/train2017/000000371532.jpg" 
+                             alt="371532" title="371532 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-381430" 
+                             src="http://images.cocodataset.org/train2017/000000381430.jpg" 
+                             alt="381430" title="381430 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-382462" 
+                             src="http://images.cocodataset.org/train2017/000000382462.jpg" 
+                             alt="382462" title="382462 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-403680" 
+                             src="http://images.cocodataset.org/train2017/000000403680.jpg" 
+                             alt="403680" title="403680 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-411009" 
+                             src="http://images.cocodataset.org/train2017/000000411009.jpg" 
+                             alt="411009" title="411009 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-420593" 
+                             src="http://images.cocodataset.org/train2017/000000420593.jpg" 
+                             alt="420593" title="420593 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-44476" 
+                             src="http://images.cocodataset.org/train2017/000000044476.jpg" 
+                             alt="44476" title="44476 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-454541" 
+                             src="http://images.cocodataset.org/train2017/000000454541.jpg" 
+                             alt="454541" title="454541 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-458750" 
+                             src="http://images.cocodataset.org/train2017/000000458750.jpg" 
+                             alt="458750" title="458750 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-47953" 
+                             src="http://images.cocodataset.org/train2017/000000047953.jpg" 
+                             alt="47953" title="47953 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-486471" 
+                             src="http://images.cocodataset.org/train2017/000000486471.jpg" 
+                             alt="486471" title="486471 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-489799" 
+                             src="http://images.cocodataset.org/train2017/000000489799.jpg" 
+                             alt="489799" title="489799 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-497067" 
+                             src="http://images.cocodataset.org/train2017/000000497067.jpg" 
+                             alt="497067" title="497067 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-500543" 
+                             src="http://images.cocodataset.org/train2017/000000500543.jpg" 
+                             alt="500543" title="500543 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-542260" 
+                             src="http://images.cocodataset.org/train2017/000000542260.jpg" 
+                             alt="542260" title="542260 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-565675" 
+                             src="http://images.cocodataset.org/train2017/000000565675.jpg" 
+                             alt="565675" title="565675 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-574977" 
+                             src="http://images.cocodataset.org/train2017/000000574977.jpg" 
+                             alt="574977" title="574977 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-63791" 
+                             src="http://images.cocodataset.org/train2017/000000063791.jpg" 
+                             alt="63791" title="63791 - group of people playing football on grassy field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-9317" 
+                             src="http://images.cocodataset.org/train2017/000000009317.jpg" 
+                             alt="9317" title="9317 - group of people playing football on grassy field"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="2">
+            <div class="cluster-title">pet and football</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-104625" 
+                             src="http://images.cocodataset.org/train2017/000000104625.jpg" 
+                             alt="104625" title="104625 - pet and football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-255568" 
+                             src="http://images.cocodataset.org/train2017/000000255568.jpg" 
+                             alt="255568" title="255568 - pet and football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-307649" 
+                             src="http://images.cocodataset.org/train2017/000000307649.jpg" 
+                             alt="307649" title="307649 - pet and football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-322945" 
+                             src="http://images.cocodataset.org/train2017/000000322945.jpg" 
+                             alt="322945" title="322945 - pet and football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-337095" 
+                             src="http://images.cocodataset.org/train2017/000000337095.jpg" 
+                             alt="337095" title="337095 - pet and football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-388203" 
+                             src="http://images.cocodataset.org/train2017/000000388203.jpg" 
+                             alt="388203" title="388203 - pet and football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-457275" 
+                             src="http://images.cocodataset.org/train2017/000000457275.jpg" 
+                             alt="457275" title="457275 - pet and football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-573823" 
+                             src="http://images.cocodataset.org/train2017/000000573823.jpg" 
+                             alt="573823" title="573823 - pet and football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-76762" 
+                             src="http://images.cocodataset.org/train2017/000000076762.jpg" 
+                             alt="76762" title="76762 - pet and football"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="3">
+            <div class="cluster-title">children playing football</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-114286" 
+                             src="http://images.cocodataset.org/train2017/000000114286.jpg" 
+                             alt="114286" title="114286 - children playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-126098" 
+                             src="http://images.cocodataset.org/train2017/000000126098.jpg" 
+                             alt="126098" title="126098 - children playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-138670" 
+                             src="http://images.cocodataset.org/train2017/000000138670.jpg" 
+                             alt="138670" title="138670 - children playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-141923" 
+                             src="http://images.cocodataset.org/train2017/000000141923.jpg" 
+                             alt="141923" title="141923 - children playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-193677" 
+                             src="http://images.cocodataset.org/train2017/000000193677.jpg" 
+                             alt="193677" title="193677 - children playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-228326" 
+                             src="http://images.cocodataset.org/train2017/000000228326.jpg" 
+                             alt="228326" title="228326 - children playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-228413" 
+                             src="http://images.cocodataset.org/train2017/000000228413.jpg" 
+                             alt="228413" title="228413 - children playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-249076" 
+                             src="http://images.cocodataset.org/train2017/000000249076.jpg" 
+                             alt="249076" title="249076 - children playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-25358" 
+                             src="http://images.cocodataset.org/train2017/000000025358.jpg" 
+                             alt="25358" title="25358 - children playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-257498" 
+                             src="http://images.cocodataset.org/train2017/000000257498.jpg" 
+                             alt="257498" title="257498 - children playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-260656" 
+                             src="http://images.cocodataset.org/train2017/000000260656.jpg" 
+                             alt="260656" title="260656 - children playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-284465" 
+                             src="http://images.cocodataset.org/train2017/000000284465.jpg" 
+                             alt="284465" title="284465 - children playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-285588" 
+                             src="http://images.cocodataset.org/train2017/000000285588.jpg" 
+                             alt="285588" title="285588 - children playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-325495" 
+                             src="http://images.cocodataset.org/train2017/000000325495.jpg" 
+                             alt="325495" title="325495 - children playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-331746" 
+                             src="http://images.cocodataset.org/train2017/000000331746.jpg" 
+                             alt="331746" title="331746 - children playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-341186" 
+                             src="http://images.cocodataset.org/train2017/000000341186.jpg" 
+                             alt="341186" title="341186 - children playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-346712" 
+                             src="http://images.cocodataset.org/train2017/000000346712.jpg" 
+                             alt="346712" title="346712 - children playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-353589" 
+                             src="http://images.cocodataset.org/train2017/000000353589.jpg" 
+                             alt="353589" title="353589 - children playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-357413" 
+                             src="http://images.cocodataset.org/train2017/000000357413.jpg" 
+                             alt="357413" title="357413 - children playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-35818" 
+                             src="http://images.cocodataset.org/train2017/000000035818.jpg" 
+                             alt="35818" title="35818 - children playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-368" 
+                             src="http://images.cocodataset.org/train2017/000000000368.jpg" 
+                             alt="368" title="368 - children playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-378626" 
+                             src="http://images.cocodataset.org/train2017/000000378626.jpg" 
+                             alt="378626" title="378626 - children playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-396791" 
+                             src="http://images.cocodataset.org/train2017/000000396791.jpg" 
+                             alt="396791" title="396791 - children playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-423019" 
+                             src="http://images.cocodataset.org/train2017/000000423019.jpg" 
+                             alt="423019" title="423019 - children playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-4700" 
+                             src="http://images.cocodataset.org/train2017/000000004700.jpg" 
+                             alt="4700" title="4700 - children playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-476412" 
+                             src="http://images.cocodataset.org/train2017/000000476412.jpg" 
+                             alt="476412" title="476412 - children playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-501263" 
+                             src="http://images.cocodataset.org/train2017/000000501263.jpg" 
+                             alt="501263" title="501263 - children playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-544065" 
+                             src="http://images.cocodataset.org/train2017/000000544065.jpg" 
+                             alt="544065" title="544065 - children playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-547859" 
+                             src="http://images.cocodataset.org/train2017/000000547859.jpg" 
+                             alt="547859" title="547859 - children playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-549237" 
+                             src="http://images.cocodataset.org/train2017/000000549237.jpg" 
+                             alt="549237" title="549237 - children playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-552184" 
+                             src="http://images.cocodataset.org/train2017/000000552184.jpg" 
+                             alt="552184" title="552184 - children playing football"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-563628" 
+                             src="http://images.cocodataset.org/train2017/000000563628.jpg" 
+                             alt="563628" title="563628 - children playing football"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+</div>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>

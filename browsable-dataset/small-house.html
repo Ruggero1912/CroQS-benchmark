@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #pinco {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .images-for-query-by-clusters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+        .images-for-cluster-column-container {
+            background-color: #ffffff;
+            width: 380px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cluster-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .cluster-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px;
+        }
+        .coco-img-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .images-for-cluster-column-container:nth-child(5n) {
+            border-top: 5px solid #07730d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+1) {
+            border-top: 5px solid #2a51bb;
+        }
+        .images-for-cluster-column-container:nth-child(5n+2) {
+            border-top: 5px solid #b4c51d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+3) {
+            border-top: 5px solid #c51d1d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+4) {
+            border-top: 5px solid #1dc5c5;
+        }
+
+        .container {
+            width: 80%;
+            /* max-width: 800px; */
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .container-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .query-highlight {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            background-color: #e0f7f4;
+            padding: 0.2em 0.4em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="pinco">
+
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="../index.html">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Title Section -->
+ <div class="container-container">
+    <div class="container">
+        <h1>CroQS Dataset</h1>
+        <h3>Semantic Clusters for the Initial Query: <span class="query-highlight">small house</span></h3>
+    </div>
+</div>
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="0">
+            <div class="cluster-title">small house in natural area</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-127406" 
+                             src="http://images.cocodataset.org/train2017/000000127406.jpg" 
+                             alt="127406" title="127406 - small house in natural area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-14861" 
+                             src="http://images.cocodataset.org/train2017/000000014861.jpg" 
+                             alt="14861" title="14861 - small house in natural area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-186090" 
+                             src="http://images.cocodataset.org/train2017/000000186090.jpg" 
+                             alt="186090" title="186090 - small house in natural area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-202500" 
+                             src="http://images.cocodataset.org/train2017/000000202500.jpg" 
+                             alt="202500" title="202500 - small house in natural area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-20527" 
+                             src="http://images.cocodataset.org/train2017/000000020527.jpg" 
+                             alt="20527" title="20527 - small house in natural area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-226890" 
+                             src="http://images.cocodataset.org/train2017/000000226890.jpg" 
+                             alt="226890" title="226890 - small house in natural area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-231659" 
+                             src="http://images.cocodataset.org/train2017/000000231659.jpg" 
+                             alt="231659" title="231659 - small house in natural area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-251671" 
+                             src="http://images.cocodataset.org/train2017/000000251671.jpg" 
+                             alt="251671" title="251671 - small house in natural area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-270354" 
+                             src="http://images.cocodataset.org/train2017/000000270354.jpg" 
+                             alt="270354" title="270354 - small house in natural area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-32147" 
+                             src="http://images.cocodataset.org/train2017/000000032147.jpg" 
+                             alt="32147" title="32147 - small house in natural area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-35951" 
+                             src="http://images.cocodataset.org/train2017/000000035951.jpg" 
+                             alt="35951" title="35951 - small house in natural area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-371402" 
+                             src="http://images.cocodataset.org/train2017/000000371402.jpg" 
+                             alt="371402" title="371402 - small house in natural area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-394942" 
+                             src="http://images.cocodataset.org/train2017/000000394942.jpg" 
+                             alt="394942" title="394942 - small house in natural area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-413419" 
+                             src="http://images.cocodataset.org/train2017/000000413419.jpg" 
+                             alt="413419" title="413419 - small house in natural area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-425578" 
+                             src="http://images.cocodataset.org/train2017/000000425578.jpg" 
+                             alt="425578" title="425578 - small house in natural area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-474711" 
+                             src="http://images.cocodataset.org/train2017/000000474711.jpg" 
+                             alt="474711" title="474711 - small house in natural area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-508725" 
+                             src="http://images.cocodataset.org/train2017/000000508725.jpg" 
+                             alt="508725" title="508725 - small house in natural area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-521059" 
+                             src="http://images.cocodataset.org/train2017/000000521059.jpg" 
+                             alt="521059" title="521059 - small house in natural area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-531814" 
+                             src="http://images.cocodataset.org/train2017/000000531814.jpg" 
+                             alt="531814" title="531814 - small house in natural area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-574499" 
+                             src="http://images.cocodataset.org/train2017/000000574499.jpg" 
+                             alt="574499" title="574499 - small house in natural area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-575612" 
+                             src="http://images.cocodataset.org/train2017/000000575612.jpg" 
+                             alt="575612" title="575612 - small house in natural area"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="1">
+            <div class="cluster-title">kitchen of small house</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-102625" 
+                             src="http://images.cocodataset.org/train2017/000000102625.jpg" 
+                             alt="102625" title="102625 - kitchen of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-110381" 
+                             src="http://images.cocodataset.org/train2017/000000110381.jpg" 
+                             alt="110381" title="110381 - kitchen of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-1526" 
+                             src="http://images.cocodataset.org/train2017/000000001526.jpg" 
+                             alt="1526" title="1526 - kitchen of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-162414" 
+                             src="http://images.cocodataset.org/train2017/000000162414.jpg" 
+                             alt="162414" title="162414 - kitchen of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-189565" 
+                             src="http://images.cocodataset.org/train2017/000000189565.jpg" 
+                             alt="189565" title="189565 - kitchen of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-193129" 
+                             src="http://images.cocodataset.org/train2017/000000193129.jpg" 
+                             alt="193129" title="193129 - kitchen of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-202797" 
+                             src="http://images.cocodataset.org/train2017/000000202797.jpg" 
+                             alt="202797" title="202797 - kitchen of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-203034" 
+                             src="http://images.cocodataset.org/train2017/000000203034.jpg" 
+                             alt="203034" title="203034 - kitchen of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-203086" 
+                             src="http://images.cocodataset.org/train2017/000000203086.jpg" 
+                             alt="203086" title="203086 - kitchen of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-251047" 
+                             src="http://images.cocodataset.org/train2017/000000251047.jpg" 
+                             alt="251047" title="251047 - kitchen of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-252043" 
+                             src="http://images.cocodataset.org/train2017/000000252043.jpg" 
+                             alt="252043" title="252043 - kitchen of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-273445" 
+                             src="http://images.cocodataset.org/train2017/000000273445.jpg" 
+                             alt="273445" title="273445 - kitchen of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-28239" 
+                             src="http://images.cocodataset.org/train2017/000000028239.jpg" 
+                             alt="28239" title="28239 - kitchen of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-295889" 
+                             src="http://images.cocodataset.org/train2017/000000295889.jpg" 
+                             alt="295889" title="295889 - kitchen of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-30449" 
+                             src="http://images.cocodataset.org/train2017/000000030449.jpg" 
+                             alt="30449" title="30449 - kitchen of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-331268" 
+                             src="http://images.cocodataset.org/train2017/000000331268.jpg" 
+                             alt="331268" title="331268 - kitchen of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-352398" 
+                             src="http://images.cocodataset.org/train2017/000000352398.jpg" 
+                             alt="352398" title="352398 - kitchen of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-389336" 
+                             src="http://images.cocodataset.org/train2017/000000389336.jpg" 
+                             alt="389336" title="389336 - kitchen of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-407346" 
+                             src="http://images.cocodataset.org/train2017/000000407346.jpg" 
+                             alt="407346" title="407346 - kitchen of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-409774" 
+                             src="http://images.cocodataset.org/train2017/000000409774.jpg" 
+                             alt="409774" title="409774 - kitchen of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-454209" 
+                             src="http://images.cocodataset.org/train2017/000000454209.jpg" 
+                             alt="454209" title="454209 - kitchen of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-480831" 
+                             src="http://images.cocodataset.org/train2017/000000480831.jpg" 
+                             alt="480831" title="480831 - kitchen of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-485247" 
+                             src="http://images.cocodataset.org/train2017/000000485247.jpg" 
+                             alt="485247" title="485247 - kitchen of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-493428" 
+                             src="http://images.cocodataset.org/train2017/000000493428.jpg" 
+                             alt="493428" title="493428 - kitchen of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-500515" 
+                             src="http://images.cocodataset.org/train2017/000000500515.jpg" 
+                             alt="500515" title="500515 - kitchen of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-512308" 
+                             src="http://images.cocodataset.org/train2017/000000512308.jpg" 
+                             alt="512308" title="512308 - kitchen of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-535145" 
+                             src="http://images.cocodataset.org/train2017/000000535145.jpg" 
+                             alt="535145" title="535145 - kitchen of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-541345" 
+                             src="http://images.cocodataset.org/train2017/000000541345.jpg" 
+                             alt="541345" title="541345 - kitchen of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-58910" 
+                             src="http://images.cocodataset.org/train2017/000000058910.jpg" 
+                             alt="58910" title="58910 - kitchen of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-67647" 
+                             src="http://images.cocodataset.org/train2017/000000067647.jpg" 
+                             alt="67647" title="67647 - kitchen of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-9668" 
+                             src="http://images.cocodataset.org/train2017/000000009668.jpg" 
+                             alt="9668" title="9668 - kitchen of small house"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="2">
+            <div class="cluster-title">bedroom of small house</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-10466" 
+                             src="http://images.cocodataset.org/train2017/000000010466.jpg" 
+                             alt="10466" title="10466 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-106459" 
+                             src="http://images.cocodataset.org/train2017/000000106459.jpg" 
+                             alt="106459" title="106459 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-113058" 
+                             src="http://images.cocodataset.org/train2017/000000113058.jpg" 
+                             alt="113058" title="113058 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-118726" 
+                             src="http://images.cocodataset.org/train2017/000000118726.jpg" 
+                             alt="118726" title="118726 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-162199" 
+                             src="http://images.cocodataset.org/train2017/000000162199.jpg" 
+                             alt="162199" title="162199 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-164146" 
+                             src="http://images.cocodataset.org/train2017/000000164146.jpg" 
+                             alt="164146" title="164146 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-189997" 
+                             src="http://images.cocodataset.org/train2017/000000189997.jpg" 
+                             alt="189997" title="189997 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-19845" 
+                             src="http://images.cocodataset.org/train2017/000000019845.jpg" 
+                             alt="19845" title="19845 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-200638" 
+                             src="http://images.cocodataset.org/train2017/000000200638.jpg" 
+                             alt="200638" title="200638 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-200952" 
+                             src="http://images.cocodataset.org/train2017/000000200952.jpg" 
+                             alt="200952" title="200952 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-210794" 
+                             src="http://images.cocodataset.org/train2017/000000210794.jpg" 
+                             alt="210794" title="210794 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-240267" 
+                             src="http://images.cocodataset.org/train2017/000000240267.jpg" 
+                             alt="240267" title="240267 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-27929" 
+                             src="http://images.cocodataset.org/train2017/000000027929.jpg" 
+                             alt="27929" title="27929 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-285357" 
+                             src="http://images.cocodataset.org/train2017/000000285357.jpg" 
+                             alt="285357" title="285357 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-289658" 
+                             src="http://images.cocodataset.org/train2017/000000289658.jpg" 
+                             alt="289658" title="289658 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-302712" 
+                             src="http://images.cocodataset.org/train2017/000000302712.jpg" 
+                             alt="302712" title="302712 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-308265" 
+                             src="http://images.cocodataset.org/train2017/000000308265.jpg" 
+                             alt="308265" title="308265 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-357511" 
+                             src="http://images.cocodataset.org/train2017/000000357511.jpg" 
+                             alt="357511" title="357511 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-390513" 
+                             src="http://images.cocodataset.org/train2017/000000390513.jpg" 
+                             alt="390513" title="390513 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-395405" 
+                             src="http://images.cocodataset.org/train2017/000000395405.jpg" 
+                             alt="395405" title="395405 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-402639" 
+                             src="http://images.cocodataset.org/train2017/000000402639.jpg" 
+                             alt="402639" title="402639 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-412853" 
+                             src="http://images.cocodataset.org/train2017/000000412853.jpg" 
+                             alt="412853" title="412853 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-427842" 
+                             src="http://images.cocodataset.org/train2017/000000427842.jpg" 
+                             alt="427842" title="427842 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-429160" 
+                             src="http://images.cocodataset.org/train2017/000000429160.jpg" 
+                             alt="429160" title="429160 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-457825" 
+                             src="http://images.cocodataset.org/train2017/000000457825.jpg" 
+                             alt="457825" title="457825 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-467334" 
+                             src="http://images.cocodataset.org/train2017/000000467334.jpg" 
+                             alt="467334" title="467334 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-512007" 
+                             src="http://images.cocodataset.org/train2017/000000512007.jpg" 
+                             alt="512007" title="512007 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-559560" 
+                             src="http://images.cocodataset.org/train2017/000000559560.jpg" 
+                             alt="559560" title="559560 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-559992" 
+                             src="http://images.cocodataset.org/train2017/000000559992.jpg" 
+                             alt="559992" title="559992 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-568281" 
+                             src="http://images.cocodataset.org/train2017/000000568281.jpg" 
+                             alt="568281" title="568281 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-569725" 
+                             src="http://images.cocodataset.org/train2017/000000569725.jpg" 
+                             alt="569725" title="569725 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-572897" 
+                             src="http://images.cocodataset.org/train2017/000000572897.jpg" 
+                             alt="572897" title="572897 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-83256" 
+                             src="http://images.cocodataset.org/train2017/000000083256.jpg" 
+                             alt="83256" title="83256 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-90839" 
+                             src="http://images.cocodataset.org/train2017/000000090839.jpg" 
+                             alt="90839" title="90839 - bedroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-92439" 
+                             src="http://images.cocodataset.org/train2017/000000092439.jpg" 
+                             alt="92439" title="92439 - bedroom of small house"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="3">
+            <div class="cluster-title">small house in city street</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-143560" 
+                             src="http://images.cocodataset.org/train2017/000000143560.jpg" 
+                             alt="143560" title="143560 - small house in city street"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-14750" 
+                             src="http://images.cocodataset.org/train2017/000000014750.jpg" 
+                             alt="14750" title="14750 - small house in city street"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-204417" 
+                             src="http://images.cocodataset.org/train2017/000000204417.jpg" 
+                             alt="204417" title="204417 - small house in city street"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-209788" 
+                             src="http://images.cocodataset.org/train2017/000000209788.jpg" 
+                             alt="209788" title="209788 - small house in city street"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-218637" 
+                             src="http://images.cocodataset.org/train2017/000000218637.jpg" 
+                             alt="218637" title="218637 - small house in city street"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-236142" 
+                             src="http://images.cocodataset.org/train2017/000000236142.jpg" 
+                             alt="236142" title="236142 - small house in city street"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-251079" 
+                             src="http://images.cocodataset.org/train2017/000000251079.jpg" 
+                             alt="251079" title="251079 - small house in city street"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-267708" 
+                             src="http://images.cocodataset.org/train2017/000000267708.jpg" 
+                             alt="267708" title="267708 - small house in city street"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-269160" 
+                             src="http://images.cocodataset.org/train2017/000000269160.jpg" 
+                             alt="269160" title="269160 - small house in city street"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-275466" 
+                             src="http://images.cocodataset.org/train2017/000000275466.jpg" 
+                             alt="275466" title="275466 - small house in city street"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-281599" 
+                             src="http://images.cocodataset.org/train2017/000000281599.jpg" 
+                             alt="281599" title="281599 - small house in city street"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-338705" 
+                             src="http://images.cocodataset.org/train2017/000000338705.jpg" 
+                             alt="338705" title="338705 - small house in city street"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-357167" 
+                             src="http://images.cocodataset.org/train2017/000000357167.jpg" 
+                             alt="357167" title="357167 - small house in city street"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-380304" 
+                             src="http://images.cocodataset.org/train2017/000000380304.jpg" 
+                             alt="380304" title="380304 - small house in city street"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-436138" 
+                             src="http://images.cocodataset.org/train2017/000000436138.jpg" 
+                             alt="436138" title="436138 - small house in city street"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-475923" 
+                             src="http://images.cocodataset.org/train2017/000000475923.jpg" 
+                             alt="475923" title="475923 - small house in city street"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-514437" 
+                             src="http://images.cocodataset.org/train2017/000000514437.jpg" 
+                             alt="514437" title="514437 - small house in city street"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-534093" 
+                             src="http://images.cocodataset.org/train2017/000000534093.jpg" 
+                             alt="534093" title="534093 - small house in city street"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-574667" 
+                             src="http://images.cocodataset.org/train2017/000000574667.jpg" 
+                             alt="574667" title="574667 - small house in city street"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-575227" 
+                             src="http://images.cocodataset.org/train2017/000000575227.jpg" 
+                             alt="575227" title="575227 - small house in city street"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-575254" 
+                             src="http://images.cocodataset.org/train2017/000000575254.jpg" 
+                             alt="575254" title="575254 - small house in city street"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="4">
+            <div class="cluster-title">interior of small house with wood or fireplace or bed</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-101660" 
+                             src="http://images.cocodataset.org/train2017/000000101660.jpg" 
+                             alt="101660" title="101660 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-110613" 
+                             src="http://images.cocodataset.org/train2017/000000110613.jpg" 
+                             alt="110613" title="110613 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-1155" 
+                             src="http://images.cocodataset.org/train2017/000000001155.jpg" 
+                             alt="1155" title="1155 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-129085" 
+                             src="http://images.cocodataset.org/train2017/000000129085.jpg" 
+                             alt="129085" title="129085 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-131638" 
+                             src="http://images.cocodataset.org/train2017/000000131638.jpg" 
+                             alt="131638" title="131638 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-132196" 
+                             src="http://images.cocodataset.org/train2017/000000132196.jpg" 
+                             alt="132196" title="132196 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-138582" 
+                             src="http://images.cocodataset.org/train2017/000000138582.jpg" 
+                             alt="138582" title="138582 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-148956" 
+                             src="http://images.cocodataset.org/train2017/000000148956.jpg" 
+                             alt="148956" title="148956 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-15947" 
+                             src="http://images.cocodataset.org/train2017/000000015947.jpg" 
+                             alt="15947" title="15947 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-163167" 
+                             src="http://images.cocodataset.org/train2017/000000163167.jpg" 
+                             alt="163167" title="163167 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-170602" 
+                             src="http://images.cocodataset.org/train2017/000000170602.jpg" 
+                             alt="170602" title="170602 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-194885" 
+                             src="http://images.cocodataset.org/train2017/000000194885.jpg" 
+                             alt="194885" title="194885 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-26221" 
+                             src="http://images.cocodataset.org/train2017/000000026221.jpg" 
+                             alt="26221" title="26221 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-269429" 
+                             src="http://images.cocodataset.org/train2017/000000269429.jpg" 
+                             alt="269429" title="269429 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-322180" 
+                             src="http://images.cocodataset.org/train2017/000000322180.jpg" 
+                             alt="322180" title="322180 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-322260" 
+                             src="http://images.cocodataset.org/train2017/000000322260.jpg" 
+                             alt="322260" title="322260 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-350617" 
+                             src="http://images.cocodataset.org/train2017/000000350617.jpg" 
+                             alt="350617" title="350617 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-370378" 
+                             src="http://images.cocodataset.org/train2017/000000370378.jpg" 
+                             alt="370378" title="370378 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-374576" 
+                             src="http://images.cocodataset.org/train2017/000000374576.jpg" 
+                             alt="374576" title="374576 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-380931" 
+                             src="http://images.cocodataset.org/train2017/000000380931.jpg" 
+                             alt="380931" title="380931 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-398925" 
+                             src="http://images.cocodataset.org/train2017/000000398925.jpg" 
+                             alt="398925" title="398925 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-400552" 
+                             src="http://images.cocodataset.org/train2017/000000400552.jpg" 
+                             alt="400552" title="400552 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-409455" 
+                             src="http://images.cocodataset.org/train2017/000000409455.jpg" 
+                             alt="409455" title="409455 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-418115" 
+                             src="http://images.cocodataset.org/train2017/000000418115.jpg" 
+                             alt="418115" title="418115 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-424068" 
+                             src="http://images.cocodataset.org/train2017/000000424068.jpg" 
+                             alt="424068" title="424068 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-424505" 
+                             src="http://images.cocodataset.org/train2017/000000424505.jpg" 
+                             alt="424505" title="424505 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-426548" 
+                             src="http://images.cocodataset.org/train2017/000000426548.jpg" 
+                             alt="426548" title="426548 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-449313" 
+                             src="http://images.cocodataset.org/train2017/000000449313.jpg" 
+                             alt="449313" title="449313 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-462798" 
+                             src="http://images.cocodataset.org/train2017/000000462798.jpg" 
+                             alt="462798" title="462798 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-474369" 
+                             src="http://images.cocodataset.org/train2017/000000474369.jpg" 
+                             alt="474369" title="474369 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-480843" 
+                             src="http://images.cocodataset.org/train2017/000000480843.jpg" 
+                             alt="480843" title="480843 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-548946" 
+                             src="http://images.cocodataset.org/train2017/000000548946.jpg" 
+                             alt="548946" title="548946 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-555022" 
+                             src="http://images.cocodataset.org/train2017/000000555022.jpg" 
+                             alt="555022" title="555022 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-55580" 
+                             src="http://images.cocodataset.org/train2017/000000055580.jpg" 
+                             alt="55580" title="55580 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-67297" 
+                             src="http://images.cocodataset.org/train2017/000000067297.jpg" 
+                             alt="67297" title="67297 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-94702" 
+                             src="http://images.cocodataset.org/train2017/000000094702.jpg" 
+                             alt="94702" title="94702 - interior of small house with wood or fireplace or bed"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="5">
+            <div class="cluster-title">small house of stones with door and bright colors</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-179698" 
+                             src="http://images.cocodataset.org/train2017/000000179698.jpg" 
+                             alt="179698" title="179698 - small house of stones with door and bright colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-214367" 
+                             src="http://images.cocodataset.org/train2017/000000214367.jpg" 
+                             alt="214367" title="214367 - small house of stones with door and bright colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-255224" 
+                             src="http://images.cocodataset.org/train2017/000000255224.jpg" 
+                             alt="255224" title="255224 - small house of stones with door and bright colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-289689" 
+                             src="http://images.cocodataset.org/train2017/000000289689.jpg" 
+                             alt="289689" title="289689 - small house of stones with door and bright colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-322478" 
+                             src="http://images.cocodataset.org/train2017/000000322478.jpg" 
+                             alt="322478" title="322478 - small house of stones with door and bright colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-367233" 
+                             src="http://images.cocodataset.org/train2017/000000367233.jpg" 
+                             alt="367233" title="367233 - small house of stones with door and bright colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-432176" 
+                             src="http://images.cocodataset.org/train2017/000000432176.jpg" 
+                             alt="432176" title="432176 - small house of stones with door and bright colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-45383" 
+                             src="http://images.cocodataset.org/train2017/000000045383.jpg" 
+                             alt="45383" title="45383 - small house of stones with door and bright colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-496657" 
+                             src="http://images.cocodataset.org/train2017/000000496657.jpg" 
+                             alt="496657" title="496657 - small house of stones with door and bright colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-562834" 
+                             src="http://images.cocodataset.org/train2017/000000562834.jpg" 
+                             alt="562834" title="562834 - small house of stones with door and bright colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-62443" 
+                             src="http://images.cocodataset.org/train2017/000000062443.jpg" 
+                             alt="62443" title="62443 - small house of stones with door and bright colors"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="6">
+            <div class="cluster-title">bathroom of small house</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-107860" 
+                             src="http://images.cocodataset.org/train2017/000000107860.jpg" 
+                             alt="107860" title="107860 - bathroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-13769" 
+                             src="http://images.cocodataset.org/train2017/000000013769.jpg" 
+                             alt="13769" title="13769 - bathroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-152474" 
+                             src="http://images.cocodataset.org/train2017/000000152474.jpg" 
+                             alt="152474" title="152474 - bathroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-230610" 
+                             src="http://images.cocodataset.org/train2017/000000230610.jpg" 
+                             alt="230610" title="230610 - bathroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-28790" 
+                             src="http://images.cocodataset.org/train2017/000000028790.jpg" 
+                             alt="28790" title="28790 - bathroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-373109" 
+                             src="http://images.cocodataset.org/train2017/000000373109.jpg" 
+                             alt="373109" title="373109 - bathroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-428120" 
+                             src="http://images.cocodataset.org/train2017/000000428120.jpg" 
+                             alt="428120" title="428120 - bathroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-464534" 
+                             src="http://images.cocodataset.org/train2017/000000464534.jpg" 
+                             alt="464534" title="464534 - bathroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-469080" 
+                             src="http://images.cocodataset.org/train2017/000000469080.jpg" 
+                             alt="469080" title="469080 - bathroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-484587" 
+                             src="http://images.cocodataset.org/train2017/000000484587.jpg" 
+                             alt="484587" title="484587 - bathroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-570138" 
+                             src="http://images.cocodataset.org/train2017/000000570138.jpg" 
+                             alt="570138" title="570138 - bathroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-66066" 
+                             src="http://images.cocodataset.org/train2017/000000066066.jpg" 
+                             alt="66066" title="66066 - bathroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-68340" 
+                             src="http://images.cocodataset.org/train2017/000000068340.jpg" 
+                             alt="68340" title="68340 - bathroom of small house"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-94717" 
+                             src="http://images.cocodataset.org/train2017/000000094717.jpg" 
+                             alt="94717" title="94717 - bathroom of small house"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="7">
+            <div class="cluster-title">small house in japan</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-112605" 
+                             src="http://images.cocodataset.org/train2017/000000112605.jpg" 
+                             alt="112605" title="112605 - small house in japan"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-137745" 
+                             src="http://images.cocodataset.org/train2017/000000137745.jpg" 
+                             alt="137745" title="137745 - small house in japan"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-143051" 
+                             src="http://images.cocodataset.org/train2017/000000143051.jpg" 
+                             alt="143051" title="143051 - small house in japan"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-258529" 
+                             src="http://images.cocodataset.org/train2017/000000258529.jpg" 
+                             alt="258529" title="258529 - small house in japan"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-32391" 
+                             src="http://images.cocodataset.org/train2017/000000032391.jpg" 
+                             alt="32391" title="32391 - small house in japan"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-329726" 
+                             src="http://images.cocodataset.org/train2017/000000329726.jpg" 
+                             alt="329726" title="329726 - small house in japan"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-69616" 
+                             src="http://images.cocodataset.org/train2017/000000069616.jpg" 
+                             alt="69616" title="69616 - small house in japan"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-83546" 
+                             src="http://images.cocodataset.org/train2017/000000083546.jpg" 
+                             alt="83546" title="83546 - small house in japan"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="8">
+            <div class="cluster-title">interiors of small house with wooden ceiling</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-119358" 
+                             src="http://images.cocodataset.org/train2017/000000119358.jpg" 
+                             alt="119358" title="119358 - interiors of small house with wooden ceiling"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-133281" 
+                             src="http://images.cocodataset.org/train2017/000000133281.jpg" 
+                             alt="133281" title="133281 - interiors of small house with wooden ceiling"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-148773" 
+                             src="http://images.cocodataset.org/train2017/000000148773.jpg" 
+                             alt="148773" title="148773 - interiors of small house with wooden ceiling"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-160014" 
+                             src="http://images.cocodataset.org/train2017/000000160014.jpg" 
+                             alt="160014" title="160014 - interiors of small house with wooden ceiling"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-160690" 
+                             src="http://images.cocodataset.org/train2017/000000160690.jpg" 
+                             alt="160690" title="160690 - interiors of small house with wooden ceiling"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-170371" 
+                             src="http://images.cocodataset.org/train2017/000000170371.jpg" 
+                             alt="170371" title="170371 - interiors of small house with wooden ceiling"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-193631" 
+                             src="http://images.cocodataset.org/train2017/000000193631.jpg" 
+                             alt="193631" title="193631 - interiors of small house with wooden ceiling"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-209145" 
+                             src="http://images.cocodataset.org/train2017/000000209145.jpg" 
+                             alt="209145" title="209145 - interiors of small house with wooden ceiling"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-240434" 
+                             src="http://images.cocodataset.org/train2017/000000240434.jpg" 
+                             alt="240434" title="240434 - interiors of small house with wooden ceiling"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-297257" 
+                             src="http://images.cocodataset.org/train2017/000000297257.jpg" 
+                             alt="297257" title="297257 - interiors of small house with wooden ceiling"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-345536" 
+                             src="http://images.cocodataset.org/train2017/000000345536.jpg" 
+                             alt="345536" title="345536 - interiors of small house with wooden ceiling"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-360535" 
+                             src="http://images.cocodataset.org/train2017/000000360535.jpg" 
+                             alt="360535" title="360535 - interiors of small house with wooden ceiling"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-387903" 
+                             src="http://images.cocodataset.org/train2017/000000387903.jpg" 
+                             alt="387903" title="387903 - interiors of small house with wooden ceiling"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-40414" 
+                             src="http://images.cocodataset.org/train2017/000000040414.jpg" 
+                             alt="40414" title="40414 - interiors of small house with wooden ceiling"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-429312" 
+                             src="http://images.cocodataset.org/train2017/000000429312.jpg" 
+                             alt="429312" title="429312 - interiors of small house with wooden ceiling"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-510638" 
+                             src="http://images.cocodataset.org/train2017/000000510638.jpg" 
+                             alt="510638" title="510638 - interiors of small house with wooden ceiling"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-524041" 
+                             src="http://images.cocodataset.org/train2017/000000524041.jpg" 
+                             alt="524041" title="524041 - interiors of small house with wooden ceiling"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-525218" 
+                             src="http://images.cocodataset.org/train2017/000000525218.jpg" 
+                             alt="525218" title="525218 - interiors of small house with wooden ceiling"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-543200" 
+                             src="http://images.cocodataset.org/train2017/000000543200.jpg" 
+                             alt="543200" title="543200 - interiors of small house with wooden ceiling"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-551986" 
+                             src="http://images.cocodataset.org/train2017/000000551986.jpg" 
+                             alt="551986" title="551986 - interiors of small house with wooden ceiling"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-554152" 
+                             src="http://images.cocodataset.org/train2017/000000554152.jpg" 
+                             alt="554152" title="554152 - interiors of small house with wooden ceiling"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-577946" 
+                             src="http://images.cocodataset.org/train2017/000000577946.jpg" 
+                             alt="577946" title="577946 - interiors of small house with wooden ceiling"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-76846" 
+                             src="http://images.cocodataset.org/train2017/000000076846.jpg" 
+                             alt="76846" title="76846 - interiors of small house with wooden ceiling"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+</div>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>

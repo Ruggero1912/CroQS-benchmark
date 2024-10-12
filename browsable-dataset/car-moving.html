@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #pinco {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .images-for-query-by-clusters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+        .images-for-cluster-column-container {
+            background-color: #ffffff;
+            width: 380px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cluster-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .cluster-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px;
+        }
+        .coco-img-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .images-for-cluster-column-container:nth-child(5n) {
+            border-top: 5px solid #07730d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+1) {
+            border-top: 5px solid #2a51bb;
+        }
+        .images-for-cluster-column-container:nth-child(5n+2) {
+            border-top: 5px solid #b4c51d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+3) {
+            border-top: 5px solid #c51d1d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+4) {
+            border-top: 5px solid #1dc5c5;
+        }
+
+        .container {
+            width: 80%;
+            /* max-width: 800px; */
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .container-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .query-highlight {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            background-color: #e0f7f4;
+            padding: 0.2em 0.4em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="pinco">
+
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="../index.html">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Title Section -->
+ <div class="container-container">
+    <div class="container">
+        <h1>CroQS Dataset</h1>
+        <h3>Semantic Clusters for the Initial Query: <span class="query-highlight">car moving</span></h3>
+    </div>
+</div>
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="0">
+            <div class="cluster-title">truck moving </div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-123770" 
+                             src="http://images.cocodataset.org/train2017/000000123770.jpg" 
+                             alt="123770" title="123770 - truck moving "/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-148802" 
+                             src="http://images.cocodataset.org/train2017/000000148802.jpg" 
+                             alt="148802" title="148802 - truck moving "/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-150908" 
+                             src="http://images.cocodataset.org/train2017/000000150908.jpg" 
+                             alt="150908" title="150908 - truck moving "/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-162752" 
+                             src="http://images.cocodataset.org/train2017/000000162752.jpg" 
+                             alt="162752" title="162752 - truck moving "/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-16486" 
+                             src="http://images.cocodataset.org/train2017/000000016486.jpg" 
+                             alt="16486" title="16486 - truck moving "/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-192620" 
+                             src="http://images.cocodataset.org/train2017/000000192620.jpg" 
+                             alt="192620" title="192620 - truck moving "/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-194331" 
+                             src="http://images.cocodataset.org/train2017/000000194331.jpg" 
+                             alt="194331" title="194331 - truck moving "/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-200274" 
+                             src="http://images.cocodataset.org/train2017/000000200274.jpg" 
+                             alt="200274" title="200274 - truck moving "/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-20527" 
+                             src="http://images.cocodataset.org/train2017/000000020527.jpg" 
+                             alt="20527" title="20527 - truck moving "/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-214247" 
+                             src="http://images.cocodataset.org/train2017/000000214247.jpg" 
+                             alt="214247" title="214247 - truck moving "/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-297046" 
+                             src="http://images.cocodataset.org/train2017/000000297046.jpg" 
+                             alt="297046" title="297046 - truck moving "/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-300943" 
+                             src="http://images.cocodataset.org/train2017/000000300943.jpg" 
+                             alt="300943" title="300943 - truck moving "/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-353260" 
+                             src="http://images.cocodataset.org/train2017/000000353260.jpg" 
+                             alt="353260" title="353260 - truck moving "/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-358266" 
+                             src="http://images.cocodataset.org/train2017/000000358266.jpg" 
+                             alt="358266" title="358266 - truck moving "/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-377632" 
+                             src="http://images.cocodataset.org/train2017/000000377632.jpg" 
+                             alt="377632" title="377632 - truck moving "/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-428389" 
+                             src="http://images.cocodataset.org/train2017/000000428389.jpg" 
+                             alt="428389" title="428389 - truck moving "/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-42919" 
+                             src="http://images.cocodataset.org/train2017/000000042919.jpg" 
+                             alt="42919" title="42919 - truck moving "/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-517719" 
+                             src="http://images.cocodataset.org/train2017/000000517719.jpg" 
+                             alt="517719" title="517719 - truck moving "/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-573807" 
+                             src="http://images.cocodataset.org/train2017/000000573807.jpg" 
+                             alt="573807" title="573807 - truck moving "/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-79498" 
+                             src="http://images.cocodataset.org/train2017/000000079498.jpg" 
+                             alt="79498" title="79498 - truck moving "/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="1">
+            <div class="cluster-title">car moving with pets inside</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-213591" 
+                             src="http://images.cocodataset.org/train2017/000000213591.jpg" 
+                             alt="213591" title="213591 - car moving with pets inside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-255155" 
+                             src="http://images.cocodataset.org/train2017/000000255155.jpg" 
+                             alt="255155" title="255155 - car moving with pets inside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-292977" 
+                             src="http://images.cocodataset.org/train2017/000000292977.jpg" 
+                             alt="292977" title="292977 - car moving with pets inside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-33124" 
+                             src="http://images.cocodataset.org/train2017/000000033124.jpg" 
+                             alt="33124" title="33124 - car moving with pets inside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-340734" 
+                             src="http://images.cocodataset.org/train2017/000000340734.jpg" 
+                             alt="340734" title="340734 - car moving with pets inside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-341659" 
+                             src="http://images.cocodataset.org/train2017/000000341659.jpg" 
+                             alt="341659" title="341659 - car moving with pets inside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-395290" 
+                             src="http://images.cocodataset.org/train2017/000000395290.jpg" 
+                             alt="395290" title="395290 - car moving with pets inside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-406839" 
+                             src="http://images.cocodataset.org/train2017/000000406839.jpg" 
+                             alt="406839" title="406839 - car moving with pets inside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-427467" 
+                             src="http://images.cocodataset.org/train2017/000000427467.jpg" 
+                             alt="427467" title="427467 - car moving with pets inside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-447823" 
+                             src="http://images.cocodataset.org/train2017/000000447823.jpg" 
+                             alt="447823" title="447823 - car moving with pets inside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-495850" 
+                             src="http://images.cocodataset.org/train2017/000000495850.jpg" 
+                             alt="495850" title="495850 - car moving with pets inside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-506862" 
+                             src="http://images.cocodataset.org/train2017/000000506862.jpg" 
+                             alt="506862" title="506862 - car moving with pets inside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-532426" 
+                             src="http://images.cocodataset.org/train2017/000000532426.jpg" 
+                             alt="532426" title="532426 - car moving with pets inside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-78003" 
+                             src="http://images.cocodataset.org/train2017/000000078003.jpg" 
+                             alt="78003" title="78003 - car moving with pets inside"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="2">
+            <div class="cluster-title">car transported over truck</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-207455" 
+                             src="http://images.cocodataset.org/train2017/000000207455.jpg" 
+                             alt="207455" title="207455 - car transported over truck"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-223288" 
+                             src="http://images.cocodataset.org/train2017/000000223288.jpg" 
+                             alt="223288" title="223288 - car transported over truck"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-240586" 
+                             src="http://images.cocodataset.org/train2017/000000240586.jpg" 
+                             alt="240586" title="240586 - car transported over truck"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-258476" 
+                             src="http://images.cocodataset.org/train2017/000000258476.jpg" 
+                             alt="258476" title="258476 - car transported over truck"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-304917" 
+                             src="http://images.cocodataset.org/train2017/000000304917.jpg" 
+                             alt="304917" title="304917 - car transported over truck"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-339453" 
+                             src="http://images.cocodataset.org/train2017/000000339453.jpg" 
+                             alt="339453" title="339453 - car transported over truck"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-352959" 
+                             src="http://images.cocodataset.org/train2017/000000352959.jpg" 
+                             alt="352959" title="352959 - car transported over truck"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-374174" 
+                             src="http://images.cocodataset.org/train2017/000000374174.jpg" 
+                             alt="374174" title="374174 - car transported over truck"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-389137" 
+                             src="http://images.cocodataset.org/train2017/000000389137.jpg" 
+                             alt="389137" title="389137 - car transported over truck"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-391415" 
+                             src="http://images.cocodataset.org/train2017/000000391415.jpg" 
+                             alt="391415" title="391415 - car transported over truck"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-40689" 
+                             src="http://images.cocodataset.org/train2017/000000040689.jpg" 
+                             alt="40689" title="40689 - car transported over truck"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-41087" 
+                             src="http://images.cocodataset.org/train2017/000000041087.jpg" 
+                             alt="41087" title="41087 - car transported over truck"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-431363" 
+                             src="http://images.cocodataset.org/train2017/000000431363.jpg" 
+                             alt="431363" title="431363 - car transported over truck"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-519691" 
+                             src="http://images.cocodataset.org/train2017/000000519691.jpg" 
+                             alt="519691" title="519691 - car transported over truck"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-533998" 
+                             src="http://images.cocodataset.org/train2017/000000533998.jpg" 
+                             alt="533998" title="533998 - car transported over truck"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-66662" 
+                             src="http://images.cocodataset.org/train2017/000000066662.jpg" 
+                             alt="66662" title="66662 - car transported over truck"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-67580" 
+                             src="http://images.cocodataset.org/train2017/000000067580.jpg" 
+                             alt="67580" title="67580 - car transported over truck"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-72998" 
+                             src="http://images.cocodataset.org/train2017/000000072998.jpg" 
+                             alt="72998" title="72998 - car transported over truck"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="3">
+            <div class="cluster-title">car from one side</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-108266" 
+                             src="http://images.cocodataset.org/train2017/000000108266.jpg" 
+                             alt="108266" title="108266 - car from one side"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-139389" 
+                             src="http://images.cocodataset.org/train2017/000000139389.jpg" 
+                             alt="139389" title="139389 - car from one side"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-167695" 
+                             src="http://images.cocodataset.org/train2017/000000167695.jpg" 
+                             alt="167695" title="167695 - car from one side"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-173001" 
+                             src="http://images.cocodataset.org/train2017/000000173001.jpg" 
+                             alt="173001" title="173001 - car from one side"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-178319" 
+                             src="http://images.cocodataset.org/train2017/000000178319.jpg" 
+                             alt="178319" title="178319 - car from one side"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-203711" 
+                             src="http://images.cocodataset.org/train2017/000000203711.jpg" 
+                             alt="203711" title="203711 - car from one side"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-206622" 
+                             src="http://images.cocodataset.org/train2017/000000206622.jpg" 
+                             alt="206622" title="206622 - car from one side"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-242564" 
+                             src="http://images.cocodataset.org/train2017/000000242564.jpg" 
+                             alt="242564" title="242564 - car from one side"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-253094" 
+                             src="http://images.cocodataset.org/train2017/000000253094.jpg" 
+                             alt="253094" title="253094 - car from one side"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-25972" 
+                             src="http://images.cocodataset.org/train2017/000000025972.jpg" 
+                             alt="25972" title="25972 - car from one side"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-270799" 
+                             src="http://images.cocodataset.org/train2017/000000270799.jpg" 
+                             alt="270799" title="270799 - car from one side"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-321753" 
+                             src="http://images.cocodataset.org/train2017/000000321753.jpg" 
+                             alt="321753" title="321753 - car from one side"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-343881" 
+                             src="http://images.cocodataset.org/train2017/000000343881.jpg" 
+                             alt="343881" title="343881 - car from one side"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-391721" 
+                             src="http://images.cocodataset.org/train2017/000000391721.jpg" 
+                             alt="391721" title="391721 - car from one side"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-395230" 
+                             src="http://images.cocodataset.org/train2017/000000395230.jpg" 
+                             alt="395230" title="395230 - car from one side"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-422280" 
+                             src="http://images.cocodataset.org/train2017/000000422280.jpg" 
+                             alt="422280" title="422280 - car from one side"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-422432" 
+                             src="http://images.cocodataset.org/train2017/000000422432.jpg" 
+                             alt="422432" title="422432 - car from one side"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-444576" 
+                             src="http://images.cocodataset.org/train2017/000000444576.jpg" 
+                             alt="444576" title="444576 - car from one side"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-445309" 
+                             src="http://images.cocodataset.org/train2017/000000445309.jpg" 
+                             alt="445309" title="445309 - car from one side"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-460702" 
+                             src="http://images.cocodataset.org/train2017/000000460702.jpg" 
+                             alt="460702" title="460702 - car from one side"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-465369" 
+                             src="http://images.cocodataset.org/train2017/000000465369.jpg" 
+                             alt="465369" title="465369 - car from one side"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-483751" 
+                             src="http://images.cocodataset.org/train2017/000000483751.jpg" 
+                             alt="483751" title="483751 - car from one side"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-491728" 
+                             src="http://images.cocodataset.org/train2017/000000491728.jpg" 
+                             alt="491728" title="491728 - car from one side"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-49801" 
+                             src="http://images.cocodataset.org/train2017/000000049801.jpg" 
+                             alt="49801" title="49801 - car from one side"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-499018" 
+                             src="http://images.cocodataset.org/train2017/000000499018.jpg" 
+                             alt="499018" title="499018 - car from one side"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-501842" 
+                             src="http://images.cocodataset.org/train2017/000000501842.jpg" 
+                             alt="501842" title="501842 - car from one side"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-501957" 
+                             src="http://images.cocodataset.org/train2017/000000501957.jpg" 
+                             alt="501957" title="501957 - car from one side"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-52388" 
+                             src="http://images.cocodataset.org/train2017/000000052388.jpg" 
+                             alt="52388" title="52388 - car from one side"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-533989" 
+                             src="http://images.cocodataset.org/train2017/000000533989.jpg" 
+                             alt="533989" title="533989 - car from one side"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-540547" 
+                             src="http://images.cocodataset.org/train2017/000000540547.jpg" 
+                             alt="540547" title="540547 - car from one side"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-548184" 
+                             src="http://images.cocodataset.org/train2017/000000548184.jpg" 
+                             alt="548184" title="548184 - car from one side"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-82673" 
+                             src="http://images.cocodataset.org/train2017/000000082673.jpg" 
+                             alt="82673" title="82673 - car from one side"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="4">
+            <div class="cluster-title">Car moving near city intersections with traffic lights</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-115400" 
+                             src="http://images.cocodataset.org/train2017/000000115400.jpg" 
+                             alt="115400" title="115400 - Car moving near city intersections with traffic lights"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-119357" 
+                             src="http://images.cocodataset.org/train2017/000000119357.jpg" 
+                             alt="119357" title="119357 - Car moving near city intersections with traffic lights"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-148871" 
+                             src="http://images.cocodataset.org/train2017/000000148871.jpg" 
+                             alt="148871" title="148871 - Car moving near city intersections with traffic lights"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-154625" 
+                             src="http://images.cocodataset.org/train2017/000000154625.jpg" 
+                             alt="154625" title="154625 - Car moving near city intersections with traffic lights"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-167264" 
+                             src="http://images.cocodataset.org/train2017/000000167264.jpg" 
+                             alt="167264" title="167264 - Car moving near city intersections with traffic lights"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-224111" 
+                             src="http://images.cocodataset.org/train2017/000000224111.jpg" 
+                             alt="224111" title="224111 - Car moving near city intersections with traffic lights"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-233748" 
+                             src="http://images.cocodataset.org/train2017/000000233748.jpg" 
+                             alt="233748" title="233748 - Car moving near city intersections with traffic lights"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-235388" 
+                             src="http://images.cocodataset.org/train2017/000000235388.jpg" 
+                             alt="235388" title="235388 - Car moving near city intersections with traffic lights"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-250417" 
+                             src="http://images.cocodataset.org/train2017/000000250417.jpg" 
+                             alt="250417" title="250417 - Car moving near city intersections with traffic lights"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-267463" 
+                             src="http://images.cocodataset.org/train2017/000000267463.jpg" 
+                             alt="267463" title="267463 - Car moving near city intersections with traffic lights"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-274585" 
+                             src="http://images.cocodataset.org/train2017/000000274585.jpg" 
+                             alt="274585" title="274585 - Car moving near city intersections with traffic lights"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-294002" 
+                             src="http://images.cocodataset.org/train2017/000000294002.jpg" 
+                             alt="294002" title="294002 - Car moving near city intersections with traffic lights"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-328088" 
+                             src="http://images.cocodataset.org/train2017/000000328088.jpg" 
+                             alt="328088" title="328088 - Car moving near city intersections with traffic lights"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-337711" 
+                             src="http://images.cocodataset.org/train2017/000000337711.jpg" 
+                             alt="337711" title="337711 - Car moving near city intersections with traffic lights"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-353931" 
+                             src="http://images.cocodataset.org/train2017/000000353931.jpg" 
+                             alt="353931" title="353931 - Car moving near city intersections with traffic lights"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-374490" 
+                             src="http://images.cocodataset.org/train2017/000000374490.jpg" 
+                             alt="374490" title="374490 - Car moving near city intersections with traffic lights"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-421432" 
+                             src="http://images.cocodataset.org/train2017/000000421432.jpg" 
+                             alt="421432" title="421432 - Car moving near city intersections with traffic lights"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-425743" 
+                             src="http://images.cocodataset.org/train2017/000000425743.jpg" 
+                             alt="425743" title="425743 - Car moving near city intersections with traffic lights"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-435897" 
+                             src="http://images.cocodataset.org/train2017/000000435897.jpg" 
+                             alt="435897" title="435897 - Car moving near city intersections with traffic lights"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-458365" 
+                             src="http://images.cocodataset.org/train2017/000000458365.jpg" 
+                             alt="458365" title="458365 - Car moving near city intersections with traffic lights"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-468318" 
+                             src="http://images.cocodataset.org/train2017/000000468318.jpg" 
+                             alt="468318" title="468318 - Car moving near city intersections with traffic lights"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-472293" 
+                             src="http://images.cocodataset.org/train2017/000000472293.jpg" 
+                             alt="472293" title="472293 - Car moving near city intersections with traffic lights"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-503538" 
+                             src="http://images.cocodataset.org/train2017/000000503538.jpg" 
+                             alt="503538" title="503538 - Car moving near city intersections with traffic lights"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-539310" 
+                             src="http://images.cocodataset.org/train2017/000000539310.jpg" 
+                             alt="539310" title="539310 - Car moving near city intersections with traffic lights"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-561917" 
+                             src="http://images.cocodataset.org/train2017/000000561917.jpg" 
+                             alt="561917" title="561917 - Car moving near city intersections with traffic lights"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="5">
+            <div class="cluster-title">car moving in india</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-109699" 
+                             src="http://images.cocodataset.org/train2017/000000109699.jpg" 
+                             alt="109699" title="109699 - car moving in india"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-171548" 
+                             src="http://images.cocodataset.org/train2017/000000171548.jpg" 
+                             alt="171548" title="171548 - car moving in india"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-171970" 
+                             src="http://images.cocodataset.org/train2017/000000171970.jpg" 
+                             alt="171970" title="171970 - car moving in india"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-188440" 
+                             src="http://images.cocodataset.org/train2017/000000188440.jpg" 
+                             alt="188440" title="188440 - car moving in india"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-255975" 
+                             src="http://images.cocodataset.org/train2017/000000255975.jpg" 
+                             alt="255975" title="255975 - car moving in india"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-286888" 
+                             src="http://images.cocodataset.org/train2017/000000286888.jpg" 
+                             alt="286888" title="286888 - car moving in india"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-290798" 
+                             src="http://images.cocodataset.org/train2017/000000290798.jpg" 
+                             alt="290798" title="290798 - car moving in india"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-30787" 
+                             src="http://images.cocodataset.org/train2017/000000030787.jpg" 
+                             alt="30787" title="30787 - car moving in india"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-330109" 
+                             src="http://images.cocodataset.org/train2017/000000330109.jpg" 
+                             alt="330109" title="330109 - car moving in india"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-396499" 
+                             src="http://images.cocodataset.org/train2017/000000396499.jpg" 
+                             alt="396499" title="396499 - car moving in india"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-407585" 
+                             src="http://images.cocodataset.org/train2017/000000407585.jpg" 
+                             alt="407585" title="407585 - car moving in india"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-435187" 
+                             src="http://images.cocodataset.org/train2017/000000435187.jpg" 
+                             alt="435187" title="435187 - car moving in india"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-446324" 
+                             src="http://images.cocodataset.org/train2017/000000446324.jpg" 
+                             alt="446324" title="446324 - car moving in india"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-455916" 
+                             src="http://images.cocodataset.org/train2017/000000455916.jpg" 
+                             alt="455916" title="455916 - car moving in india"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-459117" 
+                             src="http://images.cocodataset.org/train2017/000000459117.jpg" 
+                             alt="459117" title="459117 - car moving in india"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-472250" 
+                             src="http://images.cocodataset.org/train2017/000000472250.jpg" 
+                             alt="472250" title="472250 - car moving in india"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-481634" 
+                             src="http://images.cocodataset.org/train2017/000000481634.jpg" 
+                             alt="481634" title="481634 - car moving in india"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-497791" 
+                             src="http://images.cocodataset.org/train2017/000000497791.jpg" 
+                             alt="497791" title="497791 - car moving in india"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-503980" 
+                             src="http://images.cocodataset.org/train2017/000000503980.jpg" 
+                             alt="503980" title="503980 - car moving in india"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-509800" 
+                             src="http://images.cocodataset.org/train2017/000000509800.jpg" 
+                             alt="509800" title="509800 - car moving in india"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-528962" 
+                             src="http://images.cocodataset.org/train2017/000000528962.jpg" 
+                             alt="528962" title="528962 - car moving in india"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-546965" 
+                             src="http://images.cocodataset.org/train2017/000000546965.jpg" 
+                             alt="546965" title="546965 - car moving in india"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-565975" 
+                             src="http://images.cocodataset.org/train2017/000000565975.jpg" 
+                             alt="565975" title="565975 - car moving in india"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-77185" 
+                             src="http://images.cocodataset.org/train2017/000000077185.jpg" 
+                             alt="77185" title="77185 - car moving in india"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="6">
+            <div class="cluster-title">car moving reflected through mirror</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-102307" 
+                             src="http://images.cocodataset.org/train2017/000000102307.jpg" 
+                             alt="102307" title="102307 - car moving reflected through mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-108156" 
+                             src="http://images.cocodataset.org/train2017/000000108156.jpg" 
+                             alt="108156" title="108156 - car moving reflected through mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-127100" 
+                             src="http://images.cocodataset.org/train2017/000000127100.jpg" 
+                             alt="127100" title="127100 - car moving reflected through mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-140898" 
+                             src="http://images.cocodataset.org/train2017/000000140898.jpg" 
+                             alt="140898" title="140898 - car moving reflected through mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-178578" 
+                             src="http://images.cocodataset.org/train2017/000000178578.jpg" 
+                             alt="178578" title="178578 - car moving reflected through mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-320112" 
+                             src="http://images.cocodataset.org/train2017/000000320112.jpg" 
+                             alt="320112" title="320112 - car moving reflected through mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-349875" 
+                             src="http://images.cocodataset.org/train2017/000000349875.jpg" 
+                             alt="349875" title="349875 - car moving reflected through mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-371021" 
+                             src="http://images.cocodataset.org/train2017/000000371021.jpg" 
+                             alt="371021" title="371021 - car moving reflected through mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-403360" 
+                             src="http://images.cocodataset.org/train2017/000000403360.jpg" 
+                             alt="403360" title="403360 - car moving reflected through mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-432120" 
+                             src="http://images.cocodataset.org/train2017/000000432120.jpg" 
+                             alt="432120" title="432120 - car moving reflected through mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-467187" 
+                             src="http://images.cocodataset.org/train2017/000000467187.jpg" 
+                             alt="467187" title="467187 - car moving reflected through mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-494190" 
+                             src="http://images.cocodataset.org/train2017/000000494190.jpg" 
+                             alt="494190" title="494190 - car moving reflected through mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-500575" 
+                             src="http://images.cocodataset.org/train2017/000000500575.jpg" 
+                             alt="500575" title="500575 - car moving reflected through mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-52259" 
+                             src="http://images.cocodataset.org/train2017/000000052259.jpg" 
+                             alt="52259" title="52259 - car moving reflected through mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-576015" 
+                             src="http://images.cocodataset.org/train2017/000000576015.jpg" 
+                             alt="576015" title="576015 - car moving reflected through mirror"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+</div>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #pinco {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .images-for-query-by-clusters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+        .images-for-cluster-column-container {
+            background-color: #ffffff;
+            width: 380px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cluster-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .cluster-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px;
+        }
+        .coco-img-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .images-for-cluster-column-container:nth-child(5n) {
+            border-top: 5px solid #07730d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+1) {
+            border-top: 5px solid #2a51bb;
+        }
+        .images-for-cluster-column-container:nth-child(5n+2) {
+            border-top: 5px solid #b4c51d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+3) {
+            border-top: 5px solid #c51d1d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+4) {
+            border-top: 5px solid #1dc5c5;
+        }
+
+        .container {
+            width: 80%;
+            /* max-width: 800px; */
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .container-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .query-highlight {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            background-color: #e0f7f4;
+            padding: 0.2em 0.4em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="pinco">
+
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="../index.html">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Title Section -->
+ <div class="container-container">
+    <div class="container">
+        <h1>CroQS Dataset</h1>
+        <h3>Semantic Clusters for the Initial Query: <span class="query-highlight">a person cooking</span></h3>
+    </div>
+</div>
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="0">
+            <div class="cluster-title">a chinese person cooking</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-100564" 
+                             src="http://images.cocodataset.org/train2017/000000100564.jpg" 
+                             alt="100564" title="100564 - a chinese person cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-357242" 
+                             src="http://images.cocodataset.org/train2017/000000357242.jpg" 
+                             alt="357242" title="357242 - a chinese person cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-438497" 
+                             src="http://images.cocodataset.org/train2017/000000438497.jpg" 
+                             alt="438497" title="438497 - a chinese person cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-439982" 
+                             src="http://images.cocodataset.org/train2017/000000439982.jpg" 
+                             alt="439982" title="439982 - a chinese person cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-574460" 
+                             src="http://images.cocodataset.org/train2017/000000574460.jpg" 
+                             alt="574460" title="574460 - a chinese person cooking"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="1">
+            <div class="cluster-title">a woman cooking</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-134772" 
+                             src="http://images.cocodataset.org/train2017/000000134772.jpg" 
+                             alt="134772" title="134772 - a woman cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-152942" 
+                             src="http://images.cocodataset.org/train2017/000000152942.jpg" 
+                             alt="152942" title="152942 - a woman cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-167525" 
+                             src="http://images.cocodataset.org/train2017/000000167525.jpg" 
+                             alt="167525" title="167525 - a woman cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-185777" 
+                             src="http://images.cocodataset.org/train2017/000000185777.jpg" 
+                             alt="185777" title="185777 - a woman cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-195271" 
+                             src="http://images.cocodataset.org/train2017/000000195271.jpg" 
+                             alt="195271" title="195271 - a woman cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-25167" 
+                             src="http://images.cocodataset.org/train2017/000000025167.jpg" 
+                             alt="25167" title="25167 - a woman cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-276077" 
+                             src="http://images.cocodataset.org/train2017/000000276077.jpg" 
+                             alt="276077" title="276077 - a woman cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-303431" 
+                             src="http://images.cocodataset.org/train2017/000000303431.jpg" 
+                             alt="303431" title="303431 - a woman cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-307897" 
+                             src="http://images.cocodataset.org/train2017/000000307897.jpg" 
+                             alt="307897" title="307897 - a woman cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-328270" 
+                             src="http://images.cocodataset.org/train2017/000000328270.jpg" 
+                             alt="328270" title="328270 - a woman cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-340102" 
+                             src="http://images.cocodataset.org/train2017/000000340102.jpg" 
+                             alt="340102" title="340102 - a woman cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-350737" 
+                             src="http://images.cocodataset.org/train2017/000000350737.jpg" 
+                             alt="350737" title="350737 - a woman cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-394658" 
+                             src="http://images.cocodataset.org/train2017/000000394658.jpg" 
+                             alt="394658" title="394658 - a woman cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-431972" 
+                             src="http://images.cocodataset.org/train2017/000000431972.jpg" 
+                             alt="431972" title="431972 - a woman cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-43739" 
+                             src="http://images.cocodataset.org/train2017/000000043739.jpg" 
+                             alt="43739" title="43739 - a woman cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-447787" 
+                             src="http://images.cocodataset.org/train2017/000000447787.jpg" 
+                             alt="447787" title="447787 - a woman cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-463771" 
+                             src="http://images.cocodataset.org/train2017/000000463771.jpg" 
+                             alt="463771" title="463771 - a woman cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-552565" 
+                             src="http://images.cocodataset.org/train2017/000000552565.jpg" 
+                             alt="552565" title="552565 - a woman cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-91263" 
+                             src="http://images.cocodataset.org/train2017/000000091263.jpg" 
+                             alt="91263" title="91263 - a woman cooking"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="2">
+            <div class="cluster-title">a young man cooking</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-106772" 
+                             src="http://images.cocodataset.org/train2017/000000106772.jpg" 
+                             alt="106772" title="106772 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-109673" 
+                             src="http://images.cocodataset.org/train2017/000000109673.jpg" 
+                             alt="109673" title="109673 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-14353" 
+                             src="http://images.cocodataset.org/train2017/000000014353.jpg" 
+                             alt="14353" title="14353 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-162163" 
+                             src="http://images.cocodataset.org/train2017/000000162163.jpg" 
+                             alt="162163" title="162163 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-199992" 
+                             src="http://images.cocodataset.org/train2017/000000199992.jpg" 
+                             alt="199992" title="199992 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-239444" 
+                             src="http://images.cocodataset.org/train2017/000000239444.jpg" 
+                             alt="239444" title="239444 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-257838" 
+                             src="http://images.cocodataset.org/train2017/000000257838.jpg" 
+                             alt="257838" title="257838 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-272440" 
+                             src="http://images.cocodataset.org/train2017/000000272440.jpg" 
+                             alt="272440" title="272440 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-275088" 
+                             src="http://images.cocodataset.org/train2017/000000275088.jpg" 
+                             alt="275088" title="275088 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-275565" 
+                             src="http://images.cocodataset.org/train2017/000000275565.jpg" 
+                             alt="275565" title="275565 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-299946" 
+                             src="http://images.cocodataset.org/train2017/000000299946.jpg" 
+                             alt="299946" title="299946 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-315200" 
+                             src="http://images.cocodataset.org/train2017/000000315200.jpg" 
+                             alt="315200" title="315200 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-316727" 
+                             src="http://images.cocodataset.org/train2017/000000316727.jpg" 
+                             alt="316727" title="316727 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-350240" 
+                             src="http://images.cocodataset.org/train2017/000000350240.jpg" 
+                             alt="350240" title="350240 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-354827" 
+                             src="http://images.cocodataset.org/train2017/000000354827.jpg" 
+                             alt="354827" title="354827 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-370209" 
+                             src="http://images.cocodataset.org/train2017/000000370209.jpg" 
+                             alt="370209" title="370209 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-373075" 
+                             src="http://images.cocodataset.org/train2017/000000373075.jpg" 
+                             alt="373075" title="373075 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-376776" 
+                             src="http://images.cocodataset.org/train2017/000000376776.jpg" 
+                             alt="376776" title="376776 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-396725" 
+                             src="http://images.cocodataset.org/train2017/000000396725.jpg" 
+                             alt="396725" title="396725 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-410627" 
+                             src="http://images.cocodataset.org/train2017/000000410627.jpg" 
+                             alt="410627" title="410627 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-410805" 
+                             src="http://images.cocodataset.org/train2017/000000410805.jpg" 
+                             alt="410805" title="410805 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-418620" 
+                             src="http://images.cocodataset.org/train2017/000000418620.jpg" 
+                             alt="418620" title="418620 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-467146" 
+                             src="http://images.cocodataset.org/train2017/000000467146.jpg" 
+                             alt="467146" title="467146 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-469793" 
+                             src="http://images.cocodataset.org/train2017/000000469793.jpg" 
+                             alt="469793" title="469793 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-474609" 
+                             src="http://images.cocodataset.org/train2017/000000474609.jpg" 
+                             alt="474609" title="474609 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-49746" 
+                             src="http://images.cocodataset.org/train2017/000000049746.jpg" 
+                             alt="49746" title="49746 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-503539" 
+                             src="http://images.cocodataset.org/train2017/000000503539.jpg" 
+                             alt="503539" title="503539 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-533452" 
+                             src="http://images.cocodataset.org/train2017/000000533452.jpg" 
+                             alt="533452" title="533452 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-543470" 
+                             src="http://images.cocodataset.org/train2017/000000543470.jpg" 
+                             alt="543470" title="543470 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-551963" 
+                             src="http://images.cocodataset.org/train2017/000000551963.jpg" 
+                             alt="551963" title="551963 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-568205" 
+                             src="http://images.cocodataset.org/train2017/000000568205.jpg" 
+                             alt="568205" title="568205 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-6189" 
+                             src="http://images.cocodataset.org/train2017/000000006189.jpg" 
+                             alt="6189" title="6189 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-66273" 
+                             src="http://images.cocodataset.org/train2017/000000066273.jpg" 
+                             alt="66273" title="66273 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-73180" 
+                             src="http://images.cocodataset.org/train2017/000000073180.jpg" 
+                             alt="73180" title="73180 - a young man cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-78478" 
+                             src="http://images.cocodataset.org/train2017/000000078478.jpg" 
+                             alt="78478" title="78478 - a young man cooking"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="3">
+            <div class="cluster-title">a person cooking ethnic food</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-116502" 
+                             src="http://images.cocodataset.org/train2017/000000116502.jpg" 
+                             alt="116502" title="116502 - a person cooking ethnic food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-21504" 
+                             src="http://images.cocodataset.org/train2017/000000021504.jpg" 
+                             alt="21504" title="21504 - a person cooking ethnic food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-268059" 
+                             src="http://images.cocodataset.org/train2017/000000268059.jpg" 
+                             alt="268059" title="268059 - a person cooking ethnic food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-283403" 
+                             src="http://images.cocodataset.org/train2017/000000283403.jpg" 
+                             alt="283403" title="283403 - a person cooking ethnic food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-291207" 
+                             src="http://images.cocodataset.org/train2017/000000291207.jpg" 
+                             alt="291207" title="291207 - a person cooking ethnic food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-372498" 
+                             src="http://images.cocodataset.org/train2017/000000372498.jpg" 
+                             alt="372498" title="372498 - a person cooking ethnic food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-425817" 
+                             src="http://images.cocodataset.org/train2017/000000425817.jpg" 
+                             alt="425817" title="425817 - a person cooking ethnic food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-431704" 
+                             src="http://images.cocodataset.org/train2017/000000431704.jpg" 
+                             alt="431704" title="431704 - a person cooking ethnic food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-433441" 
+                             src="http://images.cocodataset.org/train2017/000000433441.jpg" 
+                             alt="433441" title="433441 - a person cooking ethnic food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-487137" 
+                             src="http://images.cocodataset.org/train2017/000000487137.jpg" 
+                             alt="487137" title="487137 - a person cooking ethnic food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-505705" 
+                             src="http://images.cocodataset.org/train2017/000000505705.jpg" 
+                             alt="505705" title="505705 - a person cooking ethnic food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-511622" 
+                             src="http://images.cocodataset.org/train2017/000000511622.jpg" 
+                             alt="511622" title="511622 - a person cooking ethnic food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-55135" 
+                             src="http://images.cocodataset.org/train2017/000000055135.jpg" 
+                             alt="55135" title="55135 - a person cooking ethnic food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-82359" 
+                             src="http://images.cocodataset.org/train2017/000000082359.jpg" 
+                             alt="82359" title="82359 - a person cooking ethnic food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-86676" 
+                             src="http://images.cocodataset.org/train2017/000000086676.jpg" 
+                             alt="86676" title="86676 - a person cooking ethnic food"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="4">
+            <div class="cluster-title">a young woman cooking in kitchen</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-172387" 
+                             src="http://images.cocodataset.org/train2017/000000172387.jpg" 
+                             alt="172387" title="172387 - a young woman cooking in kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-18377" 
+                             src="http://images.cocodataset.org/train2017/000000018377.jpg" 
+                             alt="18377" title="18377 - a young woman cooking in kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-187336" 
+                             src="http://images.cocodataset.org/train2017/000000187336.jpg" 
+                             alt="187336" title="187336 - a young woman cooking in kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-22501" 
+                             src="http://images.cocodataset.org/train2017/000000022501.jpg" 
+                             alt="22501" title="22501 - a young woman cooking in kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-225517" 
+                             src="http://images.cocodataset.org/train2017/000000225517.jpg" 
+                             alt="225517" title="225517 - a young woman cooking in kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-229481" 
+                             src="http://images.cocodataset.org/train2017/000000229481.jpg" 
+                             alt="229481" title="229481 - a young woman cooking in kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-234679" 
+                             src="http://images.cocodataset.org/train2017/000000234679.jpg" 
+                             alt="234679" title="234679 - a young woman cooking in kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-248610" 
+                             src="http://images.cocodataset.org/train2017/000000248610.jpg" 
+                             alt="248610" title="248610 - a young woman cooking in kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-285821" 
+                             src="http://images.cocodataset.org/train2017/000000285821.jpg" 
+                             alt="285821" title="285821 - a young woman cooking in kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-293148" 
+                             src="http://images.cocodataset.org/train2017/000000293148.jpg" 
+                             alt="293148" title="293148 - a young woman cooking in kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-345960" 
+                             src="http://images.cocodataset.org/train2017/000000345960.jpg" 
+                             alt="345960" title="345960 - a young woman cooking in kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-346972" 
+                             src="http://images.cocodataset.org/train2017/000000346972.jpg" 
+                             alt="346972" title="346972 - a young woman cooking in kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-415594" 
+                             src="http://images.cocodataset.org/train2017/000000415594.jpg" 
+                             alt="415594" title="415594 - a young woman cooking in kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-450111" 
+                             src="http://images.cocodataset.org/train2017/000000450111.jpg" 
+                             alt="450111" title="450111 - a young woman cooking in kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-461256" 
+                             src="http://images.cocodataset.org/train2017/000000461256.jpg" 
+                             alt="461256" title="461256 - a young woman cooking in kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-476965" 
+                             src="http://images.cocodataset.org/train2017/000000476965.jpg" 
+                             alt="476965" title="476965 - a young woman cooking in kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-495456" 
+                             src="http://images.cocodataset.org/train2017/000000495456.jpg" 
+                             alt="495456" title="495456 - a young woman cooking in kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-53756" 
+                             src="http://images.cocodataset.org/train2017/000000053756.jpg" 
+                             alt="53756" title="53756 - a young woman cooking in kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-560784" 
+                             src="http://images.cocodataset.org/train2017/000000560784.jpg" 
+                             alt="560784" title="560784 - a young woman cooking in kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-568309" 
+                             src="http://images.cocodataset.org/train2017/000000568309.jpg" 
+                             alt="568309" title="568309 - a young woman cooking in kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-578974" 
+                             src="http://images.cocodataset.org/train2017/000000578974.jpg" 
+                             alt="578974" title="578974 - a young woman cooking in kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-59648" 
+                             src="http://images.cocodataset.org/train2017/000000059648.jpg" 
+                             alt="59648" title="59648 - a young woman cooking in kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-8396" 
+                             src="http://images.cocodataset.org/train2017/000000008396.jpg" 
+                             alt="8396" title="8396 - a young woman cooking in kitchen"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="5">
+            <div class="cluster-title">a person is preparing food in a kitchen</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-131282" 
+                             src="http://images.cocodataset.org/train2017/000000131282.jpg" 
+                             alt="131282" title="131282 - a person is preparing food in a kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-150512" 
+                             src="http://images.cocodataset.org/train2017/000000150512.jpg" 
+                             alt="150512" title="150512 - a person is preparing food in a kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-158876" 
+                             src="http://images.cocodataset.org/train2017/000000158876.jpg" 
+                             alt="158876" title="158876 - a person is preparing food in a kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-167724" 
+                             src="http://images.cocodataset.org/train2017/000000167724.jpg" 
+                             alt="167724" title="167724 - a person is preparing food in a kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-173185" 
+                             src="http://images.cocodataset.org/train2017/000000173185.jpg" 
+                             alt="173185" title="173185 - a person is preparing food in a kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-260733" 
+                             src="http://images.cocodataset.org/train2017/000000260733.jpg" 
+                             alt="260733" title="260733 - a person is preparing food in a kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-29286" 
+                             src="http://images.cocodataset.org/train2017/000000029286.jpg" 
+                             alt="29286" title="29286 - a person is preparing food in a kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-303076" 
+                             src="http://images.cocodataset.org/train2017/000000303076.jpg" 
+                             alt="303076" title="303076 - a person is preparing food in a kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-359775" 
+                             src="http://images.cocodataset.org/train2017/000000359775.jpg" 
+                             alt="359775" title="359775 - a person is preparing food in a kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-395888" 
+                             src="http://images.cocodataset.org/train2017/000000395888.jpg" 
+                             alt="395888" title="395888 - a person is preparing food in a kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-415179" 
+                             src="http://images.cocodataset.org/train2017/000000415179.jpg" 
+                             alt="415179" title="415179 - a person is preparing food in a kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-4159" 
+                             src="http://images.cocodataset.org/train2017/000000004159.jpg" 
+                             alt="4159" title="4159 - a person is preparing food in a kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-42320" 
+                             src="http://images.cocodataset.org/train2017/000000042320.jpg" 
+                             alt="42320" title="42320 - a person is preparing food in a kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-447834" 
+                             src="http://images.cocodataset.org/train2017/000000447834.jpg" 
+                             alt="447834" title="447834 - a person is preparing food in a kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-465466" 
+                             src="http://images.cocodataset.org/train2017/000000465466.jpg" 
+                             alt="465466" title="465466 - a person is preparing food in a kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-545033" 
+                             src="http://images.cocodataset.org/train2017/000000545033.jpg" 
+                             alt="545033" title="545033 - a person is preparing food in a kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-571858" 
+                             src="http://images.cocodataset.org/train2017/000000571858.jpg" 
+                             alt="571858" title="571858 - a person is preparing food in a kitchen"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-96177" 
+                             src="http://images.cocodataset.org/train2017/000000096177.jpg" 
+                             alt="96177" title="96177 - a person is preparing food in a kitchen"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="6">
+            <div class="cluster-title">a chef cooking</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-161810" 
+                             src="http://images.cocodataset.org/train2017/000000161810.jpg" 
+                             alt="161810" title="161810 - a chef cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-246106" 
+                             src="http://images.cocodataset.org/train2017/000000246106.jpg" 
+                             alt="246106" title="246106 - a chef cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-250990" 
+                             src="http://images.cocodataset.org/train2017/000000250990.jpg" 
+                             alt="250990" title="250990 - a chef cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-297787" 
+                             src="http://images.cocodataset.org/train2017/000000297787.jpg" 
+                             alt="297787" title="297787 - a chef cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-442638" 
+                             src="http://images.cocodataset.org/train2017/000000442638.jpg" 
+                             alt="442638" title="442638 - a chef cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-46419" 
+                             src="http://images.cocodataset.org/train2017/000000046419.jpg" 
+                             alt="46419" title="46419 - a chef cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-484405" 
+                             src="http://images.cocodataset.org/train2017/000000484405.jpg" 
+                             alt="484405" title="484405 - a chef cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-538588" 
+                             src="http://images.cocodataset.org/train2017/000000538588.jpg" 
+                             alt="538588" title="538588 - a chef cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-574138" 
+                             src="http://images.cocodataset.org/train2017/000000574138.jpg" 
+                             alt="574138" title="574138 - a chef cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-576946" 
+                             src="http://images.cocodataset.org/train2017/000000576946.jpg" 
+                             alt="576946" title="576946 - a chef cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-578326" 
+                             src="http://images.cocodataset.org/train2017/000000578326.jpg" 
+                             alt="578326" title="578326 - a chef cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-578521" 
+                             src="http://images.cocodataset.org/train2017/000000578521.jpg" 
+                             alt="578521" title="578521 - a chef cooking"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="7">
+            <div class="cluster-title">a person cooking in a restaurant</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-111629" 
+                             src="http://images.cocodataset.org/train2017/000000111629.jpg" 
+                             alt="111629" title="111629 - a person cooking in a restaurant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-118694" 
+                             src="http://images.cocodataset.org/train2017/000000118694.jpg" 
+                             alt="118694" title="118694 - a person cooking in a restaurant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-147165" 
+                             src="http://images.cocodataset.org/train2017/000000147165.jpg" 
+                             alt="147165" title="147165 - a person cooking in a restaurant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-205601" 
+                             src="http://images.cocodataset.org/train2017/000000205601.jpg" 
+                             alt="205601" title="205601 - a person cooking in a restaurant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-282889" 
+                             src="http://images.cocodataset.org/train2017/000000282889.jpg" 
+                             alt="282889" title="282889 - a person cooking in a restaurant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-291182" 
+                             src="http://images.cocodataset.org/train2017/000000291182.jpg" 
+                             alt="291182" title="291182 - a person cooking in a restaurant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-379911" 
+                             src="http://images.cocodataset.org/train2017/000000379911.jpg" 
+                             alt="379911" title="379911 - a person cooking in a restaurant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-38266" 
+                             src="http://images.cocodataset.org/train2017/000000038266.jpg" 
+                             alt="38266" title="38266 - a person cooking in a restaurant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-397104" 
+                             src="http://images.cocodataset.org/train2017/000000397104.jpg" 
+                             alt="397104" title="397104 - a person cooking in a restaurant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-42620" 
+                             src="http://images.cocodataset.org/train2017/000000042620.jpg" 
+                             alt="42620" title="42620 - a person cooking in a restaurant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-430643" 
+                             src="http://images.cocodataset.org/train2017/000000430643.jpg" 
+                             alt="430643" title="430643 - a person cooking in a restaurant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-440822" 
+                             src="http://images.cocodataset.org/train2017/000000440822.jpg" 
+                             alt="440822" title="440822 - a person cooking in a restaurant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-578449" 
+                             src="http://images.cocodataset.org/train2017/000000578449.jpg" 
+                             alt="578449" title="578449 - a person cooking in a restaurant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-91416" 
+                             src="http://images.cocodataset.org/train2017/000000091416.jpg" 
+                             alt="91416" title="91416 - a person cooking in a restaurant"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="8">
+            <div class="cluster-title">an old person cooking</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-103870" 
+                             src="http://images.cocodataset.org/train2017/000000103870.jpg" 
+                             alt="103870" title="103870 - an old person cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-104752" 
+                             src="http://images.cocodataset.org/train2017/000000104752.jpg" 
+                             alt="104752" title="104752 - an old person cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-187592" 
+                             src="http://images.cocodataset.org/train2017/000000187592.jpg" 
+                             alt="187592" title="187592 - an old person cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-22691" 
+                             src="http://images.cocodataset.org/train2017/000000022691.jpg" 
+                             alt="22691" title="22691 - an old person cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-227978" 
+                             src="http://images.cocodataset.org/train2017/000000227978.jpg" 
+                             alt="227978" title="227978 - an old person cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-271495" 
+                             src="http://images.cocodataset.org/train2017/000000271495.jpg" 
+                             alt="271495" title="271495 - an old person cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-297724" 
+                             src="http://images.cocodataset.org/train2017/000000297724.jpg" 
+                             alt="297724" title="297724 - an old person cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-331463" 
+                             src="http://images.cocodataset.org/train2017/000000331463.jpg" 
+                             alt="331463" title="331463 - an old person cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-357831" 
+                             src="http://images.cocodataset.org/train2017/000000357831.jpg" 
+                             alt="357831" title="357831 - an old person cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-419693" 
+                             src="http://images.cocodataset.org/train2017/000000419693.jpg" 
+                             alt="419693" title="419693 - an old person cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-483401" 
+                             src="http://images.cocodataset.org/train2017/000000483401.jpg" 
+                             alt="483401" title="483401 - an old person cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-511789" 
+                             src="http://images.cocodataset.org/train2017/000000511789.jpg" 
+                             alt="511789" title="511789 - an old person cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-526186" 
+                             src="http://images.cocodataset.org/train2017/000000526186.jpg" 
+                             alt="526186" title="526186 - an old person cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-548858" 
+                             src="http://images.cocodataset.org/train2017/000000548858.jpg" 
+                             alt="548858" title="548858 - an old person cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-557926" 
+                             src="http://images.cocodataset.org/train2017/000000557926.jpg" 
+                             alt="557926" title="557926 - an old person cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-79754" 
+                             src="http://images.cocodataset.org/train2017/000000079754.jpg" 
+                             alt="79754" title="79754 - an old person cooking"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-94807" 
+                             src="http://images.cocodataset.org/train2017/000000094807.jpg" 
+                             alt="94807" title="94807 - an old person cooking"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="9">
+            <div class="cluster-title">a person preparing food in kitchen with refrigerator</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-12805" 
+                             src="http://images.cocodataset.org/train2017/000000012805.jpg" 
+                             alt="12805" title="12805 - a person preparing food in kitchen with refrigerator"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-171584" 
+                             src="http://images.cocodataset.org/train2017/000000171584.jpg" 
+                             alt="171584" title="171584 - a person preparing food in kitchen with refrigerator"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-189666" 
+                             src="http://images.cocodataset.org/train2017/000000189666.jpg" 
+                             alt="189666" title="189666 - a person preparing food in kitchen with refrigerator"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-203730" 
+                             src="http://images.cocodataset.org/train2017/000000203730.jpg" 
+                             alt="203730" title="203730 - a person preparing food in kitchen with refrigerator"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-210761" 
+                             src="http://images.cocodataset.org/train2017/000000210761.jpg" 
+                             alt="210761" title="210761 - a person preparing food in kitchen with refrigerator"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-240455" 
+                             src="http://images.cocodataset.org/train2017/000000240455.jpg" 
+                             alt="240455" title="240455 - a person preparing food in kitchen with refrigerator"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-257773" 
+                             src="http://images.cocodataset.org/train2017/000000257773.jpg" 
+                             alt="257773" title="257773 - a person preparing food in kitchen with refrigerator"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-321811" 
+                             src="http://images.cocodataset.org/train2017/000000321811.jpg" 
+                             alt="321811" title="321811 - a person preparing food in kitchen with refrigerator"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-43882" 
+                             src="http://images.cocodataset.org/train2017/000000043882.jpg" 
+                             alt="43882" title="43882 - a person preparing food in kitchen with refrigerator"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-504616" 
+                             src="http://images.cocodataset.org/train2017/000000504616.jpg" 
+                             alt="504616" title="504616 - a person preparing food in kitchen with refrigerator"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-560158" 
+                             src="http://images.cocodataset.org/train2017/000000560158.jpg" 
+                             alt="560158" title="560158 - a person preparing food in kitchen with refrigerator"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-71306" 
+                             src="http://images.cocodataset.org/train2017/000000071306.jpg" 
+                             alt="71306" title="71306 - a person preparing food in kitchen with refrigerator"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-92928" 
+                             src="http://images.cocodataset.org/train2017/000000092928.jpg" 
+                             alt="92928" title="92928 - a person preparing food in kitchen with refrigerator"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+</div>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>

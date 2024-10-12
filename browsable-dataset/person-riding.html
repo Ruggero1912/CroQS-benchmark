@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #pinco {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .images-for-query-by-clusters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+        .images-for-cluster-column-container {
+            background-color: #ffffff;
+            width: 380px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cluster-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .cluster-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px;
+        }
+        .coco-img-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .images-for-cluster-column-container:nth-child(5n) {
+            border-top: 5px solid #07730d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+1) {
+            border-top: 5px solid #2a51bb;
+        }
+        .images-for-cluster-column-container:nth-child(5n+2) {
+            border-top: 5px solid #b4c51d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+3) {
+            border-top: 5px solid #c51d1d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+4) {
+            border-top: 5px solid #1dc5c5;
+        }
+
+        .container {
+            width: 80%;
+            /* max-width: 800px; */
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .container-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .query-highlight {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            background-color: #e0f7f4;
+            padding: 0.2em 0.4em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="pinco">
+
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="../index.html">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Title Section -->
+ <div class="container-container">
+    <div class="container">
+        <h1>CroQS Dataset</h1>
+        <h3>Semantic Clusters for the Initial Query: <span class="query-highlight">person riding</span></h3>
+    </div>
+</div>
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="0">
+            <div class="cluster-title">person riding motorcycle or bike in the city</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-148437" 
+                             src="http://images.cocodataset.org/train2017/000000148437.jpg" 
+                             alt="148437" title="148437 - person riding motorcycle or bike in the city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-267927" 
+                             src="http://images.cocodataset.org/train2017/000000267927.jpg" 
+                             alt="267927" title="267927 - person riding motorcycle or bike in the city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-272569" 
+                             src="http://images.cocodataset.org/train2017/000000272569.jpg" 
+                             alt="272569" title="272569 - person riding motorcycle or bike in the city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-285877" 
+                             src="http://images.cocodataset.org/train2017/000000285877.jpg" 
+                             alt="285877" title="285877 - person riding motorcycle or bike in the city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-398025" 
+                             src="http://images.cocodataset.org/train2017/000000398025.jpg" 
+                             alt="398025" title="398025 - person riding motorcycle or bike in the city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-442506" 
+                             src="http://images.cocodataset.org/train2017/000000442506.jpg" 
+                             alt="442506" title="442506 - person riding motorcycle or bike in the city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-445309" 
+                             src="http://images.cocodataset.org/train2017/000000445309.jpg" 
+                             alt="445309" title="445309 - person riding motorcycle or bike in the city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-482742" 
+                             src="http://images.cocodataset.org/train2017/000000482742.jpg" 
+                             alt="482742" title="482742 - person riding motorcycle or bike in the city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-528094" 
+                             src="http://images.cocodataset.org/train2017/000000528094.jpg" 
+                             alt="528094" title="528094 - person riding motorcycle or bike in the city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-578705" 
+                             src="http://images.cocodataset.org/train2017/000000578705.jpg" 
+                             alt="578705" title="578705 - person riding motorcycle or bike in the city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-8238" 
+                             src="http://images.cocodataset.org/train2017/000000008238.jpg" 
+                             alt="8238" title="8238 - person riding motorcycle or bike in the city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-83624" 
+                             src="http://images.cocodataset.org/train2017/000000083624.jpg" 
+                             alt="83624" title="83624 - person riding motorcycle or bike in the city"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="1">
+            <div class="cluster-title">person riding horse</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-107495" 
+                             src="http://images.cocodataset.org/train2017/000000107495.jpg" 
+                             alt="107495" title="107495 - person riding horse"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-110209" 
+                             src="http://images.cocodataset.org/train2017/000000110209.jpg" 
+                             alt="110209" title="110209 - person riding horse"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-115251" 
+                             src="http://images.cocodataset.org/train2017/000000115251.jpg" 
+                             alt="115251" title="115251 - person riding horse"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-1332" 
+                             src="http://images.cocodataset.org/train2017/000000001332.jpg" 
+                             alt="1332" title="1332 - person riding horse"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-18367" 
+                             src="http://images.cocodataset.org/train2017/000000018367.jpg" 
+                             alt="18367" title="18367 - person riding horse"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-260363" 
+                             src="http://images.cocodataset.org/train2017/000000260363.jpg" 
+                             alt="260363" title="260363 - person riding horse"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-269381" 
+                             src="http://images.cocodataset.org/train2017/000000269381.jpg" 
+                             alt="269381" title="269381 - person riding horse"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-299134" 
+                             src="http://images.cocodataset.org/train2017/000000299134.jpg" 
+                             alt="299134" title="299134 - person riding horse"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-34702" 
+                             src="http://images.cocodataset.org/train2017/000000034702.jpg" 
+                             alt="34702" title="34702 - person riding horse"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-347836" 
+                             src="http://images.cocodataset.org/train2017/000000347836.jpg" 
+                             alt="347836" title="347836 - person riding horse"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-399185" 
+                             src="http://images.cocodataset.org/train2017/000000399185.jpg" 
+                             alt="399185" title="399185 - person riding horse"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-401720" 
+                             src="http://images.cocodataset.org/train2017/000000401720.jpg" 
+                             alt="401720" title="401720 - person riding horse"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-453311" 
+                             src="http://images.cocodataset.org/train2017/000000453311.jpg" 
+                             alt="453311" title="453311 - person riding horse"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-517249" 
+                             src="http://images.cocodataset.org/train2017/000000517249.jpg" 
+                             alt="517249" title="517249 - person riding horse"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-535141" 
+                             src="http://images.cocodataset.org/train2017/000000535141.jpg" 
+                             alt="535141" title="535141 - person riding horse"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-539906" 
+                             src="http://images.cocodataset.org/train2017/000000539906.jpg" 
+                             alt="539906" title="539906 - person riding horse"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-88920" 
+                             src="http://images.cocodataset.org/train2017/000000088920.jpg" 
+                             alt="88920" title="88920 - person riding horse"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="2">
+            <div class="cluster-title">person riding skateboard</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-105055" 
+                             src="http://images.cocodataset.org/train2017/000000105055.jpg" 
+                             alt="105055" title="105055 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-106202" 
+                             src="http://images.cocodataset.org/train2017/000000106202.jpg" 
+                             alt="106202" title="106202 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-128460" 
+                             src="http://images.cocodataset.org/train2017/000000128460.jpg" 
+                             alt="128460" title="128460 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-14698" 
+                             src="http://images.cocodataset.org/train2017/000000014698.jpg" 
+                             alt="14698" title="14698 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-177636" 
+                             src="http://images.cocodataset.org/train2017/000000177636.jpg" 
+                             alt="177636" title="177636 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-199413" 
+                             src="http://images.cocodataset.org/train2017/000000199413.jpg" 
+                             alt="199413" title="199413 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-216021" 
+                             src="http://images.cocodataset.org/train2017/000000216021.jpg" 
+                             alt="216021" title="216021 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-222833" 
+                             src="http://images.cocodataset.org/train2017/000000222833.jpg" 
+                             alt="222833" title="222833 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-225124" 
+                             src="http://images.cocodataset.org/train2017/000000225124.jpg" 
+                             alt="225124" title="225124 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-226455" 
+                             src="http://images.cocodataset.org/train2017/000000226455.jpg" 
+                             alt="226455" title="226455 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-249883" 
+                             src="http://images.cocodataset.org/train2017/000000249883.jpg" 
+                             alt="249883" title="249883 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-255258" 
+                             src="http://images.cocodataset.org/train2017/000000255258.jpg" 
+                             alt="255258" title="255258 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-262531" 
+                             src="http://images.cocodataset.org/train2017/000000262531.jpg" 
+                             alt="262531" title="262531 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-266773" 
+                             src="http://images.cocodataset.org/train2017/000000266773.jpg" 
+                             alt="266773" title="266773 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-288014" 
+                             src="http://images.cocodataset.org/train2017/000000288014.jpg" 
+                             alt="288014" title="288014 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-293215" 
+                             src="http://images.cocodataset.org/train2017/000000293215.jpg" 
+                             alt="293215" title="293215 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-295280" 
+                             src="http://images.cocodataset.org/train2017/000000295280.jpg" 
+                             alt="295280" title="295280 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-309771" 
+                             src="http://images.cocodataset.org/train2017/000000309771.jpg" 
+                             alt="309771" title="309771 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-330359" 
+                             src="http://images.cocodataset.org/train2017/000000330359.jpg" 
+                             alt="330359" title="330359 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-365264" 
+                             src="http://images.cocodataset.org/train2017/000000365264.jpg" 
+                             alt="365264" title="365264 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-370380" 
+                             src="http://images.cocodataset.org/train2017/000000370380.jpg" 
+                             alt="370380" title="370380 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-381788" 
+                             src="http://images.cocodataset.org/train2017/000000381788.jpg" 
+                             alt="381788" title="381788 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-382572" 
+                             src="http://images.cocodataset.org/train2017/000000382572.jpg" 
+                             alt="382572" title="382572 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-383699" 
+                             src="http://images.cocodataset.org/train2017/000000383699.jpg" 
+                             alt="383699" title="383699 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-392148" 
+                             src="http://images.cocodataset.org/train2017/000000392148.jpg" 
+                             alt="392148" title="392148 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-394747" 
+                             src="http://images.cocodataset.org/train2017/000000394747.jpg" 
+                             alt="394747" title="394747 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-394892" 
+                             src="http://images.cocodataset.org/train2017/000000394892.jpg" 
+                             alt="394892" title="394892 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-402384" 
+                             src="http://images.cocodataset.org/train2017/000000402384.jpg" 
+                             alt="402384" title="402384 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-407698" 
+                             src="http://images.cocodataset.org/train2017/000000407698.jpg" 
+                             alt="407698" title="407698 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-408289" 
+                             src="http://images.cocodataset.org/train2017/000000408289.jpg" 
+                             alt="408289" title="408289 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-426370" 
+                             src="http://images.cocodataset.org/train2017/000000426370.jpg" 
+                             alt="426370" title="426370 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-428830" 
+                             src="http://images.cocodataset.org/train2017/000000428830.jpg" 
+                             alt="428830" title="428830 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-433078" 
+                             src="http://images.cocodataset.org/train2017/000000433078.jpg" 
+                             alt="433078" title="433078 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-437643" 
+                             src="http://images.cocodataset.org/train2017/000000437643.jpg" 
+                             alt="437643" title="437643 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-439539" 
+                             src="http://images.cocodataset.org/train2017/000000439539.jpg" 
+                             alt="439539" title="439539 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-443188" 
+                             src="http://images.cocodataset.org/train2017/000000443188.jpg" 
+                             alt="443188" title="443188 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-447025" 
+                             src="http://images.cocodataset.org/train2017/000000447025.jpg" 
+                             alt="447025" title="447025 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-450050" 
+                             src="http://images.cocodataset.org/train2017/000000450050.jpg" 
+                             alt="450050" title="450050 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-452031" 
+                             src="http://images.cocodataset.org/train2017/000000452031.jpg" 
+                             alt="452031" title="452031 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-455393" 
+                             src="http://images.cocodataset.org/train2017/000000455393.jpg" 
+                             alt="455393" title="455393 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-479957" 
+                             src="http://images.cocodataset.org/train2017/000000479957.jpg" 
+                             alt="479957" title="479957 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-484028" 
+                             src="http://images.cocodataset.org/train2017/000000484028.jpg" 
+                             alt="484028" title="484028 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-502370" 
+                             src="http://images.cocodataset.org/train2017/000000502370.jpg" 
+                             alt="502370" title="502370 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-504006" 
+                             src="http://images.cocodataset.org/train2017/000000504006.jpg" 
+                             alt="504006" title="504006 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-5073" 
+                             src="http://images.cocodataset.org/train2017/000000005073.jpg" 
+                             alt="5073" title="5073 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-513072" 
+                             src="http://images.cocodataset.org/train2017/000000513072.jpg" 
+                             alt="513072" title="513072 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-528900" 
+                             src="http://images.cocodataset.org/train2017/000000528900.jpg" 
+                             alt="528900" title="528900 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-531998" 
+                             src="http://images.cocodataset.org/train2017/000000531998.jpg" 
+                             alt="531998" title="531998 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-536896" 
+                             src="http://images.cocodataset.org/train2017/000000536896.jpg" 
+                             alt="536896" title="536896 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-542820" 
+                             src="http://images.cocodataset.org/train2017/000000542820.jpg" 
+                             alt="542820" title="542820 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-543881" 
+                             src="http://images.cocodataset.org/train2017/000000543881.jpg" 
+                             alt="543881" title="543881 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-552186" 
+                             src="http://images.cocodataset.org/train2017/000000552186.jpg" 
+                             alt="552186" title="552186 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-62761" 
+                             src="http://images.cocodataset.org/train2017/000000062761.jpg" 
+                             alt="62761" title="62761 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-64611" 
+                             src="http://images.cocodataset.org/train2017/000000064611.jpg" 
+                             alt="64611" title="64611 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-71310" 
+                             src="http://images.cocodataset.org/train2017/000000071310.jpg" 
+                             alt="71310" title="71310 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-71918" 
+                             src="http://images.cocodataset.org/train2017/000000071918.jpg" 
+                             alt="71918" title="71918 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-73262" 
+                             src="http://images.cocodataset.org/train2017/000000073262.jpg" 
+                             alt="73262" title="73262 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-77345" 
+                             src="http://images.cocodataset.org/train2017/000000077345.jpg" 
+                             alt="77345" title="77345 - person riding skateboard"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-83593" 
+                             src="http://images.cocodataset.org/train2017/000000083593.jpg" 
+                             alt="83593" title="83593 - person riding skateboard"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="3">
+            <div class="cluster-title">person riding scooter</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-107881" 
+                             src="http://images.cocodataset.org/train2017/000000107881.jpg" 
+                             alt="107881" title="107881 - person riding scooter"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-114147" 
+                             src="http://images.cocodataset.org/train2017/000000114147.jpg" 
+                             alt="114147" title="114147 - person riding scooter"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-116592" 
+                             src="http://images.cocodataset.org/train2017/000000116592.jpg" 
+                             alt="116592" title="116592 - person riding scooter"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-14388" 
+                             src="http://images.cocodataset.org/train2017/000000014388.jpg" 
+                             alt="14388" title="14388 - person riding scooter"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-162355" 
+                             src="http://images.cocodataset.org/train2017/000000162355.jpg" 
+                             alt="162355" title="162355 - person riding scooter"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-16346" 
+                             src="http://images.cocodataset.org/train2017/000000016346.jpg" 
+                             alt="16346" title="16346 - person riding scooter"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-176335" 
+                             src="http://images.cocodataset.org/train2017/000000176335.jpg" 
+                             alt="176335" title="176335 - person riding scooter"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-195449" 
+                             src="http://images.cocodataset.org/train2017/000000195449.jpg" 
+                             alt="195449" title="195449 - person riding scooter"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-225160" 
+                             src="http://images.cocodataset.org/train2017/000000225160.jpg" 
+                             alt="225160" title="225160 - person riding scooter"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-258761" 
+                             src="http://images.cocodataset.org/train2017/000000258761.jpg" 
+                             alt="258761" title="258761 - person riding scooter"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-298008" 
+                             src="http://images.cocodataset.org/train2017/000000298008.jpg" 
+                             alt="298008" title="298008 - person riding scooter"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-344862" 
+                             src="http://images.cocodataset.org/train2017/000000344862.jpg" 
+                             alt="344862" title="344862 - person riding scooter"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-364079" 
+                             src="http://images.cocodataset.org/train2017/000000364079.jpg" 
+                             alt="364079" title="364079 - person riding scooter"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-374490" 
+                             src="http://images.cocodataset.org/train2017/000000374490.jpg" 
+                             alt="374490" title="374490 - person riding scooter"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-379405" 
+                             src="http://images.cocodataset.org/train2017/000000379405.jpg" 
+                             alt="379405" title="379405 - person riding scooter"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-404718" 
+                             src="http://images.cocodataset.org/train2017/000000404718.jpg" 
+                             alt="404718" title="404718 - person riding scooter"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-411908" 
+                             src="http://images.cocodataset.org/train2017/000000411908.jpg" 
+                             alt="411908" title="411908 - person riding scooter"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-440689" 
+                             src="http://images.cocodataset.org/train2017/000000440689.jpg" 
+                             alt="440689" title="440689 - person riding scooter"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-445041" 
+                             src="http://images.cocodataset.org/train2017/000000445041.jpg" 
+                             alt="445041" title="445041 - person riding scooter"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-459208" 
+                             src="http://images.cocodataset.org/train2017/000000459208.jpg" 
+                             alt="459208" title="459208 - person riding scooter"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-482588" 
+                             src="http://images.cocodataset.org/train2017/000000482588.jpg" 
+                             alt="482588" title="482588 - person riding scooter"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-49881" 
+                             src="http://images.cocodataset.org/train2017/000000049881.jpg" 
+                             alt="49881" title="49881 - person riding scooter"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-506335" 
+                             src="http://images.cocodataset.org/train2017/000000506335.jpg" 
+                             alt="506335" title="506335 - person riding scooter"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-543407" 
+                             src="http://images.cocodataset.org/train2017/000000543407.jpg" 
+                             alt="543407" title="543407 - person riding scooter"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-559303" 
+                             src="http://images.cocodataset.org/train2017/000000559303.jpg" 
+                             alt="559303" title="559303 - person riding scooter"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-568972" 
+                             src="http://images.cocodataset.org/train2017/000000568972.jpg" 
+                             alt="568972" title="568972 - person riding scooter"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-80260" 
+                             src="http://images.cocodataset.org/train2017/000000080260.jpg" 
+                             alt="80260" title="80260 - person riding scooter"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="4">
+            <div class="cluster-title">person riding motorcycle</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-109174" 
+                             src="http://images.cocodataset.org/train2017/000000109174.jpg" 
+                             alt="109174" title="109174 - person riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-11690" 
+                             src="http://images.cocodataset.org/train2017/000000011690.jpg" 
+                             alt="11690" title="11690 - person riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-120224" 
+                             src="http://images.cocodataset.org/train2017/000000120224.jpg" 
+                             alt="120224" title="120224 - person riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-12238" 
+                             src="http://images.cocodataset.org/train2017/000000012238.jpg" 
+                             alt="12238" title="12238 - person riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-189193" 
+                             src="http://images.cocodataset.org/train2017/000000189193.jpg" 
+                             alt="189193" title="189193 - person riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-237568" 
+                             src="http://images.cocodataset.org/train2017/000000237568.jpg" 
+                             alt="237568" title="237568 - person riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-274516" 
+                             src="http://images.cocodataset.org/train2017/000000274516.jpg" 
+                             alt="274516" title="274516 - person riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-31443" 
+                             src="http://images.cocodataset.org/train2017/000000031443.jpg" 
+                             alt="31443" title="31443 - person riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-324228" 
+                             src="http://images.cocodataset.org/train2017/000000324228.jpg" 
+                             alt="324228" title="324228 - person riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-378502" 
+                             src="http://images.cocodataset.org/train2017/000000378502.jpg" 
+                             alt="378502" title="378502 - person riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-400247" 
+                             src="http://images.cocodataset.org/train2017/000000400247.jpg" 
+                             alt="400247" title="400247 - person riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-437949" 
+                             src="http://images.cocodataset.org/train2017/000000437949.jpg" 
+                             alt="437949" title="437949 - person riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-465524" 
+                             src="http://images.cocodataset.org/train2017/000000465524.jpg" 
+                             alt="465524" title="465524 - person riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-495357" 
+                             src="http://images.cocodataset.org/train2017/000000495357.jpg" 
+                             alt="495357" title="495357 - person riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-498758" 
+                             src="http://images.cocodataset.org/train2017/000000498758.jpg" 
+                             alt="498758" title="498758 - person riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-508302" 
+                             src="http://images.cocodataset.org/train2017/000000508302.jpg" 
+                             alt="508302" title="508302 - person riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-528729" 
+                             src="http://images.cocodataset.org/train2017/000000528729.jpg" 
+                             alt="528729" title="528729 - person riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-558587" 
+                             src="http://images.cocodataset.org/train2017/000000558587.jpg" 
+                             alt="558587" title="558587 - person riding motorcycle"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="5">
+            <div class="cluster-title">person riding in the water</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-229507" 
+                             src="http://images.cocodataset.org/train2017/000000229507.jpg" 
+                             alt="229507" title="229507 - person riding in the water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-260677" 
+                             src="http://images.cocodataset.org/train2017/000000260677.jpg" 
+                             alt="260677" title="260677 - person riding in the water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-397482" 
+                             src="http://images.cocodataset.org/train2017/000000397482.jpg" 
+                             alt="397482" title="397482 - person riding in the water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-468706" 
+                             src="http://images.cocodataset.org/train2017/000000468706.jpg" 
+                             alt="468706" title="468706 - person riding in the water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-537905" 
+                             src="http://images.cocodataset.org/train2017/000000537905.jpg" 
+                             alt="537905" title="537905 - person riding in the water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-549242" 
+                             src="http://images.cocodataset.org/train2017/000000549242.jpg" 
+                             alt="549242" title="549242 - person riding in the water"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="6">
+            <div class="cluster-title">person riding bicycle</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-116048" 
+                             src="http://images.cocodataset.org/train2017/000000116048.jpg" 
+                             alt="116048" title="116048 - person riding bicycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-14128" 
+                             src="http://images.cocodataset.org/train2017/000000014128.jpg" 
+                             alt="14128" title="14128 - person riding bicycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-153692" 
+                             src="http://images.cocodataset.org/train2017/000000153692.jpg" 
+                             alt="153692" title="153692 - person riding bicycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-165334" 
+                             src="http://images.cocodataset.org/train2017/000000165334.jpg" 
+                             alt="165334" title="165334 - person riding bicycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-21528" 
+                             src="http://images.cocodataset.org/train2017/000000021528.jpg" 
+                             alt="21528" title="21528 - person riding bicycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-239130" 
+                             src="http://images.cocodataset.org/train2017/000000239130.jpg" 
+                             alt="239130" title="239130 - person riding bicycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-249720" 
+                             src="http://images.cocodataset.org/train2017/000000249720.jpg" 
+                             alt="249720" title="249720 - person riding bicycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-255158" 
+                             src="http://images.cocodataset.org/train2017/000000255158.jpg" 
+                             alt="255158" title="255158 - person riding bicycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-290866" 
+                             src="http://images.cocodataset.org/train2017/000000290866.jpg" 
+                             alt="290866" title="290866 - person riding bicycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-320641" 
+                             src="http://images.cocodataset.org/train2017/000000320641.jpg" 
+                             alt="320641" title="320641 - person riding bicycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-329752" 
+                             src="http://images.cocodataset.org/train2017/000000329752.jpg" 
+                             alt="329752" title="329752 - person riding bicycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-330726" 
+                             src="http://images.cocodataset.org/train2017/000000330726.jpg" 
+                             alt="330726" title="330726 - person riding bicycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-345172" 
+                             src="http://images.cocodataset.org/train2017/000000345172.jpg" 
+                             alt="345172" title="345172 - person riding bicycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-349822" 
+                             src="http://images.cocodataset.org/train2017/000000349822.jpg" 
+                             alt="349822" title="349822 - person riding bicycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-371301" 
+                             src="http://images.cocodataset.org/train2017/000000371301.jpg" 
+                             alt="371301" title="371301 - person riding bicycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-390315" 
+                             src="http://images.cocodataset.org/train2017/000000390315.jpg" 
+                             alt="390315" title="390315 - person riding bicycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-396853" 
+                             src="http://images.cocodataset.org/train2017/000000396853.jpg" 
+                             alt="396853" title="396853 - person riding bicycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-424641" 
+                             src="http://images.cocodataset.org/train2017/000000424641.jpg" 
+                             alt="424641" title="424641 - person riding bicycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-432421" 
+                             src="http://images.cocodataset.org/train2017/000000432421.jpg" 
+                             alt="432421" title="432421 - person riding bicycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-460343" 
+                             src="http://images.cocodataset.org/train2017/000000460343.jpg" 
+                             alt="460343" title="460343 - person riding bicycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-465813" 
+                             src="http://images.cocodataset.org/train2017/000000465813.jpg" 
+                             alt="465813" title="465813 - person riding bicycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-481688" 
+                             src="http://images.cocodataset.org/train2017/000000481688.jpg" 
+                             alt="481688" title="481688 - person riding bicycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-49371" 
+                             src="http://images.cocodataset.org/train2017/000000049371.jpg" 
+                             alt="49371" title="49371 - person riding bicycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-495183" 
+                             src="http://images.cocodataset.org/train2017/000000495183.jpg" 
+                             alt="495183" title="495183 - person riding bicycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-499865" 
+                             src="http://images.cocodataset.org/train2017/000000499865.jpg" 
+                             alt="499865" title="499865 - person riding bicycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-531299" 
+                             src="http://images.cocodataset.org/train2017/000000531299.jpg" 
+                             alt="531299" title="531299 - person riding bicycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-535483" 
+                             src="http://images.cocodataset.org/train2017/000000535483.jpg" 
+                             alt="535483" title="535483 - person riding bicycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-543193" 
+                             src="http://images.cocodataset.org/train2017/000000543193.jpg" 
+                             alt="543193" title="543193 - person riding bicycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-86189" 
+                             src="http://images.cocodataset.org/train2017/000000086189.jpg" 
+                             alt="86189" title="86189 - person riding bicycle"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="7">
+            <div class="cluster-title">person riding bicycle traffic sign</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-114855" 
+                             src="http://images.cocodataset.org/train2017/000000114855.jpg" 
+                             alt="114855" title="114855 - person riding bicycle traffic sign"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-171766" 
+                             src="http://images.cocodataset.org/train2017/000000171766.jpg" 
+                             alt="171766" title="171766 - person riding bicycle traffic sign"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-186785" 
+                             src="http://images.cocodataset.org/train2017/000000186785.jpg" 
+                             alt="186785" title="186785 - person riding bicycle traffic sign"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-239811" 
+                             src="http://images.cocodataset.org/train2017/000000239811.jpg" 
+                             alt="239811" title="239811 - person riding bicycle traffic sign"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-297011" 
+                             src="http://images.cocodataset.org/train2017/000000297011.jpg" 
+                             alt="297011" title="297011 - person riding bicycle traffic sign"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-304134" 
+                             src="http://images.cocodataset.org/train2017/000000304134.jpg" 
+                             alt="304134" title="304134 - person riding bicycle traffic sign"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-304445" 
+                             src="http://images.cocodataset.org/train2017/000000304445.jpg" 
+                             alt="304445" title="304445 - person riding bicycle traffic sign"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-350553" 
+                             src="http://images.cocodataset.org/train2017/000000350553.jpg" 
+                             alt="350553" title="350553 - person riding bicycle traffic sign"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-363455" 
+                             src="http://images.cocodataset.org/train2017/000000363455.jpg" 
+                             alt="363455" title="363455 - person riding bicycle traffic sign"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-370413" 
+                             src="http://images.cocodataset.org/train2017/000000370413.jpg" 
+                             alt="370413" title="370413 - person riding bicycle traffic sign"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-375811" 
+                             src="http://images.cocodataset.org/train2017/000000375811.jpg" 
+                             alt="375811" title="375811 - person riding bicycle traffic sign"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-418373" 
+                             src="http://images.cocodataset.org/train2017/000000418373.jpg" 
+                             alt="418373" title="418373 - person riding bicycle traffic sign"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-435897" 
+                             src="http://images.cocodataset.org/train2017/000000435897.jpg" 
+                             alt="435897" title="435897 - person riding bicycle traffic sign"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-440032" 
+                             src="http://images.cocodataset.org/train2017/000000440032.jpg" 
+                             alt="440032" title="440032 - person riding bicycle traffic sign"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-447209" 
+                             src="http://images.cocodataset.org/train2017/000000447209.jpg" 
+                             alt="447209" title="447209 - person riding bicycle traffic sign"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-450940" 
+                             src="http://images.cocodataset.org/train2017/000000450940.jpg" 
+                             alt="450940" title="450940 - person riding bicycle traffic sign"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-45959" 
+                             src="http://images.cocodataset.org/train2017/000000045959.jpg" 
+                             alt="45959" title="45959 - person riding bicycle traffic sign"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-509394" 
+                             src="http://images.cocodataset.org/train2017/000000509394.jpg" 
+                             alt="509394" title="509394 - person riding bicycle traffic sign"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-509503" 
+                             src="http://images.cocodataset.org/train2017/000000509503.jpg" 
+                             alt="509503" title="509503 - person riding bicycle traffic sign"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-72987" 
+                             src="http://images.cocodataset.org/train2017/000000072987.jpg" 
+                             alt="72987" title="72987 - person riding bicycle traffic sign"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-87920" 
+                             src="http://images.cocodataset.org/train2017/000000087920.jpg" 
+                             alt="87920" title="87920 - person riding bicycle traffic sign"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="8">
+            <div class="cluster-title">person riding on the snow</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-135499" 
+                             src="http://images.cocodataset.org/train2017/000000135499.jpg" 
+                             alt="135499" title="135499 - person riding on the snow"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-169155" 
+                             src="http://images.cocodataset.org/train2017/000000169155.jpg" 
+                             alt="169155" title="169155 - person riding on the snow"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-173754" 
+                             src="http://images.cocodataset.org/train2017/000000173754.jpg" 
+                             alt="173754" title="173754 - person riding on the snow"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-193977" 
+                             src="http://images.cocodataset.org/train2017/000000193977.jpg" 
+                             alt="193977" title="193977 - person riding on the snow"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-327418" 
+                             src="http://images.cocodataset.org/train2017/000000327418.jpg" 
+                             alt="327418" title="327418 - person riding on the snow"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-405612" 
+                             src="http://images.cocodataset.org/train2017/000000405612.jpg" 
+                             alt="405612" title="405612 - person riding on the snow"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-424529" 
+                             src="http://images.cocodataset.org/train2017/000000424529.jpg" 
+                             alt="424529" title="424529 - person riding on the snow"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-426451" 
+                             src="http://images.cocodataset.org/train2017/000000426451.jpg" 
+                             alt="426451" title="426451 - person riding on the snow"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-476040" 
+                             src="http://images.cocodataset.org/train2017/000000476040.jpg" 
+                             alt="476040" title="476040 - person riding on the snow"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-58741" 
+                             src="http://images.cocodataset.org/train2017/000000058741.jpg" 
+                             alt="58741" title="58741 - person riding on the snow"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-91123" 
+                             src="http://images.cocodataset.org/train2017/000000091123.jpg" 
+                             alt="91123" title="91123 - person riding on the snow"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+</div>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>

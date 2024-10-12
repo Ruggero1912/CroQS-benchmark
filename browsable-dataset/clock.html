@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #pinco {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .images-for-query-by-clusters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+        .images-for-cluster-column-container {
+            background-color: #ffffff;
+            width: 380px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cluster-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .cluster-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px;
+        }
+        .coco-img-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .images-for-cluster-column-container:nth-child(5n) {
+            border-top: 5px solid #07730d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+1) {
+            border-top: 5px solid #2a51bb;
+        }
+        .images-for-cluster-column-container:nth-child(5n+2) {
+            border-top: 5px solid #b4c51d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+3) {
+            border-top: 5px solid #c51d1d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+4) {
+            border-top: 5px solid #1dc5c5;
+        }
+
+        .container {
+            width: 80%;
+            /* max-width: 800px; */
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .container-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .query-highlight {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            background-color: #e0f7f4;
+            padding: 0.2em 0.4em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="pinco">
+
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="../index.html">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Title Section -->
+ <div class="container-container">
+    <div class="container">
+        <h1>CroQS Dataset</h1>
+        <h3>Semantic Clusters for the Initial Query: <span class="query-highlight">clock</span></h3>
+    </div>
+</div>
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="0">
+            <div class="cluster-title">analog clock hanging off</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-229155" 
+                             src="http://images.cocodataset.org/train2017/000000229155.jpg" 
+                             alt="229155" title="229155 - analog clock hanging off"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-294761" 
+                             src="http://images.cocodataset.org/train2017/000000294761.jpg" 
+                             alt="294761" title="294761 - analog clock hanging off"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-45974" 
+                             src="http://images.cocodataset.org/train2017/000000045974.jpg" 
+                             alt="45974" title="45974 - analog clock hanging off"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-114119" 
+                             src="http://images.cocodataset.org/train2017/000000114119.jpg" 
+                             alt="114119" title="114119 - analog clock hanging off"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-11712" 
+                             src="http://images.cocodataset.org/train2017/000000011712.jpg" 
+                             alt="11712" title="11712 - analog clock hanging off"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-123351" 
+                             src="http://images.cocodataset.org/train2017/000000123351.jpg" 
+                             alt="123351" title="123351 - analog clock hanging off"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-156710" 
+                             src="http://images.cocodataset.org/train2017/000000156710.jpg" 
+                             alt="156710" title="156710 - analog clock hanging off"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-160589" 
+                             src="http://images.cocodataset.org/train2017/000000160589.jpg" 
+                             alt="160589" title="160589 - analog clock hanging off"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-161348" 
+                             src="http://images.cocodataset.org/train2017/000000161348.jpg" 
+                             alt="161348" title="161348 - analog clock hanging off"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-187728" 
+                             src="http://images.cocodataset.org/train2017/000000187728.jpg" 
+                             alt="187728" title="187728 - analog clock hanging off"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-207620" 
+                             src="http://images.cocodataset.org/train2017/000000207620.jpg" 
+                             alt="207620" title="207620 - analog clock hanging off"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-238448" 
+                             src="http://images.cocodataset.org/train2017/000000238448.jpg" 
+                             alt="238448" title="238448 - analog clock hanging off"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-297726" 
+                             src="http://images.cocodataset.org/train2017/000000297726.jpg" 
+                             alt="297726" title="297726 - analog clock hanging off"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-317401" 
+                             src="http://images.cocodataset.org/train2017/000000317401.jpg" 
+                             alt="317401" title="317401 - analog clock hanging off"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-325600" 
+                             src="http://images.cocodataset.org/train2017/000000325600.jpg" 
+                             alt="325600" title="325600 - analog clock hanging off"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-330051" 
+                             src="http://images.cocodataset.org/train2017/000000330051.jpg" 
+                             alt="330051" title="330051 - analog clock hanging off"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-331353" 
+                             src="http://images.cocodataset.org/train2017/000000331353.jpg" 
+                             alt="331353" title="331353 - analog clock hanging off"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-371647" 
+                             src="http://images.cocodataset.org/train2017/000000371647.jpg" 
+                             alt="371647" title="371647 - analog clock hanging off"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-384587" 
+                             src="http://images.cocodataset.org/train2017/000000384587.jpg" 
+                             alt="384587" title="384587 - analog clock hanging off"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-394504" 
+                             src="http://images.cocodataset.org/train2017/000000394504.jpg" 
+                             alt="394504" title="394504 - analog clock hanging off"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-398666" 
+                             src="http://images.cocodataset.org/train2017/000000398666.jpg" 
+                             alt="398666" title="398666 - analog clock hanging off"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-410711" 
+                             src="http://images.cocodataset.org/train2017/000000410711.jpg" 
+                             alt="410711" title="410711 - analog clock hanging off"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-4157" 
+                             src="http://images.cocodataset.org/train2017/000000004157.jpg" 
+                             alt="4157" title="4157 - analog clock hanging off"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-439519" 
+                             src="http://images.cocodataset.org/train2017/000000439519.jpg" 
+                             alt="439519" title="439519 - analog clock hanging off"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-44953" 
+                             src="http://images.cocodataset.org/train2017/000000044953.jpg" 
+                             alt="44953" title="44953 - analog clock hanging off"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-459631" 
+                             src="http://images.cocodataset.org/train2017/000000459631.jpg" 
+                             alt="459631" title="459631 - analog clock hanging off"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-505825" 
+                             src="http://images.cocodataset.org/train2017/000000505825.jpg" 
+                             alt="505825" title="505825 - analog clock hanging off"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-517545" 
+                             src="http://images.cocodataset.org/train2017/000000517545.jpg" 
+                             alt="517545" title="517545 - analog clock hanging off"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-546292" 
+                             src="http://images.cocodataset.org/train2017/000000546292.jpg" 
+                             alt="546292" title="546292 - analog clock hanging off"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-560358" 
+                             src="http://images.cocodataset.org/train2017/000000560358.jpg" 
+                             alt="560358" title="560358 - analog clock hanging off"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-63355" 
+                             src="http://images.cocodataset.org/train2017/000000063355.jpg" 
+                             alt="63355" title="63355 - analog clock hanging off"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-72989" 
+                             src="http://images.cocodataset.org/train2017/000000072989.jpg" 
+                             alt="72989" title="72989 - analog clock hanging off"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-79611" 
+                             src="http://images.cocodataset.org/train2017/000000079611.jpg" 
+                             alt="79611" title="79611 - analog clock hanging off"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-86108" 
+                             src="http://images.cocodataset.org/train2017/000000086108.jpg" 
+                             alt="86108" title="86108 - analog clock hanging off"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="1">
+            <div class="cluster-title">clock on top of tower</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-110937" 
+                             src="http://images.cocodataset.org/train2017/000000110937.jpg" 
+                             alt="110937" title="110937 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-133051" 
+                             src="http://images.cocodataset.org/train2017/000000133051.jpg" 
+                             alt="133051" title="133051 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-140623" 
+                             src="http://images.cocodataset.org/train2017/000000140623.jpg" 
+                             alt="140623" title="140623 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-14412" 
+                             src="http://images.cocodataset.org/train2017/000000014412.jpg" 
+                             alt="14412" title="14412 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-160308" 
+                             src="http://images.cocodataset.org/train2017/000000160308.jpg" 
+                             alt="160308" title="160308 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-163601" 
+                             src="http://images.cocodataset.org/train2017/000000163601.jpg" 
+                             alt="163601" title="163601 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-16599" 
+                             src="http://images.cocodataset.org/train2017/000000016599.jpg" 
+                             alt="16599" title="16599 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-181759" 
+                             src="http://images.cocodataset.org/train2017/000000181759.jpg" 
+                             alt="181759" title="181759 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-198661" 
+                             src="http://images.cocodataset.org/train2017/000000198661.jpg" 
+                             alt="198661" title="198661 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-203137" 
+                             src="http://images.cocodataset.org/train2017/000000203137.jpg" 
+                             alt="203137" title="203137 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-211436" 
+                             src="http://images.cocodataset.org/train2017/000000211436.jpg" 
+                             alt="211436" title="211436 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-217301" 
+                             src="http://images.cocodataset.org/train2017/000000217301.jpg" 
+                             alt="217301" title="217301 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-217919" 
+                             src="http://images.cocodataset.org/train2017/000000217919.jpg" 
+                             alt="217919" title="217919 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-224622" 
+                             src="http://images.cocodataset.org/train2017/000000224622.jpg" 
+                             alt="224622" title="224622 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-232905" 
+                             src="http://images.cocodataset.org/train2017/000000232905.jpg" 
+                             alt="232905" title="232905 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-234691" 
+                             src="http://images.cocodataset.org/train2017/000000234691.jpg" 
+                             alt="234691" title="234691 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-23759" 
+                             src="http://images.cocodataset.org/train2017/000000023759.jpg" 
+                             alt="23759" title="23759 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-238605" 
+                             src="http://images.cocodataset.org/train2017/000000238605.jpg" 
+                             alt="238605" title="238605 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-240194" 
+                             src="http://images.cocodataset.org/train2017/000000240194.jpg" 
+                             alt="240194" title="240194 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-256154" 
+                             src="http://images.cocodataset.org/train2017/000000256154.jpg" 
+                             alt="256154" title="256154 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-267598" 
+                             src="http://images.cocodataset.org/train2017/000000267598.jpg" 
+                             alt="267598" title="267598 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-272335" 
+                             src="http://images.cocodataset.org/train2017/000000272335.jpg" 
+                             alt="272335" title="272335 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-278952" 
+                             src="http://images.cocodataset.org/train2017/000000278952.jpg" 
+                             alt="278952" title="278952 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-289690" 
+                             src="http://images.cocodataset.org/train2017/000000289690.jpg" 
+                             alt="289690" title="289690 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-292347" 
+                             src="http://images.cocodataset.org/train2017/000000292347.jpg" 
+                             alt="292347" title="292347 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-306928" 
+                             src="http://images.cocodataset.org/train2017/000000306928.jpg" 
+                             alt="306928" title="306928 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-312621" 
+                             src="http://images.cocodataset.org/train2017/000000312621.jpg" 
+                             alt="312621" title="312621 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-316650" 
+                             src="http://images.cocodataset.org/train2017/000000316650.jpg" 
+                             alt="316650" title="316650 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-326663" 
+                             src="http://images.cocodataset.org/train2017/000000326663.jpg" 
+                             alt="326663" title="326663 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-332300" 
+                             src="http://images.cocodataset.org/train2017/000000332300.jpg" 
+                             alt="332300" title="332300 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-363827" 
+                             src="http://images.cocodataset.org/train2017/000000363827.jpg" 
+                             alt="363827" title="363827 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-367452" 
+                             src="http://images.cocodataset.org/train2017/000000367452.jpg" 
+                             alt="367452" title="367452 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-375846" 
+                             src="http://images.cocodataset.org/train2017/000000375846.jpg" 
+                             alt="375846" title="375846 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-378545" 
+                             src="http://images.cocodataset.org/train2017/000000378545.jpg" 
+                             alt="378545" title="378545 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-385378" 
+                             src="http://images.cocodataset.org/train2017/000000385378.jpg" 
+                             alt="385378" title="385378 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-396768" 
+                             src="http://images.cocodataset.org/train2017/000000396768.jpg" 
+                             alt="396768" title="396768 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-412443" 
+                             src="http://images.cocodataset.org/train2017/000000412443.jpg" 
+                             alt="412443" title="412443 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-413290" 
+                             src="http://images.cocodataset.org/train2017/000000413290.jpg" 
+                             alt="413290" title="413290 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-415943" 
+                             src="http://images.cocodataset.org/train2017/000000415943.jpg" 
+                             alt="415943" title="415943 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-417729" 
+                             src="http://images.cocodataset.org/train2017/000000417729.jpg" 
+                             alt="417729" title="417729 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-419211" 
+                             src="http://images.cocodataset.org/train2017/000000419211.jpg" 
+                             alt="419211" title="419211 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-425595" 
+                             src="http://images.cocodataset.org/train2017/000000425595.jpg" 
+                             alt="425595" title="425595 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-433046" 
+                             src="http://images.cocodataset.org/train2017/000000433046.jpg" 
+                             alt="433046" title="433046 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-438187" 
+                             src="http://images.cocodataset.org/train2017/000000438187.jpg" 
+                             alt="438187" title="438187 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-438850" 
+                             src="http://images.cocodataset.org/train2017/000000438850.jpg" 
+                             alt="438850" title="438850 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-443988" 
+                             src="http://images.cocodataset.org/train2017/000000443988.jpg" 
+                             alt="443988" title="443988 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-445638" 
+                             src="http://images.cocodataset.org/train2017/000000445638.jpg" 
+                             alt="445638" title="445638 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-462604" 
+                             src="http://images.cocodataset.org/train2017/000000462604.jpg" 
+                             alt="462604" title="462604 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-473503" 
+                             src="http://images.cocodataset.org/train2017/000000473503.jpg" 
+                             alt="473503" title="473503 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-494940" 
+                             src="http://images.cocodataset.org/train2017/000000494940.jpg" 
+                             alt="494940" title="494940 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-495894" 
+                             src="http://images.cocodataset.org/train2017/000000495894.jpg" 
+                             alt="495894" title="495894 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-49667" 
+                             src="http://images.cocodataset.org/train2017/000000049667.jpg" 
+                             alt="49667" title="49667 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-505663" 
+                             src="http://images.cocodataset.org/train2017/000000505663.jpg" 
+                             alt="505663" title="505663 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-510299" 
+                             src="http://images.cocodataset.org/train2017/000000510299.jpg" 
+                             alt="510299" title="510299 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-514200" 
+                             src="http://images.cocodataset.org/train2017/000000514200.jpg" 
+                             alt="514200" title="514200 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-514402" 
+                             src="http://images.cocodataset.org/train2017/000000514402.jpg" 
+                             alt="514402" title="514402 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-544883" 
+                             src="http://images.cocodataset.org/train2017/000000544883.jpg" 
+                             alt="544883" title="544883 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-550893" 
+                             src="http://images.cocodataset.org/train2017/000000550893.jpg" 
+                             alt="550893" title="550893 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-552138" 
+                             src="http://images.cocodataset.org/train2017/000000552138.jpg" 
+                             alt="552138" title="552138 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-556326" 
+                             src="http://images.cocodataset.org/train2017/000000556326.jpg" 
+                             alt="556326" title="556326 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-562462" 
+                             src="http://images.cocodataset.org/train2017/000000562462.jpg" 
+                             alt="562462" title="562462 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-567383" 
+                             src="http://images.cocodataset.org/train2017/000000567383.jpg" 
+                             alt="567383" title="567383 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-576859" 
+                             src="http://images.cocodataset.org/train2017/000000576859.jpg" 
+                             alt="576859" title="576859 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-577821" 
+                             src="http://images.cocodataset.org/train2017/000000577821.jpg" 
+                             alt="577821" title="577821 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-5809" 
+                             src="http://images.cocodataset.org/train2017/000000005809.jpg" 
+                             alt="5809" title="5809 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-6527" 
+                             src="http://images.cocodataset.org/train2017/000000006527.jpg" 
+                             alt="6527" title="6527 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-73342" 
+                             src="http://images.cocodataset.org/train2017/000000073342.jpg" 
+                             alt="73342" title="73342 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-76804" 
+                             src="http://images.cocodataset.org/train2017/000000076804.jpg" 
+                             alt="76804" title="76804 - clock on top of tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-8218" 
+                             src="http://images.cocodataset.org/train2017/000000008218.jpg" 
+                             alt="8218" title="8218 - clock on top of tower"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="2">
+            <div class="cluster-title">clock ornate historical tower</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-109169" 
+                             src="http://images.cocodataset.org/train2017/000000109169.jpg" 
+                             alt="109169" title="109169 - clock ornate historical tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-118134" 
+                             src="http://images.cocodataset.org/train2017/000000118134.jpg" 
+                             alt="118134" title="118134 - clock ornate historical tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-153723" 
+                             src="http://images.cocodataset.org/train2017/000000153723.jpg" 
+                             alt="153723" title="153723 - clock ornate historical tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-202935" 
+                             src="http://images.cocodataset.org/train2017/000000202935.jpg" 
+                             alt="202935" title="202935 - clock ornate historical tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-22827" 
+                             src="http://images.cocodataset.org/train2017/000000022827.jpg" 
+                             alt="22827" title="22827 - clock ornate historical tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-247945" 
+                             src="http://images.cocodataset.org/train2017/000000247945.jpg" 
+                             alt="247945" title="247945 - clock ornate historical tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-287384" 
+                             src="http://images.cocodataset.org/train2017/000000287384.jpg" 
+                             alt="287384" title="287384 - clock ornate historical tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-28764" 
+                             src="http://images.cocodataset.org/train2017/000000028764.jpg" 
+                             alt="28764" title="28764 - clock ornate historical tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-323774" 
+                             src="http://images.cocodataset.org/train2017/000000323774.jpg" 
+                             alt="323774" title="323774 - clock ornate historical tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-330720" 
+                             src="http://images.cocodataset.org/train2017/000000330720.jpg" 
+                             alt="330720" title="330720 - clock ornate historical tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-351250" 
+                             src="http://images.cocodataset.org/train2017/000000351250.jpg" 
+                             alt="351250" title="351250 - clock ornate historical tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-369243" 
+                             src="http://images.cocodataset.org/train2017/000000369243.jpg" 
+                             alt="369243" title="369243 - clock ornate historical tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-373737" 
+                             src="http://images.cocodataset.org/train2017/000000373737.jpg" 
+                             alt="373737" title="373737 - clock ornate historical tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-378657" 
+                             src="http://images.cocodataset.org/train2017/000000378657.jpg" 
+                             alt="378657" title="378657 - clock ornate historical tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-403335" 
+                             src="http://images.cocodataset.org/train2017/000000403335.jpg" 
+                             alt="403335" title="403335 - clock ornate historical tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-415697" 
+                             src="http://images.cocodataset.org/train2017/000000415697.jpg" 
+                             alt="415697" title="415697 - clock ornate historical tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-458785" 
+                             src="http://images.cocodataset.org/train2017/000000458785.jpg" 
+                             alt="458785" title="458785 - clock ornate historical tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-466895" 
+                             src="http://images.cocodataset.org/train2017/000000466895.jpg" 
+                             alt="466895" title="466895 - clock ornate historical tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-483059" 
+                             src="http://images.cocodataset.org/train2017/000000483059.jpg" 
+                             alt="483059" title="483059 - clock ornate historical tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-494780" 
+                             src="http://images.cocodataset.org/train2017/000000494780.jpg" 
+                             alt="494780" title="494780 - clock ornate historical tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-49733" 
+                             src="http://images.cocodataset.org/train2017/000000049733.jpg" 
+                             alt="49733" title="49733 - clock ornate historical tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-503097" 
+                             src="http://images.cocodataset.org/train2017/000000503097.jpg" 
+                             alt="503097" title="503097 - clock ornate historical tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-54961" 
+                             src="http://images.cocodataset.org/train2017/000000054961.jpg" 
+                             alt="54961" title="54961 - clock ornate historical tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-564708" 
+                             src="http://images.cocodataset.org/train2017/000000564708.jpg" 
+                             alt="564708" title="564708 - clock ornate historical tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-574221" 
+                             src="http://images.cocodataset.org/train2017/000000574221.jpg" 
+                             alt="574221" title="574221 - clock ornate historical tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-58397" 
+                             src="http://images.cocodataset.org/train2017/000000058397.jpg" 
+                             alt="58397" title="58397 - clock ornate historical tower"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-7361" 
+                             src="http://images.cocodataset.org/train2017/000000007361.jpg" 
+                             alt="7361" title="7361 - clock ornate historical tower"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="3">
+            <div class="cluster-title">antique clock</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-285914" 
+                             src="http://images.cocodataset.org/train2017/000000285914.jpg" 
+                             alt="285914" title="285914 - antique clock"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-103465" 
+                             src="http://images.cocodataset.org/train2017/000000103465.jpg" 
+                             alt="103465" title="103465 - antique clock"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-153290" 
+                             src="http://images.cocodataset.org/train2017/000000153290.jpg" 
+                             alt="153290" title="153290 - antique clock"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-157205" 
+                             src="http://images.cocodataset.org/train2017/000000157205.jpg" 
+                             alt="157205" title="157205 - antique clock"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-18183" 
+                             src="http://images.cocodataset.org/train2017/000000018183.jpg" 
+                             alt="18183" title="18183 - antique clock"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-208043" 
+                             src="http://images.cocodataset.org/train2017/000000208043.jpg" 
+                             alt="208043" title="208043 - antique clock"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-211030" 
+                             src="http://images.cocodataset.org/train2017/000000211030.jpg" 
+                             alt="211030" title="211030 - antique clock"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-222015" 
+                             src="http://images.cocodataset.org/train2017/000000222015.jpg" 
+                             alt="222015" title="222015 - antique clock"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-231320" 
+                             src="http://images.cocodataset.org/train2017/000000231320.jpg" 
+                             alt="231320" title="231320 - antique clock"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-241667" 
+                             src="http://images.cocodataset.org/train2017/000000241667.jpg" 
+                             alt="241667" title="241667 - antique clock"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-2591" 
+                             src="http://images.cocodataset.org/train2017/000000002591.jpg" 
+                             alt="2591" title="2591 - antique clock"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-264209" 
+                             src="http://images.cocodataset.org/train2017/000000264209.jpg" 
+                             alt="264209" title="264209 - antique clock"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-266385" 
+                             src="http://images.cocodataset.org/train2017/000000266385.jpg" 
+                             alt="266385" title="266385 - antique clock"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-267049" 
+                             src="http://images.cocodataset.org/train2017/000000267049.jpg" 
+                             alt="267049" title="267049 - antique clock"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-281210" 
+                             src="http://images.cocodataset.org/train2017/000000281210.jpg" 
+                             alt="281210" title="281210 - antique clock"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-312935" 
+                             src="http://images.cocodataset.org/train2017/000000312935.jpg" 
+                             alt="312935" title="312935 - antique clock"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-338370" 
+                             src="http://images.cocodataset.org/train2017/000000338370.jpg" 
+                             alt="338370" title="338370 - antique clock"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-343596" 
+                             src="http://images.cocodataset.org/train2017/000000343596.jpg" 
+                             alt="343596" title="343596 - antique clock"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-373342" 
+                             src="http://images.cocodataset.org/train2017/000000373342.jpg" 
+                             alt="373342" title="373342 - antique clock"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-389622" 
+                             src="http://images.cocodataset.org/train2017/000000389622.jpg" 
+                             alt="389622" title="389622 - antique clock"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-403774" 
+                             src="http://images.cocodataset.org/train2017/000000403774.jpg" 
+                             alt="403774" title="403774 - antique clock"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-412431" 
+                             src="http://images.cocodataset.org/train2017/000000412431.jpg" 
+                             alt="412431" title="412431 - antique clock"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-415901" 
+                             src="http://images.cocodataset.org/train2017/000000415901.jpg" 
+                             alt="415901" title="415901 - antique clock"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-42551" 
+                             src="http://images.cocodataset.org/train2017/000000042551.jpg" 
+                             alt="42551" title="42551 - antique clock"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-427632" 
+                             src="http://images.cocodataset.org/train2017/000000427632.jpg" 
+                             alt="427632" title="427632 - antique clock"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-443805" 
+                             src="http://images.cocodataset.org/train2017/000000443805.jpg" 
+                             alt="443805" title="443805 - antique clock"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-480863" 
+                             src="http://images.cocodataset.org/train2017/000000480863.jpg" 
+                             alt="480863" title="480863 - antique clock"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-551403" 
+                             src="http://images.cocodataset.org/train2017/000000551403.jpg" 
+                             alt="551403" title="551403 - antique clock"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-60409" 
+                             src="http://images.cocodataset.org/train2017/000000060409.jpg" 
+                             alt="60409" title="60409 - antique clock"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-61972" 
+                             src="http://images.cocodataset.org/train2017/000000061972.jpg" 
+                             alt="61972" title="61972 - antique clock"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-77346" 
+                             src="http://images.cocodataset.org/train2017/000000077346.jpg" 
+                             alt="77346" title="77346 - antique clock"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-82735" 
+                             src="http://images.cocodataset.org/train2017/000000082735.jpg" 
+                             alt="82735" title="82735 - antique clock"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-99927" 
+                             src="http://images.cocodataset.org/train2017/000000099927.jpg" 
+                             alt="99927" title="99927 - antique clock"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="4">
+            <div class="cluster-title">public clock in london</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-358607" 
+                             src="http://images.cocodataset.org/train2017/000000358607.jpg" 
+                             alt="358607" title="358607 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-440443" 
+                             src="http://images.cocodataset.org/train2017/000000440443.jpg" 
+                             alt="440443" title="440443 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-477542" 
+                             src="http://images.cocodataset.org/train2017/000000477542.jpg" 
+                             alt="477542" title="477542 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-123412" 
+                             src="http://images.cocodataset.org/train2017/000000123412.jpg" 
+                             alt="123412" title="123412 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-156410" 
+                             src="http://images.cocodataset.org/train2017/000000156410.jpg" 
+                             alt="156410" title="156410 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-157176" 
+                             src="http://images.cocodataset.org/train2017/000000157176.jpg" 
+                             alt="157176" title="157176 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-169766" 
+                             src="http://images.cocodataset.org/train2017/000000169766.jpg" 
+                             alt="169766" title="169766 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-170024" 
+                             src="http://images.cocodataset.org/train2017/000000170024.jpg" 
+                             alt="170024" title="170024 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-21404" 
+                             src="http://images.cocodataset.org/train2017/000000021404.jpg" 
+                             alt="21404" title="21404 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-220205" 
+                             src="http://images.cocodataset.org/train2017/000000220205.jpg" 
+                             alt="220205" title="220205 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-228464" 
+                             src="http://images.cocodataset.org/train2017/000000228464.jpg" 
+                             alt="228464" title="228464 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-238505" 
+                             src="http://images.cocodataset.org/train2017/000000238505.jpg" 
+                             alt="238505" title="238505 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-263727" 
+                             src="http://images.cocodataset.org/train2017/000000263727.jpg" 
+                             alt="263727" title="263727 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-272626" 
+                             src="http://images.cocodataset.org/train2017/000000272626.jpg" 
+                             alt="272626" title="272626 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-277433" 
+                             src="http://images.cocodataset.org/train2017/000000277433.jpg" 
+                             alt="277433" title="277433 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-329684" 
+                             src="http://images.cocodataset.org/train2017/000000329684.jpg" 
+                             alt="329684" title="329684 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-340283" 
+                             src="http://images.cocodataset.org/train2017/000000340283.jpg" 
+                             alt="340283" title="340283 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-349575" 
+                             src="http://images.cocodataset.org/train2017/000000349575.jpg" 
+                             alt="349575" title="349575 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-351967" 
+                             src="http://images.cocodataset.org/train2017/000000351967.jpg" 
+                             alt="351967" title="351967 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-353288" 
+                             src="http://images.cocodataset.org/train2017/000000353288.jpg" 
+                             alt="353288" title="353288 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-363505" 
+                             src="http://images.cocodataset.org/train2017/000000363505.jpg" 
+                             alt="363505" title="363505 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-394972" 
+                             src="http://images.cocodataset.org/train2017/000000394972.jpg" 
+                             alt="394972" title="394972 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-403692" 
+                             src="http://images.cocodataset.org/train2017/000000403692.jpg" 
+                             alt="403692" title="403692 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-43176" 
+                             src="http://images.cocodataset.org/train2017/000000043176.jpg" 
+                             alt="43176" title="43176 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-436949" 
+                             src="http://images.cocodataset.org/train2017/000000436949.jpg" 
+                             alt="436949" title="436949 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-452663" 
+                             src="http://images.cocodataset.org/train2017/000000452663.jpg" 
+                             alt="452663" title="452663 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-464781" 
+                             src="http://images.cocodataset.org/train2017/000000464781.jpg" 
+                             alt="464781" title="464781 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-471629" 
+                             src="http://images.cocodataset.org/train2017/000000471629.jpg" 
+                             alt="471629" title="471629 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-476967" 
+                             src="http://images.cocodataset.org/train2017/000000476967.jpg" 
+                             alt="476967" title="476967 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-523035" 
+                             src="http://images.cocodataset.org/train2017/000000523035.jpg" 
+                             alt="523035" title="523035 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-533537" 
+                             src="http://images.cocodataset.org/train2017/000000533537.jpg" 
+                             alt="533537" title="533537 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-540531" 
+                             src="http://images.cocodataset.org/train2017/000000540531.jpg" 
+                             alt="540531" title="540531 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-571039" 
+                             src="http://images.cocodataset.org/train2017/000000571039.jpg" 
+                             alt="571039" title="571039 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-62350" 
+                             src="http://images.cocodataset.org/train2017/000000062350.jpg" 
+                             alt="62350" title="62350 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-66394" 
+                             src="http://images.cocodataset.org/train2017/000000066394.jpg" 
+                             alt="66394" title="66394 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-70236" 
+                             src="http://images.cocodataset.org/train2017/000000070236.jpg" 
+                             alt="70236" title="70236 - public clock in london"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-8686" 
+                             src="http://images.cocodataset.org/train2017/000000008686.jpg" 
+                             alt="8686" title="8686 - public clock in london"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+</div>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #pinco {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .images-for-query-by-clusters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+        .images-for-cluster-column-container {
+            background-color: #ffffff;
+            width: 380px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cluster-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .cluster-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px;
+        }
+        .coco-img-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .images-for-cluster-column-container:nth-child(5n) {
+            border-top: 5px solid #07730d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+1) {
+            border-top: 5px solid #2a51bb;
+        }
+        .images-for-cluster-column-container:nth-child(5n+2) {
+            border-top: 5px solid #b4c51d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+3) {
+            border-top: 5px solid #c51d1d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+4) {
+            border-top: 5px solid #1dc5c5;
+        }
+
+        .container {
+            width: 80%;
+            /* max-width: 800px; */
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .container-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .query-highlight {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            background-color: #e0f7f4;
+            padding: 0.2em 0.4em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="pinco">
+
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="../index.html">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Title Section -->
+ <div class="container-container">
+    <div class="container">
+        <h1>CroQS Dataset</h1>
+        <h3>Semantic Clusters for the Initial Query: <span class="query-highlight">person at the phone</span></h3>
+    </div>
+</div>
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="0">
+            <div class="cluster-title">woman at the phone</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-150421" 
+                             src="http://images.cocodataset.org/train2017/000000150421.jpg" 
+                             alt="150421" title="150421 - woman at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-15994" 
+                             src="http://images.cocodataset.org/train2017/000000015994.jpg" 
+                             alt="15994" title="15994 - woman at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-178285" 
+                             src="http://images.cocodataset.org/train2017/000000178285.jpg" 
+                             alt="178285" title="178285 - woman at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-202115" 
+                             src="http://images.cocodataset.org/train2017/000000202115.jpg" 
+                             alt="202115" title="202115 - woman at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-23446" 
+                             src="http://images.cocodataset.org/train2017/000000023446.jpg" 
+                             alt="23446" title="23446 - woman at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-262235" 
+                             src="http://images.cocodataset.org/train2017/000000262235.jpg" 
+                             alt="262235" title="262235 - woman at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-26939" 
+                             src="http://images.cocodataset.org/train2017/000000026939.jpg" 
+                             alt="26939" title="26939 - woman at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-27142" 
+                             src="http://images.cocodataset.org/train2017/000000027142.jpg" 
+                             alt="27142" title="27142 - woman at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-282339" 
+                             src="http://images.cocodataset.org/train2017/000000282339.jpg" 
+                             alt="282339" title="282339 - woman at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-283012" 
+                             src="http://images.cocodataset.org/train2017/000000283012.jpg" 
+                             alt="283012" title="283012 - woman at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-297043" 
+                             src="http://images.cocodataset.org/train2017/000000297043.jpg" 
+                             alt="297043" title="297043 - woman at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-306811" 
+                             src="http://images.cocodataset.org/train2017/000000306811.jpg" 
+                             alt="306811" title="306811 - woman at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-329016" 
+                             src="http://images.cocodataset.org/train2017/000000329016.jpg" 
+                             alt="329016" title="329016 - woman at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-345125" 
+                             src="http://images.cocodataset.org/train2017/000000345125.jpg" 
+                             alt="345125" title="345125 - woman at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-368367" 
+                             src="http://images.cocodataset.org/train2017/000000368367.jpg" 
+                             alt="368367" title="368367 - woman at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-390769" 
+                             src="http://images.cocodataset.org/train2017/000000390769.jpg" 
+                             alt="390769" title="390769 - woman at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-393714" 
+                             src="http://images.cocodataset.org/train2017/000000393714.jpg" 
+                             alt="393714" title="393714 - woman at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-401828" 
+                             src="http://images.cocodataset.org/train2017/000000401828.jpg" 
+                             alt="401828" title="401828 - woman at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-403935" 
+                             src="http://images.cocodataset.org/train2017/000000403935.jpg" 
+                             alt="403935" title="403935 - woman at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-411445" 
+                             src="http://images.cocodataset.org/train2017/000000411445.jpg" 
+                             alt="411445" title="411445 - woman at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-412059" 
+                             src="http://images.cocodataset.org/train2017/000000412059.jpg" 
+                             alt="412059" title="412059 - woman at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-425038" 
+                             src="http://images.cocodataset.org/train2017/000000425038.jpg" 
+                             alt="425038" title="425038 - woman at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-430493" 
+                             src="http://images.cocodataset.org/train2017/000000430493.jpg" 
+                             alt="430493" title="430493 - woman at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-452776" 
+                             src="http://images.cocodataset.org/train2017/000000452776.jpg" 
+                             alt="452776" title="452776 - woman at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-474230" 
+                             src="http://images.cocodataset.org/train2017/000000474230.jpg" 
+                             alt="474230" title="474230 - woman at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-479272" 
+                             src="http://images.cocodataset.org/train2017/000000479272.jpg" 
+                             alt="479272" title="479272 - woman at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-492736" 
+                             src="http://images.cocodataset.org/train2017/000000492736.jpg" 
+                             alt="492736" title="492736 - woman at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-508724" 
+                             src="http://images.cocodataset.org/train2017/000000508724.jpg" 
+                             alt="508724" title="508724 - woman at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-526325" 
+                             src="http://images.cocodataset.org/train2017/000000526325.jpg" 
+                             alt="526325" title="526325 - woman at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-539259" 
+                             src="http://images.cocodataset.org/train2017/000000539259.jpg" 
+                             alt="539259" title="539259 - woman at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-69661" 
+                             src="http://images.cocodataset.org/train2017/000000069661.jpg" 
+                             alt="69661" title="69661 - woman at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-88576" 
+                             src="http://images.cocodataset.org/train2017/000000088576.jpg" 
+                             alt="88576" title="88576 - woman at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-94723" 
+                             src="http://images.cocodataset.org/train2017/000000094723.jpg" 
+                             alt="94723" title="94723 - woman at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-99874" 
+                             src="http://images.cocodataset.org/train2017/000000099874.jpg" 
+                             alt="99874" title="99874 - woman at the phone"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="1">
+            <div class="cluster-title">young child talking at the phone</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-109290" 
+                             src="http://images.cocodataset.org/train2017/000000109290.jpg" 
+                             alt="109290" title="109290 - young child talking at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-123579" 
+                             src="http://images.cocodataset.org/train2017/000000123579.jpg" 
+                             alt="123579" title="123579 - young child talking at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-152600" 
+                             src="http://images.cocodataset.org/train2017/000000152600.jpg" 
+                             alt="152600" title="152600 - young child talking at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-176318" 
+                             src="http://images.cocodataset.org/train2017/000000176318.jpg" 
+                             alt="176318" title="176318 - young child talking at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-253065" 
+                             src="http://images.cocodataset.org/train2017/000000253065.jpg" 
+                             alt="253065" title="253065 - young child talking at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-355272" 
+                             src="http://images.cocodataset.org/train2017/000000355272.jpg" 
+                             alt="355272" title="355272 - young child talking at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-358158" 
+                             src="http://images.cocodataset.org/train2017/000000358158.jpg" 
+                             alt="358158" title="358158 - young child talking at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-368041" 
+                             src="http://images.cocodataset.org/train2017/000000368041.jpg" 
+                             alt="368041" title="368041 - young child talking at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-438867" 
+                             src="http://images.cocodataset.org/train2017/000000438867.jpg" 
+                             alt="438867" title="438867 - young child talking at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-45989" 
+                             src="http://images.cocodataset.org/train2017/000000045989.jpg" 
+                             alt="45989" title="45989 - young child talking at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-48398" 
+                             src="http://images.cocodataset.org/train2017/000000048398.jpg" 
+                             alt="48398" title="48398 - young child talking at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-520519" 
+                             src="http://images.cocodataset.org/train2017/000000520519.jpg" 
+                             alt="520519" title="520519 - young child talking at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-531721" 
+                             src="http://images.cocodataset.org/train2017/000000531721.jpg" 
+                             alt="531721" title="531721 - young child talking at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-542284" 
+                             src="http://images.cocodataset.org/train2017/000000542284.jpg" 
+                             alt="542284" title="542284 - young child talking at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-548179" 
+                             src="http://images.cocodataset.org/train2017/000000548179.jpg" 
+                             alt="548179" title="548179 - young child talking at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-572016" 
+                             src="http://images.cocodataset.org/train2017/000000572016.jpg" 
+                             alt="572016" title="572016 - young child talking at the phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-86372" 
+                             src="http://images.cocodataset.org/train2017/000000086372.jpg" 
+                             alt="86372" title="86372 - young child talking at the phone"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="2">
+            <div class="cluster-title">man at the phone concentrated</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-101622" 
+                             src="http://images.cocodataset.org/train2017/000000101622.jpg" 
+                             alt="101622" title="101622 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-105374" 
+                             src="http://images.cocodataset.org/train2017/000000105374.jpg" 
+                             alt="105374" title="105374 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-141520" 
+                             src="http://images.cocodataset.org/train2017/000000141520.jpg" 
+                             alt="141520" title="141520 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-150639" 
+                             src="http://images.cocodataset.org/train2017/000000150639.jpg" 
+                             alt="150639" title="150639 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-180014" 
+                             src="http://images.cocodataset.org/train2017/000000180014.jpg" 
+                             alt="180014" title="180014 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-18982" 
+                             src="http://images.cocodataset.org/train2017/000000018982.jpg" 
+                             alt="18982" title="18982 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-222140" 
+                             src="http://images.cocodataset.org/train2017/000000222140.jpg" 
+                             alt="222140" title="222140 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-239307" 
+                             src="http://images.cocodataset.org/train2017/000000239307.jpg" 
+                             alt="239307" title="239307 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-245820" 
+                             src="http://images.cocodataset.org/train2017/000000245820.jpg" 
+                             alt="245820" title="245820 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-301397" 
+                             src="http://images.cocodataset.org/train2017/000000301397.jpg" 
+                             alt="301397" title="301397 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-315393" 
+                             src="http://images.cocodataset.org/train2017/000000315393.jpg" 
+                             alt="315393" title="315393 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-318785" 
+                             src="http://images.cocodataset.org/train2017/000000318785.jpg" 
+                             alt="318785" title="318785 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-351335" 
+                             src="http://images.cocodataset.org/train2017/000000351335.jpg" 
+                             alt="351335" title="351335 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-361361" 
+                             src="http://images.cocodataset.org/train2017/000000361361.jpg" 
+                             alt="361361" title="361361 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-368222" 
+                             src="http://images.cocodataset.org/train2017/000000368222.jpg" 
+                             alt="368222" title="368222 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-374401" 
+                             src="http://images.cocodataset.org/train2017/000000374401.jpg" 
+                             alt="374401" title="374401 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-376089" 
+                             src="http://images.cocodataset.org/train2017/000000376089.jpg" 
+                             alt="376089" title="376089 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-383244" 
+                             src="http://images.cocodataset.org/train2017/000000383244.jpg" 
+                             alt="383244" title="383244 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-385182" 
+                             src="http://images.cocodataset.org/train2017/000000385182.jpg" 
+                             alt="385182" title="385182 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-399881" 
+                             src="http://images.cocodataset.org/train2017/000000399881.jpg" 
+                             alt="399881" title="399881 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-403357" 
+                             src="http://images.cocodataset.org/train2017/000000403357.jpg" 
+                             alt="403357" title="403357 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-425647" 
+                             src="http://images.cocodataset.org/train2017/000000425647.jpg" 
+                             alt="425647" title="425647 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-442417" 
+                             src="http://images.cocodataset.org/train2017/000000442417.jpg" 
+                             alt="442417" title="442417 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-447883" 
+                             src="http://images.cocodataset.org/train2017/000000447883.jpg" 
+                             alt="447883" title="447883 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-447967" 
+                             src="http://images.cocodataset.org/train2017/000000447967.jpg" 
+                             alt="447967" title="447967 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-455464" 
+                             src="http://images.cocodataset.org/train2017/000000455464.jpg" 
+                             alt="455464" title="455464 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-46207" 
+                             src="http://images.cocodataset.org/train2017/000000046207.jpg" 
+                             alt="46207" title="46207 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-465942" 
+                             src="http://images.cocodataset.org/train2017/000000465942.jpg" 
+                             alt="465942" title="465942 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-466985" 
+                             src="http://images.cocodataset.org/train2017/000000466985.jpg" 
+                             alt="466985" title="466985 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-483347" 
+                             src="http://images.cocodataset.org/train2017/000000483347.jpg" 
+                             alt="483347" title="483347 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-501177" 
+                             src="http://images.cocodataset.org/train2017/000000501177.jpg" 
+                             alt="501177" title="501177 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-509235" 
+                             src="http://images.cocodataset.org/train2017/000000509235.jpg" 
+                             alt="509235" title="509235 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-523455" 
+                             src="http://images.cocodataset.org/train2017/000000523455.jpg" 
+                             alt="523455" title="523455 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-529580" 
+                             src="http://images.cocodataset.org/train2017/000000529580.jpg" 
+                             alt="529580" title="529580 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-540716" 
+                             src="http://images.cocodataset.org/train2017/000000540716.jpg" 
+                             alt="540716" title="540716 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-542475" 
+                             src="http://images.cocodataset.org/train2017/000000542475.jpg" 
+                             alt="542475" title="542475 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-54903" 
+                             src="http://images.cocodataset.org/train2017/000000054903.jpg" 
+                             alt="54903" title="54903 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-550056" 
+                             src="http://images.cocodataset.org/train2017/000000550056.jpg" 
+                             alt="550056" title="550056 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-563767" 
+                             src="http://images.cocodataset.org/train2017/000000563767.jpg" 
+                             alt="563767" title="563767 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-572802" 
+                             src="http://images.cocodataset.org/train2017/000000572802.jpg" 
+                             alt="572802" title="572802 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-70344" 
+                             src="http://images.cocodataset.org/train2017/000000070344.jpg" 
+                             alt="70344" title="70344 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-72975" 
+                             src="http://images.cocodataset.org/train2017/000000072975.jpg" 
+                             alt="72975" title="72975 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-78650" 
+                             src="http://images.cocodataset.org/train2017/000000078650.jpg" 
+                             alt="78650" title="78650 - man at the phone concentrated"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-96748" 
+                             src="http://images.cocodataset.org/train2017/000000096748.jpg" 
+                             alt="96748" title="96748 - man at the phone concentrated"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="3">
+            <div class="cluster-title">woman talking on mobile phone</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-106788" 
+                             src="http://images.cocodataset.org/train2017/000000106788.jpg" 
+                             alt="106788" title="106788 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-110392" 
+                             src="http://images.cocodataset.org/train2017/000000110392.jpg" 
+                             alt="110392" title="110392 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-123851" 
+                             src="http://images.cocodataset.org/train2017/000000123851.jpg" 
+                             alt="123851" title="123851 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-159828" 
+                             src="http://images.cocodataset.org/train2017/000000159828.jpg" 
+                             alt="159828" title="159828 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-168657" 
+                             src="http://images.cocodataset.org/train2017/000000168657.jpg" 
+                             alt="168657" title="168657 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-171210" 
+                             src="http://images.cocodataset.org/train2017/000000171210.jpg" 
+                             alt="171210" title="171210 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-197897" 
+                             src="http://images.cocodataset.org/train2017/000000197897.jpg" 
+                             alt="197897" title="197897 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-234945" 
+                             src="http://images.cocodataset.org/train2017/000000234945.jpg" 
+                             alt="234945" title="234945 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-236661" 
+                             src="http://images.cocodataset.org/train2017/000000236661.jpg" 
+                             alt="236661" title="236661 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-240835" 
+                             src="http://images.cocodataset.org/train2017/000000240835.jpg" 
+                             alt="240835" title="240835 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-282672" 
+                             src="http://images.cocodataset.org/train2017/000000282672.jpg" 
+                             alt="282672" title="282672 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-299105" 
+                             src="http://images.cocodataset.org/train2017/000000299105.jpg" 
+                             alt="299105" title="299105 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-300142" 
+                             src="http://images.cocodataset.org/train2017/000000300142.jpg" 
+                             alt="300142" title="300142 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-32368" 
+                             src="http://images.cocodataset.org/train2017/000000032368.jpg" 
+                             alt="32368" title="32368 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-331134" 
+                             src="http://images.cocodataset.org/train2017/000000331134.jpg" 
+                             alt="331134" title="331134 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-35446" 
+                             src="http://images.cocodataset.org/train2017/000000035446.jpg" 
+                             alt="35446" title="35446 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-360328" 
+                             src="http://images.cocodataset.org/train2017/000000360328.jpg" 
+                             alt="360328" title="360328 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-376125" 
+                             src="http://images.cocodataset.org/train2017/000000376125.jpg" 
+                             alt="376125" title="376125 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-381366" 
+                             src="http://images.cocodataset.org/train2017/000000381366.jpg" 
+                             alt="381366" title="381366 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-38721" 
+                             src="http://images.cocodataset.org/train2017/000000038721.jpg" 
+                             alt="38721" title="38721 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-391090" 
+                             src="http://images.cocodataset.org/train2017/000000391090.jpg" 
+                             alt="391090" title="391090 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-406294" 
+                             src="http://images.cocodataset.org/train2017/000000406294.jpg" 
+                             alt="406294" title="406294 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-407348" 
+                             src="http://images.cocodataset.org/train2017/000000407348.jpg" 
+                             alt="407348" title="407348 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-40905" 
+                             src="http://images.cocodataset.org/train2017/000000040905.jpg" 
+                             alt="40905" title="40905 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-416730" 
+                             src="http://images.cocodataset.org/train2017/000000416730.jpg" 
+                             alt="416730" title="416730 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-429806" 
+                             src="http://images.cocodataset.org/train2017/000000429806.jpg" 
+                             alt="429806" title="429806 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-459184" 
+                             src="http://images.cocodataset.org/train2017/000000459184.jpg" 
+                             alt="459184" title="459184 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-479562" 
+                             src="http://images.cocodataset.org/train2017/000000479562.jpg" 
+                             alt="479562" title="479562 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-482889" 
+                             src="http://images.cocodataset.org/train2017/000000482889.jpg" 
+                             alt="482889" title="482889 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-517911" 
+                             src="http://images.cocodataset.org/train2017/000000517911.jpg" 
+                             alt="517911" title="517911 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-521292" 
+                             src="http://images.cocodataset.org/train2017/000000521292.jpg" 
+                             alt="521292" title="521292 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-527711" 
+                             src="http://images.cocodataset.org/train2017/000000527711.jpg" 
+                             alt="527711" title="527711 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-539307" 
+                             src="http://images.cocodataset.org/train2017/000000539307.jpg" 
+                             alt="539307" title="539307 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-565091" 
+                             src="http://images.cocodataset.org/train2017/000000565091.jpg" 
+                             alt="565091" title="565091 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-56636" 
+                             src="http://images.cocodataset.org/train2017/000000056636.jpg" 
+                             alt="56636" title="56636 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-57646" 
+                             src="http://images.cocodataset.org/train2017/000000057646.jpg" 
+                             alt="57646" title="57646 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-61288" 
+                             src="http://images.cocodataset.org/train2017/000000061288.jpg" 
+                             alt="61288" title="61288 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-81463" 
+                             src="http://images.cocodataset.org/train2017/000000081463.jpg" 
+                             alt="81463" title="81463 - woman talking on mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-99192" 
+                             src="http://images.cocodataset.org/train2017/000000099192.jpg" 
+                             alt="99192" title="99192 - woman talking on mobile phone"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+</div>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>

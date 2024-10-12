@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #pinco {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .images-for-query-by-clusters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+        .images-for-cluster-column-container {
+            background-color: #ffffff;
+            width: 380px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cluster-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .cluster-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px;
+        }
+        .coco-img-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .images-for-cluster-column-container:nth-child(5n) {
+            border-top: 5px solid #07730d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+1) {
+            border-top: 5px solid #2a51bb;
+        }
+        .images-for-cluster-column-container:nth-child(5n+2) {
+            border-top: 5px solid #b4c51d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+3) {
+            border-top: 5px solid #c51d1d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+4) {
+            border-top: 5px solid #1dc5c5;
+        }
+
+        .container {
+            width: 80%;
+            /* max-width: 800px; */
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .container-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .query-highlight {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            background-color: #e0f7f4;
+            padding: 0.2em 0.4em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="pinco">
+
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="../index.html">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Title Section -->
+ <div class="container-container">
+    <div class="container">
+        <h1>CroQS Dataset</h1>
+        <h3>Semantic Clusters for the Initial Query: <span class="query-highlight">person reading</span></h3>
+    </div>
+</div>
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="0">
+            <div class="cluster-title">person reading, black and white image</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-100535" 
+                             src="http://images.cocodataset.org/train2017/000000100535.jpg" 
+                             alt="100535" title="100535 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-110509" 
+                             src="http://images.cocodataset.org/train2017/000000110509.jpg" 
+                             alt="110509" title="110509 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-124903" 
+                             src="http://images.cocodataset.org/train2017/000000124903.jpg" 
+                             alt="124903" title="124903 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-134079" 
+                             src="http://images.cocodataset.org/train2017/000000134079.jpg" 
+                             alt="134079" title="134079 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-147958" 
+                             src="http://images.cocodataset.org/train2017/000000147958.jpg" 
+                             alt="147958" title="147958 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-155644" 
+                             src="http://images.cocodataset.org/train2017/000000155644.jpg" 
+                             alt="155644" title="155644 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-160345" 
+                             src="http://images.cocodataset.org/train2017/000000160345.jpg" 
+                             alt="160345" title="160345 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-198176" 
+                             src="http://images.cocodataset.org/train2017/000000198176.jpg" 
+                             alt="198176" title="198176 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-211141" 
+                             src="http://images.cocodataset.org/train2017/000000211141.jpg" 
+                             alt="211141" title="211141 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-220317" 
+                             src="http://images.cocodataset.org/train2017/000000220317.jpg" 
+                             alt="220317" title="220317 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-223276" 
+                             src="http://images.cocodataset.org/train2017/000000223276.jpg" 
+                             alt="223276" title="223276 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-227463" 
+                             src="http://images.cocodataset.org/train2017/000000227463.jpg" 
+                             alt="227463" title="227463 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-249325" 
+                             src="http://images.cocodataset.org/train2017/000000249325.jpg" 
+                             alt="249325" title="249325 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-260381" 
+                             src="http://images.cocodataset.org/train2017/000000260381.jpg" 
+                             alt="260381" title="260381 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-263163" 
+                             src="http://images.cocodataset.org/train2017/000000263163.jpg" 
+                             alt="263163" title="263163 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-281534" 
+                             src="http://images.cocodataset.org/train2017/000000281534.jpg" 
+                             alt="281534" title="281534 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-29241" 
+                             src="http://images.cocodataset.org/train2017/000000029241.jpg" 
+                             alt="29241" title="29241 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-306353" 
+                             src="http://images.cocodataset.org/train2017/000000306353.jpg" 
+                             alt="306353" title="306353 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-31258" 
+                             src="http://images.cocodataset.org/train2017/000000031258.jpg" 
+                             alt="31258" title="31258 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-317495" 
+                             src="http://images.cocodataset.org/train2017/000000317495.jpg" 
+                             alt="317495" title="317495 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-320858" 
+                             src="http://images.cocodataset.org/train2017/000000320858.jpg" 
+                             alt="320858" title="320858 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-326504" 
+                             src="http://images.cocodataset.org/train2017/000000326504.jpg" 
+                             alt="326504" title="326504 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-331797" 
+                             src="http://images.cocodataset.org/train2017/000000331797.jpg" 
+                             alt="331797" title="331797 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-333995" 
+                             src="http://images.cocodataset.org/train2017/000000333995.jpg" 
+                             alt="333995" title="333995 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-36006" 
+                             src="http://images.cocodataset.org/train2017/000000036006.jpg" 
+                             alt="36006" title="36006 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-361516" 
+                             src="http://images.cocodataset.org/train2017/000000361516.jpg" 
+                             alt="361516" title="361516 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-374042" 
+                             src="http://images.cocodataset.org/train2017/000000374042.jpg" 
+                             alt="374042" title="374042 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-404408" 
+                             src="http://images.cocodataset.org/train2017/000000404408.jpg" 
+                             alt="404408" title="404408 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-409488" 
+                             src="http://images.cocodataset.org/train2017/000000409488.jpg" 
+                             alt="409488" title="409488 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-41549" 
+                             src="http://images.cocodataset.org/train2017/000000041549.jpg" 
+                             alt="41549" title="41549 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-419193" 
+                             src="http://images.cocodataset.org/train2017/000000419193.jpg" 
+                             alt="419193" title="419193 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-423739" 
+                             src="http://images.cocodataset.org/train2017/000000423739.jpg" 
+                             alt="423739" title="423739 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-424435" 
+                             src="http://images.cocodataset.org/train2017/000000424435.jpg" 
+                             alt="424435" title="424435 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-448343" 
+                             src="http://images.cocodataset.org/train2017/000000448343.jpg" 
+                             alt="448343" title="448343 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-450707" 
+                             src="http://images.cocodataset.org/train2017/000000450707.jpg" 
+                             alt="450707" title="450707 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-47774" 
+                             src="http://images.cocodataset.org/train2017/000000047774.jpg" 
+                             alt="47774" title="47774 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-495377" 
+                             src="http://images.cocodataset.org/train2017/000000495377.jpg" 
+                             alt="495377" title="495377 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-499268" 
+                             src="http://images.cocodataset.org/train2017/000000499268.jpg" 
+                             alt="499268" title="499268 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-510734" 
+                             src="http://images.cocodataset.org/train2017/000000510734.jpg" 
+                             alt="510734" title="510734 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-5294" 
+                             src="http://images.cocodataset.org/train2017/000000005294.jpg" 
+                             alt="5294" title="5294 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-548723" 
+                             src="http://images.cocodataset.org/train2017/000000548723.jpg" 
+                             alt="548723" title="548723 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-558286" 
+                             src="http://images.cocodataset.org/train2017/000000558286.jpg" 
+                             alt="558286" title="558286 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-568952" 
+                             src="http://images.cocodataset.org/train2017/000000568952.jpg" 
+                             alt="568952" title="568952 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-576082" 
+                             src="http://images.cocodataset.org/train2017/000000576082.jpg" 
+                             alt="576082" title="576082 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-577240" 
+                             src="http://images.cocodataset.org/train2017/000000577240.jpg" 
+                             alt="577240" title="577240 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-64772" 
+                             src="http://images.cocodataset.org/train2017/000000064772.jpg" 
+                             alt="64772" title="64772 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-67792" 
+                             src="http://images.cocodataset.org/train2017/000000067792.jpg" 
+                             alt="67792" title="67792 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-68805" 
+                             src="http://images.cocodataset.org/train2017/000000068805.jpg" 
+                             alt="68805" title="68805 - person reading, black and white image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-72839" 
+                             src="http://images.cocodataset.org/train2017/000000072839.jpg" 
+                             alt="72839" title="72839 - person reading, black and white image"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="1">
+            <div class="cluster-title">person sitting reading a book</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-126707" 
+                             src="http://images.cocodataset.org/train2017/000000126707.jpg" 
+                             alt="126707" title="126707 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-127834" 
+                             src="http://images.cocodataset.org/train2017/000000127834.jpg" 
+                             alt="127834" title="127834 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-148193" 
+                             src="http://images.cocodataset.org/train2017/000000148193.jpg" 
+                             alt="148193" title="148193 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-154478" 
+                             src="http://images.cocodataset.org/train2017/000000154478.jpg" 
+                             alt="154478" title="154478 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-162282" 
+                             src="http://images.cocodataset.org/train2017/000000162282.jpg" 
+                             alt="162282" title="162282 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-167271" 
+                             src="http://images.cocodataset.org/train2017/000000167271.jpg" 
+                             alt="167271" title="167271 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-182933" 
+                             src="http://images.cocodataset.org/train2017/000000182933.jpg" 
+                             alt="182933" title="182933 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-20161" 
+                             src="http://images.cocodataset.org/train2017/000000020161.jpg" 
+                             alt="20161" title="20161 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-201644" 
+                             src="http://images.cocodataset.org/train2017/000000201644.jpg" 
+                             alt="201644" title="201644 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-25244" 
+                             src="http://images.cocodataset.org/train2017/000000025244.jpg" 
+                             alt="25244" title="25244 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-307426" 
+                             src="http://images.cocodataset.org/train2017/000000307426.jpg" 
+                             alt="307426" title="307426 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-307993" 
+                             src="http://images.cocodataset.org/train2017/000000307993.jpg" 
+                             alt="307993" title="307993 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-315568" 
+                             src="http://images.cocodataset.org/train2017/000000315568.jpg" 
+                             alt="315568" title="315568 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-340034" 
+                             src="http://images.cocodataset.org/train2017/000000340034.jpg" 
+                             alt="340034" title="340034 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-343514" 
+                             src="http://images.cocodataset.org/train2017/000000343514.jpg" 
+                             alt="343514" title="343514 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-357769" 
+                             src="http://images.cocodataset.org/train2017/000000357769.jpg" 
+                             alt="357769" title="357769 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-35979" 
+                             src="http://images.cocodataset.org/train2017/000000035979.jpg" 
+                             alt="35979" title="35979 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-366150" 
+                             src="http://images.cocodataset.org/train2017/000000366150.jpg" 
+                             alt="366150" title="366150 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-369653" 
+                             src="http://images.cocodataset.org/train2017/000000369653.jpg" 
+                             alt="369653" title="369653 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-379980" 
+                             src="http://images.cocodataset.org/train2017/000000379980.jpg" 
+                             alt="379980" title="379980 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-397685" 
+                             src="http://images.cocodataset.org/train2017/000000397685.jpg" 
+                             alt="397685" title="397685 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-400080" 
+                             src="http://images.cocodataset.org/train2017/000000400080.jpg" 
+                             alt="400080" title="400080 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-416549" 
+                             src="http://images.cocodataset.org/train2017/000000416549.jpg" 
+                             alt="416549" title="416549 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-416575" 
+                             src="http://images.cocodataset.org/train2017/000000416575.jpg" 
+                             alt="416575" title="416575 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-418185" 
+                             src="http://images.cocodataset.org/train2017/000000418185.jpg" 
+                             alt="418185" title="418185 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-445308" 
+                             src="http://images.cocodataset.org/train2017/000000445308.jpg" 
+                             alt="445308" title="445308 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-461688" 
+                             src="http://images.cocodataset.org/train2017/000000461688.jpg" 
+                             alt="461688" title="461688 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-46580" 
+                             src="http://images.cocodataset.org/train2017/000000046580.jpg" 
+                             alt="46580" title="46580 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-469896" 
+                             src="http://images.cocodataset.org/train2017/000000469896.jpg" 
+                             alt="469896" title="469896 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-473499" 
+                             src="http://images.cocodataset.org/train2017/000000473499.jpg" 
+                             alt="473499" title="473499 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-494936" 
+                             src="http://images.cocodataset.org/train2017/000000494936.jpg" 
+                             alt="494936" title="494936 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-497558" 
+                             src="http://images.cocodataset.org/train2017/000000497558.jpg" 
+                             alt="497558" title="497558 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-512220" 
+                             src="http://images.cocodataset.org/train2017/000000512220.jpg" 
+                             alt="512220" title="512220 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-53058" 
+                             src="http://images.cocodataset.org/train2017/000000053058.jpg" 
+                             alt="53058" title="53058 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-535033" 
+                             src="http://images.cocodataset.org/train2017/000000535033.jpg" 
+                             alt="535033" title="535033 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-539309" 
+                             src="http://images.cocodataset.org/train2017/000000539309.jpg" 
+                             alt="539309" title="539309 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-571450" 
+                             src="http://images.cocodataset.org/train2017/000000571450.jpg" 
+                             alt="571450" title="571450 - person sitting reading a book"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-63248" 
+                             src="http://images.cocodataset.org/train2017/000000063248.jpg" 
+                             alt="63248" title="63248 - person sitting reading a book"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="2">
+            <div class="cluster-title">a person reading in mode of transportation</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-160726" 
+                             src="http://images.cocodataset.org/train2017/000000160726.jpg" 
+                             alt="160726" title="160726 - a person reading in mode of transportation"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-192524" 
+                             src="http://images.cocodataset.org/train2017/000000192524.jpg" 
+                             alt="192524" title="192524 - a person reading in mode of transportation"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-196691" 
+                             src="http://images.cocodataset.org/train2017/000000196691.jpg" 
+                             alt="196691" title="196691 - a person reading in mode of transportation"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-209347" 
+                             src="http://images.cocodataset.org/train2017/000000209347.jpg" 
+                             alt="209347" title="209347 - a person reading in mode of transportation"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-271633" 
+                             src="http://images.cocodataset.org/train2017/000000271633.jpg" 
+                             alt="271633" title="271633 - a person reading in mode of transportation"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-28010" 
+                             src="http://images.cocodataset.org/train2017/000000028010.jpg" 
+                             alt="28010" title="28010 - a person reading in mode of transportation"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-306342" 
+                             src="http://images.cocodataset.org/train2017/000000306342.jpg" 
+                             alt="306342" title="306342 - a person reading in mode of transportation"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-328144" 
+                             src="http://images.cocodataset.org/train2017/000000328144.jpg" 
+                             alt="328144" title="328144 - a person reading in mode of transportation"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-330478" 
+                             src="http://images.cocodataset.org/train2017/000000330478.jpg" 
+                             alt="330478" title="330478 - a person reading in mode of transportation"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-339687" 
+                             src="http://images.cocodataset.org/train2017/000000339687.jpg" 
+                             alt="339687" title="339687 - a person reading in mode of transportation"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-352401" 
+                             src="http://images.cocodataset.org/train2017/000000352401.jpg" 
+                             alt="352401" title="352401 - a person reading in mode of transportation"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-422279" 
+                             src="http://images.cocodataset.org/train2017/000000422279.jpg" 
+                             alt="422279" title="422279 - a person reading in mode of transportation"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-438446" 
+                             src="http://images.cocodataset.org/train2017/000000438446.jpg" 
+                             alt="438446" title="438446 - a person reading in mode of transportation"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-493483" 
+                             src="http://images.cocodataset.org/train2017/000000493483.jpg" 
+                             alt="493483" title="493483 - a person reading in mode of transportation"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-526666" 
+                             src="http://images.cocodataset.org/train2017/000000526666.jpg" 
+                             alt="526666" title="526666 - a person reading in mode of transportation"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-528687" 
+                             src="http://images.cocodataset.org/train2017/000000528687.jpg" 
+                             alt="528687" title="528687 - a person reading in mode of transportation"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-55294" 
+                             src="http://images.cocodataset.org/train2017/000000055294.jpg" 
+                             alt="55294" title="55294 - a person reading in mode of transportation"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-579386" 
+                             src="http://images.cocodataset.org/train2017/000000579386.jpg" 
+                             alt="579386" title="579386 - a person reading in mode of transportation"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-89902" 
+                             src="http://images.cocodataset.org/train2017/000000089902.jpg" 
+                             alt="89902" title="89902 - a person reading in mode of transportation"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="3">
+            <div class="cluster-title">person reading on a bench</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-128942" 
+                             src="http://images.cocodataset.org/train2017/000000128942.jpg" 
+                             alt="128942" title="128942 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-130000" 
+                             src="http://images.cocodataset.org/train2017/000000130000.jpg" 
+                             alt="130000" title="130000 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-138521" 
+                             src="http://images.cocodataset.org/train2017/000000138521.jpg" 
+                             alt="138521" title="138521 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-142674" 
+                             src="http://images.cocodataset.org/train2017/000000142674.jpg" 
+                             alt="142674" title="142674 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-143171" 
+                             src="http://images.cocodataset.org/train2017/000000143171.jpg" 
+                             alt="143171" title="143171 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-147331" 
+                             src="http://images.cocodataset.org/train2017/000000147331.jpg" 
+                             alt="147331" title="147331 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-149305" 
+                             src="http://images.cocodataset.org/train2017/000000149305.jpg" 
+                             alt="149305" title="149305 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-150342" 
+                             src="http://images.cocodataset.org/train2017/000000150342.jpg" 
+                             alt="150342" title="150342 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-150508" 
+                             src="http://images.cocodataset.org/train2017/000000150508.jpg" 
+                             alt="150508" title="150508 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-15354" 
+                             src="http://images.cocodataset.org/train2017/000000015354.jpg" 
+                             alt="15354" title="15354 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-153604" 
+                             src="http://images.cocodataset.org/train2017/000000153604.jpg" 
+                             alt="153604" title="153604 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-158362" 
+                             src="http://images.cocodataset.org/train2017/000000158362.jpg" 
+                             alt="158362" title="158362 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-173252" 
+                             src="http://images.cocodataset.org/train2017/000000173252.jpg" 
+                             alt="173252" title="173252 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-17559" 
+                             src="http://images.cocodataset.org/train2017/000000017559.jpg" 
+                             alt="17559" title="17559 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-177748" 
+                             src="http://images.cocodataset.org/train2017/000000177748.jpg" 
+                             alt="177748" title="177748 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-177950" 
+                             src="http://images.cocodataset.org/train2017/000000177950.jpg" 
+                             alt="177950" title="177950 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-179526" 
+                             src="http://images.cocodataset.org/train2017/000000179526.jpg" 
+                             alt="179526" title="179526 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-182502" 
+                             src="http://images.cocodataset.org/train2017/000000182502.jpg" 
+                             alt="182502" title="182502 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-183882" 
+                             src="http://images.cocodataset.org/train2017/000000183882.jpg" 
+                             alt="183882" title="183882 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-189915" 
+                             src="http://images.cocodataset.org/train2017/000000189915.jpg" 
+                             alt="189915" title="189915 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-209654" 
+                             src="http://images.cocodataset.org/train2017/000000209654.jpg" 
+                             alt="209654" title="209654 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-220226" 
+                             src="http://images.cocodataset.org/train2017/000000220226.jpg" 
+                             alt="220226" title="220226 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-239656" 
+                             src="http://images.cocodataset.org/train2017/000000239656.jpg" 
+                             alt="239656" title="239656 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-241373" 
+                             src="http://images.cocodataset.org/train2017/000000241373.jpg" 
+                             alt="241373" title="241373 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-251365" 
+                             src="http://images.cocodataset.org/train2017/000000251365.jpg" 
+                             alt="251365" title="251365 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-255486" 
+                             src="http://images.cocodataset.org/train2017/000000255486.jpg" 
+                             alt="255486" title="255486 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-259555" 
+                             src="http://images.cocodataset.org/train2017/000000259555.jpg" 
+                             alt="259555" title="259555 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-268546" 
+                             src="http://images.cocodataset.org/train2017/000000268546.jpg" 
+                             alt="268546" title="268546 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-269015" 
+                             src="http://images.cocodataset.org/train2017/000000269015.jpg" 
+                             alt="269015" title="269015 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-292805" 
+                             src="http://images.cocodataset.org/train2017/000000292805.jpg" 
+                             alt="292805" title="292805 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-306925" 
+                             src="http://images.cocodataset.org/train2017/000000306925.jpg" 
+                             alt="306925" title="306925 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-310035" 
+                             src="http://images.cocodataset.org/train2017/000000310035.jpg" 
+                             alt="310035" title="310035 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-314193" 
+                             src="http://images.cocodataset.org/train2017/000000314193.jpg" 
+                             alt="314193" title="314193 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-314371" 
+                             src="http://images.cocodataset.org/train2017/000000314371.jpg" 
+                             alt="314371" title="314371 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-324823" 
+                             src="http://images.cocodataset.org/train2017/000000324823.jpg" 
+                             alt="324823" title="324823 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-326014" 
+                             src="http://images.cocodataset.org/train2017/000000326014.jpg" 
+                             alt="326014" title="326014 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-33631" 
+                             src="http://images.cocodataset.org/train2017/000000033631.jpg" 
+                             alt="33631" title="33631 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-34487" 
+                             src="http://images.cocodataset.org/train2017/000000034487.jpg" 
+                             alt="34487" title="34487 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-347463" 
+                             src="http://images.cocodataset.org/train2017/000000347463.jpg" 
+                             alt="347463" title="347463 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-359589" 
+                             src="http://images.cocodataset.org/train2017/000000359589.jpg" 
+                             alt="359589" title="359589 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-38543" 
+                             src="http://images.cocodataset.org/train2017/000000038543.jpg" 
+                             alt="38543" title="38543 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-389107" 
+                             src="http://images.cocodataset.org/train2017/000000389107.jpg" 
+                             alt="389107" title="389107 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-393714" 
+                             src="http://images.cocodataset.org/train2017/000000393714.jpg" 
+                             alt="393714" title="393714 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-399465" 
+                             src="http://images.cocodataset.org/train2017/000000399465.jpg" 
+                             alt="399465" title="399465 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-401403" 
+                             src="http://images.cocodataset.org/train2017/000000401403.jpg" 
+                             alt="401403" title="401403 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-407400" 
+                             src="http://images.cocodataset.org/train2017/000000407400.jpg" 
+                             alt="407400" title="407400 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-408270" 
+                             src="http://images.cocodataset.org/train2017/000000408270.jpg" 
+                             alt="408270" title="408270 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-433547" 
+                             src="http://images.cocodataset.org/train2017/000000433547.jpg" 
+                             alt="433547" title="433547 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-434067" 
+                             src="http://images.cocodataset.org/train2017/000000434067.jpg" 
+                             alt="434067" title="434067 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-437862" 
+                             src="http://images.cocodataset.org/train2017/000000437862.jpg" 
+                             alt="437862" title="437862 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-441412" 
+                             src="http://images.cocodataset.org/train2017/000000441412.jpg" 
+                             alt="441412" title="441412 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-448181" 
+                             src="http://images.cocodataset.org/train2017/000000448181.jpg" 
+                             alt="448181" title="448181 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-450263" 
+                             src="http://images.cocodataset.org/train2017/000000450263.jpg" 
+                             alt="450263" title="450263 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-469435" 
+                             src="http://images.cocodataset.org/train2017/000000469435.jpg" 
+                             alt="469435" title="469435 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-493219" 
+                             src="http://images.cocodataset.org/train2017/000000493219.jpg" 
+                             alt="493219" title="493219 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-499760" 
+                             src="http://images.cocodataset.org/train2017/000000499760.jpg" 
+                             alt="499760" title="499760 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-50246" 
+                             src="http://images.cocodataset.org/train2017/000000050246.jpg" 
+                             alt="50246" title="50246 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-507168" 
+                             src="http://images.cocodataset.org/train2017/000000507168.jpg" 
+                             alt="507168" title="507168 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-516422" 
+                             src="http://images.cocodataset.org/train2017/000000516422.jpg" 
+                             alt="516422" title="516422 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-527907" 
+                             src="http://images.cocodataset.org/train2017/000000527907.jpg" 
+                             alt="527907" title="527907 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-531016" 
+                             src="http://images.cocodataset.org/train2017/000000531016.jpg" 
+                             alt="531016" title="531016 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-540978" 
+                             src="http://images.cocodataset.org/train2017/000000540978.jpg" 
+                             alt="540978" title="540978 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-570268" 
+                             src="http://images.cocodataset.org/train2017/000000570268.jpg" 
+                             alt="570268" title="570268 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-576792" 
+                             src="http://images.cocodataset.org/train2017/000000576792.jpg" 
+                             alt="576792" title="576792 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-5828" 
+                             src="http://images.cocodataset.org/train2017/000000005828.jpg" 
+                             alt="5828" title="5828 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-69625" 
+                             src="http://images.cocodataset.org/train2017/000000069625.jpg" 
+                             alt="69625" title="69625 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-73773" 
+                             src="http://images.cocodataset.org/train2017/000000073773.jpg" 
+                             alt="73773" title="73773 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-80185" 
+                             src="http://images.cocodataset.org/train2017/000000080185.jpg" 
+                             alt="80185" title="80185 - person reading on a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-83049" 
+                             src="http://images.cocodataset.org/train2017/000000083049.jpg" 
+                             alt="83049" title="83049 - person reading on a bench"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+</div>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>

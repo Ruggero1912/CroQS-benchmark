@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #pinco {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .images-for-query-by-clusters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+        .images-for-cluster-column-container {
+            background-color: #ffffff;
+            width: 380px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cluster-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .cluster-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px;
+        }
+        .coco-img-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .images-for-cluster-column-container:nth-child(5n) {
+            border-top: 5px solid #07730d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+1) {
+            border-top: 5px solid #2a51bb;
+        }
+        .images-for-cluster-column-container:nth-child(5n+2) {
+            border-top: 5px solid #b4c51d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+3) {
+            border-top: 5px solid #c51d1d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+4) {
+            border-top: 5px solid #1dc5c5;
+        }
+
+        .container {
+            width: 80%;
+            /* max-width: 800px; */
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .container-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .query-highlight {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            background-color: #e0f7f4;
+            padding: 0.2em 0.4em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="pinco">
+
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="../index.html">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Title Section -->
+ <div class="container-container">
+    <div class="container">
+        <h1>CroQS Dataset</h1>
+        <h3>Semantic Clusters for the Initial Query: <span class="query-highlight">backpack</span></h3>
+    </div>
+</div>
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="0">
+            <div class="cluster-title">backpack and its content on a table</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-103027" 
+                             src="http://images.cocodataset.org/train2017/000000103027.jpg" 
+                             alt="103027" title="103027 - backpack and its content on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-204256" 
+                             src="http://images.cocodataset.org/train2017/000000204256.jpg" 
+                             alt="204256" title="204256 - backpack and its content on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-92217" 
+                             src="http://images.cocodataset.org/train2017/000000092217.jpg" 
+                             alt="92217" title="92217 - backpack and its content on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-162848" 
+                             src="http://images.cocodataset.org/train2017/000000162848.jpg" 
+                             alt="162848" title="162848 - backpack and its content on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-237872" 
+                             src="http://images.cocodataset.org/train2017/000000237872.jpg" 
+                             alt="237872" title="237872 - backpack and its content on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-254604" 
+                             src="http://images.cocodataset.org/train2017/000000254604.jpg" 
+                             alt="254604" title="254604 - backpack and its content on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-259115" 
+                             src="http://images.cocodataset.org/train2017/000000259115.jpg" 
+                             alt="259115" title="259115 - backpack and its content on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-264161" 
+                             src="http://images.cocodataset.org/train2017/000000264161.jpg" 
+                             alt="264161" title="264161 - backpack and its content on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-334125" 
+                             src="http://images.cocodataset.org/train2017/000000334125.jpg" 
+                             alt="334125" title="334125 - backpack and its content on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-389775" 
+                             src="http://images.cocodataset.org/train2017/000000389775.jpg" 
+                             alt="389775" title="389775 - backpack and its content on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-438851" 
+                             src="http://images.cocodataset.org/train2017/000000438851.jpg" 
+                             alt="438851" title="438851 - backpack and its content on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-466664" 
+                             src="http://images.cocodataset.org/train2017/000000466664.jpg" 
+                             alt="466664" title="466664 - backpack and its content on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-473069" 
+                             src="http://images.cocodataset.org/train2017/000000473069.jpg" 
+                             alt="473069" title="473069 - backpack and its content on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-529383" 
+                             src="http://images.cocodataset.org/train2017/000000529383.jpg" 
+                             alt="529383" title="529383 - backpack and its content on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-560152" 
+                             src="http://images.cocodataset.org/train2017/000000560152.jpg" 
+                             alt="560152" title="560152 - backpack and its content on a table"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="1">
+            <div class="cluster-title">backpack and a dog</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-121547" 
+                             src="http://images.cocodataset.org/train2017/000000121547.jpg" 
+                             alt="121547" title="121547 - backpack and a dog"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-126050" 
+                             src="http://images.cocodataset.org/train2017/000000126050.jpg" 
+                             alt="126050" title="126050 - backpack and a dog"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-137931" 
+                             src="http://images.cocodataset.org/train2017/000000137931.jpg" 
+                             alt="137931" title="137931 - backpack and a dog"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-202158" 
+                             src="http://images.cocodataset.org/train2017/000000202158.jpg" 
+                             alt="202158" title="202158 - backpack and a dog"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-228994" 
+                             src="http://images.cocodataset.org/train2017/000000228994.jpg" 
+                             alt="228994" title="228994 - backpack and a dog"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-251608" 
+                             src="http://images.cocodataset.org/train2017/000000251608.jpg" 
+                             alt="251608" title="251608 - backpack and a dog"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-254050" 
+                             src="http://images.cocodataset.org/train2017/000000254050.jpg" 
+                             alt="254050" title="254050 - backpack and a dog"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-336286" 
+                             src="http://images.cocodataset.org/train2017/000000336286.jpg" 
+                             alt="336286" title="336286 - backpack and a dog"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-365236" 
+                             src="http://images.cocodataset.org/train2017/000000365236.jpg" 
+                             alt="365236" title="365236 - backpack and a dog"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-374372" 
+                             src="http://images.cocodataset.org/train2017/000000374372.jpg" 
+                             alt="374372" title="374372 - backpack and a dog"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-410108" 
+                             src="http://images.cocodataset.org/train2017/000000410108.jpg" 
+                             alt="410108" title="410108 - backpack and a dog"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-413676" 
+                             src="http://images.cocodataset.org/train2017/000000413676.jpg" 
+                             alt="413676" title="413676 - backpack and a dog"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-484681" 
+                             src="http://images.cocodataset.org/train2017/000000484681.jpg" 
+                             alt="484681" title="484681 - backpack and a dog"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-489453" 
+                             src="http://images.cocodataset.org/train2017/000000489453.jpg" 
+                             alt="489453" title="489453 - backpack and a dog"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-509009" 
+                             src="http://images.cocodataset.org/train2017/000000509009.jpg" 
+                             alt="509009" title="509009 - backpack and a dog"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-529860" 
+                             src="http://images.cocodataset.org/train2017/000000529860.jpg" 
+                             alt="529860" title="529860 - backpack and a dog"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-544884" 
+                             src="http://images.cocodataset.org/train2017/000000544884.jpg" 
+                             alt="544884" title="544884 - backpack and a dog"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-80562" 
+                             src="http://images.cocodataset.org/train2017/000000080562.jpg" 
+                             alt="80562" title="80562 - backpack and a dog"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-92425" 
+                             src="http://images.cocodataset.org/train2017/000000092425.jpg" 
+                             alt="92425" title="92425 - backpack and a dog"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="2">
+            <div class="cluster-title">backpack and a cat</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-315156" 
+                             src="http://images.cocodataset.org/train2017/000000315156.jpg" 
+                             alt="315156" title="315156 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-102987" 
+                             src="http://images.cocodataset.org/train2017/000000102987.jpg" 
+                             alt="102987" title="102987 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-110250" 
+                             src="http://images.cocodataset.org/train2017/000000110250.jpg" 
+                             alt="110250" title="110250 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-119776" 
+                             src="http://images.cocodataset.org/train2017/000000119776.jpg" 
+                             alt="119776" title="119776 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-133788" 
+                             src="http://images.cocodataset.org/train2017/000000133788.jpg" 
+                             alt="133788" title="133788 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-144746" 
+                             src="http://images.cocodataset.org/train2017/000000144746.jpg" 
+                             alt="144746" title="144746 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-163666" 
+                             src="http://images.cocodataset.org/train2017/000000163666.jpg" 
+                             alt="163666" title="163666 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-167874" 
+                             src="http://images.cocodataset.org/train2017/000000167874.jpg" 
+                             alt="167874" title="167874 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-177492" 
+                             src="http://images.cocodataset.org/train2017/000000177492.jpg" 
+                             alt="177492" title="177492 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-182903" 
+                             src="http://images.cocodataset.org/train2017/000000182903.jpg" 
+                             alt="182903" title="182903 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-18893" 
+                             src="http://images.cocodataset.org/train2017/000000018893.jpg" 
+                             alt="18893" title="18893 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-19131" 
+                             src="http://images.cocodataset.org/train2017/000000019131.jpg" 
+                             alt="19131" title="19131 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-1999" 
+                             src="http://images.cocodataset.org/train2017/000000001999.jpg" 
+                             alt="1999" title="1999 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-207093" 
+                             src="http://images.cocodataset.org/train2017/000000207093.jpg" 
+                             alt="207093" title="207093 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-21076" 
+                             src="http://images.cocodataset.org/train2017/000000021076.jpg" 
+                             alt="21076" title="21076 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-223410" 
+                             src="http://images.cocodataset.org/train2017/000000223410.jpg" 
+                             alt="223410" title="223410 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-228506" 
+                             src="http://images.cocodataset.org/train2017/000000228506.jpg" 
+                             alt="228506" title="228506 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-237284" 
+                             src="http://images.cocodataset.org/train2017/000000237284.jpg" 
+                             alt="237284" title="237284 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-252617" 
+                             src="http://images.cocodataset.org/train2017/000000252617.jpg" 
+                             alt="252617" title="252617 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-259819" 
+                             src="http://images.cocodataset.org/train2017/000000259819.jpg" 
+                             alt="259819" title="259819 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-268570" 
+                             src="http://images.cocodataset.org/train2017/000000268570.jpg" 
+                             alt="268570" title="268570 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-28273" 
+                             src="http://images.cocodataset.org/train2017/000000028273.jpg" 
+                             alt="28273" title="28273 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-293027" 
+                             src="http://images.cocodataset.org/train2017/000000293027.jpg" 
+                             alt="293027" title="293027 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-312056" 
+                             src="http://images.cocodataset.org/train2017/000000312056.jpg" 
+                             alt="312056" title="312056 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-327328" 
+                             src="http://images.cocodataset.org/train2017/000000327328.jpg" 
+                             alt="327328" title="327328 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-335092" 
+                             src="http://images.cocodataset.org/train2017/000000335092.jpg" 
+                             alt="335092" title="335092 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-36745" 
+                             src="http://images.cocodataset.org/train2017/000000036745.jpg" 
+                             alt="36745" title="36745 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-367836" 
+                             src="http://images.cocodataset.org/train2017/000000367836.jpg" 
+                             alt="367836" title="367836 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-383885" 
+                             src="http://images.cocodataset.org/train2017/000000383885.jpg" 
+                             alt="383885" title="383885 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-396326" 
+                             src="http://images.cocodataset.org/train2017/000000396326.jpg" 
+                             alt="396326" title="396326 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-41132" 
+                             src="http://images.cocodataset.org/train2017/000000041132.jpg" 
+                             alt="41132" title="41132 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-421029" 
+                             src="http://images.cocodataset.org/train2017/000000421029.jpg" 
+                             alt="421029" title="421029 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-433110" 
+                             src="http://images.cocodataset.org/train2017/000000433110.jpg" 
+                             alt="433110" title="433110 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-449330" 
+                             src="http://images.cocodataset.org/train2017/000000449330.jpg" 
+                             alt="449330" title="449330 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-449770" 
+                             src="http://images.cocodataset.org/train2017/000000449770.jpg" 
+                             alt="449770" title="449770 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-460505" 
+                             src="http://images.cocodataset.org/train2017/000000460505.jpg" 
+                             alt="460505" title="460505 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-467197" 
+                             src="http://images.cocodataset.org/train2017/000000467197.jpg" 
+                             alt="467197" title="467197 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-468951" 
+                             src="http://images.cocodataset.org/train2017/000000468951.jpg" 
+                             alt="468951" title="468951 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-470521" 
+                             src="http://images.cocodataset.org/train2017/000000470521.jpg" 
+                             alt="470521" title="470521 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-470862" 
+                             src="http://images.cocodataset.org/train2017/000000470862.jpg" 
+                             alt="470862" title="470862 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-477673" 
+                             src="http://images.cocodataset.org/train2017/000000477673.jpg" 
+                             alt="477673" title="477673 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-480991" 
+                             src="http://images.cocodataset.org/train2017/000000480991.jpg" 
+                             alt="480991" title="480991 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-485083" 
+                             src="http://images.cocodataset.org/train2017/000000485083.jpg" 
+                             alt="485083" title="485083 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-48530" 
+                             src="http://images.cocodataset.org/train2017/000000048530.jpg" 
+                             alt="48530" title="48530 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-516470" 
+                             src="http://images.cocodataset.org/train2017/000000516470.jpg" 
+                             alt="516470" title="516470 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-526225" 
+                             src="http://images.cocodataset.org/train2017/000000526225.jpg" 
+                             alt="526225" title="526225 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-54399" 
+                             src="http://images.cocodataset.org/train2017/000000054399.jpg" 
+                             alt="54399" title="54399 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-54575" 
+                             src="http://images.cocodataset.org/train2017/000000054575.jpg" 
+                             alt="54575" title="54575 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-550030" 
+                             src="http://images.cocodataset.org/train2017/000000550030.jpg" 
+                             alt="550030" title="550030 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-553378" 
+                             src="http://images.cocodataset.org/train2017/000000553378.jpg" 
+                             alt="553378" title="553378 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-559490" 
+                             src="http://images.cocodataset.org/train2017/000000559490.jpg" 
+                             alt="559490" title="559490 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-565258" 
+                             src="http://images.cocodataset.org/train2017/000000565258.jpg" 
+                             alt="565258" title="565258 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-566016" 
+                             src="http://images.cocodataset.org/train2017/000000566016.jpg" 
+                             alt="566016" title="566016 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-570107" 
+                             src="http://images.cocodataset.org/train2017/000000570107.jpg" 
+                             alt="570107" title="570107 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-571835" 
+                             src="http://images.cocodataset.org/train2017/000000571835.jpg" 
+                             alt="571835" title="571835 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-581717" 
+                             src="http://images.cocodataset.org/train2017/000000581717.jpg" 
+                             alt="581717" title="581717 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-59232" 
+                             src="http://images.cocodataset.org/train2017/000000059232.jpg" 
+                             alt="59232" title="59232 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-91006" 
+                             src="http://images.cocodataset.org/train2017/000000091006.jpg" 
+                             alt="91006" title="91006 - backpack and a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-99314" 
+                             src="http://images.cocodataset.org/train2017/000000099314.jpg" 
+                             alt="99314" title="99314 - backpack and a cat"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="3">
+            <div class="cluster-title">close up of travel bag</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-117454" 
+                             src="http://images.cocodataset.org/train2017/000000117454.jpg" 
+                             alt="117454" title="117454 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-307161" 
+                             src="http://images.cocodataset.org/train2017/000000307161.jpg" 
+                             alt="307161" title="307161 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-318723" 
+                             src="http://images.cocodataset.org/train2017/000000318723.jpg" 
+                             alt="318723" title="318723 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-563921" 
+                             src="http://images.cocodataset.org/train2017/000000563921.jpg" 
+                             alt="563921" title="563921 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-107228" 
+                             src="http://images.cocodataset.org/train2017/000000107228.jpg" 
+                             alt="107228" title="107228 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-140883" 
+                             src="http://images.cocodataset.org/train2017/000000140883.jpg" 
+                             alt="140883" title="140883 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-148542" 
+                             src="http://images.cocodataset.org/train2017/000000148542.jpg" 
+                             alt="148542" title="148542 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-194089" 
+                             src="http://images.cocodataset.org/train2017/000000194089.jpg" 
+                             alt="194089" title="194089 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-212671" 
+                             src="http://images.cocodataset.org/train2017/000000212671.jpg" 
+                             alt="212671" title="212671 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-248320" 
+                             src="http://images.cocodataset.org/train2017/000000248320.jpg" 
+                             alt="248320" title="248320 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-258113" 
+                             src="http://images.cocodataset.org/train2017/000000258113.jpg" 
+                             alt="258113" title="258113 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-262099" 
+                             src="http://images.cocodataset.org/train2017/000000262099.jpg" 
+                             alt="262099" title="262099 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-282790" 
+                             src="http://images.cocodataset.org/train2017/000000282790.jpg" 
+                             alt="282790" title="282790 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-286081" 
+                             src="http://images.cocodataset.org/train2017/000000286081.jpg" 
+                             alt="286081" title="286081 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-289338" 
+                             src="http://images.cocodataset.org/train2017/000000289338.jpg" 
+                             alt="289338" title="289338 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-296696" 
+                             src="http://images.cocodataset.org/train2017/000000296696.jpg" 
+                             alt="296696" title="296696 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-303944" 
+                             src="http://images.cocodataset.org/train2017/000000303944.jpg" 
+                             alt="303944" title="303944 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-314574" 
+                             src="http://images.cocodataset.org/train2017/000000314574.jpg" 
+                             alt="314574" title="314574 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-339373" 
+                             src="http://images.cocodataset.org/train2017/000000339373.jpg" 
+                             alt="339373" title="339373 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-346496" 
+                             src="http://images.cocodataset.org/train2017/000000346496.jpg" 
+                             alt="346496" title="346496 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-369322" 
+                             src="http://images.cocodataset.org/train2017/000000369322.jpg" 
+                             alt="369322" title="369322 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-370116" 
+                             src="http://images.cocodataset.org/train2017/000000370116.jpg" 
+                             alt="370116" title="370116 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-3729" 
+                             src="http://images.cocodataset.org/train2017/000000003729.jpg" 
+                             alt="3729" title="3729 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-399308" 
+                             src="http://images.cocodataset.org/train2017/000000399308.jpg" 
+                             alt="399308" title="399308 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-405041" 
+                             src="http://images.cocodataset.org/train2017/000000405041.jpg" 
+                             alt="405041" title="405041 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-408248" 
+                             src="http://images.cocodataset.org/train2017/000000408248.jpg" 
+                             alt="408248" title="408248 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-424374" 
+                             src="http://images.cocodataset.org/train2017/000000424374.jpg" 
+                             alt="424374" title="424374 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-439827" 
+                             src="http://images.cocodataset.org/train2017/000000439827.jpg" 
+                             alt="439827" title="439827 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-442210" 
+                             src="http://images.cocodataset.org/train2017/000000442210.jpg" 
+                             alt="442210" title="442210 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-492566" 
+                             src="http://images.cocodataset.org/train2017/000000492566.jpg" 
+                             alt="492566" title="492566 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-495808" 
+                             src="http://images.cocodataset.org/train2017/000000495808.jpg" 
+                             alt="495808" title="495808 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-496832" 
+                             src="http://images.cocodataset.org/train2017/000000496832.jpg" 
+                             alt="496832" title="496832 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-505487" 
+                             src="http://images.cocodataset.org/train2017/000000505487.jpg" 
+                             alt="505487" title="505487 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-510339" 
+                             src="http://images.cocodataset.org/train2017/000000510339.jpg" 
+                             alt="510339" title="510339 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-511251" 
+                             src="http://images.cocodataset.org/train2017/000000511251.jpg" 
+                             alt="511251" title="511251 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-526029" 
+                             src="http://images.cocodataset.org/train2017/000000526029.jpg" 
+                             alt="526029" title="526029 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-52712" 
+                             src="http://images.cocodataset.org/train2017/000000052712.jpg" 
+                             alt="52712" title="52712 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-533179" 
+                             src="http://images.cocodataset.org/train2017/000000533179.jpg" 
+                             alt="533179" title="533179 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-550066" 
+                             src="http://images.cocodataset.org/train2017/000000550066.jpg" 
+                             alt="550066" title="550066 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-55613" 
+                             src="http://images.cocodataset.org/train2017/000000055613.jpg" 
+                             alt="55613" title="55613 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-575096" 
+                             src="http://images.cocodataset.org/train2017/000000575096.jpg" 
+                             alt="575096" title="575096 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-64157" 
+                             src="http://images.cocodataset.org/train2017/000000064157.jpg" 
+                             alt="64157" title="64157 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-7690" 
+                             src="http://images.cocodataset.org/train2017/000000007690.jpg" 
+                             alt="7690" title="7690 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-79653" 
+                             src="http://images.cocodataset.org/train2017/000000079653.jpg" 
+                             alt="79653" title="79653 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-85637" 
+                             src="http://images.cocodataset.org/train2017/000000085637.jpg" 
+                             alt="85637" title="85637 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-91778" 
+                             src="http://images.cocodataset.org/train2017/000000091778.jpg" 
+                             alt="91778" title="91778 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-9679" 
+                             src="http://images.cocodataset.org/train2017/000000009679.jpg" 
+                             alt="9679" title="9679 - close up of travel bag"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-96975" 
+                             src="http://images.cocodataset.org/train2017/000000096975.jpg" 
+                             alt="96975" title="96975 - close up of travel bag"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="4">
+            <div class="cluster-title">person with backpack</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-168738" 
+                             src="http://images.cocodataset.org/train2017/000000168738.jpg" 
+                             alt="168738" title="168738 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-27371" 
+                             src="http://images.cocodataset.org/train2017/000000027371.jpg" 
+                             alt="27371" title="27371 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-440689" 
+                             src="http://images.cocodataset.org/train2017/000000440689.jpg" 
+                             alt="440689" title="440689 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-489207" 
+                             src="http://images.cocodataset.org/train2017/000000489207.jpg" 
+                             alt="489207" title="489207 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-518966" 
+                             src="http://images.cocodataset.org/train2017/000000518966.jpg" 
+                             alt="518966" title="518966 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-227825" 
+                             src="http://images.cocodataset.org/train2017/000000227825.jpg" 
+                             alt="227825" title="227825 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-101491" 
+                             src="http://images.cocodataset.org/train2017/000000101491.jpg" 
+                             alt="101491" title="101491 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-129604" 
+                             src="http://images.cocodataset.org/train2017/000000129604.jpg" 
+                             alt="129604" title="129604 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-132137" 
+                             src="http://images.cocodataset.org/train2017/000000132137.jpg" 
+                             alt="132137" title="132137 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-147846" 
+                             src="http://images.cocodataset.org/train2017/000000147846.jpg" 
+                             alt="147846" title="147846 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-148635" 
+                             src="http://images.cocodataset.org/train2017/000000148635.jpg" 
+                             alt="148635" title="148635 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-158818" 
+                             src="http://images.cocodataset.org/train2017/000000158818.jpg" 
+                             alt="158818" title="158818 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-20561" 
+                             src="http://images.cocodataset.org/train2017/000000020561.jpg" 
+                             alt="20561" title="20561 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-205963" 
+                             src="http://images.cocodataset.org/train2017/000000205963.jpg" 
+                             alt="205963" title="205963 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-206231" 
+                             src="http://images.cocodataset.org/train2017/000000206231.jpg" 
+                             alt="206231" title="206231 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-215436" 
+                             src="http://images.cocodataset.org/train2017/000000215436.jpg" 
+                             alt="215436" title="215436 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-230020" 
+                             src="http://images.cocodataset.org/train2017/000000230020.jpg" 
+                             alt="230020" title="230020 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-233646" 
+                             src="http://images.cocodataset.org/train2017/000000233646.jpg" 
+                             alt="233646" title="233646 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-244925" 
+                             src="http://images.cocodataset.org/train2017/000000244925.jpg" 
+                             alt="244925" title="244925 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-253449" 
+                             src="http://images.cocodataset.org/train2017/000000253449.jpg" 
+                             alt="253449" title="253449 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-257858" 
+                             src="http://images.cocodataset.org/train2017/000000257858.jpg" 
+                             alt="257858" title="257858 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-268617" 
+                             src="http://images.cocodataset.org/train2017/000000268617.jpg" 
+                             alt="268617" title="268617 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-275718" 
+                             src="http://images.cocodataset.org/train2017/000000275718.jpg" 
+                             alt="275718" title="275718 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-298692" 
+                             src="http://images.cocodataset.org/train2017/000000298692.jpg" 
+                             alt="298692" title="298692 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-304248" 
+                             src="http://images.cocodataset.org/train2017/000000304248.jpg" 
+                             alt="304248" title="304248 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-323552" 
+                             src="http://images.cocodataset.org/train2017/000000323552.jpg" 
+                             alt="323552" title="323552 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-32400" 
+                             src="http://images.cocodataset.org/train2017/000000032400.jpg" 
+                             alt="32400" title="32400 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-327211" 
+                             src="http://images.cocodataset.org/train2017/000000327211.jpg" 
+                             alt="327211" title="327211 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-328548" 
+                             src="http://images.cocodataset.org/train2017/000000328548.jpg" 
+                             alt="328548" title="328548 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-335656" 
+                             src="http://images.cocodataset.org/train2017/000000335656.jpg" 
+                             alt="335656" title="335656 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-340532" 
+                             src="http://images.cocodataset.org/train2017/000000340532.jpg" 
+                             alt="340532" title="340532 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-356791" 
+                             src="http://images.cocodataset.org/train2017/000000356791.jpg" 
+                             alt="356791" title="356791 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-368820" 
+                             src="http://images.cocodataset.org/train2017/000000368820.jpg" 
+                             alt="368820" title="368820 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-387569" 
+                             src="http://images.cocodataset.org/train2017/000000387569.jpg" 
+                             alt="387569" title="387569 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-392192" 
+                             src="http://images.cocodataset.org/train2017/000000392192.jpg" 
+                             alt="392192" title="392192 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-395830" 
+                             src="http://images.cocodataset.org/train2017/000000395830.jpg" 
+                             alt="395830" title="395830 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-398367" 
+                             src="http://images.cocodataset.org/train2017/000000398367.jpg" 
+                             alt="398367" title="398367 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-411690" 
+                             src="http://images.cocodataset.org/train2017/000000411690.jpg" 
+                             alt="411690" title="411690 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-419449" 
+                             src="http://images.cocodataset.org/train2017/000000419449.jpg" 
+                             alt="419449" title="419449 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-435855" 
+                             src="http://images.cocodataset.org/train2017/000000435855.jpg" 
+                             alt="435855" title="435855 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-441464" 
+                             src="http://images.cocodataset.org/train2017/000000441464.jpg" 
+                             alt="441464" title="441464 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-448531" 
+                             src="http://images.cocodataset.org/train2017/000000448531.jpg" 
+                             alt="448531" title="448531 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-46942" 
+                             src="http://images.cocodataset.org/train2017/000000046942.jpg" 
+                             alt="46942" title="46942 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-47684" 
+                             src="http://images.cocodataset.org/train2017/000000047684.jpg" 
+                             alt="47684" title="47684 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-497296" 
+                             src="http://images.cocodataset.org/train2017/000000497296.jpg" 
+                             alt="497296" title="497296 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-504726" 
+                             src="http://images.cocodataset.org/train2017/000000504726.jpg" 
+                             alt="504726" title="504726 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-50563" 
+                             src="http://images.cocodataset.org/train2017/000000050563.jpg" 
+                             alt="50563" title="50563 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-516712" 
+                             src="http://images.cocodataset.org/train2017/000000516712.jpg" 
+                             alt="516712" title="516712 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-521689" 
+                             src="http://images.cocodataset.org/train2017/000000521689.jpg" 
+                             alt="521689" title="521689 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-566876" 
+                             src="http://images.cocodataset.org/train2017/000000566876.jpg" 
+                             alt="566876" title="566876 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-577051" 
+                             src="http://images.cocodataset.org/train2017/000000577051.jpg" 
+                             alt="577051" title="577051 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-64481" 
+                             src="http://images.cocodataset.org/train2017/000000064481.jpg" 
+                             alt="64481" title="64481 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-65515" 
+                             src="http://images.cocodataset.org/train2017/000000065515.jpg" 
+                             alt="65515" title="65515 - person with backpack"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-95358" 
+                             src="http://images.cocodataset.org/train2017/000000095358.jpg" 
+                             alt="95358" title="95358 - person with backpack"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+</div>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #pinco {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .images-for-query-by-clusters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+        .images-for-cluster-column-container {
+            background-color: #ffffff;
+            width: 380px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cluster-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .cluster-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px;
+        }
+        .coco-img-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .images-for-cluster-column-container:nth-child(5n) {
+            border-top: 5px solid #07730d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+1) {
+            border-top: 5px solid #2a51bb;
+        }
+        .images-for-cluster-column-container:nth-child(5n+2) {
+            border-top: 5px solid #b4c51d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+3) {
+            border-top: 5px solid #c51d1d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+4) {
+            border-top: 5px solid #1dc5c5;
+        }
+
+        .container {
+            width: 80%;
+            /* max-width: 800px; */
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .container-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .query-highlight {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            background-color: #e0f7f4;
+            padding: 0.2em 0.4em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="pinco">
+
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="../index.html">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Title Section -->
+ <div class="container-container">
+    <div class="container">
+        <h1>CroQS Dataset</h1>
+        <h3>Semantic Clusters for the Initial Query: <span class="query-highlight">marketplace</span></h3>
+    </div>
+</div>
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="0">
+            <div class="cluster-title">people shopping in marketplace</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-106909" 
+                             src="http://images.cocodataset.org/train2017/000000106909.jpg" 
+                             alt="106909" title="106909 - people shopping in marketplace"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-133166" 
+                             src="http://images.cocodataset.org/train2017/000000133166.jpg" 
+                             alt="133166" title="133166 - people shopping in marketplace"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-16470" 
+                             src="http://images.cocodataset.org/train2017/000000016470.jpg" 
+                             alt="16470" title="16470 - people shopping in marketplace"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-168869" 
+                             src="http://images.cocodataset.org/train2017/000000168869.jpg" 
+                             alt="168869" title="168869 - people shopping in marketplace"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-174794" 
+                             src="http://images.cocodataset.org/train2017/000000174794.jpg" 
+                             alt="174794" title="174794 - people shopping in marketplace"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-178835" 
+                             src="http://images.cocodataset.org/train2017/000000178835.jpg" 
+                             alt="178835" title="178835 - people shopping in marketplace"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-208991" 
+                             src="http://images.cocodataset.org/train2017/000000208991.jpg" 
+                             alt="208991" title="208991 - people shopping in marketplace"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-212856" 
+                             src="http://images.cocodataset.org/train2017/000000212856.jpg" 
+                             alt="212856" title="212856 - people shopping in marketplace"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-215616" 
+                             src="http://images.cocodataset.org/train2017/000000215616.jpg" 
+                             alt="215616" title="215616 - people shopping in marketplace"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-219810" 
+                             src="http://images.cocodataset.org/train2017/000000219810.jpg" 
+                             alt="219810" title="219810 - people shopping in marketplace"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-242499" 
+                             src="http://images.cocodataset.org/train2017/000000242499.jpg" 
+                             alt="242499" title="242499 - people shopping in marketplace"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-25058" 
+                             src="http://images.cocodataset.org/train2017/000000025058.jpg" 
+                             alt="25058" title="25058 - people shopping in marketplace"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-256720" 
+                             src="http://images.cocodataset.org/train2017/000000256720.jpg" 
+                             alt="256720" title="256720 - people shopping in marketplace"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-293895" 
+                             src="http://images.cocodataset.org/train2017/000000293895.jpg" 
+                             alt="293895" title="293895 - people shopping in marketplace"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-310523" 
+                             src="http://images.cocodataset.org/train2017/000000310523.jpg" 
+                             alt="310523" title="310523 - people shopping in marketplace"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-385098" 
+                             src="http://images.cocodataset.org/train2017/000000385098.jpg" 
+                             alt="385098" title="385098 - people shopping in marketplace"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-395364" 
+                             src="http://images.cocodataset.org/train2017/000000395364.jpg" 
+                             alt="395364" title="395364 - people shopping in marketplace"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-429759" 
+                             src="http://images.cocodataset.org/train2017/000000429759.jpg" 
+                             alt="429759" title="429759 - people shopping in marketplace"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-43279" 
+                             src="http://images.cocodataset.org/train2017/000000043279.jpg" 
+                             alt="43279" title="43279 - people shopping in marketplace"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-433825" 
+                             src="http://images.cocodataset.org/train2017/000000433825.jpg" 
+                             alt="433825" title="433825 - people shopping in marketplace"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-449706" 
+                             src="http://images.cocodataset.org/train2017/000000449706.jpg" 
+                             alt="449706" title="449706 - people shopping in marketplace"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-460628" 
+                             src="http://images.cocodataset.org/train2017/000000460628.jpg" 
+                             alt="460628" title="460628 - people shopping in marketplace"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-479068" 
+                             src="http://images.cocodataset.org/train2017/000000479068.jpg" 
+                             alt="479068" title="479068 - people shopping in marketplace"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-496943" 
+                             src="http://images.cocodataset.org/train2017/000000496943.jpg" 
+                             alt="496943" title="496943 - people shopping in marketplace"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-509766" 
+                             src="http://images.cocodataset.org/train2017/000000509766.jpg" 
+                             alt="509766" title="509766 - people shopping in marketplace"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-51501" 
+                             src="http://images.cocodataset.org/train2017/000000051501.jpg" 
+                             alt="51501" title="51501 - people shopping in marketplace"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-5313" 
+                             src="http://images.cocodataset.org/train2017/000000005313.jpg" 
+                             alt="5313" title="5313 - people shopping in marketplace"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-555002" 
+                             src="http://images.cocodataset.org/train2017/000000555002.jpg" 
+                             alt="555002" title="555002 - people shopping in marketplace"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-566364" 
+                             src="http://images.cocodataset.org/train2017/000000566364.jpg" 
+                             alt="566364" title="566364 - people shopping in marketplace"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-567944" 
+                             src="http://images.cocodataset.org/train2017/000000567944.jpg" 
+                             alt="567944" title="567944 - people shopping in marketplace"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-574648" 
+                             src="http://images.cocodataset.org/train2017/000000574648.jpg" 
+                             alt="574648" title="574648 - people shopping in marketplace"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-69286" 
+                             src="http://images.cocodataset.org/train2017/000000069286.jpg" 
+                             alt="69286" title="69286 - people shopping in marketplace"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-97211" 
+                             src="http://images.cocodataset.org/train2017/000000097211.jpg" 
+                             alt="97211" title="97211 - people shopping in marketplace"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="1">
+            <div class="cluster-title">marketplace of bananas and other fruits</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-111525" 
+                             src="http://images.cocodataset.org/train2017/000000111525.jpg" 
+                             alt="111525" title="111525 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-13912" 
+                             src="http://images.cocodataset.org/train2017/000000013912.jpg" 
+                             alt="13912" title="13912 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-146645" 
+                             src="http://images.cocodataset.org/train2017/000000146645.jpg" 
+                             alt="146645" title="146645 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-153486" 
+                             src="http://images.cocodataset.org/train2017/000000153486.jpg" 
+                             alt="153486" title="153486 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-16629" 
+                             src="http://images.cocodataset.org/train2017/000000016629.jpg" 
+                             alt="16629" title="16629 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-17108" 
+                             src="http://images.cocodataset.org/train2017/000000017108.jpg" 
+                             alt="17108" title="17108 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-183395" 
+                             src="http://images.cocodataset.org/train2017/000000183395.jpg" 
+                             alt="183395" title="183395 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-185186" 
+                             src="http://images.cocodataset.org/train2017/000000185186.jpg" 
+                             alt="185186" title="185186 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-21213" 
+                             src="http://images.cocodataset.org/train2017/000000021213.jpg" 
+                             alt="21213" title="21213 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-221004" 
+                             src="http://images.cocodataset.org/train2017/000000221004.jpg" 
+                             alt="221004" title="221004 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-256539" 
+                             src="http://images.cocodataset.org/train2017/000000256539.jpg" 
+                             alt="256539" title="256539 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-259216" 
+                             src="http://images.cocodataset.org/train2017/000000259216.jpg" 
+                             alt="259216" title="259216 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-263620" 
+                             src="http://images.cocodataset.org/train2017/000000263620.jpg" 
+                             alt="263620" title="263620 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-273317" 
+                             src="http://images.cocodataset.org/train2017/000000273317.jpg" 
+                             alt="273317" title="273317 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-27348" 
+                             src="http://images.cocodataset.org/train2017/000000027348.jpg" 
+                             alt="27348" title="27348 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-283874" 
+                             src="http://images.cocodataset.org/train2017/000000283874.jpg" 
+                             alt="283874" title="283874 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-287914" 
+                             src="http://images.cocodataset.org/train2017/000000287914.jpg" 
+                             alt="287914" title="287914 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-296648" 
+                             src="http://images.cocodataset.org/train2017/000000296648.jpg" 
+                             alt="296648" title="296648 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-306359" 
+                             src="http://images.cocodataset.org/train2017/000000306359.jpg" 
+                             alt="306359" title="306359 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-319690" 
+                             src="http://images.cocodataset.org/train2017/000000319690.jpg" 
+                             alt="319690" title="319690 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-323155" 
+                             src="http://images.cocodataset.org/train2017/000000323155.jpg" 
+                             alt="323155" title="323155 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-326217" 
+                             src="http://images.cocodataset.org/train2017/000000326217.jpg" 
+                             alt="326217" title="326217 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-32665" 
+                             src="http://images.cocodataset.org/train2017/000000032665.jpg" 
+                             alt="32665" title="32665 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-331790" 
+                             src="http://images.cocodataset.org/train2017/000000331790.jpg" 
+                             alt="331790" title="331790 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-336360" 
+                             src="http://images.cocodataset.org/train2017/000000336360.jpg" 
+                             alt="336360" title="336360 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-363514" 
+                             src="http://images.cocodataset.org/train2017/000000363514.jpg" 
+                             alt="363514" title="363514 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-36460" 
+                             src="http://images.cocodataset.org/train2017/000000036460.jpg" 
+                             alt="36460" title="36460 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-365015" 
+                             src="http://images.cocodataset.org/train2017/000000365015.jpg" 
+                             alt="365015" title="365015 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-451283" 
+                             src="http://images.cocodataset.org/train2017/000000451283.jpg" 
+                             alt="451283" title="451283 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-45230" 
+                             src="http://images.cocodataset.org/train2017/000000045230.jpg" 
+                             alt="45230" title="45230 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-490405" 
+                             src="http://images.cocodataset.org/train2017/000000490405.jpg" 
+                             alt="490405" title="490405 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-500822" 
+                             src="http://images.cocodataset.org/train2017/000000500822.jpg" 
+                             alt="500822" title="500822 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-511026" 
+                             src="http://images.cocodataset.org/train2017/000000511026.jpg" 
+                             alt="511026" title="511026 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-511689" 
+                             src="http://images.cocodataset.org/train2017/000000511689.jpg" 
+                             alt="511689" title="511689 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-520213" 
+                             src="http://images.cocodataset.org/train2017/000000520213.jpg" 
+                             alt="520213" title="520213 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-531964" 
+                             src="http://images.cocodataset.org/train2017/000000531964.jpg" 
+                             alt="531964" title="531964 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-534323" 
+                             src="http://images.cocodataset.org/train2017/000000534323.jpg" 
+                             alt="534323" title="534323 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-538701" 
+                             src="http://images.cocodataset.org/train2017/000000538701.jpg" 
+                             alt="538701" title="538701 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-543573" 
+                             src="http://images.cocodataset.org/train2017/000000543573.jpg" 
+                             alt="543573" title="543573 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-548936" 
+                             src="http://images.cocodataset.org/train2017/000000548936.jpg" 
+                             alt="548936" title="548936 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-551733" 
+                             src="http://images.cocodataset.org/train2017/000000551733.jpg" 
+                             alt="551733" title="551733 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-554302" 
+                             src="http://images.cocodataset.org/train2017/000000554302.jpg" 
+                             alt="554302" title="554302 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-55594" 
+                             src="http://images.cocodataset.org/train2017/000000055594.jpg" 
+                             alt="55594" title="55594 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-60378" 
+                             src="http://images.cocodataset.org/train2017/000000060378.jpg" 
+                             alt="60378" title="60378 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-61354" 
+                             src="http://images.cocodataset.org/train2017/000000061354.jpg" 
+                             alt="61354" title="61354 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-71364" 
+                             src="http://images.cocodataset.org/train2017/000000071364.jpg" 
+                             alt="71364" title="71364 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-83167" 
+                             src="http://images.cocodataset.org/train2017/000000083167.jpg" 
+                             alt="83167" title="83167 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-85029" 
+                             src="http://images.cocodataset.org/train2017/000000085029.jpg" 
+                             alt="85029" title="85029 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-93068" 
+                             src="http://images.cocodataset.org/train2017/000000093068.jpg" 
+                             alt="93068" title="93068 - marketplace of bananas and other fruits"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="2">
+            <div class="cluster-title">marketplace with umbrellas and people</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-101189" 
+                             src="http://images.cocodataset.org/train2017/000000101189.jpg" 
+                             alt="101189" title="101189 - marketplace with umbrellas and people"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-173316" 
+                             src="http://images.cocodataset.org/train2017/000000173316.jpg" 
+                             alt="173316" title="173316 - marketplace with umbrellas and people"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-202004" 
+                             src="http://images.cocodataset.org/train2017/000000202004.jpg" 
+                             alt="202004" title="202004 - marketplace with umbrellas and people"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-214503" 
+                             src="http://images.cocodataset.org/train2017/000000214503.jpg" 
+                             alt="214503" title="214503 - marketplace with umbrellas and people"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-226346" 
+                             src="http://images.cocodataset.org/train2017/000000226346.jpg" 
+                             alt="226346" title="226346 - marketplace with umbrellas and people"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-261026" 
+                             src="http://images.cocodataset.org/train2017/000000261026.jpg" 
+                             alt="261026" title="261026 - marketplace with umbrellas and people"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-267402" 
+                             src="http://images.cocodataset.org/train2017/000000267402.jpg" 
+                             alt="267402" title="267402 - marketplace with umbrellas and people"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-285160" 
+                             src="http://images.cocodataset.org/train2017/000000285160.jpg" 
+                             alt="285160" title="285160 - marketplace with umbrellas and people"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-307243" 
+                             src="http://images.cocodataset.org/train2017/000000307243.jpg" 
+                             alt="307243" title="307243 - marketplace with umbrellas and people"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-317840" 
+                             src="http://images.cocodataset.org/train2017/000000317840.jpg" 
+                             alt="317840" title="317840 - marketplace with umbrellas and people"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-327392" 
+                             src="http://images.cocodataset.org/train2017/000000327392.jpg" 
+                             alt="327392" title="327392 - marketplace with umbrellas and people"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-378962" 
+                             src="http://images.cocodataset.org/train2017/000000378962.jpg" 
+                             alt="378962" title="378962 - marketplace with umbrellas and people"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-397274" 
+                             src="http://images.cocodataset.org/train2017/000000397274.jpg" 
+                             alt="397274" title="397274 - marketplace with umbrellas and people"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-40414" 
+                             src="http://images.cocodataset.org/train2017/000000040414.jpg" 
+                             alt="40414" title="40414 - marketplace with umbrellas and people"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-420882" 
+                             src="http://images.cocodataset.org/train2017/000000420882.jpg" 
+                             alt="420882" title="420882 - marketplace with umbrellas and people"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-42805" 
+                             src="http://images.cocodataset.org/train2017/000000042805.jpg" 
+                             alt="42805" title="42805 - marketplace with umbrellas and people"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-43971" 
+                             src="http://images.cocodataset.org/train2017/000000043971.jpg" 
+                             alt="43971" title="43971 - marketplace with umbrellas and people"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-464037" 
+                             src="http://images.cocodataset.org/train2017/000000464037.jpg" 
+                             alt="464037" title="464037 - marketplace with umbrellas and people"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-471015" 
+                             src="http://images.cocodataset.org/train2017/000000471015.jpg" 
+                             alt="471015" title="471015 - marketplace with umbrellas and people"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-50193" 
+                             src="http://images.cocodataset.org/train2017/000000050193.jpg" 
+                             alt="50193" title="50193 - marketplace with umbrellas and people"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-518207" 
+                             src="http://images.cocodataset.org/train2017/000000518207.jpg" 
+                             alt="518207" title="518207 - marketplace with umbrellas and people"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-542450" 
+                             src="http://images.cocodataset.org/train2017/000000542450.jpg" 
+                             alt="542450" title="542450 - marketplace with umbrellas and people"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-577613" 
+                             src="http://images.cocodataset.org/train2017/000000577613.jpg" 
+                             alt="577613" title="577613 - marketplace with umbrellas and people"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-580185" 
+                             src="http://images.cocodataset.org/train2017/000000580185.jpg" 
+                             alt="580185" title="580185 - marketplace with umbrellas and people"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-64621" 
+                             src="http://images.cocodataset.org/train2017/000000064621.jpg" 
+                             alt="64621" title="64621 - marketplace with umbrellas and people"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-67407" 
+                             src="http://images.cocodataset.org/train2017/000000067407.jpg" 
+                             alt="67407" title="67407 - marketplace with umbrellas and people"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-71516" 
+                             src="http://images.cocodataset.org/train2017/000000071516.jpg" 
+                             alt="71516" title="71516 - marketplace with umbrellas and people"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-7735" 
+                             src="http://images.cocodataset.org/train2017/000000007735.jpg" 
+                             alt="7735" title="7735 - marketplace with umbrellas and people"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="3">
+            <div class="cluster-title">marketplace with people vibrant colors</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-101390" 
+                             src="http://images.cocodataset.org/train2017/000000101390.jpg" 
+                             alt="101390" title="101390 - marketplace with people vibrant colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-13719" 
+                             src="http://images.cocodataset.org/train2017/000000013719.jpg" 
+                             alt="13719" title="13719 - marketplace with people vibrant colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-138956" 
+                             src="http://images.cocodataset.org/train2017/000000138956.jpg" 
+                             alt="138956" title="138956 - marketplace with people vibrant colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-155449" 
+                             src="http://images.cocodataset.org/train2017/000000155449.jpg" 
+                             alt="155449" title="155449 - marketplace with people vibrant colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-196090" 
+                             src="http://images.cocodataset.org/train2017/000000196090.jpg" 
+                             alt="196090" title="196090 - marketplace with people vibrant colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-201043" 
+                             src="http://images.cocodataset.org/train2017/000000201043.jpg" 
+                             alt="201043" title="201043 - marketplace with people vibrant colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-215469" 
+                             src="http://images.cocodataset.org/train2017/000000215469.jpg" 
+                             alt="215469" title="215469 - marketplace with people vibrant colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-220951" 
+                             src="http://images.cocodataset.org/train2017/000000220951.jpg" 
+                             alt="220951" title="220951 - marketplace with people vibrant colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-243947" 
+                             src="http://images.cocodataset.org/train2017/000000243947.jpg" 
+                             alt="243947" title="243947 - marketplace with people vibrant colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-248582" 
+                             src="http://images.cocodataset.org/train2017/000000248582.jpg" 
+                             alt="248582" title="248582 - marketplace with people vibrant colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-260172" 
+                             src="http://images.cocodataset.org/train2017/000000260172.jpg" 
+                             alt="260172" title="260172 - marketplace with people vibrant colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-282357" 
+                             src="http://images.cocodataset.org/train2017/000000282357.jpg" 
+                             alt="282357" title="282357 - marketplace with people vibrant colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-300343" 
+                             src="http://images.cocodataset.org/train2017/000000300343.jpg" 
+                             alt="300343" title="300343 - marketplace with people vibrant colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-305425" 
+                             src="http://images.cocodataset.org/train2017/000000305425.jpg" 
+                             alt="305425" title="305425 - marketplace with people vibrant colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-324232" 
+                             src="http://images.cocodataset.org/train2017/000000324232.jpg" 
+                             alt="324232" title="324232 - marketplace with people vibrant colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-339711" 
+                             src="http://images.cocodataset.org/train2017/000000339711.jpg" 
+                             alt="339711" title="339711 - marketplace with people vibrant colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-343349" 
+                             src="http://images.cocodataset.org/train2017/000000343349.jpg" 
+                             alt="343349" title="343349 - marketplace with people vibrant colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-354088" 
+                             src="http://images.cocodataset.org/train2017/000000354088.jpg" 
+                             alt="354088" title="354088 - marketplace with people vibrant colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-383047" 
+                             src="http://images.cocodataset.org/train2017/000000383047.jpg" 
+                             alt="383047" title="383047 - marketplace with people vibrant colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-400603" 
+                             src="http://images.cocodataset.org/train2017/000000400603.jpg" 
+                             alt="400603" title="400603 - marketplace with people vibrant colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-42204" 
+                             src="http://images.cocodataset.org/train2017/000000042204.jpg" 
+                             alt="42204" title="42204 - marketplace with people vibrant colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-443490" 
+                             src="http://images.cocodataset.org/train2017/000000443490.jpg" 
+                             alt="443490" title="443490 - marketplace with people vibrant colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-469599" 
+                             src="http://images.cocodataset.org/train2017/000000469599.jpg" 
+                             alt="469599" title="469599 - marketplace with people vibrant colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-539434" 
+                             src="http://images.cocodataset.org/train2017/000000539434.jpg" 
+                             alt="539434" title="539434 - marketplace with people vibrant colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-539449" 
+                             src="http://images.cocodataset.org/train2017/000000539449.jpg" 
+                             alt="539449" title="539449 - marketplace with people vibrant colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-548791" 
+                             src="http://images.cocodataset.org/train2017/000000548791.jpg" 
+                             alt="548791" title="548791 - marketplace with people vibrant colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-567274" 
+                             src="http://images.cocodataset.org/train2017/000000567274.jpg" 
+                             alt="567274" title="567274 - marketplace with people vibrant colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-568962" 
+                             src="http://images.cocodataset.org/train2017/000000568962.jpg" 
+                             alt="568962" title="568962 - marketplace with people vibrant colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-579277" 
+                             src="http://images.cocodataset.org/train2017/000000579277.jpg" 
+                             alt="579277" title="579277 - marketplace with people vibrant colors"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-8055" 
+                             src="http://images.cocodataset.org/train2017/000000008055.jpg" 
+                             alt="8055" title="8055 - marketplace with people vibrant colors"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="4">
+            <div class="cluster-title">marketplace of fresh fruits</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-112053" 
+                             src="http://images.cocodataset.org/train2017/000000112053.jpg" 
+                             alt="112053" title="112053 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-117366" 
+                             src="http://images.cocodataset.org/train2017/000000117366.jpg" 
+                             alt="117366" title="117366 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-122357" 
+                             src="http://images.cocodataset.org/train2017/000000122357.jpg" 
+                             alt="122357" title="122357 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-125230" 
+                             src="http://images.cocodataset.org/train2017/000000125230.jpg" 
+                             alt="125230" title="125230 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-132132" 
+                             src="http://images.cocodataset.org/train2017/000000132132.jpg" 
+                             alt="132132" title="132132 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-13893" 
+                             src="http://images.cocodataset.org/train2017/000000013893.jpg" 
+                             alt="13893" title="13893 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-141342" 
+                             src="http://images.cocodataset.org/train2017/000000141342.jpg" 
+                             alt="141342" title="141342 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-142470" 
+                             src="http://images.cocodataset.org/train2017/000000142470.jpg" 
+                             alt="142470" title="142470 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-148792" 
+                             src="http://images.cocodataset.org/train2017/000000148792.jpg" 
+                             alt="148792" title="148792 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-156302" 
+                             src="http://images.cocodataset.org/train2017/000000156302.jpg" 
+                             alt="156302" title="156302 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-163818" 
+                             src="http://images.cocodataset.org/train2017/000000163818.jpg" 
+                             alt="163818" title="163818 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-181468" 
+                             src="http://images.cocodataset.org/train2017/000000181468.jpg" 
+                             alt="181468" title="181468 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-199969" 
+                             src="http://images.cocodataset.org/train2017/000000199969.jpg" 
+                             alt="199969" title="199969 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-207231" 
+                             src="http://images.cocodataset.org/train2017/000000207231.jpg" 
+                             alt="207231" title="207231 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-220823" 
+                             src="http://images.cocodataset.org/train2017/000000220823.jpg" 
+                             alt="220823" title="220823 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-229132" 
+                             src="http://images.cocodataset.org/train2017/000000229132.jpg" 
+                             alt="229132" title="229132 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-242246" 
+                             src="http://images.cocodataset.org/train2017/000000242246.jpg" 
+                             alt="242246" title="242246 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-243558" 
+                             src="http://images.cocodataset.org/train2017/000000243558.jpg" 
+                             alt="243558" title="243558 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-243986" 
+                             src="http://images.cocodataset.org/train2017/000000243986.jpg" 
+                             alt="243986" title="243986 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-260481" 
+                             src="http://images.cocodataset.org/train2017/000000260481.jpg" 
+                             alt="260481" title="260481 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-26625" 
+                             src="http://images.cocodataset.org/train2017/000000026625.jpg" 
+                             alt="26625" title="26625 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-270703" 
+                             src="http://images.cocodataset.org/train2017/000000270703.jpg" 
+                             alt="270703" title="270703 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-289995" 
+                             src="http://images.cocodataset.org/train2017/000000289995.jpg" 
+                             alt="289995" title="289995 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-295428" 
+                             src="http://images.cocodataset.org/train2017/000000295428.jpg" 
+                             alt="295428" title="295428 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-305366" 
+                             src="http://images.cocodataset.org/train2017/000000305366.jpg" 
+                             alt="305366" title="305366 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-311899" 
+                             src="http://images.cocodataset.org/train2017/000000311899.jpg" 
+                             alt="311899" title="311899 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-324427" 
+                             src="http://images.cocodataset.org/train2017/000000324427.jpg" 
+                             alt="324427" title="324427 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-338168" 
+                             src="http://images.cocodataset.org/train2017/000000338168.jpg" 
+                             alt="338168" title="338168 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-342377" 
+                             src="http://images.cocodataset.org/train2017/000000342377.jpg" 
+                             alt="342377" title="342377 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-349485" 
+                             src="http://images.cocodataset.org/train2017/000000349485.jpg" 
+                             alt="349485" title="349485 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-355894" 
+                             src="http://images.cocodataset.org/train2017/000000355894.jpg" 
+                             alt="355894" title="355894 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-361572" 
+                             src="http://images.cocodataset.org/train2017/000000361572.jpg" 
+                             alt="361572" title="361572 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-372788" 
+                             src="http://images.cocodataset.org/train2017/000000372788.jpg" 
+                             alt="372788" title="372788 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-374806" 
+                             src="http://images.cocodataset.org/train2017/000000374806.jpg" 
+                             alt="374806" title="374806 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-396703" 
+                             src="http://images.cocodataset.org/train2017/000000396703.jpg" 
+                             alt="396703" title="396703 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-399147" 
+                             src="http://images.cocodataset.org/train2017/000000399147.jpg" 
+                             alt="399147" title="399147 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-399922" 
+                             src="http://images.cocodataset.org/train2017/000000399922.jpg" 
+                             alt="399922" title="399922 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-402922" 
+                             src="http://images.cocodataset.org/train2017/000000402922.jpg" 
+                             alt="402922" title="402922 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-40635" 
+                             src="http://images.cocodataset.org/train2017/000000040635.jpg" 
+                             alt="40635" title="40635 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-418697" 
+                             src="http://images.cocodataset.org/train2017/000000418697.jpg" 
+                             alt="418697" title="418697 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-429745" 
+                             src="http://images.cocodataset.org/train2017/000000429745.jpg" 
+                             alt="429745" title="429745 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-462071" 
+                             src="http://images.cocodataset.org/train2017/000000462071.jpg" 
+                             alt="462071" title="462071 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-465862" 
+                             src="http://images.cocodataset.org/train2017/000000465862.jpg" 
+                             alt="465862" title="465862 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-469024" 
+                             src="http://images.cocodataset.org/train2017/000000469024.jpg" 
+                             alt="469024" title="469024 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-490044" 
+                             src="http://images.cocodataset.org/train2017/000000490044.jpg" 
+                             alt="490044" title="490044 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-49902" 
+                             src="http://images.cocodataset.org/train2017/000000049902.jpg" 
+                             alt="49902" title="49902 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-500473" 
+                             src="http://images.cocodataset.org/train2017/000000500473.jpg" 
+                             alt="500473" title="500473 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-506750" 
+                             src="http://images.cocodataset.org/train2017/000000506750.jpg" 
+                             alt="506750" title="506750 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-51540" 
+                             src="http://images.cocodataset.org/train2017/000000051540.jpg" 
+                             alt="51540" title="51540 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-527846" 
+                             src="http://images.cocodataset.org/train2017/000000527846.jpg" 
+                             alt="527846" title="527846 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-529524" 
+                             src="http://images.cocodataset.org/train2017/000000529524.jpg" 
+                             alt="529524" title="529524 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-534801" 
+                             src="http://images.cocodataset.org/train2017/000000534801.jpg" 
+                             alt="534801" title="534801 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-540714" 
+                             src="http://images.cocodataset.org/train2017/000000540714.jpg" 
+                             alt="540714" title="540714 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-543378" 
+                             src="http://images.cocodataset.org/train2017/000000543378.jpg" 
+                             alt="543378" title="543378 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-549635" 
+                             src="http://images.cocodataset.org/train2017/000000549635.jpg" 
+                             alt="549635" title="549635 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-552849" 
+                             src="http://images.cocodataset.org/train2017/000000552849.jpg" 
+                             alt="552849" title="552849 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-564465" 
+                             src="http://images.cocodataset.org/train2017/000000564465.jpg" 
+                             alt="564465" title="564465 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-581857" 
+                             src="http://images.cocodataset.org/train2017/000000581857.jpg" 
+                             alt="581857" title="581857 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-87450" 
+                             src="http://images.cocodataset.org/train2017/000000087450.jpg" 
+                             alt="87450" title="87450 - marketplace of fresh fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-9077" 
+                             src="http://images.cocodataset.org/train2017/000000009077.jpg" 
+                             alt="9077" title="9077 - marketplace of fresh fruits"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+</div>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>

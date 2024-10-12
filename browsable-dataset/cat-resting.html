@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #pinco {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .images-for-query-by-clusters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+        .images-for-cluster-column-container {
+            background-color: #ffffff;
+            width: 380px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cluster-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .cluster-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px;
+        }
+        .coco-img-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .images-for-cluster-column-container:nth-child(5n) {
+            border-top: 5px solid #07730d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+1) {
+            border-top: 5px solid #2a51bb;
+        }
+        .images-for-cluster-column-container:nth-child(5n+2) {
+            border-top: 5px solid #b4c51d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+3) {
+            border-top: 5px solid #c51d1d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+4) {
+            border-top: 5px solid #1dc5c5;
+        }
+
+        .container {
+            width: 80%;
+            /* max-width: 800px; */
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .container-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .query-highlight {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            background-color: #e0f7f4;
+            padding: 0.2em 0.4em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="pinco">
+
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="../index.html">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Title Section -->
+ <div class="container-container">
+    <div class="container">
+        <h1>CroQS Dataset</h1>
+        <h3>Semantic Clusters for the Initial Query: <span class="query-highlight">cat resting</span></h3>
+    </div>
+</div>
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="0">
+            <div class="cluster-title">cat resting in round basin</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-21313" 
+                             src="http://images.cocodataset.org/train2017/000000021313.jpg" 
+                             alt="21313" title="21313 - cat resting in round basin"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-297440" 
+                             src="http://images.cocodataset.org/train2017/000000297440.jpg" 
+                             alt="297440" title="297440 - cat resting in round basin"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-324456" 
+                             src="http://images.cocodataset.org/train2017/000000324456.jpg" 
+                             alt="324456" title="324456 - cat resting in round basin"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-47333" 
+                             src="http://images.cocodataset.org/train2017/000000047333.jpg" 
+                             alt="47333" title="47333 - cat resting in round basin"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-539683" 
+                             src="http://images.cocodataset.org/train2017/000000539683.jpg" 
+                             alt="539683" title="539683 - cat resting in round basin"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-55630" 
+                             src="http://images.cocodataset.org/train2017/000000055630.jpg" 
+                             alt="55630" title="55630 - cat resting in round basin"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-117418" 
+                             src="http://images.cocodataset.org/train2017/000000117418.jpg" 
+                             alt="117418" title="117418 - cat resting in round basin"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-16664" 
+                             src="http://images.cocodataset.org/train2017/000000016664.jpg" 
+                             alt="16664" title="16664 - cat resting in round basin"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-215394" 
+                             src="http://images.cocodataset.org/train2017/000000215394.jpg" 
+                             alt="215394" title="215394 - cat resting in round basin"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-219567" 
+                             src="http://images.cocodataset.org/train2017/000000219567.jpg" 
+                             alt="219567" title="219567 - cat resting in round basin"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-419273" 
+                             src="http://images.cocodataset.org/train2017/000000419273.jpg" 
+                             alt="419273" title="419273 - cat resting in round basin"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-421991" 
+                             src="http://images.cocodataset.org/train2017/000000421991.jpg" 
+                             alt="421991" title="421991 - cat resting in round basin"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-465506" 
+                             src="http://images.cocodataset.org/train2017/000000465506.jpg" 
+                             alt="465506" title="465506 - cat resting in round basin"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-487323" 
+                             src="http://images.cocodataset.org/train2017/000000487323.jpg" 
+                             alt="487323" title="487323 - cat resting in round basin"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-518015" 
+                             src="http://images.cocodataset.org/train2017/000000518015.jpg" 
+                             alt="518015" title="518015 - cat resting in round basin"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-575805" 
+                             src="http://images.cocodataset.org/train2017/000000575805.jpg" 
+                             alt="575805" title="575805 - cat resting in round basin"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-579008" 
+                             src="http://images.cocodataset.org/train2017/000000579008.jpg" 
+                             alt="579008" title="579008 - cat resting in round basin"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="1">
+            <div class="cluster-title">cat resting on a bench outdoor</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-168803" 
+                             src="http://images.cocodataset.org/train2017/000000168803.jpg" 
+                             alt="168803" title="168803 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-188156" 
+                             src="http://images.cocodataset.org/train2017/000000188156.jpg" 
+                             alt="188156" title="188156 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-500723" 
+                             src="http://images.cocodataset.org/train2017/000000500723.jpg" 
+                             alt="500723" title="500723 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-107188" 
+                             src="http://images.cocodataset.org/train2017/000000107188.jpg" 
+                             alt="107188" title="107188 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-112770" 
+                             src="http://images.cocodataset.org/train2017/000000112770.jpg" 
+                             alt="112770" title="112770 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-122196" 
+                             src="http://images.cocodataset.org/train2017/000000122196.jpg" 
+                             alt="122196" title="122196 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-126324" 
+                             src="http://images.cocodataset.org/train2017/000000126324.jpg" 
+                             alt="126324" title="126324 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-133707" 
+                             src="http://images.cocodataset.org/train2017/000000133707.jpg" 
+                             alt="133707" title="133707 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-156151" 
+                             src="http://images.cocodataset.org/train2017/000000156151.jpg" 
+                             alt="156151" title="156151 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-171058" 
+                             src="http://images.cocodataset.org/train2017/000000171058.jpg" 
+                             alt="171058" title="171058 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-178193" 
+                             src="http://images.cocodataset.org/train2017/000000178193.jpg" 
+                             alt="178193" title="178193 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-246503" 
+                             src="http://images.cocodataset.org/train2017/000000246503.jpg" 
+                             alt="246503" title="246503 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-271943" 
+                             src="http://images.cocodataset.org/train2017/000000271943.jpg" 
+                             alt="271943" title="271943 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-284464" 
+                             src="http://images.cocodataset.org/train2017/000000284464.jpg" 
+                             alt="284464" title="284464 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-287503" 
+                             src="http://images.cocodataset.org/train2017/000000287503.jpg" 
+                             alt="287503" title="287503 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-293435" 
+                             src="http://images.cocodataset.org/train2017/000000293435.jpg" 
+                             alt="293435" title="293435 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-337435" 
+                             src="http://images.cocodataset.org/train2017/000000337435.jpg" 
+                             alt="337435" title="337435 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-350592" 
+                             src="http://images.cocodataset.org/train2017/000000350592.jpg" 
+                             alt="350592" title="350592 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-35712" 
+                             src="http://images.cocodataset.org/train2017/000000035712.jpg" 
+                             alt="35712" title="35712 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-379210" 
+                             src="http://images.cocodataset.org/train2017/000000379210.jpg" 
+                             alt="379210" title="379210 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-380117" 
+                             src="http://images.cocodataset.org/train2017/000000380117.jpg" 
+                             alt="380117" title="380117 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-411668" 
+                             src="http://images.cocodataset.org/train2017/000000411668.jpg" 
+                             alt="411668" title="411668 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-412807" 
+                             src="http://images.cocodataset.org/train2017/000000412807.jpg" 
+                             alt="412807" title="412807 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-448024" 
+                             src="http://images.cocodataset.org/train2017/000000448024.jpg" 
+                             alt="448024" title="448024 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-457337" 
+                             src="http://images.cocodataset.org/train2017/000000457337.jpg" 
+                             alt="457337" title="457337 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-469424" 
+                             src="http://images.cocodataset.org/train2017/000000469424.jpg" 
+                             alt="469424" title="469424 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-481911" 
+                             src="http://images.cocodataset.org/train2017/000000481911.jpg" 
+                             alt="481911" title="481911 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-49062" 
+                             src="http://images.cocodataset.org/train2017/000000049062.jpg" 
+                             alt="49062" title="49062 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-50972" 
+                             src="http://images.cocodataset.org/train2017/000000050972.jpg" 
+                             alt="50972" title="50972 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-520091" 
+                             src="http://images.cocodataset.org/train2017/000000520091.jpg" 
+                             alt="520091" title="520091 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-535679" 
+                             src="http://images.cocodataset.org/train2017/000000535679.jpg" 
+                             alt="535679" title="535679 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-548725" 
+                             src="http://images.cocodataset.org/train2017/000000548725.jpg" 
+                             alt="548725" title="548725 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-576191" 
+                             src="http://images.cocodataset.org/train2017/000000576191.jpg" 
+                             alt="576191" title="576191 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-577967" 
+                             src="http://images.cocodataset.org/train2017/000000577967.jpg" 
+                             alt="577967" title="577967 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-68238" 
+                             src="http://images.cocodataset.org/train2017/000000068238.jpg" 
+                             alt="68238" title="68238 - cat resting on a bench outdoor"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-90349" 
+                             src="http://images.cocodataset.org/train2017/000000090349.jpg" 
+                             alt="90349" title="90349 - cat resting on a bench outdoor"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="2">
+            <div class="cluster-title">cat resting on a sofa</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-159453" 
+                             src="http://images.cocodataset.org/train2017/000000159453.jpg" 
+                             alt="159453" title="159453 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-24299" 
+                             src="http://images.cocodataset.org/train2017/000000024299.jpg" 
+                             alt="24299" title="24299 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-2988" 
+                             src="http://images.cocodataset.org/train2017/000000002988.jpg" 
+                             alt="2988" title="2988 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-342817" 
+                             src="http://images.cocodataset.org/train2017/000000342817.jpg" 
+                             alt="342817" title="342817 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-376712" 
+                             src="http://images.cocodataset.org/train2017/000000376712.jpg" 
+                             alt="376712" title="376712 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-439531" 
+                             src="http://images.cocodataset.org/train2017/000000439531.jpg" 
+                             alt="439531" title="439531 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-460482" 
+                             src="http://images.cocodataset.org/train2017/000000460482.jpg" 
+                             alt="460482" title="460482 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-463883" 
+                             src="http://images.cocodataset.org/train2017/000000463883.jpg" 
+                             alt="463883" title="463883 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-547130" 
+                             src="http://images.cocodataset.org/train2017/000000547130.jpg" 
+                             alt="547130" title="547130 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-81552" 
+                             src="http://images.cocodataset.org/train2017/000000081552.jpg" 
+                             alt="81552" title="81552 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-128346" 
+                             src="http://images.cocodataset.org/train2017/000000128346.jpg" 
+                             alt="128346" title="128346 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-132578" 
+                             src="http://images.cocodataset.org/train2017/000000132578.jpg" 
+                             alt="132578" title="132578 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-137507" 
+                             src="http://images.cocodataset.org/train2017/000000137507.jpg" 
+                             alt="137507" title="137507 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-137961" 
+                             src="http://images.cocodataset.org/train2017/000000137961.jpg" 
+                             alt="137961" title="137961 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-142484" 
+                             src="http://images.cocodataset.org/train2017/000000142484.jpg" 
+                             alt="142484" title="142484 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-145192" 
+                             src="http://images.cocodataset.org/train2017/000000145192.jpg" 
+                             alt="145192" title="145192 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-152812" 
+                             src="http://images.cocodataset.org/train2017/000000152812.jpg" 
+                             alt="152812" title="152812 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-186502" 
+                             src="http://images.cocodataset.org/train2017/000000186502.jpg" 
+                             alt="186502" title="186502 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-226220" 
+                             src="http://images.cocodataset.org/train2017/000000226220.jpg" 
+                             alt="226220" title="226220 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-23163" 
+                             src="http://images.cocodataset.org/train2017/000000023163.jpg" 
+                             alt="23163" title="23163 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-239037" 
+                             src="http://images.cocodataset.org/train2017/000000239037.jpg" 
+                             alt="239037" title="239037 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-253789" 
+                             src="http://images.cocodataset.org/train2017/000000253789.jpg" 
+                             alt="253789" title="253789 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-255244" 
+                             src="http://images.cocodataset.org/train2017/000000255244.jpg" 
+                             alt="255244" title="255244 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-258305" 
+                             src="http://images.cocodataset.org/train2017/000000258305.jpg" 
+                             alt="258305" title="258305 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-2606" 
+                             src="http://images.cocodataset.org/train2017/000000002606.jpg" 
+                             alt="2606" title="2606 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-271002" 
+                             src="http://images.cocodataset.org/train2017/000000271002.jpg" 
+                             alt="271002" title="271002 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-288560" 
+                             src="http://images.cocodataset.org/train2017/000000288560.jpg" 
+                             alt="288560" title="288560 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-301697" 
+                             src="http://images.cocodataset.org/train2017/000000301697.jpg" 
+                             alt="301697" title="301697 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-306173" 
+                             src="http://images.cocodataset.org/train2017/000000306173.jpg" 
+                             alt="306173" title="306173 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-306671" 
+                             src="http://images.cocodataset.org/train2017/000000306671.jpg" 
+                             alt="306671" title="306671 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-313567" 
+                             src="http://images.cocodataset.org/train2017/000000313567.jpg" 
+                             alt="313567" title="313567 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-331530" 
+                             src="http://images.cocodataset.org/train2017/000000331530.jpg" 
+                             alt="331530" title="331530 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-354544" 
+                             src="http://images.cocodataset.org/train2017/000000354544.jpg" 
+                             alt="354544" title="354544 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-358236" 
+                             src="http://images.cocodataset.org/train2017/000000358236.jpg" 
+                             alt="358236" title="358236 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-396578" 
+                             src="http://images.cocodataset.org/train2017/000000396578.jpg" 
+                             alt="396578" title="396578 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-400313" 
+                             src="http://images.cocodataset.org/train2017/000000400313.jpg" 
+                             alt="400313" title="400313 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-404350" 
+                             src="http://images.cocodataset.org/train2017/000000404350.jpg" 
+                             alt="404350" title="404350 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-412955" 
+                             src="http://images.cocodataset.org/train2017/000000412955.jpg" 
+                             alt="412955" title="412955 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-443197" 
+                             src="http://images.cocodataset.org/train2017/000000443197.jpg" 
+                             alt="443197" title="443197 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-44545" 
+                             src="http://images.cocodataset.org/train2017/000000044545.jpg" 
+                             alt="44545" title="44545 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-45586" 
+                             src="http://images.cocodataset.org/train2017/000000045586.jpg" 
+                             alt="45586" title="45586 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-456491" 
+                             src="http://images.cocodataset.org/train2017/000000456491.jpg" 
+                             alt="456491" title="456491 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-45830" 
+                             src="http://images.cocodataset.org/train2017/000000045830.jpg" 
+                             alt="45830" title="45830 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-460005" 
+                             src="http://images.cocodataset.org/train2017/000000460005.jpg" 
+                             alt="460005" title="460005 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-463669" 
+                             src="http://images.cocodataset.org/train2017/000000463669.jpg" 
+                             alt="463669" title="463669 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-473337" 
+                             src="http://images.cocodataset.org/train2017/000000473337.jpg" 
+                             alt="473337" title="473337 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-478927" 
+                             src="http://images.cocodataset.org/train2017/000000478927.jpg" 
+                             alt="478927" title="478927 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-490725" 
+                             src="http://images.cocodataset.org/train2017/000000490725.jpg" 
+                             alt="490725" title="490725 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-51272" 
+                             src="http://images.cocodataset.org/train2017/000000051272.jpg" 
+                             alt="51272" title="51272 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-522441" 
+                             src="http://images.cocodataset.org/train2017/000000522441.jpg" 
+                             alt="522441" title="522441 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-54182" 
+                             src="http://images.cocodataset.org/train2017/000000054182.jpg" 
+                             alt="54182" title="54182 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-543897" 
+                             src="http://images.cocodataset.org/train2017/000000543897.jpg" 
+                             alt="543897" title="543897 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-546702" 
+                             src="http://images.cocodataset.org/train2017/000000546702.jpg" 
+                             alt="546702" title="546702 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-549410" 
+                             src="http://images.cocodataset.org/train2017/000000549410.jpg" 
+                             alt="549410" title="549410 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-553719" 
+                             src="http://images.cocodataset.org/train2017/000000553719.jpg" 
+                             alt="553719" title="553719 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-564663" 
+                             src="http://images.cocodataset.org/train2017/000000564663.jpg" 
+                             alt="564663" title="564663 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-57839" 
+                             src="http://images.cocodataset.org/train2017/000000057839.jpg" 
+                             alt="57839" title="57839 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-70353" 
+                             src="http://images.cocodataset.org/train2017/000000070353.jpg" 
+                             alt="70353" title="70353 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-71845" 
+                             src="http://images.cocodataset.org/train2017/000000071845.jpg" 
+                             alt="71845" title="71845 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-76522" 
+                             src="http://images.cocodataset.org/train2017/000000076522.jpg" 
+                             alt="76522" title="76522 - cat resting on a sofa"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-87629" 
+                             src="http://images.cocodataset.org/train2017/000000087629.jpg" 
+                             alt="87629" title="87629 - cat resting on a sofa"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="3">
+            <div class="cluster-title">cat resting in a village</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-226957" 
+                             src="http://images.cocodataset.org/train2017/000000226957.jpg" 
+                             alt="226957" title="226957 - cat resting in a village"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-228185" 
+                             src="http://images.cocodataset.org/train2017/000000228185.jpg" 
+                             alt="228185" title="228185 - cat resting in a village"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-271680" 
+                             src="http://images.cocodataset.org/train2017/000000271680.jpg" 
+                             alt="271680" title="271680 - cat resting in a village"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-389463" 
+                             src="http://images.cocodataset.org/train2017/000000389463.jpg" 
+                             alt="389463" title="389463 - cat resting in a village"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-496959" 
+                             src="http://images.cocodataset.org/train2017/000000496959.jpg" 
+                             alt="496959" title="496959 - cat resting in a village"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-569249" 
+                             src="http://images.cocodataset.org/train2017/000000569249.jpg" 
+                             alt="569249" title="569249 - cat resting in a village"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-67106" 
+                             src="http://images.cocodataset.org/train2017/000000067106.jpg" 
+                             alt="67106" title="67106 - cat resting in a village"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-67126" 
+                             src="http://images.cocodataset.org/train2017/000000067126.jpg" 
+                             alt="67126" title="67126 - cat resting in a village"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-100449" 
+                             src="http://images.cocodataset.org/train2017/000000100449.jpg" 
+                             alt="100449" title="100449 - cat resting in a village"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-117407" 
+                             src="http://images.cocodataset.org/train2017/000000117407.jpg" 
+                             alt="117407" title="117407 - cat resting in a village"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-131434" 
+                             src="http://images.cocodataset.org/train2017/000000131434.jpg" 
+                             alt="131434" title="131434 - cat resting in a village"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-231374" 
+                             src="http://images.cocodataset.org/train2017/000000231374.jpg" 
+                             alt="231374" title="231374 - cat resting in a village"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-288776" 
+                             src="http://images.cocodataset.org/train2017/000000288776.jpg" 
+                             alt="288776" title="288776 - cat resting in a village"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-300471" 
+                             src="http://images.cocodataset.org/train2017/000000300471.jpg" 
+                             alt="300471" title="300471 - cat resting in a village"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-463266" 
+                             src="http://images.cocodataset.org/train2017/000000463266.jpg" 
+                             alt="463266" title="463266 - cat resting in a village"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-494870" 
+                             src="http://images.cocodataset.org/train2017/000000494870.jpg" 
+                             alt="494870" title="494870 - cat resting in a village"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-501788" 
+                             src="http://images.cocodataset.org/train2017/000000501788.jpg" 
+                             alt="501788" title="501788 - cat resting in a village"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-522891" 
+                             src="http://images.cocodataset.org/train2017/000000522891.jpg" 
+                             alt="522891" title="522891 - cat resting in a village"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-540844" 
+                             src="http://images.cocodataset.org/train2017/000000540844.jpg" 
+                             alt="540844" title="540844 - cat resting in a village"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-553878" 
+                             src="http://images.cocodataset.org/train2017/000000553878.jpg" 
+                             alt="553878" title="553878 - cat resting in a village"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-84749" 
+                             src="http://images.cocodataset.org/train2017/000000084749.jpg" 
+                             alt="84749" title="84749 - cat resting in a village"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="4">
+            <div class="cluster-title">cat resting in a upholstered room</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-108751" 
+                             src="http://images.cocodataset.org/train2017/000000108751.jpg" 
+                             alt="108751" title="108751 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-233613" 
+                             src="http://images.cocodataset.org/train2017/000000233613.jpg" 
+                             alt="233613" title="233613 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-243734" 
+                             src="http://images.cocodataset.org/train2017/000000243734.jpg" 
+                             alt="243734" title="243734 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-253624" 
+                             src="http://images.cocodataset.org/train2017/000000253624.jpg" 
+                             alt="253624" title="253624 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-296244" 
+                             src="http://images.cocodataset.org/train2017/000000296244.jpg" 
+                             alt="296244" title="296244 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-30068" 
+                             src="http://images.cocodataset.org/train2017/000000030068.jpg" 
+                             alt="30068" title="30068 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-317509" 
+                             src="http://images.cocodataset.org/train2017/000000317509.jpg" 
+                             alt="317509" title="317509 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-384204" 
+                             src="http://images.cocodataset.org/train2017/000000384204.jpg" 
+                             alt="384204" title="384204 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-389788" 
+                             src="http://images.cocodataset.org/train2017/000000389788.jpg" 
+                             alt="389788" title="389788 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-480076" 
+                             src="http://images.cocodataset.org/train2017/000000480076.jpg" 
+                             alt="480076" title="480076 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-96517" 
+                             src="http://images.cocodataset.org/train2017/000000096517.jpg" 
+                             alt="96517" title="96517 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-1085" 
+                             src="http://images.cocodataset.org/train2017/000000001085.jpg" 
+                             alt="1085" title="1085 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-112388" 
+                             src="http://images.cocodataset.org/train2017/000000112388.jpg" 
+                             alt="112388" title="112388 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-145891" 
+                             src="http://images.cocodataset.org/train2017/000000145891.jpg" 
+                             alt="145891" title="145891 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-219474" 
+                             src="http://images.cocodataset.org/train2017/000000219474.jpg" 
+                             alt="219474" title="219474 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-223757" 
+                             src="http://images.cocodataset.org/train2017/000000223757.jpg" 
+                             alt="223757" title="223757 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-244734" 
+                             src="http://images.cocodataset.org/train2017/000000244734.jpg" 
+                             alt="244734" title="244734 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-275371" 
+                             src="http://images.cocodataset.org/train2017/000000275371.jpg" 
+                             alt="275371" title="275371 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-289410" 
+                             src="http://images.cocodataset.org/train2017/000000289410.jpg" 
+                             alt="289410" title="289410 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-299854" 
+                             src="http://images.cocodataset.org/train2017/000000299854.jpg" 
+                             alt="299854" title="299854 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-317822" 
+                             src="http://images.cocodataset.org/train2017/000000317822.jpg" 
+                             alt="317822" title="317822 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-329368" 
+                             src="http://images.cocodataset.org/train2017/000000329368.jpg" 
+                             alt="329368" title="329368 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-354841" 
+                             src="http://images.cocodataset.org/train2017/000000354841.jpg" 
+                             alt="354841" title="354841 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-357391" 
+                             src="http://images.cocodataset.org/train2017/000000357391.jpg" 
+                             alt="357391" title="357391 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-377005" 
+                             src="http://images.cocodataset.org/train2017/000000377005.jpg" 
+                             alt="377005" title="377005 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-3999" 
+                             src="http://images.cocodataset.org/train2017/000000003999.jpg" 
+                             alt="3999" title="3999 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-404673" 
+                             src="http://images.cocodataset.org/train2017/000000404673.jpg" 
+                             alt="404673" title="404673 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-406798" 
+                             src="http://images.cocodataset.org/train2017/000000406798.jpg" 
+                             alt="406798" title="406798 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-409173" 
+                             src="http://images.cocodataset.org/train2017/000000409173.jpg" 
+                             alt="409173" title="409173 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-41265" 
+                             src="http://images.cocodataset.org/train2017/000000041265.jpg" 
+                             alt="41265" title="41265 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-415571" 
+                             src="http://images.cocodataset.org/train2017/000000415571.jpg" 
+                             alt="415571" title="415571 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-431879" 
+                             src="http://images.cocodataset.org/train2017/000000431879.jpg" 
+                             alt="431879" title="431879 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-440371" 
+                             src="http://images.cocodataset.org/train2017/000000440371.jpg" 
+                             alt="440371" title="440371 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-476530" 
+                             src="http://images.cocodataset.org/train2017/000000476530.jpg" 
+                             alt="476530" title="476530 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-480566" 
+                             src="http://images.cocodataset.org/train2017/000000480566.jpg" 
+                             alt="480566" title="480566 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-481565" 
+                             src="http://images.cocodataset.org/train2017/000000481565.jpg" 
+                             alt="481565" title="481565 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-500084" 
+                             src="http://images.cocodataset.org/train2017/000000500084.jpg" 
+                             alt="500084" title="500084 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-570521" 
+                             src="http://images.cocodataset.org/train2017/000000570521.jpg" 
+                             alt="570521" title="570521 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-69758" 
+                             src="http://images.cocodataset.org/train2017/000000069758.jpg" 
+                             alt="69758" title="69758 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-84448" 
+                             src="http://images.cocodataset.org/train2017/000000084448.jpg" 
+                             alt="84448" title="84448 - cat resting in a upholstered room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-8559" 
+                             src="http://images.cocodataset.org/train2017/000000008559.jpg" 
+                             alt="8559" title="8559 - cat resting in a upholstered room"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="5">
+            <div class="cluster-title">cat resting on a mean of transport</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-360510" 
+                             src="http://images.cocodataset.org/train2017/000000360510.jpg" 
+                             alt="360510" title="360510 - cat resting on a mean of transport"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-36757" 
+                             src="http://images.cocodataset.org/train2017/000000036757.jpg" 
+                             alt="36757" title="36757 - cat resting on a mean of transport"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-446409" 
+                             src="http://images.cocodataset.org/train2017/000000446409.jpg" 
+                             alt="446409" title="446409 - cat resting on a mean of transport"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-474208" 
+                             src="http://images.cocodataset.org/train2017/000000474208.jpg" 
+                             alt="474208" title="474208 - cat resting on a mean of transport"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-546264" 
+                             src="http://images.cocodataset.org/train2017/000000546264.jpg" 
+                             alt="546264" title="546264 - cat resting on a mean of transport"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-579016" 
+                             src="http://images.cocodataset.org/train2017/000000579016.jpg" 
+                             alt="579016" title="579016 - cat resting on a mean of transport"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-480991" 
+                             src="http://images.cocodataset.org/train2017/000000480991.jpg" 
+                             alt="480991" title="480991 - cat resting on a mean of transport"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-148634" 
+                             src="http://images.cocodataset.org/train2017/000000148634.jpg" 
+                             alt="148634" title="148634 - cat resting on a mean of transport"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-123970" 
+                             src="http://images.cocodataset.org/train2017/000000123970.jpg" 
+                             alt="123970" title="123970 - cat resting on a mean of transport"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-145448" 
+                             src="http://images.cocodataset.org/train2017/000000145448.jpg" 
+                             alt="145448" title="145448 - cat resting on a mean of transport"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-158127" 
+                             src="http://images.cocodataset.org/train2017/000000158127.jpg" 
+                             alt="158127" title="158127 - cat resting on a mean of transport"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-171753" 
+                             src="http://images.cocodataset.org/train2017/000000171753.jpg" 
+                             alt="171753" title="171753 - cat resting on a mean of transport"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-171809" 
+                             src="http://images.cocodataset.org/train2017/000000171809.jpg" 
+                             alt="171809" title="171809 - cat resting on a mean of transport"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-190360" 
+                             src="http://images.cocodataset.org/train2017/000000190360.jpg" 
+                             alt="190360" title="190360 - cat resting on a mean of transport"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-193680" 
+                             src="http://images.cocodataset.org/train2017/000000193680.jpg" 
+                             alt="193680" title="193680 - cat resting on a mean of transport"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-235759" 
+                             src="http://images.cocodataset.org/train2017/000000235759.jpg" 
+                             alt="235759" title="235759 - cat resting on a mean of transport"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-329734" 
+                             src="http://images.cocodataset.org/train2017/000000329734.jpg" 
+                             alt="329734" title="329734 - cat resting on a mean of transport"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-352601" 
+                             src="http://images.cocodataset.org/train2017/000000352601.jpg" 
+                             alt="352601" title="352601 - cat resting on a mean of transport"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-432467" 
+                             src="http://images.cocodataset.org/train2017/000000432467.jpg" 
+                             alt="432467" title="432467 - cat resting on a mean of transport"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-441165" 
+                             src="http://images.cocodataset.org/train2017/000000441165.jpg" 
+                             alt="441165" title="441165 - cat resting on a mean of transport"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-483249" 
+                             src="http://images.cocodataset.org/train2017/000000483249.jpg" 
+                             alt="483249" title="483249 - cat resting on a mean of transport"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-578632" 
+                             src="http://images.cocodataset.org/train2017/000000578632.jpg" 
+                             alt="578632" title="578632 - cat resting on a mean of transport"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-75742" 
+                             src="http://images.cocodataset.org/train2017/000000075742.jpg" 
+                             alt="75742" title="75742 - cat resting on a mean of transport"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+</div>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>

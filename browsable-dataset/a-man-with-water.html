@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #pinco {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .images-for-query-by-clusters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+        .images-for-cluster-column-container {
+            background-color: #ffffff;
+            width: 380px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cluster-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .cluster-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px;
+        }
+        .coco-img-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .images-for-cluster-column-container:nth-child(5n) {
+            border-top: 5px solid #07730d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+1) {
+            border-top: 5px solid #2a51bb;
+        }
+        .images-for-cluster-column-container:nth-child(5n+2) {
+            border-top: 5px solid #b4c51d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+3) {
+            border-top: 5px solid #c51d1d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+4) {
+            border-top: 5px solid #1dc5c5;
+        }
+
+        .container {
+            width: 80%;
+            /* max-width: 800px; */
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .container-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .query-highlight {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            background-color: #e0f7f4;
+            padding: 0.2em 0.4em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="pinco">
+
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="../index.html">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Title Section -->
+ <div class="container-container">
+    <div class="container">
+        <h1>CroQS Dataset</h1>
+        <h3>Semantic Clusters for the Initial Query: <span class="query-highlight">a man with water</span></h3>
+    </div>
+</div>
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="0">
+            <div class="cluster-title">a man playing near water</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-229507" 
+                             src="http://images.cocodataset.org/train2017/000000229507.jpg" 
+                             alt="229507" title="229507 - a man playing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-278350" 
+                             src="http://images.cocodataset.org/train2017/000000278350.jpg" 
+                             alt="278350" title="278350 - a man playing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-320641" 
+                             src="http://images.cocodataset.org/train2017/000000320641.jpg" 
+                             alt="320641" title="320641 - a man playing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-82300" 
+                             src="http://images.cocodataset.org/train2017/000000082300.jpg" 
+                             alt="82300" title="82300 - a man playing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-195701" 
+                             src="http://images.cocodataset.org/train2017/000000195701.jpg" 
+                             alt="195701" title="195701 - a man playing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-205681" 
+                             src="http://images.cocodataset.org/train2017/000000205681.jpg" 
+                             alt="205681" title="205681 - a man playing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-226173" 
+                             src="http://images.cocodataset.org/train2017/000000226173.jpg" 
+                             alt="226173" title="226173 - a man playing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-226613" 
+                             src="http://images.cocodataset.org/train2017/000000226613.jpg" 
+                             alt="226613" title="226613 - a man playing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-326063" 
+                             src="http://images.cocodataset.org/train2017/000000326063.jpg" 
+                             alt="326063" title="326063 - a man playing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-346450" 
+                             src="http://images.cocodataset.org/train2017/000000346450.jpg" 
+                             alt="346450" title="346450 - a man playing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-473052" 
+                             src="http://images.cocodataset.org/train2017/000000473052.jpg" 
+                             alt="473052" title="473052 - a man playing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-505344" 
+                             src="http://images.cocodataset.org/train2017/000000505344.jpg" 
+                             alt="505344" title="505344 - a man playing near water"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="1">
+            <div class="cluster-title">a man in the water on a boat</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-160307" 
+                             src="http://images.cocodataset.org/train2017/000000160307.jpg" 
+                             alt="160307" title="160307 - a man in the water on a boat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-180071" 
+                             src="http://images.cocodataset.org/train2017/000000180071.jpg" 
+                             alt="180071" title="180071 - a man in the water on a boat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-205035" 
+                             src="http://images.cocodataset.org/train2017/000000205035.jpg" 
+                             alt="205035" title="205035 - a man in the water on a boat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-223719" 
+                             src="http://images.cocodataset.org/train2017/000000223719.jpg" 
+                             alt="223719" title="223719 - a man in the water on a boat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-251563" 
+                             src="http://images.cocodataset.org/train2017/000000251563.jpg" 
+                             alt="251563" title="251563 - a man in the water on a boat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-415235" 
+                             src="http://images.cocodataset.org/train2017/000000415235.jpg" 
+                             alt="415235" title="415235 - a man in the water on a boat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-51549" 
+                             src="http://images.cocodataset.org/train2017/000000051549.jpg" 
+                             alt="51549" title="51549 - a man in the water on a boat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-269827" 
+                             src="http://images.cocodataset.org/train2017/000000269827.jpg" 
+                             alt="269827" title="269827 - a man in the water on a boat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-295423" 
+                             src="http://images.cocodataset.org/train2017/000000295423.jpg" 
+                             alt="295423" title="295423 - a man in the water on a boat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-317934" 
+                             src="http://images.cocodataset.org/train2017/000000317934.jpg" 
+                             alt="317934" title="317934 - a man in the water on a boat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-349129" 
+                             src="http://images.cocodataset.org/train2017/000000349129.jpg" 
+                             alt="349129" title="349129 - a man in the water on a boat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-354035" 
+                             src="http://images.cocodataset.org/train2017/000000354035.jpg" 
+                             alt="354035" title="354035 - a man in the water on a boat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-424385" 
+                             src="http://images.cocodataset.org/train2017/000000424385.jpg" 
+                             alt="424385" title="424385 - a man in the water on a boat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-43133" 
+                             src="http://images.cocodataset.org/train2017/000000043133.jpg" 
+                             alt="43133" title="43133 - a man in the water on a boat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-450608" 
+                             src="http://images.cocodataset.org/train2017/000000450608.jpg" 
+                             alt="450608" title="450608 - a man in the water on a boat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-467032" 
+                             src="http://images.cocodataset.org/train2017/000000467032.jpg" 
+                             alt="467032" title="467032 - a man in the water on a boat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-484614" 
+                             src="http://images.cocodataset.org/train2017/000000484614.jpg" 
+                             alt="484614" title="484614 - a man in the water on a boat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-520289" 
+                             src="http://images.cocodataset.org/train2017/000000520289.jpg" 
+                             alt="520289" title="520289 - a man in the water on a boat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-540469" 
+                             src="http://images.cocodataset.org/train2017/000000540469.jpg" 
+                             alt="540469" title="540469 - a man in the water on a boat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-575519" 
+                             src="http://images.cocodataset.org/train2017/000000575519.jpg" 
+                             alt="575519" title="575519 - a man in the water on a boat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-76776" 
+                             src="http://images.cocodataset.org/train2017/000000076776.jpg" 
+                             alt="76776" title="76776 - a man in the water on a boat"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="2">
+            <div class="cluster-title">a man near water while raining</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-143171" 
+                             src="http://images.cocodataset.org/train2017/000000143171.jpg" 
+                             alt="143171" title="143171 - a man near water while raining"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-310035" 
+                             src="http://images.cocodataset.org/train2017/000000310035.jpg" 
+                             alt="310035" title="310035 - a man near water while raining"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-432138" 
+                             src="http://images.cocodataset.org/train2017/000000432138.jpg" 
+                             alt="432138" title="432138 - a man near water while raining"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-206912" 
+                             src="http://images.cocodataset.org/train2017/000000206912.jpg" 
+                             alt="206912" title="206912 - a man near water while raining"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-313735" 
+                             src="http://images.cocodataset.org/train2017/000000313735.jpg" 
+                             alt="313735" title="313735 - a man near water while raining"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-326312" 
+                             src="http://images.cocodataset.org/train2017/000000326312.jpg" 
+                             alt="326312" title="326312 - a man near water while raining"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-381721" 
+                             src="http://images.cocodataset.org/train2017/000000381721.jpg" 
+                             alt="381721" title="381721 - a man near water while raining"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-464895" 
+                             src="http://images.cocodataset.org/train2017/000000464895.jpg" 
+                             alt="464895" title="464895 - a man near water while raining"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-474598" 
+                             src="http://images.cocodataset.org/train2017/000000474598.jpg" 
+                             alt="474598" title="474598 - a man near water while raining"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-495931" 
+                             src="http://images.cocodataset.org/train2017/000000495931.jpg" 
+                             alt="495931" title="495931 - a man near water while raining"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-505489" 
+                             src="http://images.cocodataset.org/train2017/000000505489.jpg" 
+                             alt="505489" title="505489 - a man near water while raining"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-510" 
+                             src="http://images.cocodataset.org/train2017/000000000510.jpg" 
+                             alt="510" title="510 - a man near water while raining"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-521872" 
+                             src="http://images.cocodataset.org/train2017/000000521872.jpg" 
+                             alt="521872" title="521872 - a man near water while raining"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-570714" 
+                             src="http://images.cocodataset.org/train2017/000000570714.jpg" 
+                             alt="570714" title="570714 - a man near water while raining"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-74863" 
+                             src="http://images.cocodataset.org/train2017/000000074863.jpg" 
+                             alt="74863" title="74863 - a man near water while raining"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-95677" 
+                             src="http://images.cocodataset.org/train2017/000000095677.jpg" 
+                             alt="95677" title="95677 - a man near water while raining"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="3">
+            <div class="cluster-title">a man in water activity like surf</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-110480" 
+                             src="http://images.cocodataset.org/train2017/000000110480.jpg" 
+                             alt="110480" title="110480 - a man in water activity like surf"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-119773" 
+                             src="http://images.cocodataset.org/train2017/000000119773.jpg" 
+                             alt="119773" title="119773 - a man in water activity like surf"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-205317" 
+                             src="http://images.cocodataset.org/train2017/000000205317.jpg" 
+                             alt="205317" title="205317 - a man in water activity like surf"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-231628" 
+                             src="http://images.cocodataset.org/train2017/000000231628.jpg" 
+                             alt="231628" title="231628 - a man in water activity like surf"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-357659" 
+                             src="http://images.cocodataset.org/train2017/000000357659.jpg" 
+                             alt="357659" title="357659 - a man in water activity like surf"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-407319" 
+                             src="http://images.cocodataset.org/train2017/000000407319.jpg" 
+                             alt="407319" title="407319 - a man in water activity like surf"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-461880" 
+                             src="http://images.cocodataset.org/train2017/000000461880.jpg" 
+                             alt="461880" title="461880 - a man in water activity like surf"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-497625" 
+                             src="http://images.cocodataset.org/train2017/000000497625.jpg" 
+                             alt="497625" title="497625 - a man in water activity like surf"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-157085" 
+                             src="http://images.cocodataset.org/train2017/000000157085.jpg" 
+                             alt="157085" title="157085 - a man in water activity like surf"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-20575" 
+                             src="http://images.cocodataset.org/train2017/000000020575.jpg" 
+                             alt="20575" title="20575 - a man in water activity like surf"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-206017" 
+                             src="http://images.cocodataset.org/train2017/000000206017.jpg" 
+                             alt="206017" title="206017 - a man in water activity like surf"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-219434" 
+                             src="http://images.cocodataset.org/train2017/000000219434.jpg" 
+                             alt="219434" title="219434 - a man in water activity like surf"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-23702" 
+                             src="http://images.cocodataset.org/train2017/000000023702.jpg" 
+                             alt="23702" title="23702 - a man in water activity like surf"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-274275" 
+                             src="http://images.cocodataset.org/train2017/000000274275.jpg" 
+                             alt="274275" title="274275 - a man in water activity like surf"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-279646" 
+                             src="http://images.cocodataset.org/train2017/000000279646.jpg" 
+                             alt="279646" title="279646 - a man in water activity like surf"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-313803" 
+                             src="http://images.cocodataset.org/train2017/000000313803.jpg" 
+                             alt="313803" title="313803 - a man in water activity like surf"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-345987" 
+                             src="http://images.cocodataset.org/train2017/000000345987.jpg" 
+                             alt="345987" title="345987 - a man in water activity like surf"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-375369" 
+                             src="http://images.cocodataset.org/train2017/000000375369.jpg" 
+                             alt="375369" title="375369 - a man in water activity like surf"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-378588" 
+                             src="http://images.cocodataset.org/train2017/000000378588.jpg" 
+                             alt="378588" title="378588 - a man in water activity like surf"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-419212" 
+                             src="http://images.cocodataset.org/train2017/000000419212.jpg" 
+                             alt="419212" title="419212 - a man in water activity like surf"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-437494" 
+                             src="http://images.cocodataset.org/train2017/000000437494.jpg" 
+                             alt="437494" title="437494 - a man in water activity like surf"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-455615" 
+                             src="http://images.cocodataset.org/train2017/000000455615.jpg" 
+                             alt="455615" title="455615 - a man in water activity like surf"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-571198" 
+                             src="http://images.cocodataset.org/train2017/000000571198.jpg" 
+                             alt="571198" title="571198 - a man in water activity like surf"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="4">
+            <div class="cluster-title">a man with water hydrant</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-118715" 
+                             src="http://images.cocodataset.org/train2017/000000118715.jpg" 
+                             alt="118715" title="118715 - a man with water hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-148318" 
+                             src="http://images.cocodataset.org/train2017/000000148318.jpg" 
+                             alt="148318" title="148318 - a man with water hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-218830" 
+                             src="http://images.cocodataset.org/train2017/000000218830.jpg" 
+                             alt="218830" title="218830 - a man with water hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-314200" 
+                             src="http://images.cocodataset.org/train2017/000000314200.jpg" 
+                             alt="314200" title="314200 - a man with water hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-407072" 
+                             src="http://images.cocodataset.org/train2017/000000407072.jpg" 
+                             alt="407072" title="407072 - a man with water hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-480979" 
+                             src="http://images.cocodataset.org/train2017/000000480979.jpg" 
+                             alt="480979" title="480979 - a man with water hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-66510" 
+                             src="http://images.cocodataset.org/train2017/000000066510.jpg" 
+                             alt="66510" title="66510 - a man with water hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-110616" 
+                             src="http://images.cocodataset.org/train2017/000000110616.jpg" 
+                             alt="110616" title="110616 - a man with water hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-13637" 
+                             src="http://images.cocodataset.org/train2017/000000013637.jpg" 
+                             alt="13637" title="13637 - a man with water hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-147270" 
+                             src="http://images.cocodataset.org/train2017/000000147270.jpg" 
+                             alt="147270" title="147270 - a man with water hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-158563" 
+                             src="http://images.cocodataset.org/train2017/000000158563.jpg" 
+                             alt="158563" title="158563 - a man with water hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-215803" 
+                             src="http://images.cocodataset.org/train2017/000000215803.jpg" 
+                             alt="215803" title="215803 - a man with water hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-234967" 
+                             src="http://images.cocodataset.org/train2017/000000234967.jpg" 
+                             alt="234967" title="234967 - a man with water hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-385042" 
+                             src="http://images.cocodataset.org/train2017/000000385042.jpg" 
+                             alt="385042" title="385042 - a man with water hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-39012" 
+                             src="http://images.cocodataset.org/train2017/000000039012.jpg" 
+                             alt="39012" title="39012 - a man with water hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-464880" 
+                             src="http://images.cocodataset.org/train2017/000000464880.jpg" 
+                             alt="464880" title="464880 - a man with water hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-561303" 
+                             src="http://images.cocodataset.org/train2017/000000561303.jpg" 
+                             alt="561303" title="561303 - a man with water hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-77533" 
+                             src="http://images.cocodataset.org/train2017/000000077533.jpg" 
+                             alt="77533" title="77533 - a man with water hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-7772" 
+                             src="http://images.cocodataset.org/train2017/000000007772.jpg" 
+                             alt="7772" title="7772 - a man with water hydrant"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="5">
+            <div class="cluster-title">a man with water gushing from hydrant</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-102930" 
+                             src="http://images.cocodataset.org/train2017/000000102930.jpg" 
+                             alt="102930" title="102930 - a man with water gushing from hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-128553" 
+                             src="http://images.cocodataset.org/train2017/000000128553.jpg" 
+                             alt="128553" title="128553 - a man with water gushing from hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-216686" 
+                             src="http://images.cocodataset.org/train2017/000000216686.jpg" 
+                             alt="216686" title="216686 - a man with water gushing from hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-274526" 
+                             src="http://images.cocodataset.org/train2017/000000274526.jpg" 
+                             alt="274526" title="274526 - a man with water gushing from hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-288986" 
+                             src="http://images.cocodataset.org/train2017/000000288986.jpg" 
+                             alt="288986" title="288986 - a man with water gushing from hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-565286" 
+                             src="http://images.cocodataset.org/train2017/000000565286.jpg" 
+                             alt="565286" title="565286 - a man with water gushing from hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-70265" 
+                             src="http://images.cocodataset.org/train2017/000000070265.jpg" 
+                             alt="70265" title="70265 - a man with water gushing from hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-173125" 
+                             src="http://images.cocodataset.org/train2017/000000173125.jpg" 
+                             alt="173125" title="173125 - a man with water gushing from hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-173579" 
+                             src="http://images.cocodataset.org/train2017/000000173579.jpg" 
+                             alt="173579" title="173579 - a man with water gushing from hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-210424" 
+                             src="http://images.cocodataset.org/train2017/000000210424.jpg" 
+                             alt="210424" title="210424 - a man with water gushing from hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-245528" 
+                             src="http://images.cocodataset.org/train2017/000000245528.jpg" 
+                             alt="245528" title="245528 - a man with water gushing from hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-266151" 
+                             src="http://images.cocodataset.org/train2017/000000266151.jpg" 
+                             alt="266151" title="266151 - a man with water gushing from hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-306803" 
+                             src="http://images.cocodataset.org/train2017/000000306803.jpg" 
+                             alt="306803" title="306803 - a man with water gushing from hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-330133" 
+                             src="http://images.cocodataset.org/train2017/000000330133.jpg" 
+                             alt="330133" title="330133 - a man with water gushing from hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-455435" 
+                             src="http://images.cocodataset.org/train2017/000000455435.jpg" 
+                             alt="455435" title="455435 - a man with water gushing from hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-486355" 
+                             src="http://images.cocodataset.org/train2017/000000486355.jpg" 
+                             alt="486355" title="486355 - a man with water gushing from hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-541203" 
+                             src="http://images.cocodataset.org/train2017/000000541203.jpg" 
+                             alt="541203" title="541203 - a man with water gushing from hydrant"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="6">
+            <div class="cluster-title">a man with water in bathroom</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-100535" 
+                             src="http://images.cocodataset.org/train2017/000000100535.jpg" 
+                             alt="100535" title="100535 - a man with water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-292845" 
+                             src="http://images.cocodataset.org/train2017/000000292845.jpg" 
+                             alt="292845" title="292845 - a man with water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-381134" 
+                             src="http://images.cocodataset.org/train2017/000000381134.jpg" 
+                             alt="381134" title="381134 - a man with water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-42320" 
+                             src="http://images.cocodataset.org/train2017/000000042320.jpg" 
+                             alt="42320" title="42320 - a man with water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-106504" 
+                             src="http://images.cocodataset.org/train2017/000000106504.jpg" 
+                             alt="106504" title="106504 - a man with water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-118181" 
+                             src="http://images.cocodataset.org/train2017/000000118181.jpg" 
+                             alt="118181" title="118181 - a man with water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-25525" 
+                             src="http://images.cocodataset.org/train2017/000000025525.jpg" 
+                             alt="25525" title="25525 - a man with water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-348467" 
+                             src="http://images.cocodataset.org/train2017/000000348467.jpg" 
+                             alt="348467" title="348467 - a man with water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-349400" 
+                             src="http://images.cocodataset.org/train2017/000000349400.jpg" 
+                             alt="349400" title="349400 - a man with water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-458412" 
+                             src="http://images.cocodataset.org/train2017/000000458412.jpg" 
+                             alt="458412" title="458412 - a man with water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-535276" 
+                             src="http://images.cocodataset.org/train2017/000000535276.jpg" 
+                             alt="535276" title="535276 - a man with water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-553353" 
+                             src="http://images.cocodataset.org/train2017/000000553353.jpg" 
+                             alt="553353" title="553353 - a man with water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-580306" 
+                             src="http://images.cocodataset.org/train2017/000000580306.jpg" 
+                             alt="580306" title="580306 - a man with water in bathroom"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="7">
+            <div class="cluster-title">a man watching statue near body of water</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-306925" 
+                             src="http://images.cocodataset.org/train2017/000000306925.jpg" 
+                             alt="306925" title="306925 - a man watching statue near body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-346335" 
+                             src="http://images.cocodataset.org/train2017/000000346335.jpg" 
+                             alt="346335" title="346335 - a man watching statue near body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-353001" 
+                             src="http://images.cocodataset.org/train2017/000000353001.jpg" 
+                             alt="353001" title="353001 - a man watching statue near body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-187168" 
+                             src="http://images.cocodataset.org/train2017/000000187168.jpg" 
+                             alt="187168" title="187168 - a man watching statue near body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-28127" 
+                             src="http://images.cocodataset.org/train2017/000000028127.jpg" 
+                             alt="28127" title="28127 - a man watching statue near body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-306154" 
+                             src="http://images.cocodataset.org/train2017/000000306154.jpg" 
+                             alt="306154" title="306154 - a man watching statue near body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-42003" 
+                             src="http://images.cocodataset.org/train2017/000000042003.jpg" 
+                             alt="42003" title="42003 - a man watching statue near body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-538291" 
+                             src="http://images.cocodataset.org/train2017/000000538291.jpg" 
+                             alt="538291" title="538291 - a man watching statue near body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-561856" 
+                             src="http://images.cocodataset.org/train2017/000000561856.jpg" 
+                             alt="561856" title="561856 - a man watching statue near body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-580512" 
+                             src="http://images.cocodataset.org/train2017/000000580512.jpg" 
+                             alt="580512" title="580512 - a man watching statue near body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-89236" 
+                             src="http://images.cocodataset.org/train2017/000000089236.jpg" 
+                             alt="89236" title="89236 - a man watching statue near body of water"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+</div>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>

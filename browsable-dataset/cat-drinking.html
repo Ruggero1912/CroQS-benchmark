@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #pinco {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .images-for-query-by-clusters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+        .images-for-cluster-column-container {
+            background-color: #ffffff;
+            width: 380px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cluster-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .cluster-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px;
+        }
+        .coco-img-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .images-for-cluster-column-container:nth-child(5n) {
+            border-top: 5px solid #07730d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+1) {
+            border-top: 5px solid #2a51bb;
+        }
+        .images-for-cluster-column-container:nth-child(5n+2) {
+            border-top: 5px solid #b4c51d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+3) {
+            border-top: 5px solid #c51d1d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+4) {
+            border-top: 5px solid #1dc5c5;
+        }
+
+        .container {
+            width: 80%;
+            /* max-width: 800px; */
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .container-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .query-highlight {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            background-color: #e0f7f4;
+            padding: 0.2em 0.4em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="pinco">
+
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="../index.html">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Title Section -->
+ <div class="container-container">
+    <div class="container">
+        <h1>CroQS Dataset</h1>
+        <h3>Semantic Clusters for the Initial Query: <span class="query-highlight">cat drinking</span></h3>
+    </div>
+</div>
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="0">
+            <div class="cluster-title">cat drinking water from the sink</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-102670" 
+                             src="http://images.cocodataset.org/train2017/000000102670.jpg" 
+                             alt="102670" title="102670 - cat drinking water from the sink"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-11475" 
+                             src="http://images.cocodataset.org/train2017/000000011475.jpg" 
+                             alt="11475" title="11475 - cat drinking water from the sink"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-118889" 
+                             src="http://images.cocodataset.org/train2017/000000118889.jpg" 
+                             alt="118889" title="118889 - cat drinking water from the sink"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-196307" 
+                             src="http://images.cocodataset.org/train2017/000000196307.jpg" 
+                             alt="196307" title="196307 - cat drinking water from the sink"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-218142" 
+                             src="http://images.cocodataset.org/train2017/000000218142.jpg" 
+                             alt="218142" title="218142 - cat drinking water from the sink"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-22041" 
+                             src="http://images.cocodataset.org/train2017/000000022041.jpg" 
+                             alt="22041" title="22041 - cat drinking water from the sink"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-263493" 
+                             src="http://images.cocodataset.org/train2017/000000263493.jpg" 
+                             alt="263493" title="263493 - cat drinking water from the sink"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-271035" 
+                             src="http://images.cocodataset.org/train2017/000000271035.jpg" 
+                             alt="271035" title="271035 - cat drinking water from the sink"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-288639" 
+                             src="http://images.cocodataset.org/train2017/000000288639.jpg" 
+                             alt="288639" title="288639 - cat drinking water from the sink"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-311531" 
+                             src="http://images.cocodataset.org/train2017/000000311531.jpg" 
+                             alt="311531" title="311531 - cat drinking water from the sink"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-322353" 
+                             src="http://images.cocodataset.org/train2017/000000322353.jpg" 
+                             alt="322353" title="322353 - cat drinking water from the sink"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-38213" 
+                             src="http://images.cocodataset.org/train2017/000000038213.jpg" 
+                             alt="38213" title="38213 - cat drinking water from the sink"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-419051" 
+                             src="http://images.cocodataset.org/train2017/000000419051.jpg" 
+                             alt="419051" title="419051 - cat drinking water from the sink"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-428266" 
+                             src="http://images.cocodataset.org/train2017/000000428266.jpg" 
+                             alt="428266" title="428266 - cat drinking water from the sink"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-435316" 
+                             src="http://images.cocodataset.org/train2017/000000435316.jpg" 
+                             alt="435316" title="435316 - cat drinking water from the sink"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-483447" 
+                             src="http://images.cocodataset.org/train2017/000000483447.jpg" 
+                             alt="483447" title="483447 - cat drinking water from the sink"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-48993" 
+                             src="http://images.cocodataset.org/train2017/000000048993.jpg" 
+                             alt="48993" title="48993 - cat drinking water from the sink"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-494895" 
+                             src="http://images.cocodataset.org/train2017/000000494895.jpg" 
+                             alt="494895" title="494895 - cat drinking water from the sink"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-497443" 
+                             src="http://images.cocodataset.org/train2017/000000497443.jpg" 
+                             alt="497443" title="497443 - cat drinking water from the sink"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-539683" 
+                             src="http://images.cocodataset.org/train2017/000000539683.jpg" 
+                             alt="539683" title="539683 - cat drinking water from the sink"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-550394" 
+                             src="http://images.cocodataset.org/train2017/000000550394.jpg" 
+                             alt="550394" title="550394 - cat drinking water from the sink"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-563805" 
+                             src="http://images.cocodataset.org/train2017/000000563805.jpg" 
+                             alt="563805" title="563805 - cat drinking water from the sink"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-567754" 
+                             src="http://images.cocodataset.org/train2017/000000567754.jpg" 
+                             alt="567754" title="567754 - cat drinking water from the sink"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-72605" 
+                             src="http://images.cocodataset.org/train2017/000000072605.jpg" 
+                             alt="72605" title="72605 - cat drinking water from the sink"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="1">
+            <div class="cluster-title">cat drinking from a bowl</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-123739" 
+                             src="http://images.cocodataset.org/train2017/000000123739.jpg" 
+                             alt="123739" title="123739 - cat drinking from a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-132654" 
+                             src="http://images.cocodataset.org/train2017/000000132654.jpg" 
+                             alt="132654" title="132654 - cat drinking from a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-152724" 
+                             src="http://images.cocodataset.org/train2017/000000152724.jpg" 
+                             alt="152724" title="152724 - cat drinking from a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-157397" 
+                             src="http://images.cocodataset.org/train2017/000000157397.jpg" 
+                             alt="157397" title="157397 - cat drinking from a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-169197" 
+                             src="http://images.cocodataset.org/train2017/000000169197.jpg" 
+                             alt="169197" title="169197 - cat drinking from a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-22451" 
+                             src="http://images.cocodataset.org/train2017/000000022451.jpg" 
+                             alt="22451" title="22451 - cat drinking from a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-2471" 
+                             src="http://images.cocodataset.org/train2017/000000002471.jpg" 
+                             alt="2471" title="2471 - cat drinking from a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-249599" 
+                             src="http://images.cocodataset.org/train2017/000000249599.jpg" 
+                             alt="249599" title="249599 - cat drinking from a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-252990" 
+                             src="http://images.cocodataset.org/train2017/000000252990.jpg" 
+                             alt="252990" title="252990 - cat drinking from a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-261333" 
+                             src="http://images.cocodataset.org/train2017/000000261333.jpg" 
+                             alt="261333" title="261333 - cat drinking from a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-279386" 
+                             src="http://images.cocodataset.org/train2017/000000279386.jpg" 
+                             alt="279386" title="279386 - cat drinking from a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-351760" 
+                             src="http://images.cocodataset.org/train2017/000000351760.jpg" 
+                             alt="351760" title="351760 - cat drinking from a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-359908" 
+                             src="http://images.cocodataset.org/train2017/000000359908.jpg" 
+                             alt="359908" title="359908 - cat drinking from a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-451744" 
+                             src="http://images.cocodataset.org/train2017/000000451744.jpg" 
+                             alt="451744" title="451744 - cat drinking from a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-453815" 
+                             src="http://images.cocodataset.org/train2017/000000453815.jpg" 
+                             alt="453815" title="453815 - cat drinking from a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-476383" 
+                             src="http://images.cocodataset.org/train2017/000000476383.jpg" 
+                             alt="476383" title="476383 - cat drinking from a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-501227" 
+                             src="http://images.cocodataset.org/train2017/000000501227.jpg" 
+                             alt="501227" title="501227 - cat drinking from a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-506955" 
+                             src="http://images.cocodataset.org/train2017/000000506955.jpg" 
+                             alt="506955" title="506955 - cat drinking from a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-543686" 
+                             src="http://images.cocodataset.org/train2017/000000543686.jpg" 
+                             alt="543686" title="543686 - cat drinking from a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-575772" 
+                             src="http://images.cocodataset.org/train2017/000000575772.jpg" 
+                             alt="575772" title="575772 - cat drinking from a bowl"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="2">
+            <div class="cluster-title">cat drinking from the toilet</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-101720" 
+                             src="http://images.cocodataset.org/train2017/000000101720.jpg" 
+                             alt="101720" title="101720 - cat drinking from the toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-116380" 
+                             src="http://images.cocodataset.org/train2017/000000116380.jpg" 
+                             alt="116380" title="116380 - cat drinking from the toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-117307" 
+                             src="http://images.cocodataset.org/train2017/000000117307.jpg" 
+                             alt="117307" title="117307 - cat drinking from the toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-12102" 
+                             src="http://images.cocodataset.org/train2017/000000012102.jpg" 
+                             alt="12102" title="12102 - cat drinking from the toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-126810" 
+                             src="http://images.cocodataset.org/train2017/000000126810.jpg" 
+                             alt="126810" title="126810 - cat drinking from the toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-184557" 
+                             src="http://images.cocodataset.org/train2017/000000184557.jpg" 
+                             alt="184557" title="184557 - cat drinking from the toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-216428" 
+                             src="http://images.cocodataset.org/train2017/000000216428.jpg" 
+                             alt="216428" title="216428 - cat drinking from the toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-237413" 
+                             src="http://images.cocodataset.org/train2017/000000237413.jpg" 
+                             alt="237413" title="237413 - cat drinking from the toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-241876" 
+                             src="http://images.cocodataset.org/train2017/000000241876.jpg" 
+                             alt="241876" title="241876 - cat drinking from the toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-253145" 
+                             src="http://images.cocodataset.org/train2017/000000253145.jpg" 
+                             alt="253145" title="253145 - cat drinking from the toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-275831" 
+                             src="http://images.cocodataset.org/train2017/000000275831.jpg" 
+                             alt="275831" title="275831 - cat drinking from the toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-280235" 
+                             src="http://images.cocodataset.org/train2017/000000280235.jpg" 
+                             alt="280235" title="280235 - cat drinking from the toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-285421" 
+                             src="http://images.cocodataset.org/train2017/000000285421.jpg" 
+                             alt="285421" title="285421 - cat drinking from the toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-286720" 
+                             src="http://images.cocodataset.org/train2017/000000286720.jpg" 
+                             alt="286720" title="286720 - cat drinking from the toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-298077" 
+                             src="http://images.cocodataset.org/train2017/000000298077.jpg" 
+                             alt="298077" title="298077 - cat drinking from the toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-367515" 
+                             src="http://images.cocodataset.org/train2017/000000367515.jpg" 
+                             alt="367515" title="367515 - cat drinking from the toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-375194" 
+                             src="http://images.cocodataset.org/train2017/000000375194.jpg" 
+                             alt="375194" title="375194 - cat drinking from the toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-382056" 
+                             src="http://images.cocodataset.org/train2017/000000382056.jpg" 
+                             alt="382056" title="382056 - cat drinking from the toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-401614" 
+                             src="http://images.cocodataset.org/train2017/000000401614.jpg" 
+                             alt="401614" title="401614 - cat drinking from the toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-411685" 
+                             src="http://images.cocodataset.org/train2017/000000411685.jpg" 
+                             alt="411685" title="411685 - cat drinking from the toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-439364" 
+                             src="http://images.cocodataset.org/train2017/000000439364.jpg" 
+                             alt="439364" title="439364 - cat drinking from the toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-439486" 
+                             src="http://images.cocodataset.org/train2017/000000439486.jpg" 
+                             alt="439486" title="439486 - cat drinking from the toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-463066" 
+                             src="http://images.cocodataset.org/train2017/000000463066.jpg" 
+                             alt="463066" title="463066 - cat drinking from the toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-479134" 
+                             src="http://images.cocodataset.org/train2017/000000479134.jpg" 
+                             alt="479134" title="479134 - cat drinking from the toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-479780" 
+                             src="http://images.cocodataset.org/train2017/000000479780.jpg" 
+                             alt="479780" title="479780 - cat drinking from the toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-482545" 
+                             src="http://images.cocodataset.org/train2017/000000482545.jpg" 
+                             alt="482545" title="482545 - cat drinking from the toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-494345" 
+                             src="http://images.cocodataset.org/train2017/000000494345.jpg" 
+                             alt="494345" title="494345 - cat drinking from the toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-518156" 
+                             src="http://images.cocodataset.org/train2017/000000518156.jpg" 
+                             alt="518156" title="518156 - cat drinking from the toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-538233" 
+                             src="http://images.cocodataset.org/train2017/000000538233.jpg" 
+                             alt="538233" title="538233 - cat drinking from the toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-540567" 
+                             src="http://images.cocodataset.org/train2017/000000540567.jpg" 
+                             alt="540567" title="540567 - cat drinking from the toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-547542" 
+                             src="http://images.cocodataset.org/train2017/000000547542.jpg" 
+                             alt="547542" title="547542 - cat drinking from the toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-576111" 
+                             src="http://images.cocodataset.org/train2017/000000576111.jpg" 
+                             alt="576111" title="576111 - cat drinking from the toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-71025" 
+                             src="http://images.cocodataset.org/train2017/000000071025.jpg" 
+                             alt="71025" title="71025 - cat drinking from the toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-98302" 
+                             src="http://images.cocodataset.org/train2017/000000098302.jpg" 
+                             alt="98302" title="98302 - cat drinking from the toilet"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="3">
+            <div class="cluster-title">cat drinking from container</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-118723" 
+                             src="http://images.cocodataset.org/train2017/000000118723.jpg" 
+                             alt="118723" title="118723 - cat drinking from container"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-139416" 
+                             src="http://images.cocodataset.org/train2017/000000139416.jpg" 
+                             alt="139416" title="139416 - cat drinking from container"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-181125" 
+                             src="http://images.cocodataset.org/train2017/000000181125.jpg" 
+                             alt="181125" title="181125 - cat drinking from container"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-199822" 
+                             src="http://images.cocodataset.org/train2017/000000199822.jpg" 
+                             alt="199822" title="199822 - cat drinking from container"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-222397" 
+                             src="http://images.cocodataset.org/train2017/000000222397.jpg" 
+                             alt="222397" title="222397 - cat drinking from container"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-22415" 
+                             src="http://images.cocodataset.org/train2017/000000022415.jpg" 
+                             alt="22415" title="22415 - cat drinking from container"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-248381" 
+                             src="http://images.cocodataset.org/train2017/000000248381.jpg" 
+                             alt="248381" title="248381 - cat drinking from container"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-292827" 
+                             src="http://images.cocodataset.org/train2017/000000292827.jpg" 
+                             alt="292827" title="292827 - cat drinking from container"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-300732" 
+                             src="http://images.cocodataset.org/train2017/000000300732.jpg" 
+                             alt="300732" title="300732 - cat drinking from container"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-308798" 
+                             src="http://images.cocodataset.org/train2017/000000308798.jpg" 
+                             alt="308798" title="308798 - cat drinking from container"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-344928" 
+                             src="http://images.cocodataset.org/train2017/000000344928.jpg" 
+                             alt="344928" title="344928 - cat drinking from container"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-425788" 
+                             src="http://images.cocodataset.org/train2017/000000425788.jpg" 
+                             alt="425788" title="425788 - cat drinking from container"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-459670" 
+                             src="http://images.cocodataset.org/train2017/000000459670.jpg" 
+                             alt="459670" title="459670 - cat drinking from container"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-499054" 
+                             src="http://images.cocodataset.org/train2017/000000499054.jpg" 
+                             alt="499054" title="499054 - cat drinking from container"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-526721" 
+                             src="http://images.cocodataset.org/train2017/000000526721.jpg" 
+                             alt="526721" title="526721 - cat drinking from container"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-562205" 
+                             src="http://images.cocodataset.org/train2017/000000562205.jpg" 
+                             alt="562205" title="562205 - cat drinking from container"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-575816" 
+                             src="http://images.cocodataset.org/train2017/000000575816.jpg" 
+                             alt="575816" title="575816 - cat drinking from container"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="4">
+            <div class="cluster-title">cat drinking from a cup</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-190156" 
+                             src="http://images.cocodataset.org/train2017/000000190156.jpg" 
+                             alt="190156" title="190156 - cat drinking from a cup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-200492" 
+                             src="http://images.cocodataset.org/train2017/000000200492.jpg" 
+                             alt="200492" title="200492 - cat drinking from a cup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-209718" 
+                             src="http://images.cocodataset.org/train2017/000000209718.jpg" 
+                             alt="209718" title="209718 - cat drinking from a cup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-236234" 
+                             src="http://images.cocodataset.org/train2017/000000236234.jpg" 
+                             alt="236234" title="236234 - cat drinking from a cup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-260967" 
+                             src="http://images.cocodataset.org/train2017/000000260967.jpg" 
+                             alt="260967" title="260967 - cat drinking from a cup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-300170" 
+                             src="http://images.cocodataset.org/train2017/000000300170.jpg" 
+                             alt="300170" title="300170 - cat drinking from a cup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-308582" 
+                             src="http://images.cocodataset.org/train2017/000000308582.jpg" 
+                             alt="308582" title="308582 - cat drinking from a cup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-338475" 
+                             src="http://images.cocodataset.org/train2017/000000338475.jpg" 
+                             alt="338475" title="338475 - cat drinking from a cup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-342203" 
+                             src="http://images.cocodataset.org/train2017/000000342203.jpg" 
+                             alt="342203" title="342203 - cat drinking from a cup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-363933" 
+                             src="http://images.cocodataset.org/train2017/000000363933.jpg" 
+                             alt="363933" title="363933 - cat drinking from a cup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-414102" 
+                             src="http://images.cocodataset.org/train2017/000000414102.jpg" 
+                             alt="414102" title="414102 - cat drinking from a cup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-542054" 
+                             src="http://images.cocodataset.org/train2017/000000542054.jpg" 
+                             alt="542054" title="542054 - cat drinking from a cup"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="5">
+            <div class="cluster-title">cat drinking from a cup on a night stand</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-387434" 
+                             src="http://images.cocodataset.org/train2017/000000387434.jpg" 
+                             alt="387434" title="387434 - cat drinking from a cup on a night stand"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-476856" 
+                             src="http://images.cocodataset.org/train2017/000000476856.jpg" 
+                             alt="476856" title="476856 - cat drinking from a cup on a night stand"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-555427" 
+                             src="http://images.cocodataset.org/train2017/000000555427.jpg" 
+                             alt="555427" title="555427 - cat drinking from a cup on a night stand"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-571544" 
+                             src="http://images.cocodataset.org/train2017/000000571544.jpg" 
+                             alt="571544" title="571544 - cat drinking from a cup on a night stand"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-675" 
+                             src="http://images.cocodataset.org/train2017/000000000675.jpg" 
+                             alt="675" title="675 - cat drinking from a cup on a night stand"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="6">
+            <div class="cluster-title">cat drinking milk from a baby bottle</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-124002" 
+                             src="http://images.cocodataset.org/train2017/000000124002.jpg" 
+                             alt="124002" title="124002 - cat drinking milk from a baby bottle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-211927" 
+                             src="http://images.cocodataset.org/train2017/000000211927.jpg" 
+                             alt="211927" title="211927 - cat drinking milk from a baby bottle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-285180" 
+                             src="http://images.cocodataset.org/train2017/000000285180.jpg" 
+                             alt="285180" title="285180 - cat drinking milk from a baby bottle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-52128" 
+                             src="http://images.cocodataset.org/train2017/000000052128.jpg" 
+                             alt="52128" title="52128 - cat drinking milk from a baby bottle"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="7">
+            <div class="cluster-title">cat drinking bright image</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-129166" 
+                             src="http://images.cocodataset.org/train2017/000000129166.jpg" 
+                             alt="129166" title="129166 - cat drinking bright image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-132646" 
+                             src="http://images.cocodataset.org/train2017/000000132646.jpg" 
+                             alt="132646" title="132646 - cat drinking bright image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-158432" 
+                             src="http://images.cocodataset.org/train2017/000000158432.jpg" 
+                             alt="158432" title="158432 - cat drinking bright image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-162206" 
+                             src="http://images.cocodataset.org/train2017/000000162206.jpg" 
+                             alt="162206" title="162206 - cat drinking bright image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-230220" 
+                             src="http://images.cocodataset.org/train2017/000000230220.jpg" 
+                             alt="230220" title="230220 - cat drinking bright image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-242210" 
+                             src="http://images.cocodataset.org/train2017/000000242210.jpg" 
+                             alt="242210" title="242210 - cat drinking bright image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-405864" 
+                             src="http://images.cocodataset.org/train2017/000000405864.jpg" 
+                             alt="405864" title="405864 - cat drinking bright image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-426101" 
+                             src="http://images.cocodataset.org/train2017/000000426101.jpg" 
+                             alt="426101" title="426101 - cat drinking bright image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-440650" 
+                             src="http://images.cocodataset.org/train2017/000000440650.jpg" 
+                             alt="440650" title="440650 - cat drinking bright image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-461300" 
+                             src="http://images.cocodataset.org/train2017/000000461300.jpg" 
+                             alt="461300" title="461300 - cat drinking bright image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-469317" 
+                             src="http://images.cocodataset.org/train2017/000000469317.jpg" 
+                             alt="469317" title="469317 - cat drinking bright image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-471828" 
+                             src="http://images.cocodataset.org/train2017/000000471828.jpg" 
+                             alt="471828" title="471828 - cat drinking bright image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-50790" 
+                             src="http://images.cocodataset.org/train2017/000000050790.jpg" 
+                             alt="50790" title="50790 - cat drinking bright image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-536067" 
+                             src="http://images.cocodataset.org/train2017/000000536067.jpg" 
+                             alt="536067" title="536067 - cat drinking bright image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-572075" 
+                             src="http://images.cocodataset.org/train2017/000000572075.jpg" 
+                             alt="572075" title="572075 - cat drinking bright image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-64389" 
+                             src="http://images.cocodataset.org/train2017/000000064389.jpg" 
+                             alt="64389" title="64389 - cat drinking bright image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-7319" 
+                             src="http://images.cocodataset.org/train2017/000000007319.jpg" 
+                             alt="7319" title="7319 - cat drinking bright image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-89848" 
+                             src="http://images.cocodataset.org/train2017/000000089848.jpg" 
+                             alt="89848" title="89848 - cat drinking bright image"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-91334" 
+                             src="http://images.cocodataset.org/train2017/000000091334.jpg" 
+                             alt="91334" title="91334 - cat drinking bright image"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="8">
+            <div class="cluster-title">cat drinking wine</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-148839" 
+                             src="http://images.cocodataset.org/train2017/000000148839.jpg" 
+                             alt="148839" title="148839 - cat drinking wine"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-17717" 
+                             src="http://images.cocodataset.org/train2017/000000017717.jpg" 
+                             alt="17717" title="17717 - cat drinking wine"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-237764" 
+                             src="http://images.cocodataset.org/train2017/000000237764.jpg" 
+                             alt="237764" title="237764 - cat drinking wine"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-275449" 
+                             src="http://images.cocodataset.org/train2017/000000275449.jpg" 
+                             alt="275449" title="275449 - cat drinking wine"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-276514" 
+                             src="http://images.cocodataset.org/train2017/000000276514.jpg" 
+                             alt="276514" title="276514 - cat drinking wine"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-334732" 
+                             src="http://images.cocodataset.org/train2017/000000334732.jpg" 
+                             alt="334732" title="334732 - cat drinking wine"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-349130" 
+                             src="http://images.cocodataset.org/train2017/000000349130.jpg" 
+                             alt="349130" title="349130 - cat drinking wine"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-369601" 
+                             src="http://images.cocodataset.org/train2017/000000369601.jpg" 
+                             alt="369601" title="369601 - cat drinking wine"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-454372" 
+                             src="http://images.cocodataset.org/train2017/000000454372.jpg" 
+                             alt="454372" title="454372 - cat drinking wine"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-567627" 
+                             src="http://images.cocodataset.org/train2017/000000567627.jpg" 
+                             alt="567627" title="567627 - cat drinking wine"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-568446" 
+                             src="http://images.cocodataset.org/train2017/000000568446.jpg" 
+                             alt="568446" title="568446 - cat drinking wine"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+</div>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>

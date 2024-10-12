@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #pinco {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .images-for-query-by-clusters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+        .images-for-cluster-column-container {
+            background-color: #ffffff;
+            width: 380px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cluster-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .cluster-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px;
+        }
+        .coco-img-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .images-for-cluster-column-container:nth-child(5n) {
+            border-top: 5px solid #07730d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+1) {
+            border-top: 5px solid #2a51bb;
+        }
+        .images-for-cluster-column-container:nth-child(5n+2) {
+            border-top: 5px solid #b4c51d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+3) {
+            border-top: 5px solid #c51d1d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+4) {
+            border-top: 5px solid #1dc5c5;
+        }
+
+        .container {
+            width: 80%;
+            /* max-width: 800px; */
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .container-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .query-highlight {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            background-color: #e0f7f4;
+            padding: 0.2em 0.4em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="pinco">
+
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="../index.html">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Title Section -->
+ <div class="container-container">
+    <div class="container">
+        <h1>CroQS Dataset</h1>
+        <h3>Semantic Clusters for the Initial Query: <span class="query-highlight">using a notebook</span></h3>
+    </div>
+</div>
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="0">
+            <div class="cluster-title">using a notebook with a cat</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-116126" 
+                             src="http://images.cocodataset.org/train2017/000000116126.jpg" 
+                             alt="116126" title="116126 - using a notebook with a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-159453" 
+                             src="http://images.cocodataset.org/train2017/000000159453.jpg" 
+                             alt="159453" title="159453 - using a notebook with a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-168817" 
+                             src="http://images.cocodataset.org/train2017/000000168817.jpg" 
+                             alt="168817" title="168817 - using a notebook with a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-17487" 
+                             src="http://images.cocodataset.org/train2017/000000017487.jpg" 
+                             alt="17487" title="17487 - using a notebook with a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-17914" 
+                             src="http://images.cocodataset.org/train2017/000000017914.jpg" 
+                             alt="17914" title="17914 - using a notebook with a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-188648" 
+                             src="http://images.cocodataset.org/train2017/000000188648.jpg" 
+                             alt="188648" title="188648 - using a notebook with a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-207077" 
+                             src="http://images.cocodataset.org/train2017/000000207077.jpg" 
+                             alt="207077" title="207077 - using a notebook with a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-20757" 
+                             src="http://images.cocodataset.org/train2017/000000020757.jpg" 
+                             alt="20757" title="20757 - using a notebook with a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-21313" 
+                             src="http://images.cocodataset.org/train2017/000000021313.jpg" 
+                             alt="21313" title="21313 - using a notebook with a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-283286" 
+                             src="http://images.cocodataset.org/train2017/000000283286.jpg" 
+                             alt="283286" title="283286 - using a notebook with a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-321980" 
+                             src="http://images.cocodataset.org/train2017/000000321980.jpg" 
+                             alt="321980" title="321980 - using a notebook with a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-323717" 
+                             src="http://images.cocodataset.org/train2017/000000323717.jpg" 
+                             alt="323717" title="323717 - using a notebook with a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-346614" 
+                             src="http://images.cocodataset.org/train2017/000000346614.jpg" 
+                             alt="346614" title="346614 - using a notebook with a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-36484" 
+                             src="http://images.cocodataset.org/train2017/000000036484.jpg" 
+                             alt="36484" title="36484 - using a notebook with a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-369793" 
+                             src="http://images.cocodataset.org/train2017/000000369793.jpg" 
+                             alt="369793" title="369793 - using a notebook with a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-397543" 
+                             src="http://images.cocodataset.org/train2017/000000397543.jpg" 
+                             alt="397543" title="397543 - using a notebook with a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-432906" 
+                             src="http://images.cocodataset.org/train2017/000000432906.jpg" 
+                             alt="432906" title="432906 - using a notebook with a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-446409" 
+                             src="http://images.cocodataset.org/train2017/000000446409.jpg" 
+                             alt="446409" title="446409 - using a notebook with a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-453676" 
+                             src="http://images.cocodataset.org/train2017/000000453676.jpg" 
+                             alt="453676" title="453676 - using a notebook with a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-460482" 
+                             src="http://images.cocodataset.org/train2017/000000460482.jpg" 
+                             alt="460482" title="460482 - using a notebook with a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-463865" 
+                             src="http://images.cocodataset.org/train2017/000000463865.jpg" 
+                             alt="463865" title="463865 - using a notebook with a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-473462" 
+                             src="http://images.cocodataset.org/train2017/000000473462.jpg" 
+                             alt="473462" title="473462 - using a notebook with a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-474693" 
+                             src="http://images.cocodataset.org/train2017/000000474693.jpg" 
+                             alt="474693" title="474693 - using a notebook with a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-47848" 
+                             src="http://images.cocodataset.org/train2017/000000047848.jpg" 
+                             alt="47848" title="47848 - using a notebook with a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-485139" 
+                             src="http://images.cocodataset.org/train2017/000000485139.jpg" 
+                             alt="485139" title="485139 - using a notebook with a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-501846" 
+                             src="http://images.cocodataset.org/train2017/000000501846.jpg" 
+                             alt="501846" title="501846 - using a notebook with a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-517081" 
+                             src="http://images.cocodataset.org/train2017/000000517081.jpg" 
+                             alt="517081" title="517081 - using a notebook with a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-518324" 
+                             src="http://images.cocodataset.org/train2017/000000518324.jpg" 
+                             alt="518324" title="518324 - using a notebook with a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-52290" 
+                             src="http://images.cocodataset.org/train2017/000000052290.jpg" 
+                             alt="52290" title="52290 - using a notebook with a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-530730" 
+                             src="http://images.cocodataset.org/train2017/000000530730.jpg" 
+                             alt="530730" title="530730 - using a notebook with a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-53864" 
+                             src="http://images.cocodataset.org/train2017/000000053864.jpg" 
+                             alt="53864" title="53864 - using a notebook with a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-546792" 
+                             src="http://images.cocodataset.org/train2017/000000546792.jpg" 
+                             alt="546792" title="546792 - using a notebook with a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-554408" 
+                             src="http://images.cocodataset.org/train2017/000000554408.jpg" 
+                             alt="554408" title="554408 - using a notebook with a cat"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-577522" 
+                             src="http://images.cocodataset.org/train2017/000000577522.jpg" 
+                             alt="577522" title="577522 - using a notebook with a cat"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="1">
+            <div class="cluster-title">using a notebook on a desk, studying</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-11099" 
+                             src="http://images.cocodataset.org/train2017/000000011099.jpg" 
+                             alt="11099" title="11099 - using a notebook on a desk, studying"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-241919" 
+                             src="http://images.cocodataset.org/train2017/000000241919.jpg" 
+                             alt="241919" title="241919 - using a notebook on a desk, studying"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-253498" 
+                             src="http://images.cocodataset.org/train2017/000000253498.jpg" 
+                             alt="253498" title="253498 - using a notebook on a desk, studying"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-256444" 
+                             src="http://images.cocodataset.org/train2017/000000256444.jpg" 
+                             alt="256444" title="256444 - using a notebook on a desk, studying"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-260317" 
+                             src="http://images.cocodataset.org/train2017/000000260317.jpg" 
+                             alt="260317" title="260317 - using a notebook on a desk, studying"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-290549" 
+                             src="http://images.cocodataset.org/train2017/000000290549.jpg" 
+                             alt="290549" title="290549 - using a notebook on a desk, studying"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-294761" 
+                             src="http://images.cocodataset.org/train2017/000000294761.jpg" 
+                             alt="294761" title="294761 - using a notebook on a desk, studying"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-310463" 
+                             src="http://images.cocodataset.org/train2017/000000310463.jpg" 
+                             alt="310463" title="310463 - using a notebook on a desk, studying"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-313984" 
+                             src="http://images.cocodataset.org/train2017/000000313984.jpg" 
+                             alt="313984" title="313984 - using a notebook on a desk, studying"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-365879" 
+                             src="http://images.cocodataset.org/train2017/000000365879.jpg" 
+                             alt="365879" title="365879 - using a notebook on a desk, studying"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-387748" 
+                             src="http://images.cocodataset.org/train2017/000000387748.jpg" 
+                             alt="387748" title="387748 - using a notebook on a desk, studying"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-42707" 
+                             src="http://images.cocodataset.org/train2017/000000042707.jpg" 
+                             alt="42707" title="42707 - using a notebook on a desk, studying"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-457481" 
+                             src="http://images.cocodataset.org/train2017/000000457481.jpg" 
+                             alt="457481" title="457481 - using a notebook on a desk, studying"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-47940" 
+                             src="http://images.cocodataset.org/train2017/000000047940.jpg" 
+                             alt="47940" title="47940 - using a notebook on a desk, studying"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-508147" 
+                             src="http://images.cocodataset.org/train2017/000000508147.jpg" 
+                             alt="508147" title="508147 - using a notebook on a desk, studying"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-542549" 
+                             src="http://images.cocodataset.org/train2017/000000542549.jpg" 
+                             alt="542549" title="542549 - using a notebook on a desk, studying"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="2">
+            <div class="cluster-title">using a notebook with a mobile phone</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-116252" 
+                             src="http://images.cocodataset.org/train2017/000000116252.jpg" 
+                             alt="116252" title="116252 - using a notebook with a mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-141180" 
+                             src="http://images.cocodataset.org/train2017/000000141180.jpg" 
+                             alt="141180" title="141180 - using a notebook with a mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-170413" 
+                             src="http://images.cocodataset.org/train2017/000000170413.jpg" 
+                             alt="170413" title="170413 - using a notebook with a mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-177404" 
+                             src="http://images.cocodataset.org/train2017/000000177404.jpg" 
+                             alt="177404" title="177404 - using a notebook with a mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-177924" 
+                             src="http://images.cocodataset.org/train2017/000000177924.jpg" 
+                             alt="177924" title="177924 - using a notebook with a mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-184550" 
+                             src="http://images.cocodataset.org/train2017/000000184550.jpg" 
+                             alt="184550" title="184550 - using a notebook with a mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-186585" 
+                             src="http://images.cocodataset.org/train2017/000000186585.jpg" 
+                             alt="186585" title="186585 - using a notebook with a mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-202008" 
+                             src="http://images.cocodataset.org/train2017/000000202008.jpg" 
+                             alt="202008" title="202008 - using a notebook with a mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-220250" 
+                             src="http://images.cocodataset.org/train2017/000000220250.jpg" 
+                             alt="220250" title="220250 - using a notebook with a mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-233938" 
+                             src="http://images.cocodataset.org/train2017/000000233938.jpg" 
+                             alt="233938" title="233938 - using a notebook with a mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-260635" 
+                             src="http://images.cocodataset.org/train2017/000000260635.jpg" 
+                             alt="260635" title="260635 - using a notebook with a mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-261990" 
+                             src="http://images.cocodataset.org/train2017/000000261990.jpg" 
+                             alt="261990" title="261990 - using a notebook with a mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-356409" 
+                             src="http://images.cocodataset.org/train2017/000000356409.jpg" 
+                             alt="356409" title="356409 - using a notebook with a mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-374333" 
+                             src="http://images.cocodataset.org/train2017/000000374333.jpg" 
+                             alt="374333" title="374333 - using a notebook with a mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-389667" 
+                             src="http://images.cocodataset.org/train2017/000000389667.jpg" 
+                             alt="389667" title="389667 - using a notebook with a mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-399488" 
+                             src="http://images.cocodataset.org/train2017/000000399488.jpg" 
+                             alt="399488" title="399488 - using a notebook with a mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-430932" 
+                             src="http://images.cocodataset.org/train2017/000000430932.jpg" 
+                             alt="430932" title="430932 - using a notebook with a mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-467516" 
+                             src="http://images.cocodataset.org/train2017/000000467516.jpg" 
+                             alt="467516" title="467516 - using a notebook with a mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-503943" 
+                             src="http://images.cocodataset.org/train2017/000000503943.jpg" 
+                             alt="503943" title="503943 - using a notebook with a mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-506429" 
+                             src="http://images.cocodataset.org/train2017/000000506429.jpg" 
+                             alt="506429" title="506429 - using a notebook with a mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-526368" 
+                             src="http://images.cocodataset.org/train2017/000000526368.jpg" 
+                             alt="526368" title="526368 - using a notebook with a mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-54252" 
+                             src="http://images.cocodataset.org/train2017/000000054252.jpg" 
+                             alt="54252" title="54252 - using a notebook with a mobile phone"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="3">
+            <div class="cluster-title">person sitting using a notebook</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-127863" 
+                             src="http://images.cocodataset.org/train2017/000000127863.jpg" 
+                             alt="127863" title="127863 - person sitting using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-130501" 
+                             src="http://images.cocodataset.org/train2017/000000130501.jpg" 
+                             alt="130501" title="130501 - person sitting using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-134907" 
+                             src="http://images.cocodataset.org/train2017/000000134907.jpg" 
+                             alt="134907" title="134907 - person sitting using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-148193" 
+                             src="http://images.cocodataset.org/train2017/000000148193.jpg" 
+                             alt="148193" title="148193 - person sitting using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-180593" 
+                             src="http://images.cocodataset.org/train2017/000000180593.jpg" 
+                             alt="180593" title="180593 - person sitting using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-207090" 
+                             src="http://images.cocodataset.org/train2017/000000207090.jpg" 
+                             alt="207090" title="207090 - person sitting using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-209263" 
+                             src="http://images.cocodataset.org/train2017/000000209263.jpg" 
+                             alt="209263" title="209263 - person sitting using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-218145" 
+                             src="http://images.cocodataset.org/train2017/000000218145.jpg" 
+                             alt="218145" title="218145 - person sitting using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-228013" 
+                             src="http://images.cocodataset.org/train2017/000000228013.jpg" 
+                             alt="228013" title="228013 - person sitting using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-231991" 
+                             src="http://images.cocodataset.org/train2017/000000231991.jpg" 
+                             alt="231991" title="231991 - person sitting using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-250249" 
+                             src="http://images.cocodataset.org/train2017/000000250249.jpg" 
+                             alt="250249" title="250249 - person sitting using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-281060" 
+                             src="http://images.cocodataset.org/train2017/000000281060.jpg" 
+                             alt="281060" title="281060 - person sitting using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-318854" 
+                             src="http://images.cocodataset.org/train2017/000000318854.jpg" 
+                             alt="318854" title="318854 - person sitting using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-340069" 
+                             src="http://images.cocodataset.org/train2017/000000340069.jpg" 
+                             alt="340069" title="340069 - person sitting using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-397685" 
+                             src="http://images.cocodataset.org/train2017/000000397685.jpg" 
+                             alt="397685" title="397685 - person sitting using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-406013" 
+                             src="http://images.cocodataset.org/train2017/000000406013.jpg" 
+                             alt="406013" title="406013 - person sitting using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-457400" 
+                             src="http://images.cocodataset.org/train2017/000000457400.jpg" 
+                             alt="457400" title="457400 - person sitting using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-472485" 
+                             src="http://images.cocodataset.org/train2017/000000472485.jpg" 
+                             alt="472485" title="472485 - person sitting using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-48575" 
+                             src="http://images.cocodataset.org/train2017/000000048575.jpg" 
+                             alt="48575" title="48575 - person sitting using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-537160" 
+                             src="http://images.cocodataset.org/train2017/000000537160.jpg" 
+                             alt="537160" title="537160 - person sitting using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-569021" 
+                             src="http://images.cocodataset.org/train2017/000000569021.jpg" 
+                             alt="569021" title="569021 - person sitting using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-574356" 
+                             src="http://images.cocodataset.org/train2017/000000574356.jpg" 
+                             alt="574356" title="574356 - person sitting using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-6921" 
+                             src="http://images.cocodataset.org/train2017/000000006921.jpg" 
+                             alt="6921" title="6921 - person sitting using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-87105" 
+                             src="http://images.cocodataset.org/train2017/000000087105.jpg" 
+                             alt="87105" title="87105 - person sitting using a notebook"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="4">
+            <div class="cluster-title">person sitting on a bench using a notebook</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-107376" 
+                             src="http://images.cocodataset.org/train2017/000000107376.jpg" 
+                             alt="107376" title="107376 - person sitting on a bench using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-111352" 
+                             src="http://images.cocodataset.org/train2017/000000111352.jpg" 
+                             alt="111352" title="111352 - person sitting on a bench using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-149305" 
+                             src="http://images.cocodataset.org/train2017/000000149305.jpg" 
+                             alt="149305" title="149305 - person sitting on a bench using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-150342" 
+                             src="http://images.cocodataset.org/train2017/000000150342.jpg" 
+                             alt="150342" title="150342 - person sitting on a bench using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-153604" 
+                             src="http://images.cocodataset.org/train2017/000000153604.jpg" 
+                             alt="153604" title="153604 - person sitting on a bench using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-241373" 
+                             src="http://images.cocodataset.org/train2017/000000241373.jpg" 
+                             alt="241373" title="241373 - person sitting on a bench using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-257893" 
+                             src="http://images.cocodataset.org/train2017/000000257893.jpg" 
+                             alt="257893" title="257893 - person sitting on a bench using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-269015" 
+                             src="http://images.cocodataset.org/train2017/000000269015.jpg" 
+                             alt="269015" title="269015 - person sitting on a bench using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-349354" 
+                             src="http://images.cocodataset.org/train2017/000000349354.jpg" 
+                             alt="349354" title="349354 - person sitting on a bench using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-450263" 
+                             src="http://images.cocodataset.org/train2017/000000450263.jpg" 
+                             alt="450263" title="450263 - person sitting on a bench using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-450707" 
+                             src="http://images.cocodataset.org/train2017/000000450707.jpg" 
+                             alt="450707" title="450707 - person sitting on a bench using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-468570" 
+                             src="http://images.cocodataset.org/train2017/000000468570.jpg" 
+                             alt="468570" title="468570 - person sitting on a bench using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-473499" 
+                             src="http://images.cocodataset.org/train2017/000000473499.jpg" 
+                             alt="473499" title="473499 - person sitting on a bench using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-476971" 
+                             src="http://images.cocodataset.org/train2017/000000476971.jpg" 
+                             alt="476971" title="476971 - person sitting on a bench using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-80185" 
+                             src="http://images.cocodataset.org/train2017/000000080185.jpg" 
+                             alt="80185" title="80185 - person sitting on a bench using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-87328" 
+                             src="http://images.cocodataset.org/train2017/000000087328.jpg" 
+                             alt="87328" title="87328 - person sitting on a bench using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-91336" 
+                             src="http://images.cocodataset.org/train2017/000000091336.jpg" 
+                             alt="91336" title="91336 - person sitting on a bench using a notebook"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="5">
+            <div class="cluster-title">using a notebook with keyboard and screen on a table</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-156849" 
+                             src="http://images.cocodataset.org/train2017/000000156849.jpg" 
+                             alt="156849" title="156849 - using a notebook with keyboard and screen on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-178924" 
+                             src="http://images.cocodataset.org/train2017/000000178924.jpg" 
+                             alt="178924" title="178924 - using a notebook with keyboard and screen on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-203705" 
+                             src="http://images.cocodataset.org/train2017/000000203705.jpg" 
+                             alt="203705" title="203705 - using a notebook with keyboard and screen on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-230889" 
+                             src="http://images.cocodataset.org/train2017/000000230889.jpg" 
+                             alt="230889" title="230889 - using a notebook with keyboard and screen on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-245971" 
+                             src="http://images.cocodataset.org/train2017/000000245971.jpg" 
+                             alt="245971" title="245971 - using a notebook with keyboard and screen on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-252193" 
+                             src="http://images.cocodataset.org/train2017/000000252193.jpg" 
+                             alt="252193" title="252193 - using a notebook with keyboard and screen on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-253970" 
+                             src="http://images.cocodataset.org/train2017/000000253970.jpg" 
+                             alt="253970" title="253970 - using a notebook with keyboard and screen on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-25846" 
+                             src="http://images.cocodataset.org/train2017/000000025846.jpg" 
+                             alt="25846" title="25846 - using a notebook with keyboard and screen on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-259408" 
+                             src="http://images.cocodataset.org/train2017/000000259408.jpg" 
+                             alt="259408" title="259408 - using a notebook with keyboard and screen on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-284375" 
+                             src="http://images.cocodataset.org/train2017/000000284375.jpg" 
+                             alt="284375" title="284375 - using a notebook with keyboard and screen on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-292213" 
+                             src="http://images.cocodataset.org/train2017/000000292213.jpg" 
+                             alt="292213" title="292213 - using a notebook with keyboard and screen on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-330881" 
+                             src="http://images.cocodataset.org/train2017/000000330881.jpg" 
+                             alt="330881" title="330881 - using a notebook with keyboard and screen on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-344945" 
+                             src="http://images.cocodataset.org/train2017/000000344945.jpg" 
+                             alt="344945" title="344945 - using a notebook with keyboard and screen on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-378807" 
+                             src="http://images.cocodataset.org/train2017/000000378807.jpg" 
+                             alt="378807" title="378807 - using a notebook with keyboard and screen on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-4057" 
+                             src="http://images.cocodataset.org/train2017/000000004057.jpg" 
+                             alt="4057" title="4057 - using a notebook with keyboard and screen on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-425712" 
+                             src="http://images.cocodataset.org/train2017/000000425712.jpg" 
+                             alt="425712" title="425712 - using a notebook with keyboard and screen on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-430135" 
+                             src="http://images.cocodataset.org/train2017/000000430135.jpg" 
+                             alt="430135" title="430135 - using a notebook with keyboard and screen on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-435707" 
+                             src="http://images.cocodataset.org/train2017/000000435707.jpg" 
+                             alt="435707" title="435707 - using a notebook with keyboard and screen on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-450555" 
+                             src="http://images.cocodataset.org/train2017/000000450555.jpg" 
+                             alt="450555" title="450555 - using a notebook with keyboard and screen on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-456310" 
+                             src="http://images.cocodataset.org/train2017/000000456310.jpg" 
+                             alt="456310" title="456310 - using a notebook with keyboard and screen on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-463876" 
+                             src="http://images.cocodataset.org/train2017/000000463876.jpg" 
+                             alt="463876" title="463876 - using a notebook with keyboard and screen on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-477643" 
+                             src="http://images.cocodataset.org/train2017/000000477643.jpg" 
+                             alt="477643" title="477643 - using a notebook with keyboard and screen on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-500440" 
+                             src="http://images.cocodataset.org/train2017/000000500440.jpg" 
+                             alt="500440" title="500440 - using a notebook with keyboard and screen on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-516008" 
+                             src="http://images.cocodataset.org/train2017/000000516008.jpg" 
+                             alt="516008" title="516008 - using a notebook with keyboard and screen on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-538604" 
+                             src="http://images.cocodataset.org/train2017/000000538604.jpg" 
+                             alt="538604" title="538604 - using a notebook with keyboard and screen on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-550281" 
+                             src="http://images.cocodataset.org/train2017/000000550281.jpg" 
+                             alt="550281" title="550281 - using a notebook with keyboard and screen on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-558401" 
+                             src="http://images.cocodataset.org/train2017/000000558401.jpg" 
+                             alt="558401" title="558401 - using a notebook with keyboard and screen on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-573749" 
+                             src="http://images.cocodataset.org/train2017/000000573749.jpg" 
+                             alt="573749" title="573749 - using a notebook with keyboard and screen on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-58864" 
+                             src="http://images.cocodataset.org/train2017/000000058864.jpg" 
+                             alt="58864" title="58864 - using a notebook with keyboard and screen on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-73226" 
+                             src="http://images.cocodataset.org/train2017/000000073226.jpg" 
+                             alt="73226" title="73226 - using a notebook with keyboard and screen on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-75647" 
+                             src="http://images.cocodataset.org/train2017/000000075647.jpg" 
+                             alt="75647" title="75647 - using a notebook with keyboard and screen on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-78394" 
+                             src="http://images.cocodataset.org/train2017/000000078394.jpg" 
+                             alt="78394" title="78394 - using a notebook with keyboard and screen on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-8321" 
+                             src="http://images.cocodataset.org/train2017/000000008321.jpg" 
+                             alt="8321" title="8321 - using a notebook with keyboard and screen on a table"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="6">
+            <div class="cluster-title">kid using a notebook</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-127654" 
+                             src="http://images.cocodataset.org/train2017/000000127654.jpg" 
+                             alt="127654" title="127654 - kid using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-135015" 
+                             src="http://images.cocodataset.org/train2017/000000135015.jpg" 
+                             alt="135015" title="135015 - kid using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-141557" 
+                             src="http://images.cocodataset.org/train2017/000000141557.jpg" 
+                             alt="141557" title="141557 - kid using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-14238" 
+                             src="http://images.cocodataset.org/train2017/000000014238.jpg" 
+                             alt="14238" title="14238 - kid using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-168291" 
+                             src="http://images.cocodataset.org/train2017/000000168291.jpg" 
+                             alt="168291" title="168291 - kid using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-172957" 
+                             src="http://images.cocodataset.org/train2017/000000172957.jpg" 
+                             alt="172957" title="172957 - kid using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-263440" 
+                             src="http://images.cocodataset.org/train2017/000000263440.jpg" 
+                             alt="263440" title="263440 - kid using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-357904" 
+                             src="http://images.cocodataset.org/train2017/000000357904.jpg" 
+                             alt="357904" title="357904 - kid using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-379871" 
+                             src="http://images.cocodataset.org/train2017/000000379871.jpg" 
+                             alt="379871" title="379871 - kid using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-426773" 
+                             src="http://images.cocodataset.org/train2017/000000426773.jpg" 
+                             alt="426773" title="426773 - kid using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-451690" 
+                             src="http://images.cocodataset.org/train2017/000000451690.jpg" 
+                             alt="451690" title="451690 - kid using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-466243" 
+                             src="http://images.cocodataset.org/train2017/000000466243.jpg" 
+                             alt="466243" title="466243 - kid using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-488980" 
+                             src="http://images.cocodataset.org/train2017/000000488980.jpg" 
+                             alt="488980" title="488980 - kid using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-520150" 
+                             src="http://images.cocodataset.org/train2017/000000520150.jpg" 
+                             alt="520150" title="520150 - kid using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-579466" 
+                             src="http://images.cocodataset.org/train2017/000000579466.jpg" 
+                             alt="579466" title="579466 - kid using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-69884" 
+                             src="http://images.cocodataset.org/train2017/000000069884.jpg" 
+                             alt="69884" title="69884 - kid using a notebook"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-75322" 
+                             src="http://images.cocodataset.org/train2017/000000075322.jpg" 
+                             alt="75322" title="75322 - kid using a notebook"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="8">
+            <div class="cluster-title">using a notebook and various items on a table</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-103027" 
+                             src="http://images.cocodataset.org/train2017/000000103027.jpg" 
+                             alt="103027" title="103027 - using a notebook and various items on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-136458" 
+                             src="http://images.cocodataset.org/train2017/000000136458.jpg" 
+                             alt="136458" title="136458 - using a notebook and various items on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-154202" 
+                             src="http://images.cocodataset.org/train2017/000000154202.jpg" 
+                             alt="154202" title="154202 - using a notebook and various items on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-183788" 
+                             src="http://images.cocodataset.org/train2017/000000183788.jpg" 
+                             alt="183788" title="183788 - using a notebook and various items on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-19333" 
+                             src="http://images.cocodataset.org/train2017/000000019333.jpg" 
+                             alt="19333" title="19333 - using a notebook and various items on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-204256" 
+                             src="http://images.cocodataset.org/train2017/000000204256.jpg" 
+                             alt="204256" title="204256 - using a notebook and various items on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-304950" 
+                             src="http://images.cocodataset.org/train2017/000000304950.jpg" 
+                             alt="304950" title="304950 - using a notebook and various items on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-319917" 
+                             src="http://images.cocodataset.org/train2017/000000319917.jpg" 
+                             alt="319917" title="319917 - using a notebook and various items on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-85143" 
+                             src="http://images.cocodataset.org/train2017/000000085143.jpg" 
+                             alt="85143" title="85143 - using a notebook and various items on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-92217" 
+                             src="http://images.cocodataset.org/train2017/000000092217.jpg" 
+                             alt="92217" title="92217 - using a notebook and various items on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-93288" 
+                             src="http://images.cocodataset.org/train2017/000000093288.jpg" 
+                             alt="93288" title="93288 - using a notebook and various items on a table"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+</div>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>
