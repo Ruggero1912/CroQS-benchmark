@@ -104,7 +104,7 @@
     </div>
     <div class="navbar-menu">
         <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-            <a class="navbar-item" href="#">
+            <a class="navbar-item" href="../index.html">
                 <span class="icon">
                     <i class="fas fa-home"></i>
                 </span>
@@ -136,7 +136,11 @@
                 {% for coco_id in coco_ids %}
                     <div class="image-for-query-div">
                         <img class="coco-img-preview image-{{coco_id}}" 
-                             src="http://images.cocodataset.org/train2017/{{(coco_id|string).rjust(12, '0')}}.jpg" 
+                            {% if not images_path_from_html_folder %}
+                             src="{% if cors_proxy %}{{cors_proxy}}{% endif %}http://images.cocodataset.org/train2017/{{(coco_id|string).rjust(12, '0')}}.jpg" 
+                             {% else %}
+                             src="./{{images_path_from_html_folder}}/{{(coco_id|string).rjust(12, '0')}}.jpg" 
+                             {% endif %}
                              alt="{{coco_id}}" title="{{coco_id}} - {{caption}}"/>
                     </div>
                 {% endfor %}
@@ -144,7 +148,25 @@
         </div>
     {% endfor %}
 </div>
-
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="content has-text-centered">
+          <!-- <a class="icon-link" href="" class="external-link" disabled>
+            <i class="fab fa-github"></i>
+          </a> -->
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                Dataset and images provided by <a href="http://cocodataset.org">COCO Dataset</a> (Common Objects in Context), licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+</footer>
 </body>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
