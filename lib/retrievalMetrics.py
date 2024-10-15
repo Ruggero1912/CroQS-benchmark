@@ -58,13 +58,14 @@ def __dcg(relevances, k, b = 2):
         return res
     return 0.
 
-def ndcg(result_set, k):
+def ndcg(result_set, k, verbose=False):
     """Compute the Normalized Discounted Cumulative Gain (NDCG)"""
     relevances = result_set['relevance'].tolist()
     ideal_relevances = sorted(relevances, reverse=True)
     div = _dcg(ideal_relevances, k)
     if div == 0.:
-        print(f"[ndcg] [W] division by 0 [W]")
+        if verbose:
+            print(f"[ndcg] [W] division by 0 [W]")
         return 0.
     return _dcg(relevances, k) / div
 
