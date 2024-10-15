@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CroQS Dataset - browse</title>
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            /* align-items: center; */
+            min-height: 100vh;
+        }
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 0.75rem 0;
+        }
+        a {
+            text-decoration: none;
+            color: #4a4e69;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            display: block;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        a:hover {
+            background-color: #dbdbff;
+            color: #f4f4f9;
+        }
+        .card {
+            margin-bottom: 0px !important;
+            padding: 1.25rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fdfdfd;
+            text-decoration: none;
+            color: #333;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .query-list {
+            display: grid;
+            grid-template-columns: 1fr; /* Single column on small screens */
+            gap: 1rem; /* Spacing between items */
+        }
+        @media (min-width: 600px) {
+            .query-list {
+                grid-template-columns: 1fr 1fr; /* Two columns on screens 600px and wider */
+            }
+        }
+        .query-title {
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        .cluster-count {
+            font-size: 0.95em;
+            color: #606060;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="../index.html">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Content -->
+<div class="container" style="padding-bottom: 80px;">
+    <h1>CroQS Dataset</h1>
+    <h3>List of Initial Queries</h3>
+    <ul class="query-list">
+        <!-- {\% for file_name in q_file_names %}
+            <li><a href="./html/{\{ file_name }}">{\{ file_name.replace('-', ' ').replace('.html', '') }}</a></li>
+        {\% endfor %} -->
+        
+        <a href="./dog-running.html" class="card">
+            <div class="content">
+                <p class="query-title">1. Dog Running</p>
+                <p class="cluster-count">2 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./person-reading.html" class="card">
+            <div class="content">
+                <p class="query-title">2. Person Reading</p>
+                <p class="cluster-count">4 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./laptop-near.html" class="card">
+            <div class="content">
+                <p class="query-title">3. Laptop Near</p>
+                <p class="cluster-count">4 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./car-moving.html" class="card">
+            <div class="content">
+                <p class="query-title">4. Car Moving</p>
+                <p class="cluster-count">7 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./small-house.html" class="card">
+            <div class="content">
+                <p class="query-title">5. Small House</p>
+                <p class="cluster-count">9 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./horse-sleeping.html" class="card">
+            <div class="content">
+                <p class="query-title">6. Horse Sleeping</p>
+                <p class="cluster-count">6 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./cat-drinking.html" class="card">
+            <div class="content">
+                <p class="query-title">7. Cat Drinking</p>
+                <p class="cluster-count">9 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./factory.html" class="card">
+            <div class="content">
+                <p class="query-title">8. Factory</p>
+                <p class="cluster-count">6 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./chair.html" class="card">
+            <div class="content">
+                <p class="query-title">9. Chair</p>
+                <p class="cluster-count">8 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./classroom.html" class="card">
+            <div class="content">
+                <p class="query-title">10. Classroom</p>
+                <p class="cluster-count">3 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./a-person-cooking.html" class="card">
+            <div class="content">
+                <p class="query-title">11. A Person Cooking</p>
+                <p class="cluster-count">10 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./kid-eating.html" class="card">
+            <div class="content">
+                <p class="query-title">12. Kid Eating</p>
+                <p class="cluster-count">5 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./person-with-pizza.html" class="card">
+            <div class="content">
+                <p class="query-title">13. Person With Pizza</p>
+                <p class="cluster-count">6 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./person-with-a-surf-board.html" class="card">
+            <div class="content">
+                <p class="query-title">14. Person With A Surf Board</p>
+                <p class="cluster-count">10 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./person-riding.html" class="card">
+            <div class="content">
+                <p class="query-title">15. Person Riding</p>
+                <p class="cluster-count">9 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./reading-a-news-paper.html" class="card">
+            <div class="content">
+                <p class="query-title">16. Reading A News Paper</p>
+                <p class="cluster-count">5 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./keyboard.html" class="card">
+            <div class="content">
+                <p class="query-title">17. Keyboard</p>
+                <p class="cluster-count">7 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./using-a-notebook.html" class="card">
+            <div class="content">
+                <p class="query-title">18. Using A Notebook</p>
+                <p class="cluster-count">8 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./running-water.html" class="card">
+            <div class="content">
+                <p class="query-title">19. Running Water</p>
+                <p class="cluster-count">5 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./a-cat-proud.html" class="card">
+            <div class="content">
+                <p class="query-title">20. A Cat Proud</p>
+                <p class="cluster-count">5 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./dog-in-the-water.html" class="card">
+            <div class="content">
+                <p class="query-title">21. Dog In The Water</p>
+                <p class="cluster-count">5 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./riding-a-motorcycle.html" class="card">
+            <div class="content">
+                <p class="query-title">22. Riding A Motorcycle</p>
+                <p class="cluster-count">6 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./flying-a-kite.html" class="card">
+            <div class="content">
+                <p class="query-title">23. Flying A Kite</p>
+                <p class="cluster-count">4 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./marketplace.html" class="card">
+            <div class="content">
+                <p class="query-title">24. Marketplace</p>
+                <p class="cluster-count">5 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./kitchen-appliances.html" class="card">
+            <div class="content">
+                <p class="query-title">25. Kitchen Appliances</p>
+                <p class="cluster-count">5 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./a-photo-of-a-tree.html" class="card">
+            <div class="content">
+                <p class="query-title">26. A Photo Of A Tree</p>
+                <p class="cluster-count">4 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./people-enjoying.html" class="card">
+            <div class="content">
+                <p class="query-title">27. People Enjoying</p>
+                <p class="cluster-count">7 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./a-portrait.html" class="card">
+            <div class="content">
+                <p class="query-title">28. A Portrait</p>
+                <p class="cluster-count">5 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./person-at-the-phone.html" class="card">
+            <div class="content">
+                <p class="query-title">29. Person At The Phone</p>
+                <p class="cluster-count">4 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./football.html" class="card">
+            <div class="content">
+                <p class="query-title">30. Football</p>
+                <p class="cluster-count">4 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./dish-of-food.html" class="card">
+            <div class="content">
+                <p class="query-title">31. Dish Of Food</p>
+                <p class="cluster-count">7 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./playing-videogames.html" class="card">
+            <div class="content">
+                <p class="query-title">32. Playing Videogames</p>
+                <p class="cluster-count">10 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./sunrise.html" class="card">
+            <div class="content">
+                <p class="query-title">33. Sunrise</p>
+                <p class="cluster-count">4 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./a-woman-in-the-city.html" class="card">
+            <div class="content">
+                <p class="query-title">34. A Woman In The City</p>
+                <p class="cluster-count">5 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./a-sport-race.html" class="card">
+            <div class="content">
+                <p class="query-title">35. A Sport Race</p>
+                <p class="cluster-count">5 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./ice-cream.html" class="card">
+            <div class="content">
+                <p class="query-title">36. Ice Cream</p>
+                <p class="cluster-count">4 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./police.html" class="card">
+            <div class="content">
+                <p class="query-title">37. Police</p>
+                <p class="cluster-count">5 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./playing-frisbee.html" class="card">
+            <div class="content">
+                <p class="query-title">38. Playing Frisbee</p>
+                <p class="cluster-count">3 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./happiness.html" class="card">
+            <div class="content">
+                <p class="query-title">39. Happiness</p>
+                <p class="cluster-count">8 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./a-man-with-water.html" class="card">
+            <div class="content">
+                <p class="query-title">40. A Man With Water</p>
+                <p class="cluster-count">8 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./backpack.html" class="card">
+            <div class="content">
+                <p class="query-title">41. Backpack</p>
+                <p class="cluster-count">5 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./clock.html" class="card">
+            <div class="content">
+                <p class="query-title">42. Clock</p>
+                <p class="cluster-count">5 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./italy.html" class="card">
+            <div class="content">
+                <p class="query-title">43. Italy</p>
+                <p class="cluster-count">5 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./italian-car.html" class="card">
+            <div class="content">
+                <p class="query-title">44. Italian Car</p>
+                <p class="cluster-count">4 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./cat-resting.html" class="card">
+            <div class="content">
+                <p class="query-title">45. Cat Resting</p>
+                <p class="cluster-count">6 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./glass-bottle.html" class="card">
+            <div class="content">
+                <p class="query-title">46. Glass Bottle</p>
+                <p class="cluster-count">5 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./tennis-player.html" class="card">
+            <div class="content">
+                <p class="query-title">47. Tennis Player</p>
+                <p class="cluster-count">8 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./road-sign.html" class="card">
+            <div class="content">
+                <p class="query-title">48. Road Sign</p>
+                <p class="cluster-count">8 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./mountain.html" class="card">
+            <div class="content">
+                <p class="query-title">49. Mountain</p>
+                <p class="cluster-count">6 Clusters</p>
+            </div>
+        </a>
+        
+        <a href="./bridge.html" class="card">
+            <div class="content">
+                <p class="query-title">50. Bridge</p>
+                <p class="cluster-count">7 Clusters</p>
+            </div>
+        </a>
+        
+    </ul>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="content has-text-centered">
+          <!-- <a class="icon-link" href="" class="external-link" disabled>
+            <i class="fab fa-github"></i>
+          </a> -->
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                Dataset and images provided by <a href="http://cocodataset.org">COCO Dataset</a> (Common Objects in Context), licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+</footer>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>

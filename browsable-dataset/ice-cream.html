@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #pinco {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .images-for-query-by-clusters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+        .images-for-cluster-column-container {
+            background-color: #ffffff;
+            width: 380px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cluster-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .cluster-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px;
+        }
+        .coco-img-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .images-for-cluster-column-container:nth-child(5n) {
+            border-top: 5px solid #07730d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+1) {
+            border-top: 5px solid #2a51bb;
+        }
+        .images-for-cluster-column-container:nth-child(5n+2) {
+            border-top: 5px solid #b4c51d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+3) {
+            border-top: 5px solid #c51d1d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+4) {
+            border-top: 5px solid #1dc5c5;
+        }
+
+        .container {
+            width: 80%;
+            /* max-width: 800px; */
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .container-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .query-highlight {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            background-color: #e0f7f4;
+            padding: 0.2em 0.4em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="pinco">
+
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="../index.html">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Title Section -->
+ <div class="container-container">
+    <div class="container">
+        <h1>CroQS Dataset</h1>
+        <h3>Semantic Clusters for the Initial Query: <span class="query-highlight">ice cream</span></h3>
+    </div>
+</div>
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="0">
+            <div class="cluster-title">person eating ice cream</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-134007" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000134007.jpg" 
+                             
+                             alt="134007" title="134007 - person eating ice cream"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-14281" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000014281.jpg" 
+                             
+                             alt="14281" title="14281 - person eating ice cream"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-15586" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000015586.jpg" 
+                             
+                             alt="15586" title="15586 - person eating ice cream"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-182906" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000182906.jpg" 
+                             
+                             alt="182906" title="182906 - person eating ice cream"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-228635" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000228635.jpg" 
+                             
+                             alt="228635" title="228635 - person eating ice cream"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-253955" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000253955.jpg" 
+                             
+                             alt="253955" title="253955 - person eating ice cream"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-254930" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000254930.jpg" 
+                             
+                             alt="254930" title="254930 - person eating ice cream"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-262399" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000262399.jpg" 
+                             
+                             alt="262399" title="262399 - person eating ice cream"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-266071" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000266071.jpg" 
+                             
+                             alt="266071" title="266071 - person eating ice cream"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-282514" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000282514.jpg" 
+                             
+                             alt="282514" title="282514 - person eating ice cream"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-299457" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000299457.jpg" 
+                             
+                             alt="299457" title="299457 - person eating ice cream"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-306247" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000306247.jpg" 
+                             
+                             alt="306247" title="306247 - person eating ice cream"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-425964" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000425964.jpg" 
+                             
+                             alt="425964" title="425964 - person eating ice cream"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-439339" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000439339.jpg" 
+                             
+                             alt="439339" title="439339 - person eating ice cream"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-44170" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000044170.jpg" 
+                             
+                             alt="44170" title="44170 - person eating ice cream"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-443049" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000443049.jpg" 
+                             
+                             alt="443049" title="443049 - person eating ice cream"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-443602" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000443602.jpg" 
+                             
+                             alt="443602" title="443602 - person eating ice cream"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-462082" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000462082.jpg" 
+                             
+                             alt="462082" title="462082 - person eating ice cream"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-495107" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000495107.jpg" 
+                             
+                             alt="495107" title="495107 - person eating ice cream"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-499705" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000499705.jpg" 
+                             
+                             alt="499705" title="499705 - person eating ice cream"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-549559" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000549559.jpg" 
+                             
+                             alt="549559" title="549559 - person eating ice cream"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-550273" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000550273.jpg" 
+                             
+                             alt="550273" title="550273 - person eating ice cream"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="1">
+            <div class="cluster-title">ice cream in a bowl</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-105580" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000105580.jpg" 
+                             
+                             alt="105580" title="105580 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-112688" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000112688.jpg" 
+                             
+                             alt="112688" title="112688 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-127648" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000127648.jpg" 
+                             
+                             alt="127648" title="127648 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-149078" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000149078.jpg" 
+                             
+                             alt="149078" title="149078 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-151945" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000151945.jpg" 
+                             
+                             alt="151945" title="151945 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-15772" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000015772.jpg" 
+                             
+                             alt="15772" title="15772 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-159038" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000159038.jpg" 
+                             
+                             alt="159038" title="159038 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-163771" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000163771.jpg" 
+                             
+                             alt="163771" title="163771 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-186524" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000186524.jpg" 
+                             
+                             alt="186524" title="186524 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-19250" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000019250.jpg" 
+                             
+                             alt="19250" title="19250 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-195840" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000195840.jpg" 
+                             
+                             alt="195840" title="195840 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-19967" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000019967.jpg" 
+                             
+                             alt="19967" title="19967 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-209068" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000209068.jpg" 
+                             
+                             alt="209068" title="209068 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-219590" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000219590.jpg" 
+                             
+                             alt="219590" title="219590 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-223832" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000223832.jpg" 
+                             
+                             alt="223832" title="223832 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-224138" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000224138.jpg" 
+                             
+                             alt="224138" title="224138 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-22474" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000022474.jpg" 
+                             
+                             alt="22474" title="22474 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-240285" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000240285.jpg" 
+                             
+                             alt="240285" title="240285 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-253170" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000253170.jpg" 
+                             
+                             alt="253170" title="253170 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-265819" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000265819.jpg" 
+                             
+                             alt="265819" title="265819 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-286662" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000286662.jpg" 
+                             
+                             alt="286662" title="286662 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-289739" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000289739.jpg" 
+                             
+                             alt="289739" title="289739 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-304608" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000304608.jpg" 
+                             
+                             alt="304608" title="304608 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-3091" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000003091.jpg" 
+                             
+                             alt="3091" title="3091 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-312939" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000312939.jpg" 
+                             
+                             alt="312939" title="312939 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-326247" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000326247.jpg" 
+                             
+                             alt="326247" title="326247 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-329411" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000329411.jpg" 
+                             
+                             alt="329411" title="329411 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-336593" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000336593.jpg" 
+                             
+                             alt="336593" title="336593 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-351057" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000351057.jpg" 
+                             
+                             alt="351057" title="351057 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-352835" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000352835.jpg" 
+                             
+                             alt="352835" title="352835 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-389264" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000389264.jpg" 
+                             
+                             alt="389264" title="389264 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-3992" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000003992.jpg" 
+                             
+                             alt="3992" title="3992 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-409546" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000409546.jpg" 
+                             
+                             alt="409546" title="409546 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-413421" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000413421.jpg" 
+                             
+                             alt="413421" title="413421 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-42081" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000042081.jpg" 
+                             
+                             alt="42081" title="42081 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-431112" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000431112.jpg" 
+                             
+                             alt="431112" title="431112 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-436596" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000436596.jpg" 
+                             
+                             alt="436596" title="436596 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-451739" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000451739.jpg" 
+                             
+                             alt="451739" title="451739 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-452297" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000452297.jpg" 
+                             
+                             alt="452297" title="452297 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-464056" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000464056.jpg" 
+                             
+                             alt="464056" title="464056 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-473215" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000473215.jpg" 
+                             
+                             alt="473215" title="473215 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-493296" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000493296.jpg" 
+                             
+                             alt="493296" title="493296 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-496429" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000496429.jpg" 
+                             
+                             alt="496429" title="496429 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-497390" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000497390.jpg" 
+                             
+                             alt="497390" title="497390 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-501718" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000501718.jpg" 
+                             
+                             alt="501718" title="501718 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-512912" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000512912.jpg" 
+                             
+                             alt="512912" title="512912 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-515202" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000515202.jpg" 
+                             
+                             alt="515202" title="515202 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-524929" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000524929.jpg" 
+                             
+                             alt="524929" title="524929 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-535369" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000535369.jpg" 
+                             
+                             alt="535369" title="535369 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-548913" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000548913.jpg" 
+                             
+                             alt="548913" title="548913 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-556417" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000556417.jpg" 
+                             
+                             alt="556417" title="556417 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-556560" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000556560.jpg" 
+                             
+                             alt="556560" title="556560 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-558271" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000558271.jpg" 
+                             
+                             alt="558271" title="558271 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-564348" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000564348.jpg" 
+                             
+                             alt="564348" title="564348 - ice cream in a bowl"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-83014" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000083014.jpg" 
+                             
+                             alt="83014" title="83014 - ice cream in a bowl"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="2">
+            <div class="cluster-title">ice cream shop truck</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-101560" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000101560.jpg" 
+                             
+                             alt="101560" title="101560 - ice cream shop truck"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-108835" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000108835.jpg" 
+                             
+                             alt="108835" title="108835 - ice cream shop truck"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-112093" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000112093.jpg" 
+                             
+                             alt="112093" title="112093 - ice cream shop truck"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-141304" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000141304.jpg" 
+                             
+                             alt="141304" title="141304 - ice cream shop truck"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-215845" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000215845.jpg" 
+                             
+                             alt="215845" title="215845 - ice cream shop truck"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-218399" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000218399.jpg" 
+                             
+                             alt="218399" title="218399 - ice cream shop truck"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-238018" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000238018.jpg" 
+                             
+                             alt="238018" title="238018 - ice cream shop truck"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-24859" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000024859.jpg" 
+                             
+                             alt="24859" title="24859 - ice cream shop truck"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-325042" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000325042.jpg" 
+                             
+                             alt="325042" title="325042 - ice cream shop truck"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-331313" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000331313.jpg" 
+                             
+                             alt="331313" title="331313 - ice cream shop truck"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-399489" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000399489.jpg" 
+                             
+                             alt="399489" title="399489 - ice cream shop truck"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-448137" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000448137.jpg" 
+                             
+                             alt="448137" title="448137 - ice cream shop truck"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-450434" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000450434.jpg" 
+                             
+                             alt="450434" title="450434 - ice cream shop truck"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-501379" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000501379.jpg" 
+                             
+                             alt="501379" title="501379 - ice cream shop truck"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-61409" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000061409.jpg" 
+                             
+                             alt="61409" title="61409 - ice cream shop truck"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-74179" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000074179.jpg" 
+                             
+                             alt="74179" title="74179 - ice cream shop truck"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="3">
+            <div class="cluster-title">child eating ice cream dessert</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-101497" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000101497.jpg" 
+                             
+                             alt="101497" title="101497 - child eating ice cream dessert"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-121351" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000121351.jpg" 
+                             
+                             alt="121351" title="121351 - child eating ice cream dessert"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-121381" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000121381.jpg" 
+                             
+                             alt="121381" title="121381 - child eating ice cream dessert"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-155735" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000155735.jpg" 
+                             
+                             alt="155735" title="155735 - child eating ice cream dessert"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-180662" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000180662.jpg" 
+                             
+                             alt="180662" title="180662 - child eating ice cream dessert"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-191073" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000191073.jpg" 
+                             
+                             alt="191073" title="191073 - child eating ice cream dessert"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-210103" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000210103.jpg" 
+                             
+                             alt="210103" title="210103 - child eating ice cream dessert"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-214528" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000214528.jpg" 
+                             
+                             alt="214528" title="214528 - child eating ice cream dessert"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-23218" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000023218.jpg" 
+                             
+                             alt="23218" title="23218 - child eating ice cream dessert"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-236155" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000236155.jpg" 
+                             
+                             alt="236155" title="236155 - child eating ice cream dessert"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-249435" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000249435.jpg" 
+                             
+                             alt="249435" title="249435 - child eating ice cream dessert"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-270871" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000270871.jpg" 
+                             
+                             alt="270871" title="270871 - child eating ice cream dessert"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-37865" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000037865.jpg" 
+                             
+                             alt="37865" title="37865 - child eating ice cream dessert"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-416585" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000416585.jpg" 
+                             
+                             alt="416585" title="416585 - child eating ice cream dessert"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-442094" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000442094.jpg" 
+                             
+                             alt="442094" title="442094 - child eating ice cream dessert"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-457962" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000457962.jpg" 
+                             
+                             alt="457962" title="457962 - child eating ice cream dessert"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-477579" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000477579.jpg" 
+                             
+                             alt="477579" title="477579 - child eating ice cream dessert"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-525373" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000525373.jpg" 
+                             
+                             alt="525373" title="525373 - child eating ice cream dessert"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-572326" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000572326.jpg" 
+                             
+                             alt="572326" title="572326 - child eating ice cream dessert"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-60623" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000060623.jpg" 
+                             
+                             alt="60623" title="60623 - child eating ice cream dessert"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-6981" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000006981.jpg" 
+                             
+                             alt="6981" title="6981 - child eating ice cream dessert"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-71495" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000071495.jpg" 
+                             
+                             alt="71495" title="71495 - child eating ice cream dessert"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-74788" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000074788.jpg" 
+                             
+                             alt="74788" title="74788 - child eating ice cream dessert"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-78451" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000078451.jpg" 
+                             
+                             alt="78451" title="78451 - child eating ice cream dessert"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-9270" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000009270.jpg" 
+                             
+                             alt="9270" title="9270 - child eating ice cream dessert"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+</div>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="content has-text-centered">
+          <!-- <a class="icon-link" href="" class="external-link" disabled>
+            <i class="fab fa-github"></i>
+          </a> -->
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                Dataset and images provided by <a href="http://cocodataset.org">COCO Dataset</a> (Common Objects in Context), licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+</footer>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>

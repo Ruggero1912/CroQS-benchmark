@@ -6,4 +6,5 @@ lib/__pycache__/
 !CroQS*.json
 code/_data/*
 .env
-browsable-dataset/
+browsable-dataset/coco-images/
+

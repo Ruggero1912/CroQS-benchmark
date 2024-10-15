@@ -1,0 +1,1808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #pinco {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .images-for-query-by-clusters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+        .images-for-cluster-column-container {
+            background-color: #ffffff;
+            width: 380px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cluster-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .cluster-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px;
+        }
+        .coco-img-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .images-for-cluster-column-container:nth-child(5n) {
+            border-top: 5px solid #07730d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+1) {
+            border-top: 5px solid #2a51bb;
+        }
+        .images-for-cluster-column-container:nth-child(5n+2) {
+            border-top: 5px solid #b4c51d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+3) {
+            border-top: 5px solid #c51d1d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+4) {
+            border-top: 5px solid #1dc5c5;
+        }
+
+        .container {
+            width: 80%;
+            /* max-width: 800px; */
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .container-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .query-highlight {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            background-color: #e0f7f4;
+            padding: 0.2em 0.4em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="pinco">
+
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="../index.html">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Title Section -->
+ <div class="container-container">
+    <div class="container">
+        <h1>CroQS Dataset</h1>
+        <h3>Semantic Clusters for the Initial Query: <span class="query-highlight">flying a kite</span></h3>
+    </div>
+</div>
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="0">
+            <div class="cluster-title">flying a kite near the sea on the beach</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-100001" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000100001.jpg" 
+                             
+                             alt="100001" title="100001 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-100665" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000100665.jpg" 
+                             
+                             alt="100665" title="100665 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-100910" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000100910.jpg" 
+                             
+                             alt="100910" title="100910 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-103973" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000103973.jpg" 
+                             
+                             alt="103973" title="103973 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-110710" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000110710.jpg" 
+                             
+                             alt="110710" title="110710 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-129331" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000129331.jpg" 
+                             
+                             alt="129331" title="129331 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-131485" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000131485.jpg" 
+                             
+                             alt="131485" title="131485 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-132136" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000132136.jpg" 
+                             
+                             alt="132136" title="132136 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-134325" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000134325.jpg" 
+                             
+                             alt="134325" title="134325 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-134362" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000134362.jpg" 
+                             
+                             alt="134362" title="134362 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-136493" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000136493.jpg" 
+                             
+                             alt="136493" title="136493 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-148983" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000148983.jpg" 
+                             
+                             alt="148983" title="148983 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-149434" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000149434.jpg" 
+                             
+                             alt="149434" title="149434 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-156727" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000156727.jpg" 
+                             
+                             alt="156727" title="156727 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-166340" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000166340.jpg" 
+                             
+                             alt="166340" title="166340 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-204181" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000204181.jpg" 
+                             
+                             alt="204181" title="204181 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-209491" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000209491.jpg" 
+                             
+                             alt="209491" title="209491 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-216314" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000216314.jpg" 
+                             
+                             alt="216314" title="216314 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-218704" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000218704.jpg" 
+                             
+                             alt="218704" title="218704 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-223183" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000223183.jpg" 
+                             
+                             alt="223183" title="223183 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-228025" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000228025.jpg" 
+                             
+                             alt="228025" title="228025 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-229381" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000229381.jpg" 
+                             
+                             alt="229381" title="229381 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-236623" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000236623.jpg" 
+                             
+                             alt="236623" title="236623 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-250067" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000250067.jpg" 
+                             
+                             alt="250067" title="250067 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-25352" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000025352.jpg" 
+                             
+                             alt="25352" title="25352 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-269489" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000269489.jpg" 
+                             
+                             alt="269489" title="269489 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-271643" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000271643.jpg" 
+                             
+                             alt="271643" title="271643 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-281632" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000281632.jpg" 
+                             
+                             alt="281632" title="281632 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-291725" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000291725.jpg" 
+                             
+                             alt="291725" title="291725 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-300701" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000300701.jpg" 
+                             
+                             alt="300701" title="300701 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-317131" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000317131.jpg" 
+                             
+                             alt="317131" title="317131 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-322804" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000322804.jpg" 
+                             
+                             alt="322804" title="322804 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-32715" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000032715.jpg" 
+                             
+                             alt="32715" title="32715 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-334580" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000334580.jpg" 
+                             
+                             alt="334580" title="334580 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-340354" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000340354.jpg" 
+                             
+                             alt="340354" title="340354 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-352866" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000352866.jpg" 
+                             
+                             alt="352866" title="352866 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-359020" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000359020.jpg" 
+                             
+                             alt="359020" title="359020 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-364098" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000364098.jpg" 
+                             
+                             alt="364098" title="364098 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-371201" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000371201.jpg" 
+                             
+                             alt="371201" title="371201 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-381106" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000381106.jpg" 
+                             
+                             alt="381106" title="381106 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-381602" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000381602.jpg" 
+                             
+                             alt="381602" title="381602 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-383819" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000383819.jpg" 
+                             
+                             alt="383819" title="383819 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-392687" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000392687.jpg" 
+                             
+                             alt="392687" title="392687 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-40144" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000040144.jpg" 
+                             
+                             alt="40144" title="40144 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-404139" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000404139.jpg" 
+                             
+                             alt="404139" title="404139 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-412086" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000412086.jpg" 
+                             
+                             alt="412086" title="412086 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-41516" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000041516.jpg" 
+                             
+                             alt="41516" title="41516 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-41918" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000041918.jpg" 
+                             
+                             alt="41918" title="41918 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-423777" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000423777.jpg" 
+                             
+                             alt="423777" title="423777 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-431450" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000431450.jpg" 
+                             
+                             alt="431450" title="431450 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-446902" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000446902.jpg" 
+                             
+                             alt="446902" title="446902 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-456399" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000456399.jpg" 
+                             
+                             alt="456399" title="456399 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-458596" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000458596.jpg" 
+                             
+                             alt="458596" title="458596 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-467589" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000467589.jpg" 
+                             
+                             alt="467589" title="467589 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-468279" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000468279.jpg" 
+                             
+                             alt="468279" title="468279 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-483090" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000483090.jpg" 
+                             
+                             alt="483090" title="483090 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-483754" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000483754.jpg" 
+                             
+                             alt="483754" title="483754 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-48388" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000048388.jpg" 
+                             
+                             alt="48388" title="48388 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-489263" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000489263.jpg" 
+                             
+                             alt="489263" title="489263 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-493102" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000493102.jpg" 
+                             
+                             alt="493102" title="493102 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-502823" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000502823.jpg" 
+                             
+                             alt="502823" title="502823 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-524069" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000524069.jpg" 
+                             
+                             alt="524069" title="524069 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-544384" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000544384.jpg" 
+                             
+                             alt="544384" title="544384 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-553495" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000553495.jpg" 
+                             
+                             alt="553495" title="553495 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-57424" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000057424.jpg" 
+                             
+                             alt="57424" title="57424 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-68204" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000068204.jpg" 
+                             
+                             alt="68204" title="68204 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-70702" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000070702.jpg" 
+                             
+                             alt="70702" title="70702 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-74993" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000074993.jpg" 
+                             
+                             alt="74993" title="74993 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-85101" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000085101.jpg" 
+                             
+                             alt="85101" title="85101 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-86591" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000086591.jpg" 
+                             
+                             alt="86591" title="86591 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-90346" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000090346.jpg" 
+                             
+                             alt="90346" title="90346 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-92678" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000092678.jpg" 
+                             
+                             alt="92678" title="92678 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-93280" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000093280.jpg" 
+                             
+                             alt="93280" title="93280 - flying a kite near the sea on the beach"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="1">
+            <div class="cluster-title">young person flying a kite in blue sky</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-103692" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000103692.jpg" 
+                             
+                             alt="103692" title="103692 - young person flying a kite in blue sky"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-135965" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000135965.jpg" 
+                             
+                             alt="135965" title="135965 - young person flying a kite in blue sky"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-147000" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000147000.jpg" 
+                             
+                             alt="147000" title="147000 - young person flying a kite in blue sky"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-14844" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000014844.jpg" 
+                             
+                             alt="14844" title="14844 - young person flying a kite in blue sky"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-156282" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000156282.jpg" 
+                             
+                             alt="156282" title="156282 - young person flying a kite in blue sky"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-168661" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000168661.jpg" 
+                             
+                             alt="168661" title="168661 - young person flying a kite in blue sky"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-18523" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000018523.jpg" 
+                             
+                             alt="18523" title="18523 - young person flying a kite in blue sky"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-208274" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000208274.jpg" 
+                             
+                             alt="208274" title="208274 - young person flying a kite in blue sky"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-21215" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000021215.jpg" 
+                             
+                             alt="21215" title="21215 - young person flying a kite in blue sky"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-213355" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000213355.jpg" 
+                             
+                             alt="213355" title="213355 - young person flying a kite in blue sky"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-238603" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000238603.jpg" 
+                             
+                             alt="238603" title="238603 - young person flying a kite in blue sky"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-23919" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000023919.jpg" 
+                             
+                             alt="23919" title="23919 - young person flying a kite in blue sky"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-241170" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000241170.jpg" 
+                             
+                             alt="241170" title="241170 - young person flying a kite in blue sky"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-275015" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000275015.jpg" 
+                             
+                             alt="275015" title="275015 - young person flying a kite in blue sky"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-284118" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000284118.jpg" 
+                             
+                             alt="284118" title="284118 - young person flying a kite in blue sky"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-308974" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000308974.jpg" 
+                             
+                             alt="308974" title="308974 - young person flying a kite in blue sky"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-327262" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000327262.jpg" 
+                             
+                             alt="327262" title="327262 - young person flying a kite in blue sky"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-339253" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000339253.jpg" 
+                             
+                             alt="339253" title="339253 - young person flying a kite in blue sky"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-343413" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000343413.jpg" 
+                             
+                             alt="343413" title="343413 - young person flying a kite in blue sky"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-350675" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000350675.jpg" 
+                             
+                             alt="350675" title="350675 - young person flying a kite in blue sky"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-368242" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000368242.jpg" 
+                             
+                             alt="368242" title="368242 - young person flying a kite in blue sky"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-372727" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000372727.jpg" 
+                             
+                             alt="372727" title="372727 - young person flying a kite in blue sky"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-377011" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000377011.jpg" 
+                             
+                             alt="377011" title="377011 - young person flying a kite in blue sky"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-428033" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000428033.jpg" 
+                             
+                             alt="428033" title="428033 - young person flying a kite in blue sky"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-43795" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000043795.jpg" 
+                             
+                             alt="43795" title="43795 - young person flying a kite in blue sky"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-441873" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000441873.jpg" 
+                             
+                             alt="441873" title="441873 - young person flying a kite in blue sky"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-444765" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000444765.jpg" 
+                             
+                             alt="444765" title="444765 - young person flying a kite in blue sky"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-459347" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000459347.jpg" 
+                             
+                             alt="459347" title="459347 - young person flying a kite in blue sky"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-539937" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000539937.jpg" 
+                             
+                             alt="539937" title="539937 - young person flying a kite in blue sky"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-542312" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000542312.jpg" 
+                             
+                             alt="542312" title="542312 - young person flying a kite in blue sky"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-54348" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000054348.jpg" 
+                             
+                             alt="54348" title="54348 - young person flying a kite in blue sky"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-550761" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000550761.jpg" 
+                             
+                             alt="550761" title="550761 - young person flying a kite in blue sky"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-62622" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000062622.jpg" 
+                             
+                             alt="62622" title="62622 - young person flying a kite in blue sky"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="2">
+            <div class="cluster-title">flying a kite in a park</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-101839" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000101839.jpg" 
+                             
+                             alt="101839" title="101839 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-115459" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000115459.jpg" 
+                             
+                             alt="115459" title="115459 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-120490" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000120490.jpg" 
+                             
+                             alt="120490" title="120490 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-131534" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000131534.jpg" 
+                             
+                             alt="131534" title="131534 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-143926" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000143926.jpg" 
+                             
+                             alt="143926" title="143926 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-179758" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000179758.jpg" 
+                             
+                             alt="179758" title="179758 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-186461" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000186461.jpg" 
+                             
+                             alt="186461" title="186461 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-188411" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000188411.jpg" 
+                             
+                             alt="188411" title="188411 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-1955" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000001955.jpg" 
+                             
+                             alt="1955" title="1955 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-224244" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000224244.jpg" 
+                             
+                             alt="224244" title="224244 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-230291" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000230291.jpg" 
+                             
+                             alt="230291" title="230291 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-233142" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000233142.jpg" 
+                             
+                             alt="233142" title="233142 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-236505" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000236505.jpg" 
+                             
+                             alt="236505" title="236505 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-291962" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000291962.jpg" 
+                             
+                             alt="291962" title="291962 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-298987" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000298987.jpg" 
+                             
+                             alt="298987" title="298987 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-311310" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000311310.jpg" 
+                             
+                             alt="311310" title="311310 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-311669" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000311669.jpg" 
+                             
+                             alt="311669" title="311669 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-3118" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000003118.jpg" 
+                             
+                             alt="3118" title="3118 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-315094" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000315094.jpg" 
+                             
+                             alt="315094" title="315094 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-327123" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000327123.jpg" 
+                             
+                             alt="327123" title="327123 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-349958" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000349958.jpg" 
+                             
+                             alt="349958" title="349958 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-357895" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000357895.jpg" 
+                             
+                             alt="357895" title="357895 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-365755" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000365755.jpg" 
+                             
+                             alt="365755" title="365755 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-365784" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000365784.jpg" 
+                             
+                             alt="365784" title="365784 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-427864" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000427864.jpg" 
+                             
+                             alt="427864" title="427864 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-430086" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000430086.jpg" 
+                             
+                             alt="430086" title="430086 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-446209" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000446209.jpg" 
+                             
+                             alt="446209" title="446209 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-457659" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000457659.jpg" 
+                             
+                             alt="457659" title="457659 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-465351" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000465351.jpg" 
+                             
+                             alt="465351" title="465351 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-479387" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000479387.jpg" 
+                             
+                             alt="479387" title="479387 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-480495" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000480495.jpg" 
+                             
+                             alt="480495" title="480495 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-490415" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000490415.jpg" 
+                             
+                             alt="490415" title="490415 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-512191" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000512191.jpg" 
+                             
+                             alt="512191" title="512191 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-515219" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000515219.jpg" 
+                             
+                             alt="515219" title="515219 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-517362" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000517362.jpg" 
+                             
+                             alt="517362" title="517362 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-519168" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000519168.jpg" 
+                             
+                             alt="519168" title="519168 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-52986" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000052986.jpg" 
+                             
+                             alt="52986" title="52986 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-532055" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000532055.jpg" 
+                             
+                             alt="532055" title="532055 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-533512" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000533512.jpg" 
+                             
+                             alt="533512" title="533512 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-544728" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000544728.jpg" 
+                             
+                             alt="544728" title="544728 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-547448" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000547448.jpg" 
+                             
+                             alt="547448" title="547448 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-548592" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000548592.jpg" 
+                             
+                             alt="548592" title="548592 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-553561" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000553561.jpg" 
+                             
+                             alt="553561" title="553561 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-563329" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000563329.jpg" 
+                             
+                             alt="563329" title="563329 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-575052" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000575052.jpg" 
+                             
+                             alt="575052" title="575052 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-65051" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000065051.jpg" 
+                             
+                             alt="65051" title="65051 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-72592" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000072592.jpg" 
+                             
+                             alt="72592" title="72592 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-81296" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000081296.jpg" 
+                             
+                             alt="81296" title="81296 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-85151" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000085151.jpg" 
+                             
+                             alt="85151" title="85151 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-96193" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000096193.jpg" 
+                             
+                             alt="96193" title="96193 - flying a kite in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-99218" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000099218.jpg" 
+                             
+                             alt="99218" title="99218 - flying a kite in a park"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="3">
+            <div class="cluster-title">flying a kite in the sky on a green field</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-120037" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000120037.jpg" 
+                             
+                             alt="120037" title="120037 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-12497" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000012497.jpg" 
+                             
+                             alt="12497" title="12497 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-149" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000000149.jpg" 
+                             
+                             alt="149" title="149 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-188207" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000188207.jpg" 
+                             
+                             alt="188207" title="188207 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-224303" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000224303.jpg" 
+                             
+                             alt="224303" title="224303 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-228197" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000228197.jpg" 
+                             
+                             alt="228197" title="228197 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-232524" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000232524.jpg" 
+                             
+                             alt="232524" title="232524 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-232691" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000232691.jpg" 
+                             
+                             alt="232691" title="232691 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-23387" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000023387.jpg" 
+                             
+                             alt="23387" title="23387 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-253148" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000253148.jpg" 
+                             
+                             alt="253148" title="253148 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-259576" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000259576.jpg" 
+                             
+                             alt="259576" title="259576 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-336861" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000336861.jpg" 
+                             
+                             alt="336861" title="336861 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-350115" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000350115.jpg" 
+                             
+                             alt="350115" title="350115 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-358211" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000358211.jpg" 
+                             
+                             alt="358211" title="358211 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-358466" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000358466.jpg" 
+                             
+                             alt="358466" title="358466 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-374185" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000374185.jpg" 
+                             
+                             alt="374185" title="374185 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-399250" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000399250.jpg" 
+                             
+                             alt="399250" title="399250 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-401711" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000401711.jpg" 
+                             
+                             alt="401711" title="401711 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-412004" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000412004.jpg" 
+                             
+                             alt="412004" title="412004 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-412587" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000412587.jpg" 
+                             
+                             alt="412587" title="412587 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-418805" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000418805.jpg" 
+                             
+                             alt="418805" title="418805 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-446497" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000446497.jpg" 
+                             
+                             alt="446497" title="446497 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-458135" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000458135.jpg" 
+                             
+                             alt="458135" title="458135 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-4608" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000004608.jpg" 
+                             
+                             alt="4608" title="4608 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-465887" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000465887.jpg" 
+                             
+                             alt="465887" title="465887 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-466261" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000466261.jpg" 
+                             
+                             alt="466261" title="466261 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-471351" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000471351.jpg" 
+                             
+                             alt="471351" title="471351 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-47948" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000047948.jpg" 
+                             
+                             alt="47948" title="47948 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-487994" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000487994.jpg" 
+                             
+                             alt="487994" title="487994 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-492524" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000492524.jpg" 
+                             
+                             alt="492524" title="492524 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-500793" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000500793.jpg" 
+                             
+                             alt="500793" title="500793 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-512764" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000512764.jpg" 
+                             
+                             alt="512764" title="512764 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-531515" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000531515.jpg" 
+                             
+                             alt="531515" title="531515 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-541643" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000541643.jpg" 
+                             
+                             alt="541643" title="541643 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-542453" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000542453.jpg" 
+                             
+                             alt="542453" title="542453 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-551518" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000551518.jpg" 
+                             
+                             alt="551518" title="551518 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-560437" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000560437.jpg" 
+                             
+                             alt="560437" title="560437 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-571396" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000571396.jpg" 
+                             
+                             alt="571396" title="571396 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-58973" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000058973.jpg" 
+                             
+                             alt="58973" title="58973 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-81602" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000081602.jpg" 
+                             
+                             alt="81602" title="81602 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-83023" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000083023.jpg" 
+                             
+                             alt="83023" title="83023 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-83085" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000083085.jpg" 
+                             
+                             alt="83085" title="83085 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-85349" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000085349.jpg" 
+                             
+                             alt="85349" title="85349 - flying a kite in the sky on a green field"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+</div>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="content has-text-centered">
+          <!-- <a class="icon-link" href="" class="external-link" disabled>
+            <i class="fab fa-github"></i>
+          </a> -->
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                Dataset and images provided by <a href="http://cocodataset.org">COCO Dataset</a> (Common Objects in Context), licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+</footer>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>

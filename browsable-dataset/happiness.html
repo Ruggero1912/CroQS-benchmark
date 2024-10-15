@@ -1,0 +1,1852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #pinco {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .images-for-query-by-clusters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+        .images-for-cluster-column-container {
+            background-color: #ffffff;
+            width: 380px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cluster-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .cluster-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px;
+        }
+        .coco-img-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .images-for-cluster-column-container:nth-child(5n) {
+            border-top: 5px solid #07730d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+1) {
+            border-top: 5px solid #2a51bb;
+        }
+        .images-for-cluster-column-container:nth-child(5n+2) {
+            border-top: 5px solid #b4c51d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+3) {
+            border-top: 5px solid #c51d1d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+4) {
+            border-top: 5px solid #1dc5c5;
+        }
+
+        .container {
+            width: 80%;
+            /* max-width: 800px; */
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .container-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .query-highlight {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            background-color: #e0f7f4;
+            padding: 0.2em 0.4em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="pinco">
+
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="../index.html">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Title Section -->
+ <div class="container-container">
+    <div class="container">
+        <h1>CroQS Dataset</h1>
+        <h3>Semantic Clusters for the Initial Query: <span class="query-highlight">happiness</span></h3>
+    </div>
+</div>
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="0">
+            <div class="cluster-title">happiness sweeties donuts and coffee</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-12349" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000012349.jpg" 
+                             
+                             alt="12349" title="12349 - happiness sweeties donuts and coffee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-132059" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000132059.jpg" 
+                             
+                             alt="132059" title="132059 - happiness sweeties donuts and coffee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-167533" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000167533.jpg" 
+                             
+                             alt="167533" title="167533 - happiness sweeties donuts and coffee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-208957" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000208957.jpg" 
+                             
+                             alt="208957" title="208957 - happiness sweeties donuts and coffee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-22080" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000022080.jpg" 
+                             
+                             alt="22080" title="22080 - happiness sweeties donuts and coffee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-231671" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000231671.jpg" 
+                             
+                             alt="231671" title="231671 - happiness sweeties donuts and coffee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-245317" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000245317.jpg" 
+                             
+                             alt="245317" title="245317 - happiness sweeties donuts and coffee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-246779" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000246779.jpg" 
+                             
+                             alt="246779" title="246779 - happiness sweeties donuts and coffee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-273698" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000273698.jpg" 
+                             
+                             alt="273698" title="273698 - happiness sweeties donuts and coffee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-351183" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000351183.jpg" 
+                             
+                             alt="351183" title="351183 - happiness sweeties donuts and coffee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-407687" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000407687.jpg" 
+                             
+                             alt="407687" title="407687 - happiness sweeties donuts and coffee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-427544" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000427544.jpg" 
+                             
+                             alt="427544" title="427544 - happiness sweeties donuts and coffee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-439518" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000439518.jpg" 
+                             
+                             alt="439518" title="439518 - happiness sweeties donuts and coffee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-439633" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000439633.jpg" 
+                             
+                             alt="439633" title="439633 - happiness sweeties donuts and coffee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-505757" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000505757.jpg" 
+                             
+                             alt="505757" title="505757 - happiness sweeties donuts and coffee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-509416" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000509416.jpg" 
+                             
+                             alt="509416" title="509416 - happiness sweeties donuts and coffee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-548906" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000548906.jpg" 
+                             
+                             alt="548906" title="548906 - happiness sweeties donuts and coffee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-565918" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000565918.jpg" 
+                             
+                             alt="565918" title="565918 - happiness sweeties donuts and coffee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-81057" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000081057.jpg" 
+                             
+                             alt="81057" title="81057 - happiness sweeties donuts and coffee"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="1">
+            <div class="cluster-title">happiness people together</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-240134" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000240134.jpg" 
+                             
+                             alt="240134" title="240134 - happiness people together"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-311669" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000311669.jpg" 
+                             
+                             alt="311669" title="311669 - happiness people together"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-509098" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000509098.jpg" 
+                             
+                             alt="509098" title="509098 - happiness people together"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-118736" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000118736.jpg" 
+                             
+                             alt="118736" title="118736 - happiness people together"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-139355" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000139355.jpg" 
+                             
+                             alt="139355" title="139355 - happiness people together"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-209185" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000209185.jpg" 
+                             
+                             alt="209185" title="209185 - happiness people together"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-236228" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000236228.jpg" 
+                             
+                             alt="236228" title="236228 - happiness people together"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-25643" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000025643.jpg" 
+                             
+                             alt="25643" title="25643 - happiness people together"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-257198" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000257198.jpg" 
+                             
+                             alt="257198" title="257198 - happiness people together"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-272299" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000272299.jpg" 
+                             
+                             alt="272299" title="272299 - happiness people together"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-280191" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000280191.jpg" 
+                             
+                             alt="280191" title="280191 - happiness people together"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-283138" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000283138.jpg" 
+                             
+                             alt="283138" title="283138 - happiness people together"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-285965" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000285965.jpg" 
+                             
+                             alt="285965" title="285965 - happiness people together"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-296913" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000296913.jpg" 
+                             
+                             alt="296913" title="296913 - happiness people together"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-304519" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000304519.jpg" 
+                             
+                             alt="304519" title="304519 - happiness people together"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-333066" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000333066.jpg" 
+                             
+                             alt="333066" title="333066 - happiness people together"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-335589" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000335589.jpg" 
+                             
+                             alt="335589" title="335589 - happiness people together"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-341891" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000341891.jpg" 
+                             
+                             alt="341891" title="341891 - happiness people together"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-352709" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000352709.jpg" 
+                             
+                             alt="352709" title="352709 - happiness people together"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-357322" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000357322.jpg" 
+                             
+                             alt="357322" title="357322 - happiness people together"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-402177" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000402177.jpg" 
+                             
+                             alt="402177" title="402177 - happiness people together"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-452781" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000452781.jpg" 
+                             
+                             alt="452781" title="452781 - happiness people together"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-466229" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000466229.jpg" 
+                             
+                             alt="466229" title="466229 - happiness people together"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-467905" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000467905.jpg" 
+                             
+                             alt="467905" title="467905 - happiness people together"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-48419" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000048419.jpg" 
+                             
+                             alt="48419" title="48419 - happiness people together"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-502953" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000502953.jpg" 
+                             
+                             alt="502953" title="502953 - happiness people together"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-537512" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000537512.jpg" 
+                             
+                             alt="537512" title="537512 - happiness people together"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-543566" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000543566.jpg" 
+                             
+                             alt="543566" title="543566 - happiness people together"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-560934" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000560934.jpg" 
+                             
+                             alt="560934" title="560934 - happiness people together"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="2">
+            <div class="cluster-title">happiness eating donut cake</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-10324" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000010324.jpg" 
+                             
+                             alt="10324" title="10324 - happiness eating donut cake"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-19250" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000019250.jpg" 
+                             
+                             alt="19250" title="19250 - happiness eating donut cake"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-19967" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000019967.jpg" 
+                             
+                             alt="19967" title="19967 - happiness eating donut cake"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-266071" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000266071.jpg" 
+                             
+                             alt="266071" title="266071 - happiness eating donut cake"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-286662" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000286662.jpg" 
+                             
+                             alt="286662" title="286662 - happiness eating donut cake"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-3091" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000003091.jpg" 
+                             
+                             alt="3091" title="3091 - happiness eating donut cake"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-354410" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000354410.jpg" 
+                             
+                             alt="354410" title="354410 - happiness eating donut cake"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-413421" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000413421.jpg" 
+                             
+                             alt="413421" title="413421 - happiness eating donut cake"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-542150" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000542150.jpg" 
+                             
+                             alt="542150" title="542150 - happiness eating donut cake"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-556560" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000556560.jpg" 
+                             
+                             alt="556560" title="556560 - happiness eating donut cake"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-14759" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000014759.jpg" 
+                             
+                             alt="14759" title="14759 - happiness eating donut cake"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-244992" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000244992.jpg" 
+                             
+                             alt="244992" title="244992 - happiness eating donut cake"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-412571" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000412571.jpg" 
+                             
+                             alt="412571" title="412571 - happiness eating donut cake"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-418563" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000418563.jpg" 
+                             
+                             alt="418563" title="418563 - happiness eating donut cake"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-475990" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000475990.jpg" 
+                             
+                             alt="475990" title="475990 - happiness eating donut cake"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="3">
+            <div class="cluster-title">happiness as fruits</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-442026" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000442026.jpg" 
+                             
+                             alt="442026" title="442026 - happiness as fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-110798" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000110798.jpg" 
+                             
+                             alt="110798" title="110798 - happiness as fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-17409" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000017409.jpg" 
+                             
+                             alt="17409" title="17409 - happiness as fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-189957" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000189957.jpg" 
+                             
+                             alt="189957" title="189957 - happiness as fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-215910" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000215910.jpg" 
+                             
+                             alt="215910" title="215910 - happiness as fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-232341" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000232341.jpg" 
+                             
+                             alt="232341" title="232341 - happiness as fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-243645" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000243645.jpg" 
+                             
+                             alt="243645" title="243645 - happiness as fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-27656" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000027656.jpg" 
+                             
+                             alt="27656" title="27656 - happiness as fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-286914" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000286914.jpg" 
+                             
+                             alt="286914" title="286914 - happiness as fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-298680" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000298680.jpg" 
+                             
+                             alt="298680" title="298680 - happiness as fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-339862" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000339862.jpg" 
+                             
+                             alt="339862" title="339862 - happiness as fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-430396" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000430396.jpg" 
+                             
+                             alt="430396" title="430396 - happiness as fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-471039" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000471039.jpg" 
+                             
+                             alt="471039" title="471039 - happiness as fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-48665" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000048665.jpg" 
+                             
+                             alt="48665" title="48665 - happiness as fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-491558" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000491558.jpg" 
+                             
+                             alt="491558" title="491558 - happiness as fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-539566" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000539566.jpg" 
+                             
+                             alt="539566" title="539566 - happiness as fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-546963" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000546963.jpg" 
+                             
+                             alt="546963" title="546963 - happiness as fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-576695" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000576695.jpg" 
+                             
+                             alt="576695" title="576695 - happiness as fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-68418" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000068418.jpg" 
+                             
+                             alt="68418" title="68418 - happiness as fruits"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-89892" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000089892.jpg" 
+                             
+                             alt="89892" title="89892 - happiness as fruits"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="4">
+            <div class="cluster-title">happiness eating pizza</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-255568" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000255568.jpg" 
+                             
+                             alt="255568" title="255568 - happiness eating pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-377951" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000377951.jpg" 
+                             
+                             alt="377951" title="377951 - happiness eating pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-97411" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000097411.jpg" 
+                             
+                             alt="97411" title="97411 - happiness eating pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-124874" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000124874.jpg" 
+                             
+                             alt="124874" title="124874 - happiness eating pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-138790" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000138790.jpg" 
+                             
+                             alt="138790" title="138790 - happiness eating pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-147369" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000147369.jpg" 
+                             
+                             alt="147369" title="147369 - happiness eating pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-16733" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000016733.jpg" 
+                             
+                             alt="16733" title="16733 - happiness eating pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-17153" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000017153.jpg" 
+                             
+                             alt="17153" title="17153 - happiness eating pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-210139" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000210139.jpg" 
+                             
+                             alt="210139" title="210139 - happiness eating pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-227512" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000227512.jpg" 
+                             
+                             alt="227512" title="227512 - happiness eating pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-278242" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000278242.jpg" 
+                             
+                             alt="278242" title="278242 - happiness eating pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-278963" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000278963.jpg" 
+                             
+                             alt="278963" title="278963 - happiness eating pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-303670" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000303670.jpg" 
+                             
+                             alt="303670" title="303670 - happiness eating pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-308735" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000308735.jpg" 
+                             
+                             alt="308735" title="308735 - happiness eating pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-365841" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000365841.jpg" 
+                             
+                             alt="365841" title="365841 - happiness eating pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-379111" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000379111.jpg" 
+                             
+                             alt="379111" title="379111 - happiness eating pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-385873" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000385873.jpg" 
+                             
+                             alt="385873" title="385873 - happiness eating pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-476380" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000476380.jpg" 
+                             
+                             alt="476380" title="476380 - happiness eating pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-540347" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000540347.jpg" 
+                             
+                             alt="540347" title="540347 - happiness eating pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-564337" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000564337.jpg" 
+                             
+                             alt="564337" title="564337 - happiness eating pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-57242" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000057242.jpg" 
+                             
+                             alt="57242" title="57242 - happiness eating pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-575421" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000575421.jpg" 
+                             
+                             alt="575421" title="575421 - happiness eating pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-65427" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000065427.jpg" 
+                             
+                             alt="65427" title="65427 - happiness eating pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-84607" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000084607.jpg" 
+                             
+                             alt="84607" title="84607 - happiness eating pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-99466" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000099466.jpg" 
+                             
+                             alt="99466" title="99466 - happiness eating pizza"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="5">
+            <div class="cluster-title">happiness in outdoor activity</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-173096" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000173096.jpg" 
+                             
+                             alt="173096" title="173096 - happiness in outdoor activity"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-541676" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000541676.jpg" 
+                             
+                             alt="541676" title="541676 - happiness in outdoor activity"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-9317" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000009317.jpg" 
+                             
+                             alt="9317" title="9317 - happiness in outdoor activity"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-18728" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000018728.jpg" 
+                             
+                             alt="18728" title="18728 - happiness in outdoor activity"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-222394" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000222394.jpg" 
+                             
+                             alt="222394" title="222394 - happiness in outdoor activity"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-242606" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000242606.jpg" 
+                             
+                             alt="242606" title="242606 - happiness in outdoor activity"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-255558" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000255558.jpg" 
+                             
+                             alt="255558" title="255558 - happiness in outdoor activity"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-311300" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000311300.jpg" 
+                             
+                             alt="311300" title="311300 - happiness in outdoor activity"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-334277" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000334277.jpg" 
+                             
+                             alt="334277" title="334277 - happiness in outdoor activity"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-392166" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000392166.jpg" 
+                             
+                             alt="392166" title="392166 - happiness in outdoor activity"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-41899" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000041899.jpg" 
+                             
+                             alt="41899" title="41899 - happiness in outdoor activity"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-430974" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000430974.jpg" 
+                             
+                             alt="430974" title="430974 - happiness in outdoor activity"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-449939" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000449939.jpg" 
+                             
+                             alt="449939" title="449939 - happiness in outdoor activity"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-543860" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000543860.jpg" 
+                             
+                             alt="543860" title="543860 - happiness in outdoor activity"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-576085" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000576085.jpg" 
+                             
+                             alt="576085" title="576085 - happiness in outdoor activity"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-965" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000000965.jpg" 
+                             
+                             alt="965" title="965 - happiness in outdoor activity"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="6">
+            <div class="cluster-title">happiness in child face</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-140743" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000140743.jpg" 
+                             
+                             alt="140743" title="140743 - happiness in child face"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-155735" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000155735.jpg" 
+                             
+                             alt="155735" title="155735 - happiness in child face"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-258077" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000258077.jpg" 
+                             
+                             alt="258077" title="258077 - happiness in child face"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-2992" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000002992.jpg" 
+                             
+                             alt="2992" title="2992 - happiness in child face"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-327123" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000327123.jpg" 
+                             
+                             alt="327123" title="327123 - happiness in child face"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-168569" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000168569.jpg" 
+                             
+                             alt="168569" title="168569 - happiness in child face"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-179914" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000179914.jpg" 
+                             
+                             alt="179914" title="179914 - happiness in child face"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-303599" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000303599.jpg" 
+                             
+                             alt="303599" title="303599 - happiness in child face"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-360152" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000360152.jpg" 
+                             
+                             alt="360152" title="360152 - happiness in child face"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-438157" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000438157.jpg" 
+                             
+                             alt="438157" title="438157 - happiness in child face"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-485419" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000485419.jpg" 
+                             
+                             alt="485419" title="485419 - happiness in child face"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-493202" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000493202.jpg" 
+                             
+                             alt="493202" title="493202 - happiness in child face"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-496183" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000496183.jpg" 
+                             
+                             alt="496183" title="496183 - happiness in child face"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-505234" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000505234.jpg" 
+                             
+                             alt="505234" title="505234 - happiness in child face"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-59736" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000059736.jpg" 
+                             
+                             alt="59736" title="59736 - happiness in child face"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-6590" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000006590.jpg" 
+                             
+                             alt="6590" title="6590 - happiness in child face"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-70471" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000070471.jpg" 
+                             
+                             alt="70471" title="70471 - happiness in child face"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="7">
+            <div class="cluster-title">happiness having donuts</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-42081" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000042081.jpg" 
+                             
+                             alt="42081" title="42081 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-104313" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000104313.jpg" 
+                             
+                             alt="104313" title="104313 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-11282" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000011282.jpg" 
+                             
+                             alt="11282" title="11282 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-114340" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000114340.jpg" 
+                             
+                             alt="114340" title="114340 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-136929" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000136929.jpg" 
+                             
+                             alt="136929" title="136929 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-15744" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000015744.jpg" 
+                             
+                             alt="15744" title="15744 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-174740" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000174740.jpg" 
+                             
+                             alt="174740" title="174740 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-199131" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000199131.jpg" 
+                             
+                             alt="199131" title="199131 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-214067" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000214067.jpg" 
+                             
+                             alt="214067" title="214067 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-234169" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000234169.jpg" 
+                             
+                             alt="234169" title="234169 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-238615" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000238615.jpg" 
+                             
+                             alt="238615" title="238615 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-248191" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000248191.jpg" 
+                             
+                             alt="248191" title="248191 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-248276" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000248276.jpg" 
+                             
+                             alt="248276" title="248276 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-249549" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000249549.jpg" 
+                             
+                             alt="249549" title="249549 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-263699" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000263699.jpg" 
+                             
+                             alt="263699" title="263699 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-281371" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000281371.jpg" 
+                             
+                             alt="281371" title="281371 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-286910" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000286910.jpg" 
+                             
+                             alt="286910" title="286910 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-289758" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000289758.jpg" 
+                             
+                             alt="289758" title="289758 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-295325" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000295325.jpg" 
+                             
+                             alt="295325" title="295325 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-3001" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000003001.jpg" 
+                             
+                             alt="3001" title="3001 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-32679" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000032679.jpg" 
+                             
+                             alt="32679" title="32679 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-341246" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000341246.jpg" 
+                             
+                             alt="341246" title="341246 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-346391" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000346391.jpg" 
+                             
+                             alt="346391" title="346391 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-36034" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000036034.jpg" 
+                             
+                             alt="36034" title="36034 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-367771" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000367771.jpg" 
+                             
+                             alt="367771" title="367771 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-380520" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000380520.jpg" 
+                             
+                             alt="380520" title="380520 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-384993" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000384993.jpg" 
+                             
+                             alt="384993" title="384993 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-391088" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000391088.jpg" 
+                             
+                             alt="391088" title="391088 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-402235" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000402235.jpg" 
+                             
+                             alt="402235" title="402235 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-411624" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000411624.jpg" 
+                             
+                             alt="411624" title="411624 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-425063" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000425063.jpg" 
+                             
+                             alt="425063" title="425063 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-438" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000000438.jpg" 
+                             
+                             alt="438" title="438 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-443093" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000443093.jpg" 
+                             
+                             alt="443093" title="443093 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-444598" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000444598.jpg" 
+                             
+                             alt="444598" title="444598 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-447231" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000447231.jpg" 
+                             
+                             alt="447231" title="447231 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-448471" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000448471.jpg" 
+                             
+                             alt="448471" title="448471 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-450321" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000450321.jpg" 
+                             
+                             alt="450321" title="450321 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-450856" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000450856.jpg" 
+                             
+                             alt="450856" title="450856 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-469002" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000469002.jpg" 
+                             
+                             alt="469002" title="469002 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-484758" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000484758.jpg" 
+                             
+                             alt="484758" title="484758 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-49118" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000049118.jpg" 
+                             
+                             alt="49118" title="49118 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-504348" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000504348.jpg" 
+                             
+                             alt="504348" title="504348 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-511690" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000511690.jpg" 
+                             
+                             alt="511690" title="511690 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-513704" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000513704.jpg" 
+                             
+                             alt="513704" title="513704 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-519578" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000519578.jpg" 
+                             
+                             alt="519578" title="519578 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-520000" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000520000.jpg" 
+                             
+                             alt="520000" title="520000 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-529133" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000529133.jpg" 
+                             
+                             alt="529133" title="529133 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-52947" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000052947.jpg" 
+                             
+                             alt="52947" title="52947 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-542809" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000542809.jpg" 
+                             
+                             alt="542809" title="542809 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-558576" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000558576.jpg" 
+                             
+                             alt="558576" title="558576 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-5754" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000005754.jpg" 
+                             
+                             alt="5754" title="5754 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-576539" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000576539.jpg" 
+                             
+                             alt="576539" title="576539 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-58041" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000058041.jpg" 
+                             
+                             alt="58041" title="58041 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-581913" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000581913.jpg" 
+                             
+                             alt="581913" title="581913 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-63378" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000063378.jpg" 
+                             
+                             alt="63378" title="63378 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-64697" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000064697.jpg" 
+                             
+                             alt="64697" title="64697 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-85543" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000085543.jpg" 
+                             
+                             alt="85543" title="85543 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-87504" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000087504.jpg" 
+                             
+                             alt="87504" title="87504 - happiness having donuts"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-92165" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000092165.jpg" 
+                             
+                             alt="92165" title="92165 - happiness having donuts"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+</div>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="content has-text-centered">
+          <!-- <a class="icon-link" href="" class="external-link" disabled>
+            <i class="fab fa-github"></i>
+          </a> -->
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                Dataset and images provided by <a href="http://cocodataset.org">COCO Dataset</a> (Common Objects in Context), licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+</footer>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>

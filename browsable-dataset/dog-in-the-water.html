@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #pinco {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .images-for-query-by-clusters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+        .images-for-cluster-column-container {
+            background-color: #ffffff;
+            width: 380px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cluster-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .cluster-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px;
+        }
+        .coco-img-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .images-for-cluster-column-container:nth-child(5n) {
+            border-top: 5px solid #07730d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+1) {
+            border-top: 5px solid #2a51bb;
+        }
+        .images-for-cluster-column-container:nth-child(5n+2) {
+            border-top: 5px solid #b4c51d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+3) {
+            border-top: 5px solid #c51d1d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+4) {
+            border-top: 5px solid #1dc5c5;
+        }
+
+        .container {
+            width: 80%;
+            /* max-width: 800px; */
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .container-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .query-highlight {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            background-color: #e0f7f4;
+            padding: 0.2em 0.4em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="pinco">
+
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="../index.html">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Title Section -->
+ <div class="container-container">
+    <div class="container">
+        <h1>CroQS Dataset</h1>
+        <h3>Semantic Clusters for the Initial Query: <span class="query-highlight">dog in the water</span></h3>
+    </div>
+</div>
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="0">
+            <div class="cluster-title">dog on the seaside</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-116480" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000116480.jpg" 
+                             
+                             alt="116480" title="116480 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-118277" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000118277.jpg" 
+                             
+                             alt="118277" title="118277 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-131087" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000131087.jpg" 
+                             
+                             alt="131087" title="131087 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-132420" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000132420.jpg" 
+                             
+                             alt="132420" title="132420 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-144717" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000144717.jpg" 
+                             
+                             alt="144717" title="144717 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-14681" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000014681.jpg" 
+                             
+                             alt="14681" title="14681 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-21514" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000021514.jpg" 
+                             
+                             alt="21514" title="21514 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-222654" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000222654.jpg" 
+                             
+                             alt="222654" title="222654 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-232182" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000232182.jpg" 
+                             
+                             alt="232182" title="232182 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-240112" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000240112.jpg" 
+                             
+                             alt="240112" title="240112 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-246879" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000246879.jpg" 
+                             
+                             alt="246879" title="246879 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-261082" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000261082.jpg" 
+                             
+                             alt="261082" title="261082 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-269303" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000269303.jpg" 
+                             
+                             alt="269303" title="269303 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-279341" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000279341.jpg" 
+                             
+                             alt="279341" title="279341 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-279935" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000279935.jpg" 
+                             
+                             alt="279935" title="279935 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-303253" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000303253.jpg" 
+                             
+                             alt="303253" title="303253 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-307916" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000307916.jpg" 
+                             
+                             alt="307916" title="307916 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-314920" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000314920.jpg" 
+                             
+                             alt="314920" title="314920 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-319714" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000319714.jpg" 
+                             
+                             alt="319714" title="319714 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-328760" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000328760.jpg" 
+                             
+                             alt="328760" title="328760 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-331780" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000331780.jpg" 
+                             
+                             alt="331780" title="331780 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-332844" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000332844.jpg" 
+                             
+                             alt="332844" title="332844 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-33377" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000033377.jpg" 
+                             
+                             alt="33377" title="33377 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-340621" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000340621.jpg" 
+                             
+                             alt="340621" title="340621 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-361052" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000361052.jpg" 
+                             
+                             alt="361052" title="361052 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-371166" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000371166.jpg" 
+                             
+                             alt="371166" title="371166 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-386074" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000386074.jpg" 
+                             
+                             alt="386074" title="386074 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-437506" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000437506.jpg" 
+                             
+                             alt="437506" title="437506 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-439242" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000439242.jpg" 
+                             
+                             alt="439242" title="439242 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-450047" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000450047.jpg" 
+                             
+                             alt="450047" title="450047 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-45040" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000045040.jpg" 
+                             
+                             alt="45040" title="45040 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-46056" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000046056.jpg" 
+                             
+                             alt="46056" title="46056 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-467339" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000467339.jpg" 
+                             
+                             alt="467339" title="467339 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-475443" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000475443.jpg" 
+                             
+                             alt="475443" title="475443 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-47975" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000047975.jpg" 
+                             
+                             alt="47975" title="47975 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-48805" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000048805.jpg" 
+                             
+                             alt="48805" title="48805 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-498443" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000498443.jpg" 
+                             
+                             alt="498443" title="498443 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-526458" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000526458.jpg" 
+                             
+                             alt="526458" title="526458 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-566264" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000566264.jpg" 
+                             
+                             alt="566264" title="566264 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-85092" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000085092.jpg" 
+                             
+                             alt="85092" title="85092 - dog on the seaside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-99996" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000099996.jpg" 
+                             
+                             alt="99996" title="99996 - dog on the seaside"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="1">
+            <div class="cluster-title">dog in the water swimming and surfing</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-117789" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000117789.jpg" 
+                             
+                             alt="117789" title="117789 - dog in the water swimming and surfing"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-147890" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000147890.jpg" 
+                             
+                             alt="147890" title="147890 - dog in the water swimming and surfing"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-1589" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000001589.jpg" 
+                             
+                             alt="1589" title="1589 - dog in the water swimming and surfing"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-167501" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000167501.jpg" 
+                             
+                             alt="167501" title="167501 - dog in the water swimming and surfing"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-191251" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000191251.jpg" 
+                             
+                             alt="191251" title="191251 - dog in the water swimming and surfing"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-212276" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000212276.jpg" 
+                             
+                             alt="212276" title="212276 - dog in the water swimming and surfing"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-21566" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000021566.jpg" 
+                             
+                             alt="21566" title="21566 - dog in the water swimming and surfing"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-241591" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000241591.jpg" 
+                             
+                             alt="241591" title="241591 - dog in the water swimming and surfing"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-251623" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000251623.jpg" 
+                             
+                             alt="251623" title="251623 - dog in the water swimming and surfing"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-254074" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000254074.jpg" 
+                             
+                             alt="254074" title="254074 - dog in the water swimming and surfing"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-254609" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000254609.jpg" 
+                             
+                             alt="254609" title="254609 - dog in the water swimming and surfing"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-264193" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000264193.jpg" 
+                             
+                             alt="264193" title="264193 - dog in the water swimming and surfing"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-264436" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000264436.jpg" 
+                             
+                             alt="264436" title="264436 - dog in the water swimming and surfing"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-27937" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000027937.jpg" 
+                             
+                             alt="27937" title="27937 - dog in the water swimming and surfing"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-313473" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000313473.jpg" 
+                             
+                             alt="313473" title="313473 - dog in the water swimming and surfing"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-321903" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000321903.jpg" 
+                             
+                             alt="321903" title="321903 - dog in the water swimming and surfing"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-334413" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000334413.jpg" 
+                             
+                             alt="334413" title="334413 - dog in the water swimming and surfing"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-353504" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000353504.jpg" 
+                             
+                             alt="353504" title="353504 - dog in the water swimming and surfing"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-378868" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000378868.jpg" 
+                             
+                             alt="378868" title="378868 - dog in the water swimming and surfing"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-44209" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000044209.jpg" 
+                             
+                             alt="44209" title="44209 - dog in the water swimming and surfing"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-442672" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000442672.jpg" 
+                             
+                             alt="442672" title="442672 - dog in the water swimming and surfing"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-455161" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000455161.jpg" 
+                             
+                             alt="455161" title="455161 - dog in the water swimming and surfing"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-477920" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000477920.jpg" 
+                             
+                             alt="477920" title="477920 - dog in the water swimming and surfing"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-479582" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000479582.jpg" 
+                             
+                             alt="479582" title="479582 - dog in the water swimming and surfing"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-50206" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000050206.jpg" 
+                             
+                             alt="50206" title="50206 - dog in the water swimming and surfing"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-503235" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000503235.jpg" 
+                             
+                             alt="503235" title="503235 - dog in the water swimming and surfing"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-505629" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000505629.jpg" 
+                             
+                             alt="505629" title="505629 - dog in the water swimming and surfing"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-513888" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000513888.jpg" 
+                             
+                             alt="513888" title="513888 - dog in the water swimming and surfing"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-534786" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000534786.jpg" 
+                             
+                             alt="534786" title="534786 - dog in the water swimming and surfing"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="2">
+            <div class="cluster-title">dog in swimming pool</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-101567" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000101567.jpg" 
+                             
+                             alt="101567" title="101567 - dog in swimming pool"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-238915" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000238915.jpg" 
+                             
+                             alt="238915" title="238915 - dog in swimming pool"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-284772" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000284772.jpg" 
+                             
+                             alt="284772" title="284772 - dog in swimming pool"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-328228" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000328228.jpg" 
+                             
+                             alt="328228" title="328228 - dog in swimming pool"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-330164" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000330164.jpg" 
+                             
+                             alt="330164" title="330164 - dog in swimming pool"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-341393" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000341393.jpg" 
+                             
+                             alt="341393" title="341393 - dog in swimming pool"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-411063" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000411063.jpg" 
+                             
+                             alt="411063" title="411063 - dog in swimming pool"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-42341" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000042341.jpg" 
+                             
+                             alt="42341" title="42341 - dog in swimming pool"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-457478" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000457478.jpg" 
+                             
+                             alt="457478" title="457478 - dog in swimming pool"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-457882" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000457882.jpg" 
+                             
+                             alt="457882" title="457882 - dog in swimming pool"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-467252" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000467252.jpg" 
+                             
+                             alt="467252" title="467252 - dog in swimming pool"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-471095" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000471095.jpg" 
+                             
+                             alt="471095" title="471095 - dog in swimming pool"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-481749" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000481749.jpg" 
+                             
+                             alt="481749" title="481749 - dog in swimming pool"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-507198" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000507198.jpg" 
+                             
+                             alt="507198" title="507198 - dog in swimming pool"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-574874" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000574874.jpg" 
+                             
+                             alt="574874" title="574874 - dog in swimming pool"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="3">
+            <div class="cluster-title">dog standing near water</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-105611" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000105611.jpg" 
+                             
+                             alt="105611" title="105611 - dog standing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-131696" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000131696.jpg" 
+                             
+                             alt="131696" title="131696 - dog standing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-141538" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000141538.jpg" 
+                             
+                             alt="141538" title="141538 - dog standing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-184606" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000184606.jpg" 
+                             
+                             alt="184606" title="184606 - dog standing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-242541" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000242541.jpg" 
+                             
+                             alt="242541" title="242541 - dog standing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-268051" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000268051.jpg" 
+                             
+                             alt="268051" title="268051 - dog standing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-287846" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000287846.jpg" 
+                             
+                             alt="287846" title="287846 - dog standing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-362567" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000362567.jpg" 
+                             
+                             alt="362567" title="362567 - dog standing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-379733" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000379733.jpg" 
+                             
+                             alt="379733" title="379733 - dog standing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-435294" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000435294.jpg" 
+                             
+                             alt="435294" title="435294 - dog standing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-448352" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000448352.jpg" 
+                             
+                             alt="448352" title="448352 - dog standing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-451976" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000451976.jpg" 
+                             
+                             alt="451976" title="451976 - dog standing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-459823" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000459823.jpg" 
+                             
+                             alt="459823" title="459823 - dog standing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-491904" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000491904.jpg" 
+                             
+                             alt="491904" title="491904 - dog standing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-516146" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000516146.jpg" 
+                             
+                             alt="516146" title="516146 - dog standing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-521112" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000521112.jpg" 
+                             
+                             alt="521112" title="521112 - dog standing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-522106" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000522106.jpg" 
+                             
+                             alt="522106" title="522106 - dog standing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-537041" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000537041.jpg" 
+                             
+                             alt="537041" title="537041 - dog standing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-546962" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000546962.jpg" 
+                             
+                             alt="546962" title="546962 - dog standing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-556505" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000556505.jpg" 
+                             
+                             alt="556505" title="556505 - dog standing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-567997" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000567997.jpg" 
+                             
+                             alt="567997" title="567997 - dog standing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-56877" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000056877.jpg" 
+                             
+                             alt="56877" title="56877 - dog standing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-5782" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000005782.jpg" 
+                             
+                             alt="5782" title="5782 - dog standing near water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-59933" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000059933.jpg" 
+                             
+                             alt="59933" title="59933 - dog standing near water"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="4">
+            <div class="cluster-title">dog over water with human</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-108599" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000108599.jpg" 
+                             
+                             alt="108599" title="108599 - dog over water with human"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-110762" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000110762.jpg" 
+                             
+                             alt="110762" title="110762 - dog over water with human"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-143188" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000143188.jpg" 
+                             
+                             alt="143188" title="143188 - dog over water with human"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-144961" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000144961.jpg" 
+                             
+                             alt="144961" title="144961 - dog over water with human"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-145567" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000145567.jpg" 
+                             
+                             alt="145567" title="145567 - dog over water with human"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-166585" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000166585.jpg" 
+                             
+                             alt="166585" title="166585 - dog over water with human"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-181661" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000181661.jpg" 
+                             
+                             alt="181661" title="181661 - dog over water with human"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-196061" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000196061.jpg" 
+                             
+                             alt="196061" title="196061 - dog over water with human"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-205035" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000205035.jpg" 
+                             
+                             alt="205035" title="205035 - dog over water with human"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-231466" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000231466.jpg" 
+                             
+                             alt="231466" title="231466 - dog over water with human"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-245201" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000245201.jpg" 
+                             
+                             alt="245201" title="245201 - dog over water with human"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-271576" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000271576.jpg" 
+                             
+                             alt="271576" title="271576 - dog over water with human"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-279871" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000279871.jpg" 
+                             
+                             alt="279871" title="279871 - dog over water with human"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-341363" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000341363.jpg" 
+                             
+                             alt="341363" title="341363 - dog over water with human"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-349784" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000349784.jpg" 
+                             
+                             alt="349784" title="349784 - dog over water with human"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-376362" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000376362.jpg" 
+                             
+                             alt="376362" title="376362 - dog over water with human"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-385912" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000385912.jpg" 
+                             
+                             alt="385912" title="385912 - dog over water with human"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-396400" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000396400.jpg" 
+                             
+                             alt="396400" title="396400 - dog over water with human"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-400" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000000400.jpg" 
+                             
+                             alt="400" title="400 - dog over water with human"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-44814" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000044814.jpg" 
+                             
+                             alt="44814" title="44814 - dog over water with human"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-456825" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000456825.jpg" 
+                             
+                             alt="456825" title="456825 - dog over water with human"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-474233" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000474233.jpg" 
+                             
+                             alt="474233" title="474233 - dog over water with human"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-482912" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000482912.jpg" 
+                             
+                             alt="482912" title="482912 - dog over water with human"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-502680" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000502680.jpg" 
+                             
+                             alt="502680" title="502680 - dog over water with human"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-524981" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000524981.jpg" 
+                             
+                             alt="524981" title="524981 - dog over water with human"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-540225" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000540225.jpg" 
+                             
+                             alt="540225" title="540225 - dog over water with human"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-561012" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000561012.jpg" 
+                             
+                             alt="561012" title="561012 - dog over water with human"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-570775" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000570775.jpg" 
+                             
+                             alt="570775" title="570775 - dog over water with human"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-81035" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000081035.jpg" 
+                             
+                             alt="81035" title="81035 - dog over water with human"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-882" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000000882.jpg" 
+                             
+                             alt="882" title="882 - dog over water with human"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-97580" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000097580.jpg" 
+                             
+                             alt="97580" title="97580 - dog over water with human"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-98612" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000098612.jpg" 
+                             
+                             alt="98612" title="98612 - dog over water with human"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+</div>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="content has-text-centered">
+          <!-- <a class="icon-link" href="" class="external-link" disabled>
+            <i class="fab fa-github"></i>
+          </a> -->
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                Dataset and images provided by <a href="http://cocodataset.org">COCO Dataset</a> (Common Objects in Context), licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+</footer>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>

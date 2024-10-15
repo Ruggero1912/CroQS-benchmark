@@ -1,0 +1,1822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #pinco {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .images-for-query-by-clusters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+        .images-for-cluster-column-container {
+            background-color: #ffffff;
+            width: 380px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cluster-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .cluster-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px;
+        }
+        .coco-img-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .images-for-cluster-column-container:nth-child(5n) {
+            border-top: 5px solid #07730d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+1) {
+            border-top: 5px solid #2a51bb;
+        }
+        .images-for-cluster-column-container:nth-child(5n+2) {
+            border-top: 5px solid #b4c51d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+3) {
+            border-top: 5px solid #c51d1d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+4) {
+            border-top: 5px solid #1dc5c5;
+        }
+
+        .container {
+            width: 80%;
+            /* max-width: 800px; */
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .container-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .query-highlight {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            background-color: #e0f7f4;
+            padding: 0.2em 0.4em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="pinco">
+
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="../index.html">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Title Section -->
+ <div class="container-container">
+    <div class="container">
+        <h1>CroQS Dataset</h1>
+        <h3>Semantic Clusters for the Initial Query: <span class="query-highlight">factory</span></h3>
+    </div>
+</div>
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="0">
+            <div class="cluster-title">factory building</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-11182" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000011182.jpg" 
+                             
+                             alt="11182" title="11182 - factory building"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-114077" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000114077.jpg" 
+                             
+                             alt="114077" title="114077 - factory building"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-125684" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000125684.jpg" 
+                             
+                             alt="125684" title="125684 - factory building"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-136186" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000136186.jpg" 
+                             
+                             alt="136186" title="136186 - factory building"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-149738" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000149738.jpg" 
+                             
+                             alt="149738" title="149738 - factory building"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-167506" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000167506.jpg" 
+                             
+                             alt="167506" title="167506 - factory building"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-179397" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000179397.jpg" 
+                             
+                             alt="179397" title="179397 - factory building"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-205848" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000205848.jpg" 
+                             
+                             alt="205848" title="205848 - factory building"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-240054" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000240054.jpg" 
+                             
+                             alt="240054" title="240054 - factory building"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-245373" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000245373.jpg" 
+                             
+                             alt="245373" title="245373 - factory building"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-255036" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000255036.jpg" 
+                             
+                             alt="255036" title="255036 - factory building"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-260035" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000260035.jpg" 
+                             
+                             alt="260035" title="260035 - factory building"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-263274" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000263274.jpg" 
+                             
+                             alt="263274" title="263274 - factory building"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-278401" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000278401.jpg" 
+                             
+                             alt="278401" title="278401 - factory building"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-297323" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000297323.jpg" 
+                             
+                             alt="297323" title="297323 - factory building"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-303163" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000303163.jpg" 
+                             
+                             alt="303163" title="303163 - factory building"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-380304" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000380304.jpg" 
+                             
+                             alt="380304" title="380304 - factory building"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-38479" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000038479.jpg" 
+                             
+                             alt="38479" title="38479 - factory building"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-418002" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000418002.jpg" 
+                             
+                             alt="418002" title="418002 - factory building"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-43404" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000043404.jpg" 
+                             
+                             alt="43404" title="43404 - factory building"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-449152" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000449152.jpg" 
+                             
+                             alt="449152" title="449152 - factory building"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-449872" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000449872.jpg" 
+                             
+                             alt="449872" title="449872 - factory building"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-508955" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000508955.jpg" 
+                             
+                             alt="508955" title="508955 - factory building"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-512923" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000512923.jpg" 
+                             
+                             alt="512923" title="512923 - factory building"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-519552" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000519552.jpg" 
+                             
+                             alt="519552" title="519552 - factory building"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-538413" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000538413.jpg" 
+                             
+                             alt="538413" title="538413 - factory building"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-542147" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000542147.jpg" 
+                             
+                             alt="542147" title="542147 - factory building"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-572171" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000572171.jpg" 
+                             
+                             alt="572171" title="572171 - factory building"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-6990" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000006990.jpg" 
+                             
+                             alt="6990" title="6990 - factory building"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-91670" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000091670.jpg" 
+                             
+                             alt="91670" title="91670 - factory building"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-93139" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000093139.jpg" 
+                             
+                             alt="93139" title="93139 - factory building"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="1">
+            <div class="cluster-title">industrial streets in asian city</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-112605" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000112605.jpg" 
+                             
+                             alt="112605" title="112605 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-112739" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000112739.jpg" 
+                             
+                             alt="112739" title="112739 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-126606" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000126606.jpg" 
+                             
+                             alt="126606" title="126606 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-137745" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000137745.jpg" 
+                             
+                             alt="137745" title="137745 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-178181" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000178181.jpg" 
+                             
+                             alt="178181" title="178181 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-19624" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000019624.jpg" 
+                             
+                             alt="19624" title="19624 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-223432" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000223432.jpg" 
+                             
+                             alt="223432" title="223432 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-228799" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000228799.jpg" 
+                             
+                             alt="228799" title="228799 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-231368" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000231368.jpg" 
+                             
+                             alt="231368" title="231368 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-241935" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000241935.jpg" 
+                             
+                             alt="241935" title="241935 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-252625" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000252625.jpg" 
+                             
+                             alt="252625" title="252625 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-253036" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000253036.jpg" 
+                             
+                             alt="253036" title="253036 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-261071" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000261071.jpg" 
+                             
+                             alt="261071" title="261071 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-267840" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000267840.jpg" 
+                             
+                             alt="267840" title="267840 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-289293" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000289293.jpg" 
+                             
+                             alt="289293" title="289293 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-300023" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000300023.jpg" 
+                             
+                             alt="300023" title="300023 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-305496" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000305496.jpg" 
+                             
+                             alt="305496" title="305496 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-308907" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000308907.jpg" 
+                             
+                             alt="308907" title="308907 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-314983" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000314983.jpg" 
+                             
+                             alt="314983" title="314983 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-315072" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000315072.jpg" 
+                             
+                             alt="315072" title="315072 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-32391" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000032391.jpg" 
+                             
+                             alt="32391" title="32391 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-329726" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000329726.jpg" 
+                             
+                             alt="329726" title="329726 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-335975" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000335975.jpg" 
+                             
+                             alt="335975" title="335975 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-377632" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000377632.jpg" 
+                             
+                             alt="377632" title="377632 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-380115" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000380115.jpg" 
+                             
+                             alt="380115" title="380115 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-400658" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000400658.jpg" 
+                             
+                             alt="400658" title="400658 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-420276" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000420276.jpg" 
+                             
+                             alt="420276" title="420276 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-422877" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000422877.jpg" 
+                             
+                             alt="422877" title="422877 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-440443" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000440443.jpg" 
+                             
+                             alt="440443" title="440443 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-460156" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000460156.jpg" 
+                             
+                             alt="460156" title="460156 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-466921" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000466921.jpg" 
+                             
+                             alt="466921" title="466921 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-469599" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000469599.jpg" 
+                             
+                             alt="469599" title="469599 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-485928" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000485928.jpg" 
+                             
+                             alt="485928" title="485928 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-507113" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000507113.jpg" 
+                             
+                             alt="507113" title="507113 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-525058" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000525058.jpg" 
+                             
+                             alt="525058" title="525058 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-537918" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000537918.jpg" 
+                             
+                             alt="537918" title="537918 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-554453" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000554453.jpg" 
+                             
+                             alt="554453" title="554453 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-561907" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000561907.jpg" 
+                             
+                             alt="561907" title="561907 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-571504" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000571504.jpg" 
+                             
+                             alt="571504" title="571504 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-572349" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000572349.jpg" 
+                             
+                             alt="572349" title="572349 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-580414" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000580414.jpg" 
+                             
+                             alt="580414" title="580414 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-83546" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000083546.jpg" 
+                             
+                             alt="83546" title="83546 - industrial streets in asian city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-89999" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000089999.jpg" 
+                             
+                             alt="89999" title="89999 - industrial streets in asian city"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="2">
+            <div class="cluster-title">abandoned factory details</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-117792" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000117792.jpg" 
+                             
+                             alt="117792" title="117792 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-124652" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000124652.jpg" 
+                             
+                             alt="124652" title="124652 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-134863" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000134863.jpg" 
+                             
+                             alt="134863" title="134863 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-144176" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000144176.jpg" 
+                             
+                             alt="144176" title="144176 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-166903" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000166903.jpg" 
+                             
+                             alt="166903" title="166903 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-180397" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000180397.jpg" 
+                             
+                             alt="180397" title="180397 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-198943" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000198943.jpg" 
+                             
+                             alt="198943" title="198943 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-218982" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000218982.jpg" 
+                             
+                             alt="218982" title="218982 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-229569" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000229569.jpg" 
+                             
+                             alt="229569" title="229569 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-230763" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000230763.jpg" 
+                             
+                             alt="230763" title="230763 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-242752" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000242752.jpg" 
+                             
+                             alt="242752" title="242752 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-244096" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000244096.jpg" 
+                             
+                             alt="244096" title="244096 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-24765" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000024765.jpg" 
+                             
+                             alt="24765" title="24765 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-27388" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000027388.jpg" 
+                             
+                             alt="27388" title="27388 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-284256" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000284256.jpg" 
+                             
+                             alt="284256" title="284256 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-290718" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000290718.jpg" 
+                             
+                             alt="290718" title="290718 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-307359" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000307359.jpg" 
+                             
+                             alt="307359" title="307359 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-335864" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000335864.jpg" 
+                             
+                             alt="335864" title="335864 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-336335" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000336335.jpg" 
+                             
+                             alt="336335" title="336335 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-356298" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000356298.jpg" 
+                             
+                             alt="356298" title="356298 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-359442" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000359442.jpg" 
+                             
+                             alt="359442" title="359442 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-360068" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000360068.jpg" 
+                             
+                             alt="360068" title="360068 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-364274" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000364274.jpg" 
+                             
+                             alt="364274" title="364274 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-387478" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000387478.jpg" 
+                             
+                             alt="387478" title="387478 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-407072" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000407072.jpg" 
+                             
+                             alt="407072" title="407072 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-426309" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000426309.jpg" 
+                             
+                             alt="426309" title="426309 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-435623" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000435623.jpg" 
+                             
+                             alt="435623" title="435623 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-446033" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000446033.jpg" 
+                             
+                             alt="446033" title="446033 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-45974" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000045974.jpg" 
+                             
+                             alt="45974" title="45974 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-461092" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000461092.jpg" 
+                             
+                             alt="461092" title="461092 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-477542" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000477542.jpg" 
+                             
+                             alt="477542" title="477542 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-477741" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000477741.jpg" 
+                             
+                             alt="477741" title="477741 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-498532" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000498532.jpg" 
+                             
+                             alt="498532" title="498532 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-505386" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000505386.jpg" 
+                             
+                             alt="505386" title="505386 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-534894" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000534894.jpg" 
+                             
+                             alt="534894" title="534894 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-7211" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000007211.jpg" 
+                             
+                             alt="7211" title="7211 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-84427" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000084427.jpg" 
+                             
+                             alt="84427" title="84427 - abandoned factory details"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-98693" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000098693.jpg" 
+                             
+                             alt="98693" title="98693 - abandoned factory details"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="3">
+            <div class="cluster-title">motorcycles next to factory</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-101643" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000101643.jpg" 
+                             
+                             alt="101643" title="101643 - motorcycles next to factory"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-132290" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000132290.jpg" 
+                             
+                             alt="132290" title="132290 - motorcycles next to factory"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-18317" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000018317.jpg" 
+                             
+                             alt="18317" title="18317 - motorcycles next to factory"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-184945" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000184945.jpg" 
+                             
+                             alt="184945" title="184945 - motorcycles next to factory"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-222961" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000222961.jpg" 
+                             
+                             alt="222961" title="222961 - motorcycles next to factory"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-237550" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000237550.jpg" 
+                             
+                             alt="237550" title="237550 - motorcycles next to factory"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-246265" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000246265.jpg" 
+                             
+                             alt="246265" title="246265 - motorcycles next to factory"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-260604" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000260604.jpg" 
+                             
+                             alt="260604" title="260604 - motorcycles next to factory"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-306433" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000306433.jpg" 
+                             
+                             alt="306433" title="306433 - motorcycles next to factory"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-327202" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000327202.jpg" 
+                             
+                             alt="327202" title="327202 - motorcycles next to factory"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-342515" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000342515.jpg" 
+                             
+                             alt="342515" title="342515 - motorcycles next to factory"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-399942" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000399942.jpg" 
+                             
+                             alt="399942" title="399942 - motorcycles next to factory"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-43513" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000043513.jpg" 
+                             
+                             alt="43513" title="43513 - motorcycles next to factory"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-472549" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000472549.jpg" 
+                             
+                             alt="472549" title="472549 - motorcycles next to factory"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-486595" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000486595.jpg" 
+                             
+                             alt="486595" title="486595 - motorcycles next to factory"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-499731" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000499731.jpg" 
+                             
+                             alt="499731" title="499731 - motorcycles next to factory"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-72565" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000072565.jpg" 
+                             
+                             alt="72565" title="72565 - motorcycles next to factory"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="4">
+            <div class="cluster-title">factory equipment</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-112849" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000112849.jpg" 
+                             
+                             alt="112849" title="112849 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-120827" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000120827.jpg" 
+                             
+                             alt="120827" title="120827 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-147236" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000147236.jpg" 
+                             
+                             alt="147236" title="147236 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-147551" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000147551.jpg" 
+                             
+                             alt="147551" title="147551 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-15678" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000015678.jpg" 
+                             
+                             alt="15678" title="15678 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-166565" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000166565.jpg" 
+                             
+                             alt="166565" title="166565 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-174672" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000174672.jpg" 
+                             
+                             alt="174672" title="174672 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-189666" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000189666.jpg" 
+                             
+                             alt="189666" title="189666 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-224736" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000224736.jpg" 
+                             
+                             alt="224736" title="224736 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-22863" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000022863.jpg" 
+                             
+                             alt="22863" title="22863 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-239520" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000239520.jpg" 
+                             
+                             alt="239520" title="239520 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-244557" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000244557.jpg" 
+                             
+                             alt="244557" title="244557 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-254397" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000254397.jpg" 
+                             
+                             alt="254397" title="254397 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-262016" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000262016.jpg" 
+                             
+                             alt="262016" title="262016 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-263358" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000263358.jpg" 
+                             
+                             alt="263358" title="263358 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-290719" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000290719.jpg" 
+                             
+                             alt="290719" title="290719 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-294020" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000294020.jpg" 
+                             
+                             alt="294020" title="294020 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-304725" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000304725.jpg" 
+                             
+                             alt="304725" title="304725 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-305703" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000305703.jpg" 
+                             
+                             alt="305703" title="305703 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-30595" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000030595.jpg" 
+                             
+                             alt="30595" title="30595 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-314855" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000314855.jpg" 
+                             
+                             alt="314855" title="314855 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-318187" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000318187.jpg" 
+                             
+                             alt="318187" title="318187 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-329127" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000329127.jpg" 
+                             
+                             alt="329127" title="329127 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-344592" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000344592.jpg" 
+                             
+                             alt="344592" title="344592 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-374164" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000374164.jpg" 
+                             
+                             alt="374164" title="374164 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-378416" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000378416.jpg" 
+                             
+                             alt="378416" title="378416 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-389418" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000389418.jpg" 
+                             
+                             alt="389418" title="389418 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-406217" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000406217.jpg" 
+                             
+                             alt="406217" title="406217 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-418175" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000418175.jpg" 
+                             
+                             alt="418175" title="418175 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-437184" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000437184.jpg" 
+                             
+                             alt="437184" title="437184 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-441296" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000441296.jpg" 
+                             
+                             alt="441296" title="441296 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-44504" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000044504.jpg" 
+                             
+                             alt="44504" title="44504 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-450761" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000450761.jpg" 
+                             
+                             alt="450761" title="450761 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-451668" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000451668.jpg" 
+                             
+                             alt="451668" title="451668 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-452005" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000452005.jpg" 
+                             
+                             alt="452005" title="452005 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-487927" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000487927.jpg" 
+                             
+                             alt="487927" title="487927 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-494360" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000494360.jpg" 
+                             
+                             alt="494360" title="494360 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-496018" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000496018.jpg" 
+                             
+                             alt="496018" title="496018 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-538424" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000538424.jpg" 
+                             
+                             alt="538424" title="538424 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-73162" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000073162.jpg" 
+                             
+                             alt="73162" title="73162 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-8432" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000008432.jpg" 
+                             
+                             alt="8432" title="8432 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-86676" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000086676.jpg" 
+                             
+                             alt="86676" title="86676 - factory equipment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-99681" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000099681.jpg" 
+                             
+                             alt="99681" title="99681 - factory equipment"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="5">
+            <div class="cluster-title">train near factory emitting smoke</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-130437" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000130437.jpg" 
+                             
+                             alt="130437" title="130437 - train near factory emitting smoke"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-18239" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000018239.jpg" 
+                             
+                             alt="18239" title="18239 - train near factory emitting smoke"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-185622" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000185622.jpg" 
+                             
+                             alt="185622" title="185622 - train near factory emitting smoke"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-188891" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000188891.jpg" 
+                             
+                             alt="188891" title="188891 - train near factory emitting smoke"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-195598" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000195598.jpg" 
+                             
+                             alt="195598" title="195598 - train near factory emitting smoke"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-197573" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000197573.jpg" 
+                             
+                             alt="197573" title="197573 - train near factory emitting smoke"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-210442" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000210442.jpg" 
+                             
+                             alt="210442" title="210442 - train near factory emitting smoke"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-211054" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000211054.jpg" 
+                             
+                             alt="211054" title="211054 - train near factory emitting smoke"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-21136" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000021136.jpg" 
+                             
+                             alt="21136" title="21136 - train near factory emitting smoke"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-214247" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000214247.jpg" 
+                             
+                             alt="214247" title="214247 - train near factory emitting smoke"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-216301" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000216301.jpg" 
+                             
+                             alt="216301" title="216301 - train near factory emitting smoke"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-271763" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000271763.jpg" 
+                             
+                             alt="271763" title="271763 - train near factory emitting smoke"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-275691" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000275691.jpg" 
+                             
+                             alt="275691" title="275691 - train near factory emitting smoke"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-303617" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000303617.jpg" 
+                             
+                             alt="303617" title="303617 - train near factory emitting smoke"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-313673" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000313673.jpg" 
+                             
+                             alt="313673" title="313673 - train near factory emitting smoke"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-3342" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000003342.jpg" 
+                             
+                             alt="3342" title="3342 - train near factory emitting smoke"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-346472" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000346472.jpg" 
+                             
+                             alt="346472" title="346472 - train near factory emitting smoke"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-401893" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000401893.jpg" 
+                             
+                             alt="401893" title="401893 - train near factory emitting smoke"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-403937" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000403937.jpg" 
+                             
+                             alt="403937" title="403937 - train near factory emitting smoke"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-452083" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000452083.jpg" 
+                             
+                             alt="452083" title="452083 - train near factory emitting smoke"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-469197" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000469197.jpg" 
+                             
+                             alt="469197" title="469197 - train near factory emitting smoke"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-483722" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000483722.jpg" 
+                             
+                             alt="483722" title="483722 - train near factory emitting smoke"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-529780" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000529780.jpg" 
+                             
+                             alt="529780" title="529780 - train near factory emitting smoke"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-538742" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000538742.jpg" 
+                             
+                             alt="538742" title="538742 - train near factory emitting smoke"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-540348" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000540348.jpg" 
+                             
+                             alt="540348" title="540348 - train near factory emitting smoke"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-566364" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000566364.jpg" 
+                             
+                             alt="566364" title="566364 - train near factory emitting smoke"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-93953" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000093953.jpg" 
+                             
+                             alt="93953" title="93953 - train near factory emitting smoke"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+</div>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="content has-text-centered">
+          <!-- <a class="icon-link" href="" class="external-link" disabled>
+            <i class="fab fa-github"></i>
+          </a> -->
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                Dataset and images provided by <a href="http://cocodataset.org">COCO Dataset</a> (Common Objects in Context), licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+</footer>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,1808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #pinco {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .images-for-query-by-clusters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+        .images-for-cluster-column-container {
+            background-color: #ffffff;
+            width: 380px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cluster-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .cluster-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px;
+        }
+        .coco-img-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .images-for-cluster-column-container:nth-child(5n) {
+            border-top: 5px solid #07730d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+1) {
+            border-top: 5px solid #2a51bb;
+        }
+        .images-for-cluster-column-container:nth-child(5n+2) {
+            border-top: 5px solid #b4c51d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+3) {
+            border-top: 5px solid #c51d1d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+4) {
+            border-top: 5px solid #1dc5c5;
+        }
+
+        .container {
+            width: 80%;
+            /* max-width: 800px; */
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .container-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .query-highlight {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            background-color: #e0f7f4;
+            padding: 0.2em 0.4em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="pinco">
+
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="../index.html">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Title Section -->
+ <div class="container-container">
+    <div class="container">
+        <h1>CroQS Dataset</h1>
+        <h3>Semantic Clusters for the Initial Query: <span class="query-highlight">a photo of a tree</span></h3>
+    </div>
+</div>
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="0">
+            <div class="cluster-title">a photo of a tree with a bench</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-105750" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000105750.jpg" 
+                             
+                             alt="105750" title="105750 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-115088" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000115088.jpg" 
+                             
+                             alt="115088" title="115088 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-125056" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000125056.jpg" 
+                             
+                             alt="125056" title="125056 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-126018" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000126018.jpg" 
+                             
+                             alt="126018" title="126018 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-136070" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000136070.jpg" 
+                             
+                             alt="136070" title="136070 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-139660" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000139660.jpg" 
+                             
+                             alt="139660" title="139660 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-143457" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000143457.jpg" 
+                             
+                             alt="143457" title="143457 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-147293" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000147293.jpg" 
+                             
+                             alt="147293" title="147293 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-150538" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000150538.jpg" 
+                             
+                             alt="150538" title="150538 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-156876" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000156876.jpg" 
+                             
+                             alt="156876" title="156876 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-158277" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000158277.jpg" 
+                             
+                             alt="158277" title="158277 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-15954" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000015954.jpg" 
+                             
+                             alt="15954" title="15954 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-162598" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000162598.jpg" 
+                             
+                             alt="162598" title="162598 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-165106" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000165106.jpg" 
+                             
+                             alt="165106" title="165106 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-17078" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000017078.jpg" 
+                             
+                             alt="17078" title="17078 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-176098" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000176098.jpg" 
+                             
+                             alt="176098" title="176098 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-176721" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000176721.jpg" 
+                             
+                             alt="176721" title="176721 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-192111" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000192111.jpg" 
+                             
+                             alt="192111" title="192111 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-194416" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000194416.jpg" 
+                             
+                             alt="194416" title="194416 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-202656" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000202656.jpg" 
+                             
+                             alt="202656" title="202656 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-20527" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000020527.jpg" 
+                             
+                             alt="20527" title="20527 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-210570" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000210570.jpg" 
+                             
+                             alt="210570" title="210570 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-213174" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000213174.jpg" 
+                             
+                             alt="213174" title="213174 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-217584" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000217584.jpg" 
+                             
+                             alt="217584" title="217584 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-228392" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000228392.jpg" 
+                             
+                             alt="228392" title="228392 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-229312" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000229312.jpg" 
+                             
+                             alt="229312" title="229312 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-241579" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000241579.jpg" 
+                             
+                             alt="241579" title="241579 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-242278" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000242278.jpg" 
+                             
+                             alt="242278" title="242278 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-243000" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000243000.jpg" 
+                             
+                             alt="243000" title="243000 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-278082" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000278082.jpg" 
+                             
+                             alt="278082" title="278082 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-279071" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000279071.jpg" 
+                             
+                             alt="279071" title="279071 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-28095" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000028095.jpg" 
+                             
+                             alt="28095" title="28095 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-284960" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000284960.jpg" 
+                             
+                             alt="284960" title="284960 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-296162" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000296162.jpg" 
+                             
+                             alt="296162" title="296162 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-29755" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000029755.jpg" 
+                             
+                             alt="29755" title="29755 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-300929" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000300929.jpg" 
+                             
+                             alt="300929" title="300929 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-30429" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000030429.jpg" 
+                             
+                             alt="30429" title="30429 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-316658" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000316658.jpg" 
+                             
+                             alt="316658" title="316658 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-317838" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000317838.jpg" 
+                             
+                             alt="317838" title="317838 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-320238" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000320238.jpg" 
+                             
+                             alt="320238" title="320238 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-321851" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000321851.jpg" 
+                             
+                             alt="321851" title="321851 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-32639" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000032639.jpg" 
+                             
+                             alt="32639" title="32639 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-340103" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000340103.jpg" 
+                             
+                             alt="340103" title="340103 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-346335" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000346335.jpg" 
+                             
+                             alt="346335" title="346335 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-350485" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000350485.jpg" 
+                             
+                             alt="350485" title="350485 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-35732" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000035732.jpg" 
+                             
+                             alt="35732" title="35732 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-35767" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000035767.jpg" 
+                             
+                             alt="35767" title="35767 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-35899" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000035899.jpg" 
+                             
+                             alt="35899" title="35899 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-37705" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000037705.jpg" 
+                             
+                             alt="37705" title="37705 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-38561" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000038561.jpg" 
+                             
+                             alt="38561" title="38561 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-388527" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000388527.jpg" 
+                             
+                             alt="388527" title="388527 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-401616" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000401616.jpg" 
+                             
+                             alt="401616" title="401616 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-410236" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000410236.jpg" 
+                             
+                             alt="410236" title="410236 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-412551" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000412551.jpg" 
+                             
+                             alt="412551" title="412551 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-415340" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000415340.jpg" 
+                             
+                             alt="415340" title="415340 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-454892" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000454892.jpg" 
+                             
+                             alt="454892" title="454892 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-45493" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000045493.jpg" 
+                             
+                             alt="45493" title="45493 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-479690" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000479690.jpg" 
+                             
+                             alt="479690" title="479690 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-486547" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000486547.jpg" 
+                             
+                             alt="486547" title="486547 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-499138" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000499138.jpg" 
+                             
+                             alt="499138" title="499138 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-500898" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000500898.jpg" 
+                             
+                             alt="500898" title="500898 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-5076" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000005076.jpg" 
+                             
+                             alt="5076" title="5076 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-509804" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000509804.jpg" 
+                             
+                             alt="509804" title="509804 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-516812" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000516812.jpg" 
+                             
+                             alt="516812" title="516812 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-524909" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000524909.jpg" 
+                             
+                             alt="524909" title="524909 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-529691" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000529691.jpg" 
+                             
+                             alt="529691" title="529691 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-538817" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000538817.jpg" 
+                             
+                             alt="538817" title="538817 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-545293" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000545293.jpg" 
+                             
+                             alt="545293" title="545293 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-545959" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000545959.jpg" 
+                             
+                             alt="545959" title="545959 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-571531" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000571531.jpg" 
+                             
+                             alt="571531" title="571531 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-57917" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000057917.jpg" 
+                             
+                             alt="57917" title="57917 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-580003" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000580003.jpg" 
+                             
+                             alt="580003" title="580003 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-63050" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000063050.jpg" 
+                             
+                             alt="63050" title="63050 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-67262" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000067262.jpg" 
+                             
+                             alt="67262" title="67262 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-69373" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000069373.jpg" 
+                             
+                             alt="69373" title="69373 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-71796" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000071796.jpg" 
+                             
+                             alt="71796" title="71796 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-86524" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000086524.jpg" 
+                             
+                             alt="86524" title="86524 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-91136" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000091136.jpg" 
+                             
+                             alt="91136" title="91136 - a photo of a tree with a bench"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-93219" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000093219.jpg" 
+                             
+                             alt="93219" title="93219 - a photo of a tree with a bench"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="1">
+            <div class="cluster-title">a photo of a tree and animals</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-102275" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000102275.jpg" 
+                             
+                             alt="102275" title="102275 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-111117" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000111117.jpg" 
+                             
+                             alt="111117" title="111117 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-113054" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000113054.jpg" 
+                             
+                             alt="113054" title="113054 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-120613" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000120613.jpg" 
+                             
+                             alt="120613" title="120613 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-159542" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000159542.jpg" 
+                             
+                             alt="159542" title="159542 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-166762" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000166762.jpg" 
+                             
+                             alt="166762" title="166762 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-168818" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000168818.jpg" 
+                             
+                             alt="168818" title="168818 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-189983" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000189983.jpg" 
+                             
+                             alt="189983" title="189983 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-208560" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000208560.jpg" 
+                             
+                             alt="208560" title="208560 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-224278" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000224278.jpg" 
+                             
+                             alt="224278" title="224278 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-22899" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000022899.jpg" 
+                             
+                             alt="22899" title="22899 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-230428" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000230428.jpg" 
+                             
+                             alt="230428" title="230428 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-274613" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000274613.jpg" 
+                             
+                             alt="274613" title="274613 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-274736" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000274736.jpg" 
+                             
+                             alt="274736" title="274736 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-28649" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000028649.jpg" 
+                             
+                             alt="28649" title="28649 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-28930" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000028930.jpg" 
+                             
+                             alt="28930" title="28930 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-302313" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000302313.jpg" 
+                             
+                             alt="302313" title="302313 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-333721" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000333721.jpg" 
+                             
+                             alt="333721" title="333721 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-344483" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000344483.jpg" 
+                             
+                             alt="344483" title="344483 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-350061" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000350061.jpg" 
+                             
+                             alt="350061" title="350061 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-351787" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000351787.jpg" 
+                             
+                             alt="351787" title="351787 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-377383" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000377383.jpg" 
+                             
+                             alt="377383" title="377383 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-39312" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000039312.jpg" 
+                             
+                             alt="39312" title="39312 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-404714" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000404714.jpg" 
+                             
+                             alt="404714" title="404714 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-40596" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000040596.jpg" 
+                             
+                             alt="40596" title="40596 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-410781" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000410781.jpg" 
+                             
+                             alt="410781" title="410781 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-42453" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000042453.jpg" 
+                             
+                             alt="42453" title="42453 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-425061" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000425061.jpg" 
+                             
+                             alt="425061" title="425061 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-428837" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000428837.jpg" 
+                             
+                             alt="428837" title="428837 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-431569" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000431569.jpg" 
+                             
+                             alt="431569" title="431569 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-436284" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000436284.jpg" 
+                             
+                             alt="436284" title="436284 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-447456" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000447456.jpg" 
+                             
+                             alt="447456" title="447456 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-447645" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000447645.jpg" 
+                             
+                             alt="447645" title="447645 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-479315" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000479315.jpg" 
+                             
+                             alt="479315" title="479315 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-488857" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000488857.jpg" 
+                             
+                             alt="488857" title="488857 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-494684" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000494684.jpg" 
+                             
+                             alt="494684" title="494684 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-511224" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000511224.jpg" 
+                             
+                             alt="511224" title="511224 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-562937" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000562937.jpg" 
+                             
+                             alt="562937" title="562937 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-566478" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000566478.jpg" 
+                             
+                             alt="566478" title="566478 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-66890" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000066890.jpg" 
+                             
+                             alt="66890" title="66890 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-81954" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000081954.jpg" 
+                             
+                             alt="81954" title="81954 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-93778" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000093778.jpg" 
+                             
+                             alt="93778" title="93778 - a photo of a tree and animals"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-95551" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000095551.jpg" 
+                             
+                             alt="95551" title="95551 - a photo of a tree and animals"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="2">
+            <div class="cluster-title">a photo of a tree in a room</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-104737" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000104737.jpg" 
+                             
+                             alt="104737" title="104737 - a photo of a tree in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-187213" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000187213.jpg" 
+                             
+                             alt="187213" title="187213 - a photo of a tree in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-203859" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000203859.jpg" 
+                             
+                             alt="203859" title="203859 - a photo of a tree in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-252342" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000252342.jpg" 
+                             
+                             alt="252342" title="252342 - a photo of a tree in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-284674" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000284674.jpg" 
+                             
+                             alt="284674" title="284674 - a photo of a tree in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-347928" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000347928.jpg" 
+                             
+                             alt="347928" title="347928 - a photo of a tree in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-355628" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000355628.jpg" 
+                             
+                             alt="355628" title="355628 - a photo of a tree in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-432460" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000432460.jpg" 
+                             
+                             alt="432460" title="432460 - a photo of a tree in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-442144" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000442144.jpg" 
+                             
+                             alt="442144" title="442144 - a photo of a tree in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-46365" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000046365.jpg" 
+                             
+                             alt="46365" title="46365 - a photo of a tree in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-472399" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000472399.jpg" 
+                             
+                             alt="472399" title="472399 - a photo of a tree in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-49006" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000049006.jpg" 
+                             
+                             alt="49006" title="49006 - a photo of a tree in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-523565" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000523565.jpg" 
+                             
+                             alt="523565" title="523565 - a photo of a tree in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-539922" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000539922.jpg" 
+                             
+                             alt="539922" title="539922 - a photo of a tree in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-572565" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000572565.jpg" 
+                             
+                             alt="572565" title="572565 - a photo of a tree in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-95281" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000095281.jpg" 
+                             
+                             alt="95281" title="95281 - a photo of a tree in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-99999" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000099999.jpg" 
+                             
+                             alt="99999" title="99999 - a photo of a tree in a room"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="3">
+            <div class="cluster-title">a photo of a tree in urban context</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-102863" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000102863.jpg" 
+                             
+                             alt="102863" title="102863 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-117497" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000117497.jpg" 
+                             
+                             alt="117497" title="117497 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-133827" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000133827.jpg" 
+                             
+                             alt="133827" title="133827 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-135775" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000135775.jpg" 
+                             
+                             alt="135775" title="135775 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-143560" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000143560.jpg" 
+                             
+                             alt="143560" title="143560 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-146785" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000146785.jpg" 
+                             
+                             alt="146785" title="146785 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-160001" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000160001.jpg" 
+                             
+                             alt="160001" title="160001 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-167964" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000167964.jpg" 
+                             
+                             alt="167964" title="167964 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-17859" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000017859.jpg" 
+                             
+                             alt="17859" title="17859 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-188411" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000188411.jpg" 
+                             
+                             alt="188411" title="188411 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-189351" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000189351.jpg" 
+                             
+                             alt="189351" title="189351 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-213694" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000213694.jpg" 
+                             
+                             alt="213694" title="213694 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-216785" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000216785.jpg" 
+                             
+                             alt="216785" title="216785 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-223481" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000223481.jpg" 
+                             
+                             alt="223481" title="223481 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-229155" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000229155.jpg" 
+                             
+                             alt="229155" title="229155 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-230670" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000230670.jpg" 
+                             
+                             alt="230670" title="230670 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-235081" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000235081.jpg" 
+                             
+                             alt="235081" title="235081 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-240069" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000240069.jpg" 
+                             
+                             alt="240069" title="240069 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-247703" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000247703.jpg" 
+                             
+                             alt="247703" title="247703 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-256690" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000256690.jpg" 
+                             
+                             alt="256690" title="256690 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-25870" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000025870.jpg" 
+                             
+                             alt="25870" title="25870 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-268396" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000268396.jpg" 
+                             
+                             alt="268396" title="268396 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-274012" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000274012.jpg" 
+                             
+                             alt="274012" title="274012 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-277089" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000277089.jpg" 
+                             
+                             alt="277089" title="277089 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-291658" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000291658.jpg" 
+                             
+                             alt="291658" title="291658 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-297374" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000297374.jpg" 
+                             
+                             alt="297374" title="297374 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-314200" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000314200.jpg" 
+                             
+                             alt="314200" title="314200 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-333824" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000333824.jpg" 
+                             
+                             alt="333824" title="333824 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-34089" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000034089.jpg" 
+                             
+                             alt="34089" title="34089 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-354819" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000354819.jpg" 
+                             
+                             alt="354819" title="354819 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-358607" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000358607.jpg" 
+                             
+                             alt="358607" title="358607 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-359595" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000359595.jpg" 
+                             
+                             alt="359595" title="359595 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-378089" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000378089.jpg" 
+                             
+                             alt="378089" title="378089 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-381122" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000381122.jpg" 
+                             
+                             alt="381122" title="381122 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-390742" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000390742.jpg" 
+                             
+                             alt="390742" title="390742 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-39125" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000039125.jpg" 
+                             
+                             alt="39125" title="39125 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-394126" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000394126.jpg" 
+                             
+                             alt="394126" title="394126 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-395865" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000395865.jpg" 
+                             
+                             alt="395865" title="395865 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-397216" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000397216.jpg" 
+                             
+                             alt="397216" title="397216 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-39884" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000039884.jpg" 
+                             
+                             alt="39884" title="39884 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-410797" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000410797.jpg" 
+                             
+                             alt="410797" title="410797 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-415822" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000415822.jpg" 
+                             
+                             alt="415822" title="415822 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-421451" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000421451.jpg" 
+                             
+                             alt="421451" title="421451 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-43331" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000043331.jpg" 
+                             
+                             alt="43331" title="43331 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-445972" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000445972.jpg" 
+                             
+                             alt="445972" title="445972 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-446799" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000446799.jpg" 
+                             
+                             alt="446799" title="446799 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-44810" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000044810.jpg" 
+                             
+                             alt="44810" title="44810 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-451667" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000451667.jpg" 
+                             
+                             alt="451667" title="451667 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-455112" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000455112.jpg" 
+                             
+                             alt="455112" title="455112 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-465579" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000465579.jpg" 
+                             
+                             alt="465579" title="465579 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-475893" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000475893.jpg" 
+                             
+                             alt="475893" title="475893 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-485680" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000485680.jpg" 
+                             
+                             alt="485680" title="485680 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-48670" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000048670.jpg" 
+                             
+                             alt="48670" title="48670 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-518355" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000518355.jpg" 
+                             
+                             alt="518355" title="518355 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-534331" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000534331.jpg" 
+                             
+                             alt="534331" title="534331 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-536095" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000536095.jpg" 
+                             
+                             alt="536095" title="536095 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-551875" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000551875.jpg" 
+                             
+                             alt="551875" title="551875 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-565807" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000565807.jpg" 
+                             
+                             alt="565807" title="565807 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-566029" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000566029.jpg" 
+                             
+                             alt="566029" title="566029 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-77643" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000077643.jpg" 
+                             
+                             alt="77643" title="77643 - a photo of a tree in urban context"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-85625" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000085625.jpg" 
+                             
+                             alt="85625" title="85625 - a photo of a tree in urban context"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+</div>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="content has-text-centered">
+          <!-- <a class="icon-link" href="" class="external-link" disabled>
+            <i class="fab fa-github"></i>
+          </a> -->
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                Dataset and images provided by <a href="http://cocodataset.org">COCO Dataset</a> (Common Objects in Context), licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+</footer>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>

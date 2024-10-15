@@ -1,0 +1,1819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #pinco {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .images-for-query-by-clusters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+        .images-for-cluster-column-container {
+            background-color: #ffffff;
+            width: 380px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cluster-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .cluster-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px;
+        }
+        .coco-img-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .images-for-cluster-column-container:nth-child(5n) {
+            border-top: 5px solid #07730d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+1) {
+            border-top: 5px solid #2a51bb;
+        }
+        .images-for-cluster-column-container:nth-child(5n+2) {
+            border-top: 5px solid #b4c51d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+3) {
+            border-top: 5px solid #c51d1d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+4) {
+            border-top: 5px solid #1dc5c5;
+        }
+
+        .container {
+            width: 80%;
+            /* max-width: 800px; */
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .container-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .query-highlight {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            background-color: #e0f7f4;
+            padding: 0.2em 0.4em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="pinco">
+
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="../index.html">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Title Section -->
+ <div class="container-container">
+    <div class="container">
+        <h1>CroQS Dataset</h1>
+        <h3>Semantic Clusters for the Initial Query: <span class="query-highlight">running water</span></h3>
+    </div>
+</div>
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="0">
+            <div class="cluster-title">running water in natural environment</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-130062" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000130062.jpg" 
+                             
+                             alt="130062" title="130062 - running water in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-136302" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000136302.jpg" 
+                             
+                             alt="136302" title="136302 - running water in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-141538" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000141538.jpg" 
+                             
+                             alt="141538" title="141538 - running water in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-162598" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000162598.jpg" 
+                             
+                             alt="162598" title="162598 - running water in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-18888" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000018888.jpg" 
+                             
+                             alt="18888" title="18888 - running water in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-20111" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000020111.jpg" 
+                             
+                             alt="20111" title="20111 - running water in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-23173" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000023173.jpg" 
+                             
+                             alt="23173" title="23173 - running water in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-240436" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000240436.jpg" 
+                             
+                             alt="240436" title="240436 - running water in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-242092" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000242092.jpg" 
+                             
+                             alt="242092" title="242092 - running water in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-323467" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000323467.jpg" 
+                             
+                             alt="323467" title="323467 - running water in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-331680" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000331680.jpg" 
+                             
+                             alt="331680" title="331680 - running water in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-342510" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000342510.jpg" 
+                             
+                             alt="342510" title="342510 - running water in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-373583" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000373583.jpg" 
+                             
+                             alt="373583" title="373583 - running water in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-385239" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000385239.jpg" 
+                             
+                             alt="385239" title="385239 - running water in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-410236" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000410236.jpg" 
+                             
+                             alt="410236" title="410236 - running water in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-495199" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000495199.jpg" 
+                             
+                             alt="495199" title="495199 - running water in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-516146" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000516146.jpg" 
+                             
+                             alt="516146" title="516146 - running water in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-548943" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000548943.jpg" 
+                             
+                             alt="548943" title="548943 - running water in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-79490" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000079490.jpg" 
+                             
+                             alt="79490" title="79490 - running water in natural environment"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="1">
+            <div class="cluster-title">running water in bathroom</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-102322" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000102322.jpg" 
+                             
+                             alt="102322" title="102322 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-109588" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000109588.jpg" 
+                             
+                             alt="109588" title="109588 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-116717" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000116717.jpg" 
+                             
+                             alt="116717" title="116717 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-129894" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000129894.jpg" 
+                             
+                             alt="129894" title="129894 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-135972" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000135972.jpg" 
+                             
+                             alt="135972" title="135972 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-137275" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000137275.jpg" 
+                             
+                             alt="137275" title="137275 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-162249" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000162249.jpg" 
+                             
+                             alt="162249" title="162249 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-175198" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000175198.jpg" 
+                             
+                             alt="175198" title="175198 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-176761" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000176761.jpg" 
+                             
+                             alt="176761" title="176761 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-185276" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000185276.jpg" 
+                             
+                             alt="185276" title="185276 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-186103" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000186103.jpg" 
+                             
+                             alt="186103" title="186103 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-192554" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000192554.jpg" 
+                             
+                             alt="192554" title="192554 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-198969" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000198969.jpg" 
+                             
+                             alt="198969" title="198969 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-214519" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000214519.jpg" 
+                             
+                             alt="214519" title="214519 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-216413" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000216413.jpg" 
+                             
+                             alt="216413" title="216413 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-224273" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000224273.jpg" 
+                             
+                             alt="224273" title="224273 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-227651" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000227651.jpg" 
+                             
+                             alt="227651" title="227651 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-230610" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000230610.jpg" 
+                             
+                             alt="230610" title="230610 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-231732" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000231732.jpg" 
+                             
+                             alt="231732" title="231732 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-239452" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000239452.jpg" 
+                             
+                             alt="239452" title="239452 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-25014" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000025014.jpg" 
+                             
+                             alt="25014" title="25014 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-254183" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000254183.jpg" 
+                             
+                             alt="254183" title="254183 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-255928" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000255928.jpg" 
+                             
+                             alt="255928" title="255928 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-256668" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000256668.jpg" 
+                             
+                             alt="256668" title="256668 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-257660" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000257660.jpg" 
+                             
+                             alt="257660" title="257660 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-257908" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000257908.jpg" 
+                             
+                             alt="257908" title="257908 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-259913" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000259913.jpg" 
+                             
+                             alt="259913" title="259913 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-260503" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000260503.jpg" 
+                             
+                             alt="260503" title="260503 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-262770" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000262770.jpg" 
+                             
+                             alt="262770" title="262770 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-268905" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000268905.jpg" 
+                             
+                             alt="268905" title="268905 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-275929" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000275929.jpg" 
+                             
+                             alt="275929" title="275929 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-276836" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000276836.jpg" 
+                             
+                             alt="276836" title="276836 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-280320" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000280320.jpg" 
+                             
+                             alt="280320" title="280320 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-281427" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000281427.jpg" 
+                             
+                             alt="281427" title="281427 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-284628" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000284628.jpg" 
+                             
+                             alt="284628" title="284628 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-290078" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000290078.jpg" 
+                             
+                             alt="290078" title="290078 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-297829" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000297829.jpg" 
+                             
+                             alt="297829" title="297829 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-299550" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000299550.jpg" 
+                             
+                             alt="299550" title="299550 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-306159" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000306159.jpg" 
+                             
+                             alt="306159" title="306159 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-307502" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000307502.jpg" 
+                             
+                             alt="307502" title="307502 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-312299" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000312299.jpg" 
+                             
+                             alt="312299" title="312299 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-318385" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000318385.jpg" 
+                             
+                             alt="318385" title="318385 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-319725" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000319725.jpg" 
+                             
+                             alt="319725" title="319725 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-335284" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000335284.jpg" 
+                             
+                             alt="335284" title="335284 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-356190" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000356190.jpg" 
+                             
+                             alt="356190" title="356190 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-359375" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000359375.jpg" 
+                             
+                             alt="359375" title="359375 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-359959" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000359959.jpg" 
+                             
+                             alt="359959" title="359959 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-360541" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000360541.jpg" 
+                             
+                             alt="360541" title="360541 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-362257" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000362257.jpg" 
+                             
+                             alt="362257" title="362257 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-373678" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000373678.jpg" 
+                             
+                             alt="373678" title="373678 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-378558" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000378558.jpg" 
+                             
+                             alt="378558" title="378558 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-390290" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000390290.jpg" 
+                             
+                             alt="390290" title="390290 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-403747" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000403747.jpg" 
+                             
+                             alt="403747" title="403747 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-41781" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000041781.jpg" 
+                             
+                             alt="41781" title="41781 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-419971" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000419971.jpg" 
+                             
+                             alt="419971" title="419971 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-422041" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000422041.jpg" 
+                             
+                             alt="422041" title="422041 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-428085" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000428085.jpg" 
+                             
+                             alt="428085" title="428085 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-448771" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000448771.jpg" 
+                             
+                             alt="448771" title="448771 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-454336" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000454336.jpg" 
+                             
+                             alt="454336" title="454336 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-457231" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000457231.jpg" 
+                             
+                             alt="457231" title="457231 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-460621" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000460621.jpg" 
+                             
+                             alt="460621" title="460621 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-46852" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000046852.jpg" 
+                             
+                             alt="46852" title="46852 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-471846" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000471846.jpg" 
+                             
+                             alt="471846" title="471846 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-480773" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000480773.jpg" 
+                             
+                             alt="480773" title="480773 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-484948" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000484948.jpg" 
+                             
+                             alt="484948" title="484948 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-491872" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000491872.jpg" 
+                             
+                             alt="491872" title="491872 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-494808" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000494808.jpg" 
+                             
+                             alt="494808" title="494808 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-495681" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000495681.jpg" 
+                             
+                             alt="495681" title="495681 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-500019" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000500019.jpg" 
+                             
+                             alt="500019" title="500019 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-518552" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000518552.jpg" 
+                             
+                             alt="518552" title="518552 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-525420" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000525420.jpg" 
+                             
+                             alt="525420" title="525420 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-534271" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000534271.jpg" 
+                             
+                             alt="534271" title="534271 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-534581" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000534581.jpg" 
+                             
+                             alt="534581" title="534581 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-544691" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000544691.jpg" 
+                             
+                             alt="544691" title="544691 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-547636" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000547636.jpg" 
+                             
+                             alt="547636" title="547636 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-551746" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000551746.jpg" 
+                             
+                             alt="551746" title="551746 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-556033" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000556033.jpg" 
+                             
+                             alt="556033" title="556033 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-565857" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000565857.jpg" 
+                             
+                             alt="565857" title="565857 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-569716" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000569716.jpg" 
+                             
+                             alt="569716" title="569716 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-57495" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000057495.jpg" 
+                             
+                             alt="57495" title="57495 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-575606" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000575606.jpg" 
+                             
+                             alt="575606" title="575606 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-6358" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000006358.jpg" 
+                             
+                             alt="6358" title="6358 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-77025" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000077025.jpg" 
+                             
+                             alt="77025" title="77025 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-79080" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000079080.jpg" 
+                             
+                             alt="79080" title="79080 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-90171" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000090171.jpg" 
+                             
+                             alt="90171" title="90171 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-92014" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000092014.jpg" 
+                             
+                             alt="92014" title="92014 - running water in bathroom"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-96492" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000096492.jpg" 
+                             
+                             alt="96492" title="96492 - running water in bathroom"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="2">
+            <div class="cluster-title">cat interacting with running water</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-118480" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000118480.jpg" 
+                             
+                             alt="118480" title="118480 - cat interacting with running water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-12102" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000012102.jpg" 
+                             
+                             alt="12102" title="12102 - cat interacting with running water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-159457" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000159457.jpg" 
+                             
+                             alt="159457" title="159457 - cat interacting with running water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-196307" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000196307.jpg" 
+                             
+                             alt="196307" title="196307 - cat interacting with running water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-22041" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000022041.jpg" 
+                             
+                             alt="22041" title="22041 - cat interacting with running water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-435316" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000435316.jpg" 
+                             
+                             alt="435316" title="435316 - cat interacting with running water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-471828" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000471828.jpg" 
+                             
+                             alt="471828" title="471828 - cat interacting with running water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-48993" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000048993.jpg" 
+                             
+                             alt="48993" title="48993 - cat interacting with running water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-497443" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000497443.jpg" 
+                             
+                             alt="497443" title="497443 - cat interacting with running water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-72605" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000072605.jpg" 
+                             
+                             alt="72605" title="72605 - cat interacting with running water"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="3">
+            <div class="cluster-title">running water from fire hydrants in urban surface</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-101863" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000101863.jpg" 
+                             
+                             alt="101863" title="101863 - running water from fire hydrants in urban surface"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-102930" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000102930.jpg" 
+                             
+                             alt="102930" title="102930 - running water from fire hydrants in urban surface"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-113504" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000113504.jpg" 
+                             
+                             alt="113504" title="113504 - running water from fire hydrants in urban surface"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-128553" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000128553.jpg" 
+                             
+                             alt="128553" title="128553 - running water from fire hydrants in urban surface"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-161470" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000161470.jpg" 
+                             
+                             alt="161470" title="161470 - running water from fire hydrants in urban surface"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-209824" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000209824.jpg" 
+                             
+                             alt="209824" title="209824 - running water from fire hydrants in urban surface"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-216686" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000216686.jpg" 
+                             
+                             alt="216686" title="216686 - running water from fire hydrants in urban surface"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-218830" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000218830.jpg" 
+                             
+                             alt="218830" title="218830 - running water from fire hydrants in urban surface"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-229507" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000229507.jpg" 
+                             
+                             alt="229507" title="229507 - running water from fire hydrants in urban surface"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-247703" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000247703.jpg" 
+                             
+                             alt="247703" title="247703 - running water from fire hydrants in urban surface"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-274526" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000274526.jpg" 
+                             
+                             alt="274526" title="274526 - running water from fire hydrants in urban surface"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-288481" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000288481.jpg" 
+                             
+                             alt="288481" title="288481 - running water from fire hydrants in urban surface"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-288986" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000288986.jpg" 
+                             
+                             alt="288986" title="288986 - running water from fire hydrants in urban surface"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-315195" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000315195.jpg" 
+                             
+                             alt="315195" title="315195 - running water from fire hydrants in urban surface"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-381134" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000381134.jpg" 
+                             
+                             alt="381134" title="381134 - running water from fire hydrants in urban surface"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-426309" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000426309.jpg" 
+                             
+                             alt="426309" title="426309 - running water from fire hydrants in urban surface"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-431573" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000431573.jpg" 
+                             
+                             alt="431573" title="431573 - running water from fire hydrants in urban surface"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-435933" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000435933.jpg" 
+                             
+                             alt="435933" title="435933 - running water from fire hydrants in urban surface"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-480979" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000480979.jpg" 
+                             
+                             alt="480979" title="480979 - running water from fire hydrants in urban surface"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-513280" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000513280.jpg" 
+                             
+                             alt="513280" title="513280 - running water from fire hydrants in urban surface"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-54254" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000054254.jpg" 
+                             
+                             alt="54254" title="54254 - running water from fire hydrants in urban surface"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-546620" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000546620.jpg" 
+                             
+                             alt="546620" title="546620 - running water from fire hydrants in urban surface"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-565286" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000565286.jpg" 
+                             
+                             alt="565286" title="565286 - running water from fire hydrants in urban surface"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-66508" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000066508.jpg" 
+                             
+                             alt="66508" title="66508 - running water from fire hydrants in urban surface"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-70265" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000070265.jpg" 
+                             
+                             alt="70265" title="70265 - running water from fire hydrants in urban surface"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-82300" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000082300.jpg" 
+                             
+                             alt="82300" title="82300 - running water from fire hydrants in urban surface"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="4">
+            <div class="cluster-title">running water fire hydrant</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-111746" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000111746.jpg" 
+                             
+                             alt="111746" title="111746 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-117289" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000117289.jpg" 
+                             
+                             alt="117289" title="117289 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-118715" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000118715.jpg" 
+                             
+                             alt="118715" title="118715 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-126794" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000126794.jpg" 
+                             
+                             alt="126794" title="126794 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-136338" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000136338.jpg" 
+                             
+                             alt="136338" title="136338 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-148318" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000148318.jpg" 
+                             
+                             alt="148318" title="148318 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-170931" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000170931.jpg" 
+                             
+                             alt="170931" title="170931 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-174864" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000174864.jpg" 
+                             
+                             alt="174864" title="174864 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-178440" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000178440.jpg" 
+                             
+                             alt="178440" title="178440 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-180042" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000180042.jpg" 
+                             
+                             alt="180042" title="180042 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-181742" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000181742.jpg" 
+                             
+                             alt="181742" title="181742 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-194322" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000194322.jpg" 
+                             
+                             alt="194322" title="194322 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-207811" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000207811.jpg" 
+                             
+                             alt="207811" title="207811 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-244096" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000244096.jpg" 
+                             
+                             alt="244096" title="244096 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-244235" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000244235.jpg" 
+                             
+                             alt="244235" title="244235 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-248268" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000248268.jpg" 
+                             
+                             alt="248268" title="248268 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-256037" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000256037.jpg" 
+                             
+                             alt="256037" title="256037 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-270035" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000270035.jpg" 
+                             
+                             alt="270035" title="270035 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-292499" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000292499.jpg" 
+                             
+                             alt="292499" title="292499 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-296136" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000296136.jpg" 
+                             
+                             alt="296136" title="296136 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-314200" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000314200.jpg" 
+                             
+                             alt="314200" title="314200 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-318850" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000318850.jpg" 
+                             
+                             alt="318850" title="318850 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-32695" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000032695.jpg" 
+                             
+                             alt="32695" title="32695 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-327149" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000327149.jpg" 
+                             
+                             alt="327149" title="327149 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-328054" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000328054.jpg" 
+                             
+                             alt="328054" title="328054 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-328808" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000328808.jpg" 
+                             
+                             alt="328808" title="328808 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-35796" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000035796.jpg" 
+                             
+                             alt="35796" title="35796 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-362657" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000362657.jpg" 
+                             
+                             alt="362657" title="362657 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-386958" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000386958.jpg" 
+                             
+                             alt="386958" title="386958 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-408351" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000408351.jpg" 
+                             
+                             alt="408351" title="408351 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-408815" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000408815.jpg" 
+                             
+                             alt="408815" title="408815 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-422286" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000422286.jpg" 
+                             
+                             alt="422286" title="422286 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-425219" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000425219.jpg" 
+                             
+                             alt="425219" title="425219 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-439969" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000439969.jpg" 
+                             
+                             alt="439969" title="439969 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-440354" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000440354.jpg" 
+                             
+                             alt="440354" title="440354 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-440729" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000440729.jpg" 
+                             
+                             alt="440729" title="440729 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-4426" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000004426.jpg" 
+                             
+                             alt="4426" title="4426 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-452512" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000452512.jpg" 
+                             
+                             alt="452512" title="452512 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-474846" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000474846.jpg" 
+                             
+                             alt="474846" title="474846 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-485239" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000485239.jpg" 
+                             
+                             alt="485239" title="485239 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-496283" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000496283.jpg" 
+                             
+                             alt="496283" title="496283 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-504425" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000504425.jpg" 
+                             
+                             alt="504425" title="504425 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-505546" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000505546.jpg" 
+                             
+                             alt="505546" title="505546 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-510622" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000510622.jpg" 
+                             
+                             alt="510622" title="510622 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-512023" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000512023.jpg" 
+                             
+                             alt="512023" title="512023 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-516880" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000516880.jpg" 
+                             
+                             alt="516880" title="516880 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-51808" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000051808.jpg" 
+                             
+                             alt="51808" title="51808 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-52005" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000052005.jpg" 
+                             
+                             alt="52005" title="52005 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-521619" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000521619.jpg" 
+                             
+                             alt="521619" title="521619 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-521849" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000521849.jpg" 
+                             
+                             alt="521849" title="521849 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-522301" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000522301.jpg" 
+                             
+                             alt="522301" title="522301 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-542130" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000542130.jpg" 
+                             
+                             alt="542130" title="542130 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-551823" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000551823.jpg" 
+                             
+                             alt="551823" title="551823 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-555296" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000555296.jpg" 
+                             
+                             alt="555296" title="555296 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-558541" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000558541.jpg" 
+                             
+                             alt="558541" title="558541 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-58429" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000058429.jpg" 
+                             
+                             alt="58429" title="58429 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-66510" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000066510.jpg" 
+                             
+                             alt="66510" title="66510 - running water fire hydrant"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-88675" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000088675.jpg" 
+                             
+                             alt="88675" title="88675 - running water fire hydrant"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+</div>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="content has-text-centered">
+          <!-- <a class="icon-link" href="" class="external-link" disabled>
+            <i class="fab fa-github"></i>
+          </a> -->
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                Dataset and images provided by <a href="http://cocodataset.org">COCO Dataset</a> (Common Objects in Context), licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+</footer>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>
