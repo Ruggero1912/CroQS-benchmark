@@ -97,44 +97,80 @@ class RetrievalSystem:
                 records = [{'feature_vector': f, 'id': images_pt['id'][index]} for index, f in enumerate(images_features.cpu().numpy())]
                 yield from records
 
-    def index(images_paths : list, h5_file_path='_data/index/image_embeddings.h5', h5py_embeddings_dataset_name="coco_train2017"):
+    def index(dataset_dir_path : str, h5_file_path='_data/index/image_embeddings.h5', dataType="train2017"):
         """
-        Index images by generating embeddings and storing them in an HDF5 file.
+        Index COCO images by generating embeddings and storing them in an HDF5 file.
         
         Parameters:
-            images_paths (str): List of the Paths of the images to be indexed.
+            dataset_dir_path (str): path of the dataset to be indexed. Should contain also the 'annotations' folder.
             h5_file_path (str): Path to the HDF5 file where embeddings will be stored.
         """
+        from pycocotools.coco import COCO
+        annFile='{}/annotations/instances_{}.json'.format(dataset_dir_path,dataType)
+        coco = COCO(annFile)
+
+        coco_ids = list( coco.imgs.keys() )
+
+        images_paths = [ os.path.join( dataset_dir_path, coco.imgs[id]['file_name']) for id in coco_ids ]
+
+        try:
+            from tqdm import tqdm
+        except:
+            def tqdm(input):
+                return input
+
         print("Starting indexing process...")
+        #images_paths = [ os.path.join(dataset_dir_path, img) for img in os.listdir(dataset_dir_path) if os.path.isfile(os.path.join(dataset_dir_path, img))]
         print(f"Total images to index: {len(images_paths)}")
 
         OUTPUT_DIM = 512
         BATCH_SIZE = 50
         NUM_WORKERS = 12
 
+        H5PY_EMBEDDINGS_DATASET_NAME = "coco_{}_embeddings".format(dataType)  #"coco_train_val2017_embeddings"
+        H5PY_IDS_DATASET_NAME = "coco_{}_ids".format(dataType)    #"coco_train_val2017_ids"
+
+        
+
         with h5py.File(h5_file_path, 'a') as hf:
             # Check if dataset exists in the HDF5 file, else create it
-            if h5py_embeddings_dataset_name in hf:
-                dataset = hf[h5py_embeddings_dataset_name]
+            if H5PY_EMBEDDINGS_DATASET_NAME in hf:
+                embeddings_dataset = hf[H5PY_EMBEDDINGS_DATASET_NAME]
+                start_index = embeddings_dataset.shape[0]
             else:
-                dataset = hf.create_dataset(h5py_embeddings_dataset_name, 
+                embeddings_dataset = hf.create_dataset(H5PY_EMBEDDINGS_DATASET_NAME, 
                                             shape=(len(images_paths), OUTPUT_DIM), 
                                             maxshape=(None, OUTPUT_DIM), 
                                             dtype='float32')
-            try:
-                from tqdm import tqdm
-            except:
-                def tqdm(input):
-                    return input
+                start_index = 0
+            if H5PY_IDS_DATASET_NAME in hf:
+                dataset_ids = hf[H5PY_IDS_DATASET_NAME]
+            else:
+                dataset_ids = hf.create_dataset(H5PY_IDS_DATASET_NAME, shape=(len(images_paths), ), dtype='int')
+            
+            if "splits" in embeddings_dataset.attrs and dataType in embeddings_dataset.attrs["splits"]:
+                print(f"Stopping because {dataType} is in the already processed splits set of the embeddings dataset")
+                print(f"embeddings dataset processed splits: ", embeddings_dataset.attrs["splits"])
+                return
             
             # Generate embeddings and store them in the HDF5 file
             for num_row, row in tqdm(enumerate(RetrievalSystem.__generate_embeddings(images_paths, BATCH_SIZE, NUM_WORKERS)), total=len(images_paths)):
+                
+                current_index = start_index + num_row
+
                 # Resize the dataset if necessary
-                if dataset.shape[0] < num_row + 1:
-                    dataset.resize((dataset.shape[0] + BATCH_SIZE, OUTPUT_DIM))
+                if embeddings_dataset.shape[0] < current_index + 1:
+                    embeddings_dataset.resize((embeddings_dataset.shape[0] + BATCH_SIZE, OUTPUT_DIM))
                 
                 # Save the feature vector into the dataset
-                dataset[num_row] = row['feature_vector']
+                embeddings_dataset[current_index] = row['feature_vector']
+                dataset_ids[current_index] = coco_ids[num_row]
+            
+            if "splits" not in embeddings_dataset.attrs.keys():
+                embeddings_dataset.attrs["splits"] = ""
+                dataset_ids.attrs["splits"] = ""
+            embeddings_dataset.attrs["splits"] += f"_{dataType}"
+            dataset_ids.attrs["splits"] += f"_{dataType}"
 
         print("Indexing completed successfully.")
 
