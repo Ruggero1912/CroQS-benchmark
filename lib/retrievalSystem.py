@@ -1,8 +1,11 @@
 import h5py
 import numpy as np
 import os
-from transformers import AutoTokenizer, CLIPModel
+from transformers import AutoTokenizer, CLIPModel, CLIPProcessor
 import pandas as pd
+
+from PIL import Image
+import torch
 #from collections.abc import Callable
 
 # here we can specify the dataset name that we want to use as collection for the retrieval system
@@ -22,12 +25,36 @@ def normalize(v):
     else:
         return v / norm
 
+class ImageListDataset(torch.utils.data.Dataset):
+    def __init__(self, paths, processor):
+        self.paths = paths
+        self.processor = processor
+    
+    def __len__(self):
+        return len(self.paths)
+    
+    def __getitem__(self, idx):
+        path = self.paths[idx]
+        image = Image.open(path)
+        image_pt = self.processor(images=[image], return_tensors="pt")
+        image_pt["id"] = torch.tensor([idx])
+        return image_pt
+    
+    @staticmethod
+    def collate_fn(batch):
+        return {k: torch.concat([item[k] for item in batch]) for k in batch[0].keys()}
+
 class RetrievalSystem:
+
+    model = None
+    tokenizer = None
 
     def __init__(self, embeddings_dataset, images_paths=None, ids_dataset=None, normalization : bool = True) -> None:
         #, callback : Callable[[int, dict], dict] = None
-        self.model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
-        self.tokenizer = AutoTokenizer.from_pretrained("openai/clip-vit-base-patch32")
+        if RetrievalSystem.model is None:
+            RetrievalSystem.model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
+        if RetrievalSystem.tokenizer is None:
+            RetrievalSystem.tokenizer = AutoTokenizer.from_pretrained("openai/clip-vit-base-patch32")
         self.normalization = normalization
         self.embeddings_dataset = embeddings_dataset
         if self.normalization:
@@ -35,6 +62,75 @@ class RetrievalSystem:
         self.images_paths = images_paths
         self.ids_dataset = ids_dataset
         #self.callback = callback
+
+    processor = None
+
+    def __generate_embeddings(image_paths, batch_size=50, num_workers=12):
+
+        if RetrievalSystem.processor is None:
+            RetrievalSystem.processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
+
+        if RetrievalSystem.model is None:
+            RetrievalSystem.model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
+        if RetrievalSystem.tokenizer is None:
+            RetrievalSystem.tokenizer = AutoTokenizer.from_pretrained("openai/clip-vit-base-patch32")
+        
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+        dataset = ImageListDataset(image_paths, RetrievalSystem.processor)
+        dataloader = torch.utils.data.DataLoader(
+            dataset,
+            batch_size=batch_size,
+            num_workers=num_workers,
+            collate_fn=ImageListDataset.collate_fn
+        )
+
+        with torch.no_grad():
+            for images_pt in dataloader:
+                images_pt = {k: v.to(device) for k, v in images_pt.items()}
+                images_features = RetrievalSystem.model.get_image_features(images_pt['pixel_values'])
+                records = [{'feature_vector': f, 'id': images_pt['id'][index]} for index, f in enumerate(images_features.cpu().numpy())]
+                yield from records
+
+    def index(images_paths : list, h5_file_path='_data/index/image_embeddings.h5', h5py_embeddings_dataset_name="coco_val2017"):
+        """
+        Index images by generating embeddings and storing them in an HDF5 file.
+        
+        Parameters:
+            images_paths (str): List of the Paths of the images to be indexed.
+            h5_file_path (str): Path to the HDF5 file where embeddings will be stored.
+        """
+        print("Starting indexing process...")
+        print(f"Total images to index: {len(images_paths)}")
+
+        OUTPUT_DIM = 512
+        BATCH_SIZE = 50
+        NUM_WORKERS = 12
+
+        with h5py.File(h5_file_path, 'a') as hf:
+            # Check if dataset exists in the HDF5 file, else create it
+            if h5py_embeddings_dataset_name in hf:
+                dataset = hf[h5py_embeddings_dataset_name]
+            else:
+                dataset = hf.create_dataset(h5py_embeddings_dataset_name, 
+                                            shape=(len(images_paths), OUTPUT_DIM), 
+                                            maxshape=(None, OUTPUT_DIM), 
+                                            dtype='float32')
+            try:
+                from tqdm import tqdm
+            except:
+                def tqdm(input):
+                    return input
+            
+            # Generate embeddings and store them in the HDF5 file
+            for num_row, row in tqdm(enumerate(RetrievalSystem.__generate_embeddings(images_paths, BATCH_SIZE, NUM_WORKERS)), total=len(images_paths)):
+                # Resize the dataset if necessary
+                if dataset.shape[0] < num_row + 1:
+                    dataset.resize((dataset.shape[0] + BATCH_SIZE, OUTPUT_DIM))
+                
+                # Save the feature vector into the dataset
+                dataset[num_row] = row['feature_vector']
+
+        print("Indexing completed successfully.")
 
 
     def query(self, query, num_results=10, compute_mean_variance : bool = False) -> dict:
@@ -279,7 +375,7 @@ if __name__ == "__main__":
     if H5PY_DATASET_NAME in hf:
         dataset = hf[H5PY_DATASET_NAME]
     else:
-        print("Cannot load requested dataset")
+        print("Cannot load requested dataset, please index it")
         exit()
 
 
