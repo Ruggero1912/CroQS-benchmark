@@ -3,6 +3,7 @@ __pycache__/
 lib/__pycache__/
 *.json
 !prompts.json
+!CroQS*.json
 code/_data/*
 .env
 browsable-dataset/
