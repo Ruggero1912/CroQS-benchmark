@@ -265,6 +265,8 @@ class GroupCapLLM:
             ) )
         self.tokenizer = getattr(GroupCapLLM, f"tokenizer_{model_id}")
         self.model = getattr(GroupCapLLM, f"model_{model_id}")
+        self.model.generation_config.pad_token_id = self.tokenizer.pad_token_id
+
 
         if self.use_pipeline:
             self.pipeline = pipeline("text-generation", model=self.model, tokenizer=self.tokenizer, max_new_tokens=150)

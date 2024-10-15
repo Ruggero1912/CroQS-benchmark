@@ -35,7 +35,8 @@ class Im2TxtProjector:
         self.type = type
         self.device_str = device_str
         self.device = torch.device(self.device_str)
-        self.H5PY_FILE_PATH = os.path.join(os.getenv('REPO_DIRECTORY_ROOT'), 'code/_data/index/{}_text_embeddings.h5'.format(type.value) )
+        #self.H5PY_FILE_PATH = os.path.join(os.getenv('REPO_DIRECTORY_ROOT'), 'code/_data/index/{}_text_embeddings.h5'.format(type.value) )
+        self.H5PY_FILE_PATH = os.getenv('IM2TXT_PROJECTOR_MEMORY_HDF5_FILE_PATH').format(type.value)
         self.H5PY_EMBEDDINGS_DATASET_NAME = '{}-embeddings'.format(type.value)
         self.H5PY_TEXT_DATASET_NAME = '{}-text'.format(type.value)
 

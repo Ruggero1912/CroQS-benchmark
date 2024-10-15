@@ -214,7 +214,7 @@ class CroQS:
 
         if changed is True: 
             if compute_scores:
-                print(f"Computing scores for cluster '{cluster_label}' of {query = }")
+                #print(f"Computing scores for cluster '{cluster_label}' of {query = }")
                 self.compute_scores_query_suggestions(query, cluster_label, do_save=False, score_computation_for=score_computation_for)
             if do_save:
                 self._save()
@@ -324,7 +324,13 @@ class CroQS:
         """
         no_changes = True
         ret_df = None
-        for q in self.list_queries():
+        try:
+            from tqdm import tqdm
+        except:
+            def tqdm(input):
+                return input
+    
+        for q in tqdm(self.list_queries()):
 
             tmp, changed = self.get_query_suggestions_dataframe_for_query(q, qs_dict, allowed_methods_names, do_save=False)
             assert isinstance(tmp, pd.DataFrame)
