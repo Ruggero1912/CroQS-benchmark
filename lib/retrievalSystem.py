@@ -64,18 +64,24 @@ class RetrievalSystem:
         #self.callback = callback
 
     processor = None
+    model_device = None
 
     def __generate_embeddings(image_paths, batch_size=50, num_workers=12):
+
+        device = "cuda" if torch.cuda.is_available() else "cpu"
 
         if RetrievalSystem.processor is None:
             RetrievalSystem.processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
 
         if RetrievalSystem.model is None:
             RetrievalSystem.model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
+        
+        if RetrievalSystem.model_device is None or next(RetrievalSystem.model_device.parameters()).device != device:
+            RetrievalSystem.model_device = RetrievalSystem.model.to(device)
+        
         if RetrievalSystem.tokenizer is None:
             RetrievalSystem.tokenizer = AutoTokenizer.from_pretrained("openai/clip-vit-base-patch32")
         
-        device = "cuda" if torch.cuda.is_available() else "cpu"
         dataset = ImageListDataset(image_paths, RetrievalSystem.processor)
         dataloader = torch.utils.data.DataLoader(
             dataset,
@@ -87,11 +93,11 @@ class RetrievalSystem:
         with torch.no_grad():
             for images_pt in dataloader:
                 images_pt = {k: v.to(device) for k, v in images_pt.items()}
-                images_features = RetrievalSystem.model.get_image_features(images_pt['pixel_values'])
+                images_features = RetrievalSystem.model_device.get_image_features(images_pt['pixel_values'])
                 records = [{'feature_vector': f, 'id': images_pt['id'][index]} for index, f in enumerate(images_features.cpu().numpy())]
                 yield from records
 
-    def index(images_paths : list, h5_file_path='_data/index/image_embeddings.h5', h5py_embeddings_dataset_name="coco_val2017"):
+    def index(images_paths : list, h5_file_path='_data/index/image_embeddings.h5', h5py_embeddings_dataset_name="coco_train2017"):
         """
         Index images by generating embeddings and storing them in an HDF5 file.
         
