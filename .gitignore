@@ -5,4 +5,4 @@ lib/__pycache__/
 !prompts.json
 code/_data/*
 .env
-html/
+browsable-dataset/

@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index of Queries</title>
+    <title>CroQS Dataset - browse</title>
     <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
-    <link rel="stylesheet" href="./static/css/bulma.min.css">
-    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
         body {
             font-family: 'Google Sans', sans-serif;
@@ -14,7 +16,7 @@
             color: #333;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            /* align-items: center; */
             min-height: 100vh;
         }
         .container {
@@ -45,15 +47,43 @@
             transition: background-color 0.3s ease, color 0.3s ease;
         }
         a:hover {
-            background-color: #9a8c98;
+            background-color: #dbdbff;
             color: #f4f4f9;
+        }
+        .card {
+            margin-bottom: 0px !important;
+            padding: 1.25rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fdfdfd;
+            text-decoration: none;
+            color: #333;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .query-list {
+            display: grid;
+            grid-template-columns: 1fr; /* Single column on small screens */
+            gap: 1rem; /* Spacing between items */
+        }
+        @media (min-width: 600px) {
+            .query-list {
+                grid-template-columns: 1fr 1fr; /* Two columns on screens 600px and wider */
+            }
+        }
+        .query-title {
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        .cluster-count {
+            font-size: 0.95em;
+            color: #606060;
         }
     </style>
 </head>
 <body>
 
 <!-- Navbar -->
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
     <div class="navbar-brand">
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
             <span aria-hidden="true"></span>
@@ -63,33 +93,71 @@
     </div>
     <div class="navbar-menu">
         <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-            <a class="navbar-item" href="#">
+            <a class="navbar-item" href="../index.html">
                 <span class="icon">
                     <i class="fas fa-home"></i>
                 </span>
                 Home
             </a>
             <div class="navbar-item is-hoverable">
-                <a href="./" class="navbar-link">Explore CroQS Dataset</a>
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
             </div>
         </div>
     </div>
 </nav>
 
 <!-- Content -->
-<div class="container">
+<div class="container" style="padding-bottom: 80px;">
     <h1>CroQS Dataset</h1>
     <h3>List of Initial Queries</h3>
-    <ul>
-        {% for file_name in q_file_names %}
-            <li><a href="./html/{{ file_name }}">{{ file_name.replace('-', ' ').replace('.html', '') }}</a></li>
+    <ul class="query-list">
+        <!-- {\% for file_name in q_file_names %}
+            <li><a href="./html/{\{ file_name }}">{\{ file_name.replace('-', ' ').replace('.html', '') }}</a></li>
+        {\% endfor %} -->
+        {% for i in range(q_file_names|length) %}
+        <a href="./{{ q_file_names[i] }}" class="card">
+            <div class="content">
+                <p class="query-title">{{ i + 1 }}. {{ q_file_names[i].replace('-', ' ').replace('.html', '').title() }}</p>
+                <p class="cluster-count">{{ q_num_clusters[i] }} Clusters</p>
+            </div>
+        </a>
         {% endfor %}
     </ul>
 </div>
 
 <!-- Footer -->
 <footer class="footer">
+    <div class="container">
+        <div class="content has-text-centered">
+          <!-- <a class="icon-link" href="" class="external-link" disabled>
+            <i class="fab fa-github"></i>
+          </a> -->
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                Dataset and images provided by <a href="http://cocodataset.org">COCO Dataset</a> (Common Objects in Context), licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
 </footer>
 
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
 </html>

@@ -31,9 +31,40 @@ from lib.QSHandler import QSHandler
 import pickle
 import os
 
+import requests
+
+def save_coco_image(image_id, save_folder="images"):
+    # Define the filename and ensure the ID is zero-padded to 12 characters
+    filename = f"{str(image_id).zfill(12)}.jpg"
+    save_path = os.path.join(save_folder, filename)
+
+    # Check if the image already exists
+    if os.path.exists(save_path):
+        #print(f"Image {filename} already exists at {save_path}")
+        return
+
+    # Define the URL for the image
+    url = f"http://images.cocodataset.org/train2017/{filename}"
+
+    # Fetch the image content from the COCO URL
+    response = requests.get(url, stream=True)
+
+    # Check if the request was successful
+    if response.status_code == 200:
+        # Create the directory if it doesn't exist
+        os.makedirs(save_folder, exist_ok=True)
+        
+        # Save the image to the specified path
+        with open(save_path, 'wb') as file:
+            for chunk in response.iter_content(1024):
+                file.write(chunk)
+        #print(f"Image saved to {save_path}")
+    else:
+        print(f"Failed to retrieve image. Status code: {response.status_code}")
+
+
 jinja_env = Environment(loader=FileSystemLoader('templates'))
 clusters_template = jinja_env.get_template('clusters.html')
-
 
 class CroQS:
 
@@ -76,11 +107,26 @@ class CroQS:
         """
         return list( self.queries[query][cluster]["items"] )
     
-    def show_clusters(self, query, render=False):
+    def show_clusters(self, query, render=False, images_local_path = None, images_path_from_html_folder = None, cors_proxy=None):
         """
         if render is true, render the html in a ipynb, else returns the html as a string
         """
-        html = clusters_template.render(clusters_dict=self.queries[query])
+        if images_local_path is not None:
+            if not os.path.exists(images_local_path):
+                print(f"the path '{images_local_path}' does not exist, ignoring")
+                images_local_path = None
+                images_path_from_html_folder = None
+            else:
+                for cluster in self._list_clusters_labels(query):
+                    for coco_id in self.list_cluster_coco_ids(query, cluster):
+                        save_coco_image(coco_id, images_local_path)
+                if images_path_from_html_folder is None:
+                    images_path_from_html_folder = images_local_path
+                cors_proxy = None
+            
+        html = clusters_template.render(initial_query=query, clusters_dict=self.queries[query], 
+                                        images_path_from_html_folder=images_path_from_html_folder,
+                                        cors_proxy=cors_proxy)
 
         if render:
             display(HTML(html))
