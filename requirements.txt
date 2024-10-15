@@ -16,3 +16,4 @@ gdown
 bert-score
 pycocotools
 scikit-learn
+nltk
