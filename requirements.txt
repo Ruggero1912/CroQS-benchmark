@@ -1,5 +1,14 @@
-bert-score
+git+https://github.com/openai/CLIP.git
+transformers
+torch
+python-dotenv
 bitsandbytes
 jinja2
 accelerate
 tqdm
+pandas
+numpy
+h5py
+pillow
+gdown
+bert-score
