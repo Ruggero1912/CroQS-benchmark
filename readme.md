@@ -62,3 +62,9 @@ Now you can open the `ipynb` benchmark-examples and browse the dataset, while to
     - `HDF5_INDEX_FILE_PATH` &#8594; here you should set the full path to the file in the folder `hdf5-indexes` such as `coco_train_val_2017_image_embeddings.h5`, which should contain the hdf5 index file of the image collection.
     - `IM2TXT_PROJECTOR_MEMORY_HDF5_FILE_PATH` &#8594; here you should provide a valid and existing path to a folder where the class `Im2TxtProjection` will build the projection memory for the DeCap method. This should also include the hdf5 file name, which should be `{}_text_embeddings.h5` and will be auto-formatted by the method.
 6. Run the file `evaluation.ipynb`. Some models will prompt you to download additional files and configurations. 
+
+
+
+## Acknowledgements
+
+Dataset and images provided by [COCO Dataset]("http://cocodataset.org") (Common Objects in Context), licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
