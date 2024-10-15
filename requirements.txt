@@ -15,4 +15,4 @@ pillow
 gdown
 bert-score
 pycocotools
-sklearn
+scikit-learn
