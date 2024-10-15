@@ -53,5 +53,5 @@ Now you can open the `ipynb` benchmark-examples and browse the dataset, while to
     - `CLIPCAP_ENABLED` &#8594; can be either 1 / True or 0 / False, when is False, the ClipCap model is not loaded (useful for debug / VRAM economy)
     - `HF_TOKEN` &#8594; here you can set your HuggingFace API Token, so that you can download HuggingFace models from their server (such as Mistral and LLama3, that are required by the GroupCap method)
     - `HDF5_INDEX_FILE_PATH` &#8594; here you should set the full path to the file in the folder `hdf5-indexes` such as `coco_train_val_2017_image_embeddings.h5`, which should contain the hdf5 index file of the image collection.
-    - `IM2TXT_PROJECTOR_MEMORY_HDF5_FILE_PATH` &#8594; here you should provide a valid and existing path to a folder where the class `Im2TxtProjection` will build the projection memory for the DeCap method.
+    - `IM2TXT_PROJECTOR_MEMORY_HDF5_FILE_PATH` &#8594; here you should provide a valid and existing path to a folder where the class `Im2TxtProjection` will build the projection memory for the DeCap method. This should also include the hdf5 file name, which should be `{}_text_embeddings.h5` and will be auto-formatted by the method.
 6. Run the file `evaluation.ipynb`. Some models will prompt you to download additional files and configurations. 
