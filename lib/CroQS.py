@@ -141,10 +141,11 @@ class CroQS:
 
     device = None
 
-    def evaluation_init(self, hdf5_index_file_path : str, device : str = "cuda:0"):
+    def evaluation_init(self, hdf5_index_file_path : str, device : str = "cuda:0", evaluation_dump_path : str = None):
         """
         call this method before using evaluation methods
         """
+        self.evaluation_dump_path = evaluation_dump_path
         if CroQS.evaluation_loaded is True:
             print(f"[-] evaluation already loaded [-]")
             return
@@ -152,7 +153,7 @@ class CroQS:
         CroQS.ir_system = get_ir_system("train2017", hdf5_index_file_path)
         self._load()
         if CroQS.suggested_queries is None:
-            print(f"No self.queries dict object loaded from disk, creating new empty dict")
+            print(f"No dict object loaded from disk, creating new empty dict")
             CroQS.suggested_queries = {}
         
         CroQS.device = device
@@ -184,24 +185,27 @@ class CroQS:
             self.qs_common_interface = QSHandler(self.ir_system, self.device)
         return self.qs_common_interface
 
-    file_path = "./dump.json" # TODO
-
     def _save(self):
         """
         should store on disk the self.suggested_queries dict object
         """
-        with open(self.file_path, 'wb') as f:
+        if self.evaluation_dump_path is None:
+            return
+        with open(self.evaluation_dump_path, 'wb') as f:
             pickle.dump(self.suggested_queries, f)
 
     def _load(self):
         """
         should load from disk the previously stored dict object, if any
         """
-        if os.path.exists(self.file_path):
-            with open(self.file_path, 'rb') as f:
-                self.suggested_queries = pickle.load(f)
+        if self.evaluation_dump_path is None:
+            print(f"no dump path provided")
+            return
+        if os.path.exists(self.evaluation_dump_path):
+            with open(self.evaluation_dump_path, 'rb') as f:
+                CroQS.suggested_queries = pickle.load(f)
         else:
-            print(f"File {self.file_path} not found")
+            print(f"File {self.evaluation_dump_path} not found")
 
     def load_query_suggestions(self, query, cluster_label, qs_dict : dict, force_update : bool = False, compute_scores : bool = True,
                               do_save : bool = True) -> dict:
