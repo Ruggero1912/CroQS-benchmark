@@ -22,10 +22,15 @@ Although rather far from human performance, our experiments reveal that both LLM
 
 In this repository you can find:
 - the CroQS dataset as a json file
+- a [browsable version](./browsable-dataset/index.html) of the dataset, in HTML format
 - the CroQS python class, which is the main entrypoint for benchmark usage
 - an implementation of the set of baseline methods (ClipCap, DeCap and GroupCap)
 - a couple of Jupyter Notebooks, [one](./benchmark-examples.ipynb) that report an usage example of the CroQS class to explore the dataset, and [the other](./evaluation.ipynb) that shows how to run evaluation experiments through it
 
+
+## Explore CroQS 🐊
+
+Open in a browser the [CroQS browsable dataset index file](./browsable-dataset/index.html) and explore the queries and clusters.
 
 ## Setup
 
