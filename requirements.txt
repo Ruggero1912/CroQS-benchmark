@@ -5,6 +5,8 @@ python-dotenv
 bitsandbytes
 jinja2
 accelerate
+ipykernel
+ipywidgets
 tqdm
 pandas
 numpy
