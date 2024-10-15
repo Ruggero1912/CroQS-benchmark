@@ -32,6 +32,8 @@ In this repository you can find:
 
 Open in a browser the [CroQS browsable dataset index file](./browsable-dataset/index.html) and explore the queries and clusters.
 
+![CroQS Browsable Dataset HTML View](./images/croqs-browsable-dataset-example.png)
+
 ## Setup
 
 
