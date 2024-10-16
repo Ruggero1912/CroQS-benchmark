@@ -221,32 +221,32 @@ class GroupCapLLM:
 
         if llm_type == LLMTypes.Gemma7b_IT:
             model_id = "google/gemma-7b-it"
-            quantization_config = BitsAndBytesConfig(load_in_4bit=True)
+            quantization_config = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_compute_dtype=torch.float16)
             dtype=torch.int8
             self.instruction_tuned = True
         elif llm_type == LLMTypes.Gemma2b_IT:
             model_id = "google/gemma-2b-it"
-            quantization_config = BitsAndBytesConfig(load_in_4bit=True)
+            quantization_config = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_compute_dtype=torch.float16)
             dtype=None
             self.instruction_tuned = True
         elif llm_type == LLMTypes.Gemma2_2b:
             model_id = "google/gemma-2-2b"
-            quantization_config = BitsAndBytesConfig(load_in_4bit=True)
+            quantization_config = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_compute_dtype=torch.float16)
             dtype=None
             self.instruction_tuned = False
         elif llm_type == LLMTypes.Mistral7b_IT:
             model_id = "mistralai/Mistral-7B-Instruct-v0.2"
-            quantization_config = BitsAndBytesConfig(load_in_4bit=True)
+            quantization_config = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_compute_dtype=torch.float16)
             dtype=None #torch.bfloat16
             self.instruction_tuned = True
         elif llm_type == LLMTypes.LLama3_8b:
             model_id = "meta-llama/Meta-Llama-3-8B"
-            quantization_config = BitsAndBytesConfig(load_in_4bit=True)
+            quantization_config = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_compute_dtype=torch.float16)
             dtype=None #torch.bfloat16
             self.instruction_tuned = False
         elif llm_type == LLMTypes.LLama3_8b_IT:
             model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
-            quantization_config = BitsAndBytesConfig(load_in_4bit=True)
+            quantization_config = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_compute_dtype=torch.float16)
             dtype=None #torch.bfloat16
             self.instruction_tuned = True
         else:
