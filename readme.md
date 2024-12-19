@@ -1,6 +1,14 @@
 # Maybe you are looking for CroQS 🐊
 ## Cross-modal Query Suggestion for Text-to-Image Retrieval
 
+<span style="font-size: xx-large;">[Project page](https://paciosoft.com/CroQS-benchmark/) | [<img src="https://img.shields.io/badge/arXiv-2412.13834-b51b1b.svg" style="width: 180; margin-top: 15px;">](https://arxiv.org/abs/2412.13834) | <img src="https://img.shields.io/badge/ECIR%202025-Full%20Paper-blue" style="width: 180; margin-top: 15px;">
+
+Official repository of the paper "Maybe you are looking for CroQS 🐊 Cross-modal Query Suggestion for Text-to-Image Retrieval".
+
+#### Updates
+
+- 🔥 12/2024: "Maybe you are looking for CroQS 🐊 Cross-modal Query Suggestion for Text-to-Image Retrieval" has been accepted to ECIR2025 as a full paper
+
 ![cross-modal query suggestion architecture schema](./images/cross-modal-query-suggestion-architecture.webp)
 
 ### Abstract
@@ -66,5 +74,11 @@ Now you can open the `ipynb` benchmark-examples and browse the dataset, while to
 
 
 ## Acknowledgements
+
+This work has received financial support by:
+- the project FAIR – Future Artificial Intelligence Research - Spoke 1 (PNRR M4C2 Inv. 1.3 PE00000013) funded by the European Union - Next Generation EU.
+- the European Union — Next Generation EU, Mission 4 Component 1 CUP B53D23026090001 (a MUltimedia platform for Content Enrichment and Search in audiovisual archives — MUCES PRIN 2022 PNRR P2022BW7CW).
+- the Spoke "FutureHPC & BigData" of the ICSC – Centro Nazionale di Ricerca in High-Performance Computing, Big Data and Quantum Computing funded by the Italian Government.
+- the FoReLab and CrossLab projects (Departments of Excellence), the NEREO PRIN project (Research Grant no. 2022AEFHAZ) funded by the Italian Ministry of Education and Research (MUR).
 
 Dataset and images provided by [COCO Dataset]("http://cocodataset.org") (Common Objects in Context), licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
