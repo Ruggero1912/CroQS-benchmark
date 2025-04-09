@@ -346,6 +346,23 @@
 </section>
 
 <script>
+  // List of pages to choose from
+  const pages = [
+    "https://paciosoft.com/CroQS-benchmark/browsable-dataset/glass-bottle.html",
+    "https://paciosoft.com/CroQS-benchmark/browsable-dataset/cat-drinking.html",
+    "https://paciosoft.com/CroQS-benchmark/browsable-dataset/a-portrait.html"
+    // Add more pages as needed
+  ];
+
+  // Function to randomly select a page
+  function loadRandomPage() {
+    const randomIndex = Math.floor(Math.random() * pages.length);
+    const iframe = document.getElementById("croqs-demo");
+    iframe.src = pages[randomIndex];
+  }
+
+  // Load a random page when the page is loaded
+  window.onload = loadRandomPage;
   // Wait until iframe has loaded
   document.getElementById('croqs-demo').addEventListener('load', function () {
     const iframe = this;
