@@ -288,16 +288,6 @@
   </div>
 </section>
 
-<section class="hero teaser">
-  <div class="container is-max-desktop has-text-centered">
-    <div class="content has-text-justified">
-      <figure class="hero-body">
-        <img src="./static/images/cross-modal-query-suggestion-architecture.webp" alt="Cross-modal query suggestion architecture" class="teaser-image">
-      </figure>
-    </div>
-  </div>
-</section>
-
 <section class="hero section pt-0 is-light">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
@@ -327,6 +317,49 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="container">
+    <h2 class="title is-4">🔍 Explore CroQS</h2>
+    <div class="box" style="overflow:hidden">
+      <iframe
+        src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/car-moving.html"
+        width="100%"
+        height="600"
+        style="border: 1px solid #ccc; border-radius: 8px;">
+      </iframe>
+    </div>
+    <p class="is-size-7 mt-2">
+      Want to explore more? <a href="./browsable-dataset/index.html">Browse the full dataset</a>.
+    </p>
+  </div>
+</section>
+
+<script>
+  // Wait until iframe has loaded
+  document.getElementById('croqs-demo').addEventListener('load', function () {
+    const iframe = this;
+    try {
+      const iframeDoc = iframe.contentWindow.document;
+      const navbar = iframeDoc.querySelector('.navbar');
+      if (navbar) {
+        navbar.style.display = 'none';
+      }
+    } catch (e) {
+      console.warn('Could not access iframe content:', e);
+    }
+  });
+</script>
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop has-text-centered">
+    <div class="content has-text-justified">
+      <figure class="hero-body">
+        <img src="./static/images/cross-modal-query-suggestion-architecture.webp" alt="Cross-modal query suggestion architecture" class="teaser-image">
+      </figure>
+    </div>
+  </div>
+</section>
 
 <section class="section">
   <div class="container is-max-desktop">
