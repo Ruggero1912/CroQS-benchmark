@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #pinco {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .images-for-query-by-clusters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+        .images-for-cluster-column-container {
+            background-color: #ffffff;
+            width: 380px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cluster-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .cluster-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px;
+        }
+        .coco-img-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .images-for-cluster-column-container:nth-child(5n) {
+            border-top: 5px solid #07730d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+1) {
+            border-top: 5px solid #2a51bb;
+        }
+        .images-for-cluster-column-container:nth-child(5n+2) {
+            border-top: 5px solid #b4c51d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+3) {
+            border-top: 5px solid #c51d1d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+4) {
+            border-top: 5px solid #1dc5c5;
+        }
+
+        .container {
+            width: 80%;
+            /* max-width: 800px; */
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .container-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .query-highlight {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            background-color: #e0f7f4;
+            padding: 0.2em 0.4em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="pinco">
+
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="../index.html">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Title Section -->
+ <div class="container-container">
+    <div class="container">
+        <h1>CroQS Dataset</h1>
+        <h3>Semantic Clusters for the Initial Query: <span class="query-highlight">a sport race</span></h3>
+    </div>
+</div>
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="0">
+            <div class="cluster-title">a sport race of people riding</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-114147" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000114147.jpg" 
+                             
+                             alt="114147" title="114147 - a sport race of people riding"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-145295" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000145295.jpg" 
+                             
+                             alt="145295" title="145295 - a sport race of people riding"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-161333" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000161333.jpg" 
+                             
+                             alt="161333" title="161333 - a sport race of people riding"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-165334" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000165334.jpg" 
+                             
+                             alt="165334" title="165334 - a sport race of people riding"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-166776" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000166776.jpg" 
+                             
+                             alt="166776" title="166776 - a sport race of people riding"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-204074" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000204074.jpg" 
+                             
+                             alt="204074" title="204074 - a sport race of people riding"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-213922" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000213922.jpg" 
+                             
+                             alt="213922" title="213922 - a sport race of people riding"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-243650" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000243650.jpg" 
+                             
+                             alt="243650" title="243650 - a sport race of people riding"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-2498" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000002498.jpg" 
+                             
+                             alt="2498" title="2498 - a sport race of people riding"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-25996" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000025996.jpg" 
+                             
+                             alt="25996" title="25996 - a sport race of people riding"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-288528" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000288528.jpg" 
+                             
+                             alt="288528" title="288528 - a sport race of people riding"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-288889" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000288889.jpg" 
+                             
+                             alt="288889" title="288889 - a sport race of people riding"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-292226" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000292226.jpg" 
+                             
+                             alt="292226" title="292226 - a sport race of people riding"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-309771" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000309771.jpg" 
+                             
+                             alt="309771" title="309771 - a sport race of people riding"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-380798" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000380798.jpg" 
+                             
+                             alt="380798" title="380798 - a sport race of people riding"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-38155" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000038155.jpg" 
+                             
+                             alt="38155" title="38155 - a sport race of people riding"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-382572" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000382572.jpg" 
+                             
+                             alt="382572" title="382572 - a sport race of people riding"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-395216" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000395216.jpg" 
+                             
+                             alt="395216" title="395216 - a sport race of people riding"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-424641" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000424641.jpg" 
+                             
+                             alt="424641" title="424641 - a sport race of people riding"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-427046" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000427046.jpg" 
+                             
+                             alt="427046" title="427046 - a sport race of people riding"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-458861" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000458861.jpg" 
+                             
+                             alt="458861" title="458861 - a sport race of people riding"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-476040" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000476040.jpg" 
+                             
+                             alt="476040" title="476040 - a sport race of people riding"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-539977" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000539977.jpg" 
+                             
+                             alt="539977" title="539977 - a sport race of people riding"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-543697" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000543697.jpg" 
+                             
+                             alt="543697" title="543697 - a sport race of people riding"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-550601" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000550601.jpg" 
+                             
+                             alt="550601" title="550601 - a sport race of people riding"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-569174" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000569174.jpg" 
+                             
+                             alt="569174" title="569174 - a sport race of people riding"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-72984" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000072984.jpg" 
+                             
+                             alt="72984" title="72984 - a sport race of people riding"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="1">
+            <div class="cluster-title">a sport race of horses</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-106453" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000106453.jpg" 
+                             
+                             alt="106453" title="106453 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-123627" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000123627.jpg" 
+                             
+                             alt="123627" title="123627 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-125380" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000125380.jpg" 
+                             
+                             alt="125380" title="125380 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-129520" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000129520.jpg" 
+                             
+                             alt="129520" title="129520 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-137617" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000137617.jpg" 
+                             
+                             alt="137617" title="137617 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-146560" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000146560.jpg" 
+                             
+                             alt="146560" title="146560 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-14683" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000014683.jpg" 
+                             
+                             alt="14683" title="14683 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-147294" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000147294.jpg" 
+                             
+                             alt="147294" title="147294 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-151339" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000151339.jpg" 
+                             
+                             alt="151339" title="151339 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-15392" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000015392.jpg" 
+                             
+                             alt="15392" title="15392 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-174838" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000174838.jpg" 
+                             
+                             alt="174838" title="174838 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-204379" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000204379.jpg" 
+                             
+                             alt="204379" title="204379 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-216571" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000216571.jpg" 
+                             
+                             alt="216571" title="216571 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-23004" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000023004.jpg" 
+                             
+                             alt="23004" title="23004 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-238667" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000238667.jpg" 
+                             
+                             alt="238667" title="238667 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-248911" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000248911.jpg" 
+                             
+                             alt="248911" title="248911 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-260951" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000260951.jpg" 
+                             
+                             alt="260951" title="260951 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-274793" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000274793.jpg" 
+                             
+                             alt="274793" title="274793 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-280370" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000280370.jpg" 
+                             
+                             alt="280370" title="280370 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-283666" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000283666.jpg" 
+                             
+                             alt="283666" title="283666 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-300887" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000300887.jpg" 
+                             
+                             alt="300887" title="300887 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-312744" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000312744.jpg" 
+                             
+                             alt="312744" title="312744 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-322268" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000322268.jpg" 
+                             
+                             alt="322268" title="322268 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-322511" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000322511.jpg" 
+                             
+                             alt="322511" title="322511 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-329576" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000329576.jpg" 
+                             
+                             alt="329576" title="329576 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-351422" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000351422.jpg" 
+                             
+                             alt="351422" title="351422 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-356015" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000356015.jpg" 
+                             
+                             alt="356015" title="356015 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-359141" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000359141.jpg" 
+                             
+                             alt="359141" title="359141 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-399185" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000399185.jpg" 
+                             
+                             alt="399185" title="399185 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-415235" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000415235.jpg" 
+                             
+                             alt="415235" title="415235 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-416911" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000416911.jpg" 
+                             
+                             alt="416911" title="416911 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-445512" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000445512.jpg" 
+                             
+                             alt="445512" title="445512 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-453311" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000453311.jpg" 
+                             
+                             alt="453311" title="453311 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-477471" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000477471.jpg" 
+                             
+                             alt="477471" title="477471 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-528458" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000528458.jpg" 
+                             
+                             alt="528458" title="528458 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-536496" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000536496.jpg" 
+                             
+                             alt="536496" title="536496 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-539906" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000539906.jpg" 
+                             
+                             alt="539906" title="539906 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-58107" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000058107.jpg" 
+                             
+                             alt="58107" title="58107 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-83005" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000083005.jpg" 
+                             
+                             alt="83005" title="83005 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-8896" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000008896.jpg" 
+                             
+                             alt="8896" title="8896 - a sport race of horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-94569" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000094569.jpg" 
+                             
+                             alt="94569" title="94569 - a sport race of horses"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="2">
+            <div class="cluster-title">a sport race on water</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-174213" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000174213.jpg" 
+                             
+                             alt="174213" title="174213 - a sport race on water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-183921" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000183921.jpg" 
+                             
+                             alt="183921" title="183921 - a sport race on water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-220215" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000220215.jpg" 
+                             
+                             alt="220215" title="220215 - a sport race on water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-221616" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000221616.jpg" 
+                             
+                             alt="221616" title="221616 - a sport race on water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-274869" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000274869.jpg" 
+                             
+                             alt="274869" title="274869 - a sport race on water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-283101" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000283101.jpg" 
+                             
+                             alt="283101" title="283101 - a sport race on water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-291262" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000291262.jpg" 
+                             
+                             alt="291262" title="291262 - a sport race on water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-321422" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000321422.jpg" 
+                             
+                             alt="321422" title="321422 - a sport race on water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-33669" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000033669.jpg" 
+                             
+                             alt="33669" title="33669 - a sport race on water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-341868" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000341868.jpg" 
+                             
+                             alt="341868" title="341868 - a sport race on water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-429143" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000429143.jpg" 
+                             
+                             alt="429143" title="429143 - a sport race on water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-436362" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000436362.jpg" 
+                             
+                             alt="436362" title="436362 - a sport race on water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-480666" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000480666.jpg" 
+                             
+                             alt="480666" title="480666 - a sport race on water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-525666" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000525666.jpg" 
+                             
+                             alt="525666" title="525666 - a sport race on water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-531868" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000531868.jpg" 
+                             
+                             alt="531868" title="531868 - a sport race on water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-55484" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000055484.jpg" 
+                             
+                             alt="55484" title="55484 - a sport race on water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-74241" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000074241.jpg" 
+                             
+                             alt="74241" title="74241 - a sport race on water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-87378" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000087378.jpg" 
+                             
+                             alt="87378" title="87378 - a sport race on water"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="3">
+            <div class="cluster-title">a winter sport race</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-100855" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000100855.jpg" 
+                             
+                             alt="100855" title="100855 - a winter sport race"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-124834" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000124834.jpg" 
+                             
+                             alt="124834" title="124834 - a winter sport race"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-14230" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000014230.jpg" 
+                             
+                             alt="14230" title="14230 - a winter sport race"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-245227" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000245227.jpg" 
+                             
+                             alt="245227" title="245227 - a winter sport race"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-247049" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000247049.jpg" 
+                             
+                             alt="247049" title="247049 - a winter sport race"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-248353" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000248353.jpg" 
+                             
+                             alt="248353" title="248353 - a winter sport race"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-254902" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000254902.jpg" 
+                             
+                             alt="254902" title="254902 - a winter sport race"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-260407" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000260407.jpg" 
+                             
+                             alt="260407" title="260407 - a winter sport race"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-289474" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000289474.jpg" 
+                             
+                             alt="289474" title="289474 - a winter sport race"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-295124" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000295124.jpg" 
+                             
+                             alt="295124" title="295124 - a winter sport race"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-322507" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000322507.jpg" 
+                             
+                             alt="322507" title="322507 - a winter sport race"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-327418" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000327418.jpg" 
+                             
+                             alt="327418" title="327418 - a winter sport race"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-343470" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000343470.jpg" 
+                             
+                             alt="343470" title="343470 - a winter sport race"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-343542" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000343542.jpg" 
+                             
+                             alt="343542" title="343542 - a winter sport race"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-34539" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000034539.jpg" 
+                             
+                             alt="34539" title="34539 - a winter sport race"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-354736" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000354736.jpg" 
+                             
+                             alt="354736" title="354736 - a winter sport race"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-434788" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000434788.jpg" 
+                             
+                             alt="434788" title="434788 - a winter sport race"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-452816" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000452816.jpg" 
+                             
+                             alt="452816" title="452816 - a winter sport race"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-455717" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000455717.jpg" 
+                             
+                             alt="455717" title="455717 - a winter sport race"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-461484" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000461484.jpg" 
+                             
+                             alt="461484" title="461484 - a winter sport race"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-534565" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000534565.jpg" 
+                             
+                             alt="534565" title="534565 - a winter sport race"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-53823" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000053823.jpg" 
+                             
+                             alt="53823" title="53823 - a winter sport race"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-538977" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000538977.jpg" 
+                             
+                             alt="538977" title="538977 - a winter sport race"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-569706" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000569706.jpg" 
+                             
+                             alt="569706" title="569706 - a winter sport race"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="4">
+            <div class="cluster-title">a sport race of motorcycles</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-101749" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000101749.jpg" 
+                             
+                             alt="101749" title="101749 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-104621" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000104621.jpg" 
+                             
+                             alt="104621" title="104621 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-127450" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000127450.jpg" 
+                             
+                             alt="127450" title="127450 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-136732" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000136732.jpg" 
+                             
+                             alt="136732" title="136732 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-157476" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000157476.jpg" 
+                             
+                             alt="157476" title="157476 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-161234" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000161234.jpg" 
+                             
+                             alt="161234" title="161234 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-16531" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000016531.jpg" 
+                             
+                             alt="16531" title="16531 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-167634" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000167634.jpg" 
+                             
+                             alt="167634" title="167634 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-191734" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000191734.jpg" 
+                             
+                             alt="191734" title="191734 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-196490" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000196490.jpg" 
+                             
+                             alt="196490" title="196490 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-211189" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000211189.jpg" 
+                             
+                             alt="211189" title="211189 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-21711" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000021711.jpg" 
+                             
+                             alt="21711" title="21711 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-218033" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000218033.jpg" 
+                             
+                             alt="218033" title="218033 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-219910" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000219910.jpg" 
+                             
+                             alt="219910" title="219910 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-228712" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000228712.jpg" 
+                             
+                             alt="228712" title="228712 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-23631" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000023631.jpg" 
+                             
+                             alt="23631" title="23631 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-23741" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000023741.jpg" 
+                             
+                             alt="23741" title="23741 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-2377" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000002377.jpg" 
+                             
+                             alt="2377" title="2377 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-254046" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000254046.jpg" 
+                             
+                             alt="254046" title="254046 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-27764" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000027764.jpg" 
+                             
+                             alt="27764" title="27764 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-285192" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000285192.jpg" 
+                             
+                             alt="285192" title="285192 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-287140" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000287140.jpg" 
+                             
+                             alt="287140" title="287140 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-298110" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000298110.jpg" 
+                             
+                             alt="298110" title="298110 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-301574" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000301574.jpg" 
+                             
+                             alt="301574" title="301574 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-304520" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000304520.jpg" 
+                             
+                             alt="304520" title="304520 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-318180" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000318180.jpg" 
+                             
+                             alt="318180" title="318180 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-32203" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000032203.jpg" 
+                             
+                             alt="32203" title="32203 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-33251" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000033251.jpg" 
+                             
+                             alt="33251" title="33251 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-332931" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000332931.jpg" 
+                             
+                             alt="332931" title="332931 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-344325" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000344325.jpg" 
+                             
+                             alt="344325" title="344325 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-355481" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000355481.jpg" 
+                             
+                             alt="355481" title="355481 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-365314" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000365314.jpg" 
+                             
+                             alt="365314" title="365314 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-372413" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000372413.jpg" 
+                             
+                             alt="372413" title="372413 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-377703" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000377703.jpg" 
+                             
+                             alt="377703" title="377703 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-383212" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000383212.jpg" 
+                             
+                             alt="383212" title="383212 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-394002" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000394002.jpg" 
+                             
+                             alt="394002" title="394002 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-402541" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000402541.jpg" 
+                             
+                             alt="402541" title="402541 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-404263" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000404263.jpg" 
+                             
+                             alt="404263" title="404263 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-41442" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000041442.jpg" 
+                             
+                             alt="41442" title="41442 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-450674" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000450674.jpg" 
+                             
+                             alt="450674" title="450674 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-458025" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000458025.jpg" 
+                             
+                             alt="458025" title="458025 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-492131" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000492131.jpg" 
+                             
+                             alt="492131" title="492131 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-499177" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000499177.jpg" 
+                             
+                             alt="499177" title="499177 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-527082" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000527082.jpg" 
+                             
+                             alt="527082" title="527082 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-538230" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000538230.jpg" 
+                             
+                             alt="538230" title="538230 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-545978" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000545978.jpg" 
+                             
+                             alt="545978" title="545978 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-566938" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000566938.jpg" 
+                             
+                             alt="566938" title="566938 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-579729" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000579729.jpg" 
+                             
+                             alt="579729" title="579729 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-579906" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000579906.jpg" 
+                             
+                             alt="579906" title="579906 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-6262" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000006262.jpg" 
+                             
+                             alt="6262" title="6262 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-64240" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000064240.jpg" 
+                             
+                             alt="64240" title="64240 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-71407" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000071407.jpg" 
+                             
+                             alt="71407" title="71407 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-73348" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000073348.jpg" 
+                             
+                             alt="73348" title="73348 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-78425" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000078425.jpg" 
+                             
+                             alt="78425" title="78425 - a sport race of motorcycles"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-88021" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000088021.jpg" 
+                             
+                             alt="88021" title="88021 - a sport race of motorcycles"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+</div>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="content has-text-centered">
+          <!-- <a class="icon-link" href="" class="external-link" disabled>
+            <i class="fab fa-github"></i>
+          </a> -->
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                Dataset and images provided by <a href="http://cocodataset.org">COCO Dataset</a> (Common Objects in Context), licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+</footer>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>

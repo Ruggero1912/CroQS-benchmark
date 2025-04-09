@@ -1,0 +1,1844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #pinco {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .images-for-query-by-clusters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+        .images-for-cluster-column-container {
+            background-color: #ffffff;
+            width: 380px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cluster-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .cluster-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px;
+        }
+        .coco-img-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .images-for-cluster-column-container:nth-child(5n) {
+            border-top: 5px solid #07730d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+1) {
+            border-top: 5px solid #2a51bb;
+        }
+        .images-for-cluster-column-container:nth-child(5n+2) {
+            border-top: 5px solid #b4c51d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+3) {
+            border-top: 5px solid #c51d1d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+4) {
+            border-top: 5px solid #1dc5c5;
+        }
+
+        .container {
+            width: 80%;
+            /* max-width: 800px; */
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .container-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .query-highlight {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            background-color: #e0f7f4;
+            padding: 0.2em 0.4em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="pinco">
+
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="../index.html">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Title Section -->
+ <div class="container-container">
+    <div class="container">
+        <h1>CroQS Dataset</h1>
+        <h3>Semantic Clusters for the Initial Query: <span class="query-highlight">chair</span></h3>
+    </div>
+</div>
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="0">
+            <div class="cluster-title">cat sitting on a chair</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-103940" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000103940.jpg" 
+                             
+                             alt="103940" title="103940 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-14857" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000014857.jpg" 
+                             
+                             alt="14857" title="14857 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-15567" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000015567.jpg" 
+                             
+                             alt="15567" title="15567 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-178178" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000178178.jpg" 
+                             
+                             alt="178178" title="178178 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-195815" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000195815.jpg" 
+                             
+                             alt="195815" title="195815 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-216480" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000216480.jpg" 
+                             
+                             alt="216480" title="216480 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-222228" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000222228.jpg" 
+                             
+                             alt="222228" title="222228 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-226308" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000226308.jpg" 
+                             
+                             alt="226308" title="226308 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-228185" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000228185.jpg" 
+                             
+                             alt="228185" title="228185 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-233613" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000233613.jpg" 
+                             
+                             alt="233613" title="233613 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-24299" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000024299.jpg" 
+                             
+                             alt="24299" title="24299 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-253388" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000253388.jpg" 
+                             
+                             alt="253388" title="253388 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-253624" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000253624.jpg" 
+                             
+                             alt="253624" title="253624 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-268141" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000268141.jpg" 
+                             
+                             alt="268141" title="268141 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-296244" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000296244.jpg" 
+                             
+                             alt="296244" title="296244 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-2988" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000002988.jpg" 
+                             
+                             alt="2988" title="2988 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-299933" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000299933.jpg" 
+                             
+                             alt="299933" title="299933 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-317402" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000317402.jpg" 
+                             
+                             alt="317402" title="317402 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-366787" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000366787.jpg" 
+                             
+                             alt="366787" title="366787 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-36713" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000036713.jpg" 
+                             
+                             alt="36713" title="36713 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-383658" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000383658.jpg" 
+                             
+                             alt="383658" title="383658 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-386029" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000386029.jpg" 
+                             
+                             alt="386029" title="386029 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-389463" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000389463.jpg" 
+                             
+                             alt="389463" title="389463 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-414487" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000414487.jpg" 
+                             
+                             alt="414487" title="414487 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-433805" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000433805.jpg" 
+                             
+                             alt="433805" title="433805 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-437537" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000437537.jpg" 
+                             
+                             alt="437537" title="437537 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-463883" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000463883.jpg" 
+                             
+                             alt="463883" title="463883 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-470711" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000470711.jpg" 
+                             
+                             alt="470711" title="470711 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-496959" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000496959.jpg" 
+                             
+                             alt="496959" title="496959 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-499225" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000499225.jpg" 
+                             
+                             alt="499225" title="499225 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-500723" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000500723.jpg" 
+                             
+                             alt="500723" title="500723 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-508440" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000508440.jpg" 
+                             
+                             alt="508440" title="508440 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-511070" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000511070.jpg" 
+                             
+                             alt="511070" title="511070 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-547130" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000547130.jpg" 
+                             
+                             alt="547130" title="547130 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-572125" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000572125.jpg" 
+                             
+                             alt="572125" title="572125 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-578072" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000578072.jpg" 
+                             
+                             alt="578072" title="578072 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-581097" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000581097.jpg" 
+                             
+                             alt="581097" title="581097 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-70441" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000070441.jpg" 
+                             
+                             alt="70441" title="70441 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-81552" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000081552.jpg" 
+                             
+                             alt="81552" title="81552 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-9517" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000009517.jpg" 
+                             
+                             alt="9517" title="9517 - cat sitting on a chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-96097" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000096097.jpg" 
+                             
+                             alt="96097" title="96097 - cat sitting on a chair"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="1">
+            <div class="cluster-title">a bench in outside environment</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-128942" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000128942.jpg" 
+                             
+                             alt="128942" title="128942 - a bench in outside environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-199255" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000199255.jpg" 
+                             
+                             alt="199255" title="199255 - a bench in outside environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-258191" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000258191.jpg" 
+                             
+                             alt="258191" title="258191 - a bench in outside environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-29406" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000029406.jpg" 
+                             
+                             alt="29406" title="29406 - a bench in outside environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-300124" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000300124.jpg" 
+                             
+                             alt="300124" title="300124 - a bench in outside environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-302035" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000302035.jpg" 
+                             
+                             alt="302035" title="302035 - a bench in outside environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-302213" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000302213.jpg" 
+                             
+                             alt="302213" title="302213 - a bench in outside environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-359203" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000359203.jpg" 
+                             
+                             alt="359203" title="359203 - a bench in outside environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-361751" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000361751.jpg" 
+                             
+                             alt="361751" title="361751 - a bench in outside environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-384151" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000384151.jpg" 
+                             
+                             alt="384151" title="384151 - a bench in outside environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-385016" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000385016.jpg" 
+                             
+                             alt="385016" title="385016 - a bench in outside environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-4038" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000004038.jpg" 
+                             
+                             alt="4038" title="4038 - a bench in outside environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-412178" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000412178.jpg" 
+                             
+                             alt="412178" title="412178 - a bench in outside environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-435170" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000435170.jpg" 
+                             
+                             alt="435170" title="435170 - a bench in outside environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-448518" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000448518.jpg" 
+                             
+                             alt="448518" title="448518 - a bench in outside environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-449743" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000449743.jpg" 
+                             
+                             alt="449743" title="449743 - a bench in outside environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-466332" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000466332.jpg" 
+                             
+                             alt="466332" title="466332 - a bench in outside environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-467468" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000467468.jpg" 
+                             
+                             alt="467468" title="467468 - a bench in outside environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-475001" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000475001.jpg" 
+                             
+                             alt="475001" title="475001 - a bench in outside environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-487930" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000487930.jpg" 
+                             
+                             alt="487930" title="487930 - a bench in outside environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-48850" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000048850.jpg" 
+                             
+                             alt="48850" title="48850 - a bench in outside environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-4979" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000004979.jpg" 
+                             
+                             alt="4979" title="4979 - a bench in outside environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-533942" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000533942.jpg" 
+                             
+                             alt="533942" title="533942 - a bench in outside environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-540746" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000540746.jpg" 
+                             
+                             alt="540746" title="540746 - a bench in outside environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-546242" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000546242.jpg" 
+                             
+                             alt="546242" title="546242 - a bench in outside environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-558567" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000558567.jpg" 
+                             
+                             alt="558567" title="558567 - a bench in outside environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-576941" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000576941.jpg" 
+                             
+                             alt="576941" title="576941 - a bench in outside environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-577968" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000577968.jpg" 
+                             
+                             alt="577968" title="577968 - a bench in outside environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-65080" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000065080.jpg" 
+                             
+                             alt="65080" title="65080 - a bench in outside environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-75359" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000075359.jpg" 
+                             
+                             alt="75359" title="75359 - a bench in outside environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-86946" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000086946.jpg" 
+                             
+                             alt="86946" title="86946 - a bench in outside environment"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="2">
+            <div class="cluster-title">artistic wooden chair</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-104683" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000104683.jpg" 
+                             
+                             alt="104683" title="104683 - artistic wooden chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-109995" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000109995.jpg" 
+                             
+                             alt="109995" title="109995 - artistic wooden chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-115159" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000115159.jpg" 
+                             
+                             alt="115159" title="115159 - artistic wooden chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-120780" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000120780.jpg" 
+                             
+                             alt="120780" title="120780 - artistic wooden chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-136790" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000136790.jpg" 
+                             
+                             alt="136790" title="136790 - artistic wooden chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-17399" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000017399.jpg" 
+                             
+                             alt="17399" title="17399 - artistic wooden chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-197941" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000197941.jpg" 
+                             
+                             alt="197941" title="197941 - artistic wooden chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-248085" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000248085.jpg" 
+                             
+                             alt="248085" title="248085 - artistic wooden chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-309889" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000309889.jpg" 
+                             
+                             alt="309889" title="309889 - artistic wooden chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-353405" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000353405.jpg" 
+                             
+                             alt="353405" title="353405 - artistic wooden chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-401198" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000401198.jpg" 
+                             
+                             alt="401198" title="401198 - artistic wooden chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-405264" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000405264.jpg" 
+                             
+                             alt="405264" title="405264 - artistic wooden chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-420377" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000420377.jpg" 
+                             
+                             alt="420377" title="420377 - artistic wooden chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-422280" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000422280.jpg" 
+                             
+                             alt="422280" title="422280 - artistic wooden chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-422959" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000422959.jpg" 
+                             
+                             alt="422959" title="422959 - artistic wooden chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-425497" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000425497.jpg" 
+                             
+                             alt="425497" title="425497 - artistic wooden chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-444366" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000444366.jpg" 
+                             
+                             alt="444366" title="444366 - artistic wooden chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-464386" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000464386.jpg" 
+                             
+                             alt="464386" title="464386 - artistic wooden chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-466396" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000466396.jpg" 
+                             
+                             alt="466396" title="466396 - artistic wooden chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-472399" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000472399.jpg" 
+                             
+                             alt="472399" title="472399 - artistic wooden chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-485325" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000485325.jpg" 
+                             
+                             alt="485325" title="485325 - artistic wooden chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-487778" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000487778.jpg" 
+                             
+                             alt="487778" title="487778 - artistic wooden chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-500784" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000500784.jpg" 
+                             
+                             alt="500784" title="500784 - artistic wooden chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-507815" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000507815.jpg" 
+                             
+                             alt="507815" title="507815 - artistic wooden chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-521907" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000521907.jpg" 
+                             
+                             alt="521907" title="521907 - artistic wooden chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-530086" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000530086.jpg" 
+                             
+                             alt="530086" title="530086 - artistic wooden chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-538555" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000538555.jpg" 
+                             
+                             alt="538555" title="538555 - artistic wooden chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-539562" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000539562.jpg" 
+                             
+                             alt="539562" title="539562 - artistic wooden chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-567084" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000567084.jpg" 
+                             
+                             alt="567084" title="567084 - artistic wooden chair"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-68359" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000068359.jpg" 
+                             
+                             alt="68359" title="68359 - artistic wooden chair"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="3">
+            <div class="cluster-title">toilet</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-140821" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000140821.jpg" 
+                             
+                             alt="140821" title="140821 - toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-163827" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000163827.jpg" 
+                             
+                             alt="163827" title="163827 - toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-184435" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000184435.jpg" 
+                             
+                             alt="184435" title="184435 - toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-20031" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000020031.jpg" 
+                             
+                             alt="20031" title="20031 - toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-201686" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000201686.jpg" 
+                             
+                             alt="201686" title="201686 - toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-211405" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000211405.jpg" 
+                             
+                             alt="211405" title="211405 - toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-262386" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000262386.jpg" 
+                             
+                             alt="262386" title="262386 - toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-26368" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000026368.jpg" 
+                             
+                             alt="26368" title="26368 - toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-276836" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000276836.jpg" 
+                             
+                             alt="276836" title="276836 - toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-293174" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000293174.jpg" 
+                             
+                             alt="293174" title="293174 - toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-304566" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000304566.jpg" 
+                             
+                             alt="304566" title="304566 - toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-315895" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000315895.jpg" 
+                             
+                             alt="315895" title="315895 - toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-321546" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000321546.jpg" 
+                             
+                             alt="321546" title="321546 - toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-342976" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000342976.jpg" 
+                             
+                             alt="342976" title="342976 - toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-359959" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000359959.jpg" 
+                             
+                             alt="359959" title="359959 - toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-374984" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000374984.jpg" 
+                             
+                             alt="374984" title="374984 - toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-385844" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000385844.jpg" 
+                             
+                             alt="385844" title="385844 - toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-421544" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000421544.jpg" 
+                             
+                             alt="421544" title="421544 - toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-427163" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000427163.jpg" 
+                             
+                             alt="427163" title="427163 - toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-72899" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000072899.jpg" 
+                             
+                             alt="72899" title="72899 - toilet"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="4">
+            <div class="cluster-title">A bench in a natural setting</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-120831" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000120831.jpg" 
+                             
+                             alt="120831" title="120831 - A bench in a natural setting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-125476" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000125476.jpg" 
+                             
+                             alt="125476" title="125476 - A bench in a natural setting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-132725" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000132725.jpg" 
+                             
+                             alt="132725" title="132725 - A bench in a natural setting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-156876" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000156876.jpg" 
+                             
+                             alt="156876" title="156876 - A bench in a natural setting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-157032" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000157032.jpg" 
+                             
+                             alt="157032" title="157032 - A bench in a natural setting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-165106" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000165106.jpg" 
+                             
+                             alt="165106" title="165106 - A bench in a natural setting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-184474" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000184474.jpg" 
+                             
+                             alt="184474" title="184474 - A bench in a natural setting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-194194" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000194194.jpg" 
+                             
+                             alt="194194" title="194194 - A bench in a natural setting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-237459" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000237459.jpg" 
+                             
+                             alt="237459" title="237459 - A bench in a natural setting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-265826" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000265826.jpg" 
+                             
+                             alt="265826" title="265826 - A bench in a natural setting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-298722" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000298722.jpg" 
+                             
+                             alt="298722" title="298722 - A bench in a natural setting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-322567" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000322567.jpg" 
+                             
+                             alt="322567" title="322567 - A bench in a natural setting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-323467" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000323467.jpg" 
+                             
+                             alt="323467" title="323467 - A bench in a natural setting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-405660" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000405660.jpg" 
+                             
+                             alt="405660" title="405660 - A bench in a natural setting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-417957" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000417957.jpg" 
+                             
+                             alt="417957" title="417957 - A bench in a natural setting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-473957" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000473957.jpg" 
+                             
+                             alt="473957" title="473957 - A bench in a natural setting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-509804" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000509804.jpg" 
+                             
+                             alt="509804" title="509804 - A bench in a natural setting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-545293" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000545293.jpg" 
+                             
+                             alt="545293" title="545293 - A bench in a natural setting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-546561" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000546561.jpg" 
+                             
+                             alt="546561" title="546561 - A bench in a natural setting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-75076" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000075076.jpg" 
+                             
+                             alt="75076" title="75076 - A bench in a natural setting"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="5">
+            <div class="cluster-title">A padded chair in a room</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-117454" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000117454.jpg" 
+                             
+                             alt="117454" title="117454 - A padded chair in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-119002" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000119002.jpg" 
+                             
+                             alt="119002" title="119002 - A padded chair in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-15906" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000015906.jpg" 
+                             
+                             alt="15906" title="15906 - A padded chair in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-178690" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000178690.jpg" 
+                             
+                             alt="178690" title="178690 - A padded chair in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-20046" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000020046.jpg" 
+                             
+                             alt="20046" title="20046 - A padded chair in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-23176" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000023176.jpg" 
+                             
+                             alt="23176" title="23176 - A padded chair in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-243927" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000243927.jpg" 
+                             
+                             alt="243927" title="243927 - A padded chair in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-265980" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000265980.jpg" 
+                             
+                             alt="265980" title="265980 - A padded chair in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-268992" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000268992.jpg" 
+                             
+                             alt="268992" title="268992 - A padded chair in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-269431" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000269431.jpg" 
+                             
+                             alt="269431" title="269431 - A padded chair in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-307161" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000307161.jpg" 
+                             
+                             alt="307161" title="307161 - A padded chair in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-308996" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000308996.jpg" 
+                             
+                             alt="308996" title="308996 - A padded chair in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-371250" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000371250.jpg" 
+                             
+                             alt="371250" title="371250 - A padded chair in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-376819" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000376819.jpg" 
+                             
+                             alt="376819" title="376819 - A padded chair in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-389429" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000389429.jpg" 
+                             
+                             alt="389429" title="389429 - A padded chair in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-392961" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000392961.jpg" 
+                             
+                             alt="392961" title="392961 - A padded chair in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-417455" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000417455.jpg" 
+                             
+                             alt="417455" title="417455 - A padded chair in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-46728" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000046728.jpg" 
+                             
+                             alt="46728" title="46728 - A padded chair in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-480076" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000480076.jpg" 
+                             
+                             alt="480076" title="480076 - A padded chair in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-483889" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000483889.jpg" 
+                             
+                             alt="483889" title="483889 - A padded chair in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-494154" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000494154.jpg" 
+                             
+                             alt="494154" title="494154 - A padded chair in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-522235" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000522235.jpg" 
+                             
+                             alt="522235" title="522235 - A padded chair in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-5643" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000005643.jpg" 
+                             
+                             alt="5643" title="5643 - A padded chair in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-580625" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000580625.jpg" 
+                             
+                             alt="580625" title="580625 - A padded chair in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-72111" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000072111.jpg" 
+                             
+                             alt="72111" title="72111 - A padded chair in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-8114" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000008114.jpg" 
+                             
+                             alt="8114" title="8114 - A padded chair in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-87334" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000087334.jpg" 
+                             
+                             alt="87334" title="87334 - A padded chair in a room"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="6">
+            <div class="cluster-title">chair in front of body of water</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-176721" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000176721.jpg" 
+                             
+                             alt="176721" title="176721 - chair in front of body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-261532" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000261532.jpg" 
+                             
+                             alt="261532" title="261532 - chair in front of body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-279935" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000279935.jpg" 
+                             
+                             alt="279935" title="279935 - chair in front of body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-333799" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000333799.jpg" 
+                             
+                             alt="333799" title="333799 - chair in front of body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-486968" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000486968.jpg" 
+                             
+                             alt="486968" title="486968 - chair in front of body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-527937" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000527937.jpg" 
+                             
+                             alt="527937" title="527937 - chair in front of body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-551966" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000551966.jpg" 
+                             
+                             alt="551966" title="551966 - chair in front of body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-5820" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000005820.jpg" 
+                             
+                             alt="5820" title="5820 - chair in front of body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-81897" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000081897.jpg" 
+                             
+                             alt="81897" title="81897 - chair in front of body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-85568" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000085568.jpg" 
+                             
+                             alt="85568" title="85568 - chair in front of body of water"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="7">
+            <div class="cluster-title">old chair in a park</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-109622" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000109622.jpg" 
+                             
+                             alt="109622" title="109622 - old chair in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-115229" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000115229.jpg" 
+                             
+                             alt="115229" title="115229 - old chair in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-152483" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000152483.jpg" 
+                             
+                             alt="152483" title="152483 - old chair in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-163585" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000163585.jpg" 
+                             
+                             alt="163585" title="163585 - old chair in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-171002" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000171002.jpg" 
+                             
+                             alt="171002" title="171002 - old chair in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-183413" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000183413.jpg" 
+                             
+                             alt="183413" title="183413 - old chair in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-197678" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000197678.jpg" 
+                             
+                             alt="197678" title="197678 - old chair in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-212268" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000212268.jpg" 
+                             
+                             alt="212268" title="212268 - old chair in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-236389" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000236389.jpg" 
+                             
+                             alt="236389" title="236389 - old chair in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-243000" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000243000.jpg" 
+                             
+                             alt="243000" title="243000 - old chair in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-261670" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000261670.jpg" 
+                             
+                             alt="261670" title="261670 - old chair in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-265233" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000265233.jpg" 
+                             
+                             alt="265233" title="265233 - old chair in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-381519" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000381519.jpg" 
+                             
+                             alt="381519" title="381519 - old chair in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-396404" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000396404.jpg" 
+                             
+                             alt="396404" title="396404 - old chair in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-434097" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000434097.jpg" 
+                             
+                             alt="434097" title="434097 - old chair in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-52992" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000052992.jpg" 
+                             
+                             alt="52992" title="52992 - old chair in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-539163" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000539163.jpg" 
+                             
+                             alt="539163" title="539163 - old chair in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-544348" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000544348.jpg" 
+                             
+                             alt="544348" title="544348 - old chair in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-67814" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000067814.jpg" 
+                             
+                             alt="67814" title="67814 - old chair in a park"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-75173" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000075173.jpg" 
+                             
+                             alt="75173" title="75173 - old chair in a park"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+</div>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="content has-text-centered">
+          <!-- <a class="icon-link" href="" class="external-link" disabled>
+            <i class="fab fa-github"></i>
+          </a> -->
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                Dataset and images provided by <a href="http://cocodataset.org">COCO Dataset</a> (Common Objects in Context), licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+</footer>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>

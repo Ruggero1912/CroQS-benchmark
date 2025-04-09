@@ -1,0 +1,1819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #pinco {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .images-for-query-by-clusters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+        .images-for-cluster-column-container {
+            background-color: #ffffff;
+            width: 380px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cluster-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .cluster-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px;
+        }
+        .coco-img-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .images-for-cluster-column-container:nth-child(5n) {
+            border-top: 5px solid #07730d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+1) {
+            border-top: 5px solid #2a51bb;
+        }
+        .images-for-cluster-column-container:nth-child(5n+2) {
+            border-top: 5px solid #b4c51d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+3) {
+            border-top: 5px solid #c51d1d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+4) {
+            border-top: 5px solid #1dc5c5;
+        }
+
+        .container {
+            width: 80%;
+            /* max-width: 800px; */
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .container-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .query-highlight {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            background-color: #e0f7f4;
+            padding: 0.2em 0.4em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="pinco">
+
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="../index.html">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Title Section -->
+ <div class="container-container">
+    <div class="container">
+        <h1>CroQS Dataset</h1>
+        <h3>Semantic Clusters for the Initial Query: <span class="query-highlight">italy</span></h3>
+    </div>
+</div>
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="0">
+            <div class="cluster-title">italy streets</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-22056" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000022056.jpg" 
+                             
+                             alt="22056" title="22056 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-228185" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000228185.jpg" 
+                             
+                             alt="228185" title="228185 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-285877" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000285877.jpg" 
+                             
+                             alt="285877" title="285877 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-378775" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000378775.jpg" 
+                             
+                             alt="378775" title="378775 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-380039" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000380039.jpg" 
+                             
+                             alt="380039" title="380039 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-444830" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000444830.jpg" 
+                             
+                             alt="444830" title="444830 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-192929" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000192929.jpg" 
+                             
+                             alt="192929" title="192929 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-12418" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000012418.jpg" 
+                             
+                             alt="12418" title="12418 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-159069" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000159069.jpg" 
+                             
+                             alt="159069" title="159069 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-167622" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000167622.jpg" 
+                             
+                             alt="167622" title="167622 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-170607" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000170607.jpg" 
+                             
+                             alt="170607" title="170607 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-176943" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000176943.jpg" 
+                             
+                             alt="176943" title="176943 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-18424" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000018424.jpg" 
+                             
+                             alt="18424" title="18424 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-193359" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000193359.jpg" 
+                             
+                             alt="193359" title="193359 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-224272" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000224272.jpg" 
+                             
+                             alt="224272" title="224272 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-234649" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000234649.jpg" 
+                             
+                             alt="234649" title="234649 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-261342" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000261342.jpg" 
+                             
+                             alt="261342" title="261342 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-300428" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000300428.jpg" 
+                             
+                             alt="300428" title="300428 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-310498" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000310498.jpg" 
+                             
+                             alt="310498" title="310498 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-315110" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000315110.jpg" 
+                             
+                             alt="315110" title="315110 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-338169" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000338169.jpg" 
+                             
+                             alt="338169" title="338169 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-345507" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000345507.jpg" 
+                             
+                             alt="345507" title="345507 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-346061" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000346061.jpg" 
+                             
+                             alt="346061" title="346061 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-395740" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000395740.jpg" 
+                             
+                             alt="395740" title="395740 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-396073" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000396073.jpg" 
+                             
+                             alt="396073" title="396073 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-404461" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000404461.jpg" 
+                             
+                             alt="404461" title="404461 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-421655" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000421655.jpg" 
+                             
+                             alt="421655" title="421655 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-430476" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000430476.jpg" 
+                             
+                             alt="430476" title="430476 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-434016" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000434016.jpg" 
+                             
+                             alt="434016" title="434016 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-452968" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000452968.jpg" 
+                             
+                             alt="452968" title="452968 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-480454" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000480454.jpg" 
+                             
+                             alt="480454" title="480454 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-494552" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000494552.jpg" 
+                             
+                             alt="494552" title="494552 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-503011" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000503011.jpg" 
+                             
+                             alt="503011" title="503011 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-578866" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000578866.jpg" 
+                             
+                             alt="578866" title="578866 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-84018" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000084018.jpg" 
+                             
+                             alt="84018" title="84018 - italy streets"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-95592" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000095592.jpg" 
+                             
+                             alt="95592" title="95592 - italy streets"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="1">
+            <div class="cluster-title">italy pizza</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-153938" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000153938.jpg" 
+                             
+                             alt="153938" title="153938 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-238029" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000238029.jpg" 
+                             
+                             alt="238029" title="238029 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-357229" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000357229.jpg" 
+                             
+                             alt="357229" title="357229 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-524518" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000524518.jpg" 
+                             
+                             alt="524518" title="524518 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-554159" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000554159.jpg" 
+                             
+                             alt="554159" title="554159 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-71244" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000071244.jpg" 
+                             
+                             alt="71244" title="71244 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-94549" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000094549.jpg" 
+                             
+                             alt="94549" title="94549 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-104541" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000104541.jpg" 
+                             
+                             alt="104541" title="104541 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-105711" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000105711.jpg" 
+                             
+                             alt="105711" title="105711 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-115752" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000115752.jpg" 
+                             
+                             alt="115752" title="115752 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-126743" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000126743.jpg" 
+                             
+                             alt="126743" title="126743 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-128785" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000128785.jpg" 
+                             
+                             alt="128785" title="128785 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-139039" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000139039.jpg" 
+                             
+                             alt="139039" title="139039 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-142970" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000142970.jpg" 
+                             
+                             alt="142970" title="142970 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-160703" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000160703.jpg" 
+                             
+                             alt="160703" title="160703 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-165438" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000165438.jpg" 
+                             
+                             alt="165438" title="165438 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-175477" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000175477.jpg" 
+                             
+                             alt="175477" title="175477 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-177941" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000177941.jpg" 
+                             
+                             alt="177941" title="177941 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-183342" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000183342.jpg" 
+                             
+                             alt="183342" title="183342 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-18780" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000018780.jpg" 
+                             
+                             alt="18780" title="18780 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-192928" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000192928.jpg" 
+                             
+                             alt="192928" title="192928 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-197551" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000197551.jpg" 
+                             
+                             alt="197551" title="197551 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-201844" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000201844.jpg" 
+                             
+                             alt="201844" title="201844 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-207431" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000207431.jpg" 
+                             
+                             alt="207431" title="207431 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-209191" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000209191.jpg" 
+                             
+                             alt="209191" title="209191 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-21595" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000021595.jpg" 
+                             
+                             alt="21595" title="21595 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-225891" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000225891.jpg" 
+                             
+                             alt="225891" title="225891 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-233790" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000233790.jpg" 
+                             
+                             alt="233790" title="233790 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-238238" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000238238.jpg" 
+                             
+                             alt="238238" title="238238 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-240022" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000240022.jpg" 
+                             
+                             alt="240022" title="240022 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-242467" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000242467.jpg" 
+                             
+                             alt="242467" title="242467 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-253729" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000253729.jpg" 
+                             
+                             alt="253729" title="253729 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-255969" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000255969.jpg" 
+                             
+                             alt="255969" title="255969 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-281237" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000281237.jpg" 
+                             
+                             alt="281237" title="281237 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-320872" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000320872.jpg" 
+                             
+                             alt="320872" title="320872 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-324490" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000324490.jpg" 
+                             
+                             alt="324490" title="324490 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-326823" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000326823.jpg" 
+                             
+                             alt="326823" title="326823 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-334940" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000334940.jpg" 
+                             
+                             alt="334940" title="334940 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-342259" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000342259.jpg" 
+                             
+                             alt="342259" title="342259 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-351380" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000351380.jpg" 
+                             
+                             alt="351380" title="351380 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-353028" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000353028.jpg" 
+                             
+                             alt="353028" title="353028 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-36508" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000036508.jpg" 
+                             
+                             alt="36508" title="36508 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-372121" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000372121.jpg" 
+                             
+                             alt="372121" title="372121 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-373747" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000373747.jpg" 
+                             
+                             alt="373747" title="373747 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-37800" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000037800.jpg" 
+                             
+                             alt="37800" title="37800 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-381723" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000381723.jpg" 
+                             
+                             alt="381723" title="381723 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-388945" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000388945.jpg" 
+                             
+                             alt="388945" title="388945 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-405192" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000405192.jpg" 
+                             
+                             alt="405192" title="405192 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-412830" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000412830.jpg" 
+                             
+                             alt="412830" title="412830 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-420225" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000420225.jpg" 
+                             
+                             alt="420225" title="420225 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-425837" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000425837.jpg" 
+                             
+                             alt="425837" title="425837 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-435920" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000435920.jpg" 
+                             
+                             alt="435920" title="435920 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-437412" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000437412.jpg" 
+                             
+                             alt="437412" title="437412 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-447709" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000447709.jpg" 
+                             
+                             alt="447709" title="447709 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-448897" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000448897.jpg" 
+                             
+                             alt="448897" title="448897 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-450" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000000450.jpg" 
+                             
+                             alt="450" title="450 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-457292" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000457292.jpg" 
+                             
+                             alt="457292" title="457292 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-464598" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000464598.jpg" 
+                             
+                             alt="464598" title="464598 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-480082" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000480082.jpg" 
+                             
+                             alt="480082" title="480082 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-484579" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000484579.jpg" 
+                             
+                             alt="484579" title="484579 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-485288" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000485288.jpg" 
+                             
+                             alt="485288" title="485288 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-490102" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000490102.jpg" 
+                             
+                             alt="490102" title="490102 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-505649" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000505649.jpg" 
+                             
+                             alt="505649" title="505649 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-505876" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000505876.jpg" 
+                             
+                             alt="505876" title="505876 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-519759" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000519759.jpg" 
+                             
+                             alt="519759" title="519759 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-523281" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000523281.jpg" 
+                             
+                             alt="523281" title="523281 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-523456" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000523456.jpg" 
+                             
+                             alt="523456" title="523456 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-52703" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000052703.jpg" 
+                             
+                             alt="52703" title="52703 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-533045" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000533045.jpg" 
+                             
+                             alt="533045" title="533045 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-540172" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000540172.jpg" 
+                             
+                             alt="540172" title="540172 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-545844" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000545844.jpg" 
+                             
+                             alt="545844" title="545844 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-551288" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000551288.jpg" 
+                             
+                             alt="551288" title="551288 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-560721" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000560721.jpg" 
+                             
+                             alt="560721" title="560721 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-569618" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000569618.jpg" 
+                             
+                             alt="569618" title="569618 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-578147" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000578147.jpg" 
+                             
+                             alt="578147" title="578147 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-578821" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000578821.jpg" 
+                             
+                             alt="578821" title="578821 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-580791" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000580791.jpg" 
+                             
+                             alt="580791" title="580791 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-62608" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000062608.jpg" 
+                             
+                             alt="62608" title="62608 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-67833" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000067833.jpg" 
+                             
+                             alt="67833" title="67833 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-78590" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000078590.jpg" 
+                             
+                             alt="78590" title="78590 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-88540" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000088540.jpg" 
+                             
+                             alt="88540" title="88540 - italy pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-93053" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000093053.jpg" 
+                             
+                             alt="93053" title="93053 - italy pizza"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="2">
+            <div class="cluster-title">Italy, boats, canals, historical city</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-246636" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000246636.jpg" 
+                             
+                             alt="246636" title="246636 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-274130" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000274130.jpg" 
+                             
+                             alt="274130" title="274130 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-118581" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000118581.jpg" 
+                             
+                             alt="118581" title="118581 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-146861" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000146861.jpg" 
+                             
+                             alt="146861" title="146861 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-14855" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000014855.jpg" 
+                             
+                             alt="14855" title="14855 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-196294" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000196294.jpg" 
+                             
+                             alt="196294" title="196294 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-198247" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000198247.jpg" 
+                             
+                             alt="198247" title="198247 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-205352" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000205352.jpg" 
+                             
+                             alt="205352" title="205352 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-233574" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000233574.jpg" 
+                             
+                             alt="233574" title="233574 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-260310" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000260310.jpg" 
+                             
+                             alt="260310" title="260310 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-292689" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000292689.jpg" 
+                             
+                             alt="292689" title="292689 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-307364" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000307364.jpg" 
+                             
+                             alt="307364" title="307364 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-308034" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000308034.jpg" 
+                             
+                             alt="308034" title="308034 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-324428" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000324428.jpg" 
+                             
+                             alt="324428" title="324428 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-338120" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000338120.jpg" 
+                             
+                             alt="338120" title="338120 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-344171" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000344171.jpg" 
+                             
+                             alt="344171" title="344171 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-357829" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000357829.jpg" 
+                             
+                             alt="357829" title="357829 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-361085" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000361085.jpg" 
+                             
+                             alt="361085" title="361085 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-409374" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000409374.jpg" 
+                             
+                             alt="409374" title="409374 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-423964" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000423964.jpg" 
+                             
+                             alt="423964" title="423964 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-433014" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000433014.jpg" 
+                             
+                             alt="433014" title="433014 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-440074" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000440074.jpg" 
+                             
+                             alt="440074" title="440074 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-44309" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000044309.jpg" 
+                             
+                             alt="44309" title="44309 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-461086" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000461086.jpg" 
+                             
+                             alt="461086" title="461086 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-482158" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000482158.jpg" 
+                             
+                             alt="482158" title="482158 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-495433" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000495433.jpg" 
+                             
+                             alt="495433" title="495433 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-50637" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000050637.jpg" 
+                             
+                             alt="50637" title="50637 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-5237" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000005237.jpg" 
+                             
+                             alt="5237" title="5237 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-526187" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000526187.jpg" 
+                             
+                             alt="526187" title="526187 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-527083" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000527083.jpg" 
+                             
+                             alt="527083" title="527083 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-528452" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000528452.jpg" 
+                             
+                             alt="528452" title="528452 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-543289" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000543289.jpg" 
+                             
+                             alt="543289" title="543289 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-547318" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000547318.jpg" 
+                             
+                             alt="547318" title="547318 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-7455" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000007455.jpg" 
+                             
+                             alt="7455" title="7455 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-77001" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000077001.jpg" 
+                             
+                             alt="77001" title="77001 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-77953" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000077953.jpg" 
+                             
+                             alt="77953" title="77953 - Italy, boats, canals, historical city"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="3">
+            <div class="cluster-title">italy summer landscape</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-334600" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000334600.jpg" 
+                             
+                             alt="334600" title="334600 - italy summer landscape"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-456044" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000456044.jpg" 
+                             
+                             alt="456044" title="456044 - italy summer landscape"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-134844" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000134844.jpg" 
+                             
+                             alt="134844" title="134844 - italy summer landscape"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-143653" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000143653.jpg" 
+                             
+                             alt="143653" title="143653 - italy summer landscape"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-183231" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000183231.jpg" 
+                             
+                             alt="183231" title="183231 - italy summer landscape"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-219873" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000219873.jpg" 
+                             
+                             alt="219873" title="219873 - italy summer landscape"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-256760" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000256760.jpg" 
+                             
+                             alt="256760" title="256760 - italy summer landscape"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-300414" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000300414.jpg" 
+                             
+                             alt="300414" title="300414 - italy summer landscape"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-307869" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000307869.jpg" 
+                             
+                             alt="307869" title="307869 - italy summer landscape"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-311691" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000311691.jpg" 
+                             
+                             alt="311691" title="311691 - italy summer landscape"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-317622" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000317622.jpg" 
+                             
+                             alt="317622" title="317622 - italy summer landscape"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-404620" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000404620.jpg" 
+                             
+                             alt="404620" title="404620 - italy summer landscape"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-417701" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000417701.jpg" 
+                             
+                             alt="417701" title="417701 - italy summer landscape"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-463785" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000463785.jpg" 
+                             
+                             alt="463785" title="463785 - italy summer landscape"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-483047" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000483047.jpg" 
+                             
+                             alt="483047" title="483047 - italy summer landscape"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-503407" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000503407.jpg" 
+                             
+                             alt="503407" title="503407 - italy summer landscape"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-51200" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000051200.jpg" 
+                             
+                             alt="51200" title="51200 - italy summer landscape"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-545128" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000545128.jpg" 
+                             
+                             alt="545128" title="545128 - italy summer landscape"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-578221" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000578221.jpg" 
+                             
+                             alt="578221" title="578221 - italy summer landscape"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-578453" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000578453.jpg" 
+                             
+                             alt="578453" title="578453 - italy summer landscape"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="4">
+            <div class="cluster-title">italy historical city center</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-63248" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000063248.jpg" 
+                             
+                             alt="63248" title="63248 - italy historical city center"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-323774" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000323774.jpg" 
+                             
+                             alt="323774" title="323774 - italy historical city center"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-494940" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000494940.jpg" 
+                             
+                             alt="494940" title="494940 - italy historical city center"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-49667" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000049667.jpg" 
+                             
+                             alt="49667" title="49667 - italy historical city center"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-73342" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000073342.jpg" 
+                             
+                             alt="73342" title="73342 - italy historical city center"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-119953" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000119953.jpg" 
+                             
+                             alt="119953" title="119953 - italy historical city center"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-143167" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000143167.jpg" 
+                             
+                             alt="143167" title="143167 - italy historical city center"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-150309" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000150309.jpg" 
+                             
+                             alt="150309" title="150309 - italy historical city center"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-165211" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000165211.jpg" 
+                             
+                             alt="165211" title="165211 - italy historical city center"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-218595" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000218595.jpg" 
+                             
+                             alt="218595" title="218595 - italy historical city center"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-265982" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000265982.jpg" 
+                             
+                             alt="265982" title="265982 - italy historical city center"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-27667" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000027667.jpg" 
+                             
+                             alt="27667" title="27667 - italy historical city center"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-282464" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000282464.jpg" 
+                             
+                             alt="282464" title="282464 - italy historical city center"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-28377" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000028377.jpg" 
+                             
+                             alt="28377" title="28377 - italy historical city center"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-331282" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000331282.jpg" 
+                             
+                             alt="331282" title="331282 - italy historical city center"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-350974" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000350974.jpg" 
+                             
+                             alt="350974" title="350974 - italy historical city center"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-353090" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000353090.jpg" 
+                             
+                             alt="353090" title="353090 - italy historical city center"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-466153" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000466153.jpg" 
+                             
+                             alt="466153" title="466153 - italy historical city center"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-486974" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000486974.jpg" 
+                             
+                             alt="486974" title="486974 - italy historical city center"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-517326" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000517326.jpg" 
+                             
+                             alt="517326" title="517326 - italy historical city center"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-518377" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000518377.jpg" 
+                             
+                             alt="518377" title="518377 - italy historical city center"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-560635" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000560635.jpg" 
+                             
+                             alt="560635" title="560635 - italy historical city center"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-565109" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000565109.jpg" 
+                             
+                             alt="565109" title="565109 - italy historical city center"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-578368" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000578368.jpg" 
+                             
+                             alt="578368" title="578368 - italy historical city center"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-68637" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000068637.jpg" 
+                             
+                             alt="68637" title="68637 - italy historical city center"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-73720" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000073720.jpg" 
+                             
+                             alt="73720" title="73720 - italy historical city center"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+</div>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="content has-text-centered">
+          <!-- <a class="icon-link" href="" class="external-link" disabled>
+            <i class="fab fa-github"></i>
+          </a> -->
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                Dataset and images provided by <a href="http://cocodataset.org">COCO Dataset</a> (Common Objects in Context), licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+</footer>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>

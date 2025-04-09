@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #pinco {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .images-for-query-by-clusters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+        .images-for-cluster-column-container {
+            background-color: #ffffff;
+            width: 380px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cluster-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .cluster-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px;
+        }
+        .coco-img-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .images-for-cluster-column-container:nth-child(5n) {
+            border-top: 5px solid #07730d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+1) {
+            border-top: 5px solid #2a51bb;
+        }
+        .images-for-cluster-column-container:nth-child(5n+2) {
+            border-top: 5px solid #b4c51d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+3) {
+            border-top: 5px solid #c51d1d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+4) {
+            border-top: 5px solid #1dc5c5;
+        }
+
+        .container {
+            width: 80%;
+            /* max-width: 800px; */
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .container-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .query-highlight {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            background-color: #e0f7f4;
+            padding: 0.2em 0.4em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="pinco">
+
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="../index.html">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Title Section -->
+ <div class="container-container">
+    <div class="container">
+        <h1>CroQS Dataset</h1>
+        <h3>Semantic Clusters for the Initial Query: <span class="query-highlight">police</span></h3>
+    </div>
+</div>
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="0">
+            <div class="cluster-title">police officers on horses</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-10321" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000010321.jpg" 
+                             
+                             alt="10321" title="10321 - police officers on horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-17311" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000017311.jpg" 
+                             
+                             alt="17311" title="17311 - police officers on horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-173430" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000173430.jpg" 
+                             
+                             alt="173430" title="173430 - police officers on horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-225183" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000225183.jpg" 
+                             
+                             alt="225183" title="225183 - police officers on horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-268644" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000268644.jpg" 
+                             
+                             alt="268644" title="268644 - police officers on horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-284667" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000284667.jpg" 
+                             
+                             alt="284667" title="284667 - police officers on horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-28887" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000028887.jpg" 
+                             
+                             alt="28887" title="28887 - police officers on horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-322029" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000322029.jpg" 
+                             
+                             alt="322029" title="322029 - police officers on horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-338086" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000338086.jpg" 
+                             
+                             alt="338086" title="338086 - police officers on horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-405135" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000405135.jpg" 
+                             
+                             alt="405135" title="405135 - police officers on horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-501710" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000501710.jpg" 
+                             
+                             alt="501710" title="501710 - police officers on horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-55681" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000055681.jpg" 
+                             
+                             alt="55681" title="55681 - police officers on horses"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-7853" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000007853.jpg" 
+                             
+                             alt="7853" title="7853 - police officers on horses"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="1">
+            <div class="cluster-title">police officers</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-126606" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000126606.jpg" 
+                             
+                             alt="126606" title="126606 - police officers"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-128974" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000128974.jpg" 
+                             
+                             alt="128974" title="128974 - police officers"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-13318" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000013318.jpg" 
+                             
+                             alt="13318" title="13318 - police officers"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-14969" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000014969.jpg" 
+                             
+                             alt="14969" title="14969 - police officers"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-157020" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000157020.jpg" 
+                             
+                             alt="157020" title="157020 - police officers"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-162712" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000162712.jpg" 
+                             
+                             alt="162712" title="162712 - police officers"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-170562" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000170562.jpg" 
+                             
+                             alt="170562" title="170562 - police officers"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-18058" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000018058.jpg" 
+                             
+                             alt="18058" title="18058 - police officers"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-212574" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000212574.jpg" 
+                             
+                             alt="212574" title="212574 - police officers"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-214908" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000214908.jpg" 
+                             
+                             alt="214908" title="214908 - police officers"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-218863" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000218863.jpg" 
+                             
+                             alt="218863" title="218863 - police officers"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-219200" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000219200.jpg" 
+                             
+                             alt="219200" title="219200 - police officers"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-222929" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000222929.jpg" 
+                             
+                             alt="222929" title="222929 - police officers"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-242973" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000242973.jpg" 
+                             
+                             alt="242973" title="242973 - police officers"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-263700" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000263700.jpg" 
+                             
+                             alt="263700" title="263700 - police officers"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-287519" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000287519.jpg" 
+                             
+                             alt="287519" title="287519 - police officers"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-293386" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000293386.jpg" 
+                             
+                             alt="293386" title="293386 - police officers"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-310617" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000310617.jpg" 
+                             
+                             alt="310617" title="310617 - police officers"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-329501" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000329501.jpg" 
+                             
+                             alt="329501" title="329501 - police officers"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-358717" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000358717.jpg" 
+                             
+                             alt="358717" title="358717 - police officers"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-367107" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000367107.jpg" 
+                             
+                             alt="367107" title="367107 - police officers"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-376817" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000376817.jpg" 
+                             
+                             alt="376817" title="376817 - police officers"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-437949" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000437949.jpg" 
+                             
+                             alt="437949" title="437949 - police officers"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-445041" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000445041.jpg" 
+                             
+                             alt="445041" title="445041 - police officers"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-449889" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000449889.jpg" 
+                             
+                             alt="449889" title="449889 - police officers"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-452775" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000452775.jpg" 
+                             
+                             alt="452775" title="452775 - police officers"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-497604" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000497604.jpg" 
+                             
+                             alt="497604" title="497604 - police officers"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-533827" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000533827.jpg" 
+                             
+                             alt="533827" title="533827 - police officers"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-547760" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000547760.jpg" 
+                             
+                             alt="547760" title="547760 - police officers"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-560270" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000560270.jpg" 
+                             
+                             alt="560270" title="560270 - police officers"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-62766" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000062766.jpg" 
+                             
+                             alt="62766" title="62766 - police officers"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-71651" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000071651.jpg" 
+                             
+                             alt="71651" title="71651 - police officers"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="2">
+            <div class="cluster-title">police car</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-121448" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000121448.jpg" 
+                             
+                             alt="121448" title="121448 - police car"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-155939" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000155939.jpg" 
+                             
+                             alt="155939" title="155939 - police car"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-221243" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000221243.jpg" 
+                             
+                             alt="221243" title="221243 - police car"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-256576" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000256576.jpg" 
+                             
+                             alt="256576" title="256576 - police car"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-271395" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000271395.jpg" 
+                             
+                             alt="271395" title="271395 - police car"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-276703" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000276703.jpg" 
+                             
+                             alt="276703" title="276703 - police car"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-289767" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000289767.jpg" 
+                             
+                             alt="289767" title="289767 - police car"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-30657" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000030657.jpg" 
+                             
+                             alt="30657" title="30657 - police car"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-335339" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000335339.jpg" 
+                             
+                             alt="335339" title="335339 - police car"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-408243" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000408243.jpg" 
+                             
+                             alt="408243" title="408243 - police car"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-56615" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000056615.jpg" 
+                             
+                             alt="56615" title="56615 - police car"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-71818" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000071818.jpg" 
+                             
+                             alt="71818" title="71818 - police car"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-91909" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000091909.jpg" 
+                             
+                             alt="91909" title="91909 - police car"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="3">
+            <div class="cluster-title">english police officer riding motorcycle</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-110371" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000110371.jpg" 
+                             
+                             alt="110371" title="110371 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-119304" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000119304.jpg" 
+                             
+                             alt="119304" title="119304 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-127306" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000127306.jpg" 
+                             
+                             alt="127306" title="127306 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-129565" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000129565.jpg" 
+                             
+                             alt="129565" title="129565 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-141416" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000141416.jpg" 
+                             
+                             alt="141416" title="141416 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-142794" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000142794.jpg" 
+                             
+                             alt="142794" title="142794 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-144646" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000144646.jpg" 
+                             
+                             alt="144646" title="144646 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-160597" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000160597.jpg" 
+                             
+                             alt="160597" title="160597 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-185666" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000185666.jpg" 
+                             
+                             alt="185666" title="185666 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-202112" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000202112.jpg" 
+                             
+                             alt="202112" title="202112 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-22071" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000022071.jpg" 
+                             
+                             alt="22071" title="22071 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-244715" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000244715.jpg" 
+                             
+                             alt="244715" title="244715 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-244748" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000244748.jpg" 
+                             
+                             alt="244748" title="244748 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-277576" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000277576.jpg" 
+                             
+                             alt="277576" title="277576 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-285149" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000285149.jpg" 
+                             
+                             alt="285149" title="285149 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-288310" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000288310.jpg" 
+                             
+                             alt="288310" title="288310 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-292505" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000292505.jpg" 
+                             
+                             alt="292505" title="292505 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-297631" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000297631.jpg" 
+                             
+                             alt="297631" title="297631 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-320566" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000320566.jpg" 
+                             
+                             alt="320566" title="320566 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-321821" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000321821.jpg" 
+                             
+                             alt="321821" title="321821 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-337087" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000337087.jpg" 
+                             
+                             alt="337087" title="337087 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-342532" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000342532.jpg" 
+                             
+                             alt="342532" title="342532 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-351262" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000351262.jpg" 
+                             
+                             alt="351262" title="351262 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-354429" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000354429.jpg" 
+                             
+                             alt="354429" title="354429 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-354655" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000354655.jpg" 
+                             
+                             alt="354655" title="354655 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-356263" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000356263.jpg" 
+                             
+                             alt="356263" title="356263 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-366414" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000366414.jpg" 
+                             
+                             alt="366414" title="366414 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-376972" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000376972.jpg" 
+                             
+                             alt="376972" title="376972 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-427573" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000427573.jpg" 
+                             
+                             alt="427573" title="427573 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-430763" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000430763.jpg" 
+                             
+                             alt="430763" title="430763 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-43936" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000043936.jpg" 
+                             
+                             alt="43936" title="43936 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-447345" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000447345.jpg" 
+                             
+                             alt="447345" title="447345 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-450471" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000450471.jpg" 
+                             
+                             alt="450471" title="450471 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-469770" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000469770.jpg" 
+                             
+                             alt="469770" title="469770 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-477688" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000477688.jpg" 
+                             
+                             alt="477688" title="477688 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-503135" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000503135.jpg" 
+                             
+                             alt="503135" title="503135 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-508252" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000508252.jpg" 
+                             
+                             alt="508252" title="508252 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-513729" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000513729.jpg" 
+                             
+                             alt="513729" title="513729 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-522579" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000522579.jpg" 
+                             
+                             alt="522579" title="522579 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-526172" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000526172.jpg" 
+                             
+                             alt="526172" title="526172 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-537379" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000537379.jpg" 
+                             
+                             alt="537379" title="537379 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-549532" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000549532.jpg" 
+                             
+                             alt="549532" title="549532 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-555654" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000555654.jpg" 
+                             
+                             alt="555654" title="555654 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-56699" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000056699.jpg" 
+                             
+                             alt="56699" title="56699 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-581900" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000581900.jpg" 
+                             
+                             alt="581900" title="581900 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-62958" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000062958.jpg" 
+                             
+                             alt="62958" title="62958 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-63556" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000063556.jpg" 
+                             
+                             alt="63556" title="63556 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-67220" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000067220.jpg" 
+                             
+                             alt="67220" title="67220 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-8339" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000008339.jpg" 
+                             
+                             alt="8339" title="8339 - english police officer riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-87705" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000087705.jpg" 
+                             
+                             alt="87705" title="87705 - english police officer riding motorcycle"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="4">
+            <div class="cluster-title">police officers riding motorcycle</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-115370" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000115370.jpg" 
+                             
+                             alt="115370" title="115370 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-129371" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000129371.jpg" 
+                             
+                             alt="129371" title="129371 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-146599" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000146599.jpg" 
+                             
+                             alt="146599" title="146599 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-160456" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000160456.jpg" 
+                             
+                             alt="160456" title="160456 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-169763" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000169763.jpg" 
+                             
+                             alt="169763" title="169763 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-173155" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000173155.jpg" 
+                             
+                             alt="173155" title="173155 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-174354" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000174354.jpg" 
+                             
+                             alt="174354" title="174354 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-196245" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000196245.jpg" 
+                             
+                             alt="196245" title="196245 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-19904" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000019904.jpg" 
+                             
+                             alt="19904" title="19904 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-231315" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000231315.jpg" 
+                             
+                             alt="231315" title="231315 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-244455" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000244455.jpg" 
+                             
+                             alt="244455" title="244455 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-246435" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000246435.jpg" 
+                             
+                             alt="246435" title="246435 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-250737" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000250737.jpg" 
+                             
+                             alt="250737" title="250737 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-273592" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000273592.jpg" 
+                             
+                             alt="273592" title="273592 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-276009" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000276009.jpg" 
+                             
+                             alt="276009" title="276009 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-302710" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000302710.jpg" 
+                             
+                             alt="302710" title="302710 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-314439" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000314439.jpg" 
+                             
+                             alt="314439" title="314439 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-326689" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000326689.jpg" 
+                             
+                             alt="326689" title="326689 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-345020" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000345020.jpg" 
+                             
+                             alt="345020" title="345020 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-347989" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000347989.jpg" 
+                             
+                             alt="347989" title="347989 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-369191" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000369191.jpg" 
+                             
+                             alt="369191" title="369191 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-387514" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000387514.jpg" 
+                             
+                             alt="387514" title="387514 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-390539" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000390539.jpg" 
+                             
+                             alt="390539" title="390539 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-398878" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000398878.jpg" 
+                             
+                             alt="398878" title="398878 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-400247" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000400247.jpg" 
+                             
+                             alt="400247" title="400247 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-405316" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000405316.jpg" 
+                             
+                             alt="405316" title="405316 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-417230" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000417230.jpg" 
+                             
+                             alt="417230" title="417230 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-455667" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000455667.jpg" 
+                             
+                             alt="455667" title="455667 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-468953" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000468953.jpg" 
+                             
+                             alt="468953" title="468953 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-479864" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000479864.jpg" 
+                             
+                             alt="479864" title="479864 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-482252" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000482252.jpg" 
+                             
+                             alt="482252" title="482252 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-494968" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000494968.jpg" 
+                             
+                             alt="494968" title="494968 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-508140" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000508140.jpg" 
+                             
+                             alt="508140" title="508140 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-551647" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000551647.jpg" 
+                             
+                             alt="551647" title="551647 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-551842" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000551842.jpg" 
+                             
+                             alt="551842" title="551842 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-574299" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000574299.jpg" 
+                             
+                             alt="574299" title="574299 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-74217" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000074217.jpg" 
+                             
+                             alt="74217" title="74217 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-97434" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000097434.jpg" 
+                             
+                             alt="97434" title="97434 - police officers riding motorcycle"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-97951" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000097951.jpg" 
+                             
+                             alt="97951" title="97951 - police officers riding motorcycle"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+</div>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="content has-text-centered">
+          <!-- <a class="icon-link" href="" class="external-link" disabled>
+            <i class="fab fa-github"></i>
+          </a> -->
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                Dataset and images provided by <a href="http://cocodataset.org">COCO Dataset</a> (Common Objects in Context), licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+</footer>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>

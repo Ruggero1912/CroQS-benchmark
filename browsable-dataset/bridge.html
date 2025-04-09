@@ -1,0 +1,1841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #pinco {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .images-for-query-by-clusters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+        .images-for-cluster-column-container {
+            background-color: #ffffff;
+            width: 380px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cluster-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .cluster-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px;
+        }
+        .coco-img-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .images-for-cluster-column-container:nth-child(5n) {
+            border-top: 5px solid #07730d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+1) {
+            border-top: 5px solid #2a51bb;
+        }
+        .images-for-cluster-column-container:nth-child(5n+2) {
+            border-top: 5px solid #b4c51d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+3) {
+            border-top: 5px solid #c51d1d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+4) {
+            border-top: 5px solid #1dc5c5;
+        }
+
+        .container {
+            width: 80%;
+            /* max-width: 800px; */
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .container-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .query-highlight {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            background-color: #e0f7f4;
+            padding: 0.2em 0.4em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="pinco">
+
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="../index.html">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Title Section -->
+ <div class="container-container">
+    <div class="container">
+        <h1>CroQS Dataset</h1>
+        <h3>Semantic Clusters for the Initial Query: <span class="query-highlight">bridge</span></h3>
+    </div>
+</div>
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="0">
+            <div class="cluster-title">elevated bridge over road in a city</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-245373" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000245373.jpg" 
+                             
+                             alt="245373" title="245373 - elevated bridge over road in a city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-458365" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000458365.jpg" 
+                             
+                             alt="458365" title="458365 - elevated bridge over road in a city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-568168" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000568168.jpg" 
+                             
+                             alt="568168" title="568168 - elevated bridge over road in a city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-100594" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000100594.jpg" 
+                             
+                             alt="100594" title="100594 - elevated bridge over road in a city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-16317" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000016317.jpg" 
+                             
+                             alt="16317" title="16317 - elevated bridge over road in a city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-180857" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000180857.jpg" 
+                             
+                             alt="180857" title="180857 - elevated bridge over road in a city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-185002" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000185002.jpg" 
+                             
+                             alt="185002" title="185002 - elevated bridge over road in a city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-260433" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000260433.jpg" 
+                             
+                             alt="260433" title="260433 - elevated bridge over road in a city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-31339" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000031339.jpg" 
+                             
+                             alt="31339" title="31339 - elevated bridge over road in a city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-326201" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000326201.jpg" 
+                             
+                             alt="326201" title="326201 - elevated bridge over road in a city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-378632" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000378632.jpg" 
+                             
+                             alt="378632" title="378632 - elevated bridge over road in a city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-418152" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000418152.jpg" 
+                             
+                             alt="418152" title="418152 - elevated bridge over road in a city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-42144" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000042144.jpg" 
+                             
+                             alt="42144" title="42144 - elevated bridge over road in a city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-424293" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000424293.jpg" 
+                             
+                             alt="424293" title="424293 - elevated bridge over road in a city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-465856" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000465856.jpg" 
+                             
+                             alt="465856" title="465856 - elevated bridge over road in a city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-477878" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000477878.jpg" 
+                             
+                             alt="477878" title="477878 - elevated bridge over road in a city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-488990" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000488990.jpg" 
+                             
+                             alt="488990" title="488990 - elevated bridge over road in a city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-498438" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000498438.jpg" 
+                             
+                             alt="498438" title="498438 - elevated bridge over road in a city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-498557" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000498557.jpg" 
+                             
+                             alt="498557" title="498557 - elevated bridge over road in a city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-499693" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000499693.jpg" 
+                             
+                             alt="499693" title="499693 - elevated bridge over road in a city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-515213" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000515213.jpg" 
+                             
+                             alt="515213" title="515213 - elevated bridge over road in a city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-519347" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000519347.jpg" 
+                             
+                             alt="519347" title="519347 - elevated bridge over road in a city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-537526" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000537526.jpg" 
+                             
+                             alt="537526" title="537526 - elevated bridge over road in a city"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-67255" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000067255.jpg" 
+                             
+                             alt="67255" title="67255 - elevated bridge over road in a city"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="1">
+            <div class="cluster-title">historical arched bridge over water</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-16069" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000016069.jpg" 
+                             
+                             alt="16069" title="16069 - historical arched bridge over water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-6990" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000006990.jpg" 
+                             
+                             alt="6990" title="6990 - historical arched bridge over water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-423964" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000423964.jpg" 
+                             
+                             alt="423964" title="423964 - historical arched bridge over water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-14845" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000014845.jpg" 
+                             
+                             alt="14845" title="14845 - historical arched bridge over water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-152269" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000152269.jpg" 
+                             
+                             alt="152269" title="152269 - historical arched bridge over water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-205916" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000205916.jpg" 
+                             
+                             alt="205916" title="205916 - historical arched bridge over water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-216695" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000216695.jpg" 
+                             
+                             alt="216695" title="216695 - historical arched bridge over water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-221190" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000221190.jpg" 
+                             
+                             alt="221190" title="221190 - historical arched bridge over water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-228340" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000228340.jpg" 
+                             
+                             alt="228340" title="228340 - historical arched bridge over water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-229511" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000229511.jpg" 
+                             
+                             alt="229511" title="229511 - historical arched bridge over water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-26033" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000026033.jpg" 
+                             
+                             alt="26033" title="26033 - historical arched bridge over water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-270254" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000270254.jpg" 
+                             
+                             alt="270254" title="270254 - historical arched bridge over water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-285705" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000285705.jpg" 
+                             
+                             alt="285705" title="285705 - historical arched bridge over water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-3320" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000003320.jpg" 
+                             
+                             alt="3320" title="3320 - historical arched bridge over water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-340222" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000340222.jpg" 
+                             
+                             alt="340222" title="340222 - historical arched bridge over water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-386370" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000386370.jpg" 
+                             
+                             alt="386370" title="386370 - historical arched bridge over water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-405632" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000405632.jpg" 
+                             
+                             alt="405632" title="405632 - historical arched bridge over water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-40894" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000040894.jpg" 
+                             
+                             alt="40894" title="40894 - historical arched bridge over water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-418069" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000418069.jpg" 
+                             
+                             alt="418069" title="418069 - historical arched bridge over water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-418325" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000418325.jpg" 
+                             
+                             alt="418325" title="418325 - historical arched bridge over water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-420710" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000420710.jpg" 
+                             
+                             alt="420710" title="420710 - historical arched bridge over water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-426007" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000426007.jpg" 
+                             
+                             alt="426007" title="426007 - historical arched bridge over water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-437994" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000437994.jpg" 
+                             
+                             alt="437994" title="437994 - historical arched bridge over water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-446058" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000446058.jpg" 
+                             
+                             alt="446058" title="446058 - historical arched bridge over water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-472870" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000472870.jpg" 
+                             
+                             alt="472870" title="472870 - historical arched bridge over water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-486186" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000486186.jpg" 
+                             
+                             alt="486186" title="486186 - historical arched bridge over water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-528112" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000528112.jpg" 
+                             
+                             alt="528112" title="528112 - historical arched bridge over water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-529667" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000529667.jpg" 
+                             
+                             alt="529667" title="529667 - historical arched bridge over water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-532759" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000532759.jpg" 
+                             
+                             alt="532759" title="532759 - historical arched bridge over water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-550403" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000550403.jpg" 
+                             
+                             alt="550403" title="550403 - historical arched bridge over water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-88339" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000088339.jpg" 
+                             
+                             alt="88339" title="88339 - historical arched bridge over water"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="2">
+            <div class="cluster-title">bridge, black and white</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-134863" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000134863.jpg" 
+                             
+                             alt="134863" title="134863 - bridge, black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-180397" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000180397.jpg" 
+                             
+                             alt="180397" title="180397 - bridge, black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-261670" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000261670.jpg" 
+                             
+                             alt="261670" title="261670 - bridge, black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-27388" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000027388.jpg" 
+                             
+                             alt="27388" title="27388 - bridge, black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-371730" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000371730.jpg" 
+                             
+                             alt="371730" title="371730 - bridge, black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-426309" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000426309.jpg" 
+                             
+                             alt="426309" title="426309 - bridge, black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-107542" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000107542.jpg" 
+                             
+                             alt="107542" title="107542 - bridge, black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-108274" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000108274.jpg" 
+                             
+                             alt="108274" title="108274 - bridge, black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-127761" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000127761.jpg" 
+                             
+                             alt="127761" title="127761 - bridge, black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-173685" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000173685.jpg" 
+                             
+                             alt="173685" title="173685 - bridge, black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-17715" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000017715.jpg" 
+                             
+                             alt="17715" title="17715 - bridge, black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-182469" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000182469.jpg" 
+                             
+                             alt="182469" title="182469 - bridge, black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-184325" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000184325.jpg" 
+                             
+                             alt="184325" title="184325 - bridge, black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-211113" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000211113.jpg" 
+                             
+                             alt="211113" title="211113 - bridge, black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-218173" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000218173.jpg" 
+                             
+                             alt="218173" title="218173 - bridge, black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-245662" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000245662.jpg" 
+                             
+                             alt="245662" title="245662 - bridge, black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-251330" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000251330.jpg" 
+                             
+                             alt="251330" title="251330 - bridge, black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-30255" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000030255.jpg" 
+                             
+                             alt="30255" title="30255 - bridge, black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-310902" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000310902.jpg" 
+                             
+                             alt="310902" title="310902 - bridge, black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-319647" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000319647.jpg" 
+                             
+                             alt="319647" title="319647 - bridge, black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-327450" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000327450.jpg" 
+                             
+                             alt="327450" title="327450 - bridge, black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-35145" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000035145.jpg" 
+                             
+                             alt="35145" title="35145 - bridge, black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-384679" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000384679.jpg" 
+                             
+                             alt="384679" title="384679 - bridge, black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-385322" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000385322.jpg" 
+                             
+                             alt="385322" title="385322 - bridge, black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-404759" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000404759.jpg" 
+                             
+                             alt="404759" title="404759 - bridge, black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-432865" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000432865.jpg" 
+                             
+                             alt="432865" title="432865 - bridge, black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-450621" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000450621.jpg" 
+                             
+                             alt="450621" title="450621 - bridge, black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-451951" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000451951.jpg" 
+                             
+                             alt="451951" title="451951 - bridge, black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-458646" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000458646.jpg" 
+                             
+                             alt="458646" title="458646 - bridge, black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-459212" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000459212.jpg" 
+                             
+                             alt="459212" title="459212 - bridge, black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-558424" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000558424.jpg" 
+                             
+                             alt="558424" title="558424 - bridge, black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-558600" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000558600.jpg" 
+                             
+                             alt="558600" title="558600 - bridge, black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-559226" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000559226.jpg" 
+                             
+                             alt="559226" title="559226 - bridge, black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-64379" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000064379.jpg" 
+                             
+                             alt="64379" title="64379 - bridge, black and white"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="3">
+            <div class="cluster-title">steel bridge over body of water</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-249277" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000249277.jpg" 
+                             
+                             alt="249277" title="249277 - steel bridge over body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-540225" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000540225.jpg" 
+                             
+                             alt="540225" title="540225 - steel bridge over body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-118937" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000118937.jpg" 
+                             
+                             alt="118937" title="118937 - steel bridge over body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-227242" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000227242.jpg" 
+                             
+                             alt="227242" title="227242 - steel bridge over body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-236739" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000236739.jpg" 
+                             
+                             alt="236739" title="236739 - steel bridge over body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-244451" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000244451.jpg" 
+                             
+                             alt="244451" title="244451 - steel bridge over body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-253755" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000253755.jpg" 
+                             
+                             alt="253755" title="253755 - steel bridge over body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-273174" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000273174.jpg" 
+                             
+                             alt="273174" title="273174 - steel bridge over body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-277681" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000277681.jpg" 
+                             
+                             alt="277681" title="277681 - steel bridge over body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-286248" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000286248.jpg" 
+                             
+                             alt="286248" title="286248 - steel bridge over body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-298295" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000298295.jpg" 
+                             
+                             alt="298295" title="298295 - steel bridge over body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-322127" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000322127.jpg" 
+                             
+                             alt="322127" title="322127 - steel bridge over body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-436085" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000436085.jpg" 
+                             
+                             alt="436085" title="436085 - steel bridge over body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-44937" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000044937.jpg" 
+                             
+                             alt="44937" title="44937 - steel bridge over body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-451397" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000451397.jpg" 
+                             
+                             alt="451397" title="451397 - steel bridge over body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-463620" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000463620.jpg" 
+                             
+                             alt="463620" title="463620 - steel bridge over body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-465140" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000465140.jpg" 
+                             
+                             alt="465140" title="465140 - steel bridge over body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-496073" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000496073.jpg" 
+                             
+                             alt="496073" title="496073 - steel bridge over body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-516617" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000516617.jpg" 
+                             
+                             alt="516617" title="516617 - steel bridge over body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-526759" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000526759.jpg" 
+                             
+                             alt="526759" title="526759 - steel bridge over body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-537729" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000537729.jpg" 
+                             
+                             alt="537729" title="537729 - steel bridge over body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-545581" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000545581.jpg" 
+                             
+                             alt="545581" title="545581 - steel bridge over body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-545924" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000545924.jpg" 
+                             
+                             alt="545924" title="545924 - steel bridge over body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-56544" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000056544.jpg" 
+                             
+                             alt="56544" title="56544 - steel bridge over body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-572752" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000572752.jpg" 
+                             
+                             alt="572752" title="572752 - steel bridge over body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-91211" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000091211.jpg" 
+                             
+                             alt="91211" title="91211 - steel bridge over body of water"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-96988" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000096988.jpg" 
+                             
+                             alt="96988" title="96988 - steel bridge over body of water"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="4">
+            <div class="cluster-title">bridge and traffic, road signs</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-125684" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000125684.jpg" 
+                             
+                             alt="125684" title="125684 - bridge and traffic, road signs"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-143425" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000143425.jpg" 
+                             
+                             alt="143425" title="143425 - bridge and traffic, road signs"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-192620" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000192620.jpg" 
+                             
+                             alt="192620" title="192620 - bridge and traffic, road signs"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-267840" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000267840.jpg" 
+                             
+                             alt="267840" title="267840 - bridge and traffic, road signs"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-377632" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000377632.jpg" 
+                             
+                             alt="377632" title="377632 - bridge and traffic, road signs"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-380115" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000380115.jpg" 
+                             
+                             alt="380115" title="380115 - bridge and traffic, road signs"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-460156" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000460156.jpg" 
+                             
+                             alt="460156" title="460156 - bridge and traffic, road signs"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-315110" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000315110.jpg" 
+                             
+                             alt="315110" title="315110 - bridge and traffic, road signs"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-393266" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000393266.jpg" 
+                             
+                             alt="393266" title="393266 - bridge and traffic, road signs"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-110196" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000110196.jpg" 
+                             
+                             alt="110196" title="110196 - bridge and traffic, road signs"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-106143" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000106143.jpg" 
+                             
+                             alt="106143" title="106143 - bridge and traffic, road signs"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-118312" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000118312.jpg" 
+                             
+                             alt="118312" title="118312 - bridge and traffic, road signs"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-166120" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000166120.jpg" 
+                             
+                             alt="166120" title="166120 - bridge and traffic, road signs"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-166596" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000166596.jpg" 
+                             
+                             alt="166596" title="166596 - bridge and traffic, road signs"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-172930" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000172930.jpg" 
+                             
+                             alt="172930" title="172930 - bridge and traffic, road signs"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-183015" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000183015.jpg" 
+                             
+                             alt="183015" title="183015 - bridge and traffic, road signs"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-216191" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000216191.jpg" 
+                             
+                             alt="216191" title="216191 - bridge and traffic, road signs"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-221737" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000221737.jpg" 
+                             
+                             alt="221737" title="221737 - bridge and traffic, road signs"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-273314" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000273314.jpg" 
+                             
+                             alt="273314" title="273314 - bridge and traffic, road signs"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-343898" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000343898.jpg" 
+                             
+                             alt="343898" title="343898 - bridge and traffic, road signs"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-377592" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000377592.jpg" 
+                             
+                             alt="377592" title="377592 - bridge and traffic, road signs"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-407559" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000407559.jpg" 
+                             
+                             alt="407559" title="407559 - bridge and traffic, road signs"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-547839" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000547839.jpg" 
+                             
+                             alt="547839" title="547839 - bridge and traffic, road signs"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-64411" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000064411.jpg" 
+                             
+                             alt="64411" title="64411 - bridge and traffic, road signs"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="5">
+            <div class="cluster-title">train over a bridge</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-469197" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000469197.jpg" 
+                             
+                             alt="469197" title="469197 - train over a bridge"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-106952" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000106952.jpg" 
+                             
+                             alt="106952" title="106952 - train over a bridge"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-111096" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000111096.jpg" 
+                             
+                             alt="111096" title="111096 - train over a bridge"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-111742" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000111742.jpg" 
+                             
+                             alt="111742" title="111742 - train over a bridge"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-124124" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000124124.jpg" 
+                             
+                             alt="124124" title="124124 - train over a bridge"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-181386" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000181386.jpg" 
+                             
+                             alt="181386" title="181386 - train over a bridge"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-181463" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000181463.jpg" 
+                             
+                             alt="181463" title="181463 - train over a bridge"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-186428" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000186428.jpg" 
+                             
+                             alt="186428" title="186428 - train over a bridge"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-18771" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000018771.jpg" 
+                             
+                             alt="18771" title="18771 - train over a bridge"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-195942" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000195942.jpg" 
+                             
+                             alt="195942" title="195942 - train over a bridge"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-204085" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000204085.jpg" 
+                             
+                             alt="204085" title="204085 - train over a bridge"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-263036" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000263036.jpg" 
+                             
+                             alt="263036" title="263036 - train over a bridge"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-264396" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000264396.jpg" 
+                             
+                             alt="264396" title="264396 - train over a bridge"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-284552" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000284552.jpg" 
+                             
+                             alt="284552" title="284552 - train over a bridge"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-292879" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000292879.jpg" 
+                             
+                             alt="292879" title="292879 - train over a bridge"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-348538" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000348538.jpg" 
+                             
+                             alt="348538" title="348538 - train over a bridge"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-393294" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000393294.jpg" 
+                             
+                             alt="393294" title="393294 - train over a bridge"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-439236" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000439236.jpg" 
+                             
+                             alt="439236" title="439236 - train over a bridge"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-481678" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000481678.jpg" 
+                             
+                             alt="481678" title="481678 - train over a bridge"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-482799" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000482799.jpg" 
+                             
+                             alt="482799" title="482799 - train over a bridge"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-483469" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000483469.jpg" 
+                             
+                             alt="483469" title="483469 - train over a bridge"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-505933" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000505933.jpg" 
+                             
+                             alt="505933" title="505933 - train over a bridge"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-514722" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000514722.jpg" 
+                             
+                             alt="514722" title="514722 - train over a bridge"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-55886" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000055886.jpg" 
+                             
+                             alt="55886" title="55886 - train over a bridge"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-559127" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000559127.jpg" 
+                             
+                             alt="559127" title="559127 - train over a bridge"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-580166" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000580166.jpg" 
+                             
+                             alt="580166" title="580166 - train over a bridge"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-95390" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000095390.jpg" 
+                             
+                             alt="95390" title="95390 - train over a bridge"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="6">
+            <div class="cluster-title">bridge over a river near forest</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-189983" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000189983.jpg" 
+                             
+                             alt="189983" title="189983 - bridge over a river near forest"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-23173" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000023173.jpg" 
+                             
+                             alt="23173" title="23173 - bridge over a river near forest"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-373583" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000373583.jpg" 
+                             
+                             alt="373583" title="373583 - bridge over a river near forest"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-385239" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000385239.jpg" 
+                             
+                             alt="385239" title="385239 - bridge over a river near forest"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-410236" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000410236.jpg" 
+                             
+                             alt="410236" title="410236 - bridge over a river near forest"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-101969" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000101969.jpg" 
+                             
+                             alt="101969" title="101969 - bridge over a river near forest"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-114829" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000114829.jpg" 
+                             
+                             alt="114829" title="114829 - bridge over a river near forest"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-120235" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000120235.jpg" 
+                             
+                             alt="120235" title="120235 - bridge over a river near forest"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-144869" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000144869.jpg" 
+                             
+                             alt="144869" title="144869 - bridge over a river near forest"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-148772" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000148772.jpg" 
+                             
+                             alt="148772" title="148772 - bridge over a river near forest"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-162318" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000162318.jpg" 
+                             
+                             alt="162318" title="162318 - bridge over a river near forest"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-221859" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000221859.jpg" 
+                             
+                             alt="221859" title="221859 - bridge over a river near forest"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-249524" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000249524.jpg" 
+                             
+                             alt="249524" title="249524 - bridge over a river near forest"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-251232" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000251232.jpg" 
+                             
+                             alt="251232" title="251232 - bridge over a river near forest"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-265974" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000265974.jpg" 
+                             
+                             alt="265974" title="265974 - bridge over a river near forest"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-287601" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000287601.jpg" 
+                             
+                             alt="287601" title="287601 - bridge over a river near forest"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-288453" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000288453.jpg" 
+                             
+                             alt="288453" title="288453 - bridge over a river near forest"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-31601" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000031601.jpg" 
+                             
+                             alt="31601" title="31601 - bridge over a river near forest"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-319848" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000319848.jpg" 
+                             
+                             alt="319848" title="319848 - bridge over a river near forest"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-331165" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000331165.jpg" 
+                             
+                             alt="331165" title="331165 - bridge over a river near forest"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-338497" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000338497.jpg" 
+                             
+                             alt="338497" title="338497 - bridge over a river near forest"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-345391" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000345391.jpg" 
+                             
+                             alt="345391" title="345391 - bridge over a river near forest"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-380698" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000380698.jpg" 
+                             
+                             alt="380698" title="380698 - bridge over a river near forest"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-385538" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000385538.jpg" 
+                             
+                             alt="385538" title="385538 - bridge over a river near forest"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-393887" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000393887.jpg" 
+                             
+                             alt="393887" title="393887 - bridge over a river near forest"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-394021" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000394021.jpg" 
+                             
+                             alt="394021" title="394021 - bridge over a river near forest"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-440217" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000440217.jpg" 
+                             
+                             alt="440217" title="440217 - bridge over a river near forest"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-457491" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000457491.jpg" 
+                             
+                             alt="457491" title="457491 - bridge over a river near forest"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-492562" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000492562.jpg" 
+                             
+                             alt="492562" title="492562 - bridge over a river near forest"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-49402" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000049402.jpg" 
+                             
+                             alt="49402" title="49402 - bridge over a river near forest"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-506418" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000506418.jpg" 
+                             
+                             alt="506418" title="506418 - bridge over a river near forest"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-540806" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000540806.jpg" 
+                             
+                             alt="540806" title="540806 - bridge over a river near forest"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-551189" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000551189.jpg" 
+                             
+                             alt="551189" title="551189 - bridge over a river near forest"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+</div>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="content has-text-centered">
+          <!-- <a class="icon-link" href="" class="external-link" disabled>
+            <i class="fab fa-github"></i>
+          </a> -->
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                Dataset and images provided by <a href="http://cocodataset.org">COCO Dataset</a> (Common Objects in Context), licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+</footer>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>

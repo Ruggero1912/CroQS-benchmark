@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #pinco {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .images-for-query-by-clusters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+        .images-for-cluster-column-container {
+            background-color: #ffffff;
+            width: 380px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cluster-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .cluster-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px;
+        }
+        .coco-img-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .images-for-cluster-column-container:nth-child(5n) {
+            border-top: 5px solid #07730d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+1) {
+            border-top: 5px solid #2a51bb;
+        }
+        .images-for-cluster-column-container:nth-child(5n+2) {
+            border-top: 5px solid #b4c51d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+3) {
+            border-top: 5px solid #c51d1d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+4) {
+            border-top: 5px solid #1dc5c5;
+        }
+
+        .container {
+            width: 80%;
+            /* max-width: 800px; */
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .container-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .query-highlight {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            background-color: #e0f7f4;
+            padding: 0.2em 0.4em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="pinco">
+
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="../index.html">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Title Section -->
+ <div class="container-container">
+    <div class="container">
+        <h1>CroQS Dataset</h1>
+        <h3>Semantic Clusters for the Initial Query: <span class="query-highlight">reading a news paper</span></h3>
+    </div>
+</div>
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="0">
+            <div class="cluster-title">news paper near a toilet</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-136793" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000136793.jpg" 
+                             
+                             alt="136793" title="136793 - news paper near a toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-14781" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000014781.jpg" 
+                             
+                             alt="14781" title="14781 - news paper near a toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-167395" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000167395.jpg" 
+                             
+                             alt="167395" title="167395 - news paper near a toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-180794" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000180794.jpg" 
+                             
+                             alt="180794" title="180794 - news paper near a toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-253265" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000253265.jpg" 
+                             
+                             alt="253265" title="253265 - news paper near a toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-25539" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000025539.jpg" 
+                             
+                             alt="25539" title="25539 - news paper near a toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-316269" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000316269.jpg" 
+                             
+                             alt="316269" title="316269 - news paper near a toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-375294" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000375294.jpg" 
+                             
+                             alt="375294" title="375294 - news paper near a toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-38730" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000038730.jpg" 
+                             
+                             alt="38730" title="38730 - news paper near a toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-92257" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000092257.jpg" 
+                             
+                             alt="92257" title="92257 - news paper near a toilet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-97981" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000097981.jpg" 
+                             
+                             alt="97981" title="97981 - news paper near a toilet"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="2">
+            <div class="cluster-title">reading laptop or paper with pet</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-145629" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000145629.jpg" 
+                             
+                             alt="145629" title="145629 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-151229" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000151229.jpg" 
+                             
+                             alt="151229" title="151229 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-156156" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000156156.jpg" 
+                             
+                             alt="156156" title="156156 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-163831" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000163831.jpg" 
+                             
+                             alt="163831" title="163831 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-182696" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000182696.jpg" 
+                             
+                             alt="182696" title="182696 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-188648" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000188648.jpg" 
+                             
+                             alt="188648" title="188648 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-215174" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000215174.jpg" 
+                             
+                             alt="215174" title="215174 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-233786" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000233786.jpg" 
+                             
+                             alt="233786" title="233786 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-237994" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000237994.jpg" 
+                             
+                             alt="237994" title="237994 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-246736" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000246736.jpg" 
+                             
+                             alt="246736" title="246736 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-268885" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000268885.jpg" 
+                             
+                             alt="268885" title="268885 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-271357" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000271357.jpg" 
+                             
+                             alt="271357" title="271357 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-288941" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000288941.jpg" 
+                             
+                             alt="288941" title="288941 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-292101" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000292101.jpg" 
+                             
+                             alt="292101" title="292101 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-304741" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000304741.jpg" 
+                             
+                             alt="304741" title="304741 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-323717" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000323717.jpg" 
+                             
+                             alt="323717" title="323717 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-349291" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000349291.jpg" 
+                             
+                             alt="349291" title="349291 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-356610" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000356610.jpg" 
+                             
+                             alt="356610" title="356610 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-364725" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000364725.jpg" 
+                             
+                             alt="364725" title="364725 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-376712" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000376712.jpg" 
+                             
+                             alt="376712" title="376712 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-38474" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000038474.jpg" 
+                             
+                             alt="38474" title="38474 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-388348" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000388348.jpg" 
+                             
+                             alt="388348" title="388348 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-407027" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000407027.jpg" 
+                             
+                             alt="407027" title="407027 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-427251" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000427251.jpg" 
+                             
+                             alt="427251" title="427251 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-432906" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000432906.jpg" 
+                             
+                             alt="432906" title="432906 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-445594" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000445594.jpg" 
+                             
+                             alt="445594" title="445594 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-455660" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000455660.jpg" 
+                             
+                             alt="455660" title="455660 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-473462" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000473462.jpg" 
+                             
+                             alt="473462" title="473462 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-47848" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000047848.jpg" 
+                             
+                             alt="47848" title="47848 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-483928" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000483928.jpg" 
+                             
+                             alt="483928" title="483928 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-492886" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000492886.jpg" 
+                             
+                             alt="492886" title="492886 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-495692" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000495692.jpg" 
+                             
+                             alt="495692" title="495692 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-496517" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000496517.jpg" 
+                             
+                             alt="496517" title="496517 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-499226" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000499226.jpg" 
+                             
+                             alt="499226" title="499226 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-499656" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000499656.jpg" 
+                             
+                             alt="499656" title="499656 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-501846" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000501846.jpg" 
+                             
+                             alt="501846" title="501846 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-526664" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000526664.jpg" 
+                             
+                             alt="526664" title="526664 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-530489" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000530489.jpg" 
+                             
+                             alt="530489" title="530489 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-530730" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000530730.jpg" 
+                             
+                             alt="530730" title="530730 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-533049" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000533049.jpg" 
+                             
+                             alt="533049" title="533049 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-538586" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000538586.jpg" 
+                             
+                             alt="538586" title="538586 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-546792" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000546792.jpg" 
+                             
+                             alt="546792" title="546792 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-555427" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000555427.jpg" 
+                             
+                             alt="555427" title="555427 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-561411" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000561411.jpg" 
+                             
+                             alt="561411" title="561411 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-565042" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000565042.jpg" 
+                             
+                             alt="565042" title="565042 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-577522" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000577522.jpg" 
+                             
+                             alt="577522" title="577522 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-581309" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000581309.jpg" 
+                             
+                             alt="581309" title="581309 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-75698" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000075698.jpg" 
+                             
+                             alt="75698" title="75698 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-82604" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000082604.jpg" 
+                             
+                             alt="82604" title="82604 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-88929" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000088929.jpg" 
+                             
+                             alt="88929" title="88929 - reading laptop or paper with pet"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-9830" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000009830.jpg" 
+                             
+                             alt="9830" title="9830 - reading laptop or paper with pet"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="3">
+            <div class="cluster-title">reading a news paper with food</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-147553" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000147553.jpg" 
+                             
+                             alt="147553" title="147553 - reading a news paper with food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-151358" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000151358.jpg" 
+                             
+                             alt="151358" title="151358 - reading a news paper with food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-167248" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000167248.jpg" 
+                             
+                             alt="167248" title="167248 - reading a news paper with food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-187823" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000187823.jpg" 
+                             
+                             alt="187823" title="187823 - reading a news paper with food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-350341" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000350341.jpg" 
+                             
+                             alt="350341" title="350341 - reading a news paper with food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-352401" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000352401.jpg" 
+                             
+                             alt="352401" title="352401 - reading a news paper with food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-353582" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000353582.jpg" 
+                             
+                             alt="353582" title="353582 - reading a news paper with food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-365298" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000365298.jpg" 
+                             
+                             alt="365298" title="365298 - reading a news paper with food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-411881" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000411881.jpg" 
+                             
+                             alt="411881" title="411881 - reading a news paper with food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-421069" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000421069.jpg" 
+                             
+                             alt="421069" title="421069 - reading a news paper with food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-44763" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000044763.jpg" 
+                             
+                             alt="44763" title="44763 - reading a news paper with food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-462589" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000462589.jpg" 
+                             
+                             alt="462589" title="462589 - reading a news paper with food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-496732" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000496732.jpg" 
+                             
+                             alt="496732" title="496732 - reading a news paper with food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-500792" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000500792.jpg" 
+                             
+                             alt="500792" title="500792 - reading a news paper with food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-52131" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000052131.jpg" 
+                             
+                             alt="52131" title="52131 - reading a news paper with food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-527040" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000527040.jpg" 
+                             
+                             alt="527040" title="527040 - reading a news paper with food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-549488" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000549488.jpg" 
+                             
+                             alt="549488" title="549488 - reading a news paper with food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-552289" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000552289.jpg" 
+                             
+                             alt="552289" title="552289 - reading a news paper with food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-565830" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000565830.jpg" 
+                             
+                             alt="565830" title="565830 - reading a news paper with food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-571443" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000571443.jpg" 
+                             
+                             alt="571443" title="571443 - reading a news paper with food"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="4">
+            <div class="cluster-title">person reading a news paper on a bench outside</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-115056" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000115056.jpg" 
+                             
+                             alt="115056" title="115056 - person reading a news paper on a bench outside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-130000" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000130000.jpg" 
+                             
+                             alt="130000" title="130000 - person reading a news paper on a bench outside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-138521" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000138521.jpg" 
+                             
+                             alt="138521" title="138521 - person reading a news paper on a bench outside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-147025" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000147025.jpg" 
+                             
+                             alt="147025" title="147025 - person reading a news paper on a bench outside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-152933" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000152933.jpg" 
+                             
+                             alt="152933" title="152933 - person reading a news paper on a bench outside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-153604" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000153604.jpg" 
+                             
+                             alt="153604" title="153604 - person reading a news paper on a bench outside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-182502" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000182502.jpg" 
+                             
+                             alt="182502" title="182502 - person reading a news paper on a bench outside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-183882" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000183882.jpg" 
+                             
+                             alt="183882" title="183882 - person reading a news paper on a bench outside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-193388" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000193388.jpg" 
+                             
+                             alt="193388" title="193388 - person reading a news paper on a bench outside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-223276" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000223276.jpg" 
+                             
+                             alt="223276" title="223276 - person reading a news paper on a bench outside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-241373" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000241373.jpg" 
+                             
+                             alt="241373" title="241373 - person reading a news paper on a bench outside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-249325" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000249325.jpg" 
+                             
+                             alt="249325" title="249325 - person reading a news paper on a bench outside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-258772" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000258772.jpg" 
+                             
+                             alt="258772" title="258772 - person reading a news paper on a bench outside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-260381" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000260381.jpg" 
+                             
+                             alt="260381" title="260381 - person reading a news paper on a bench outside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-269015" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000269015.jpg" 
+                             
+                             alt="269015" title="269015 - person reading a news paper on a bench outside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-273772" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000273772.jpg" 
+                             
+                             alt="273772" title="273772 - person reading a news paper on a bench outside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-326014" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000326014.jpg" 
+                             
+                             alt="326014" title="326014 - person reading a news paper on a bench outside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-333995" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000333995.jpg" 
+                             
+                             alt="333995" title="333995 - person reading a news paper on a bench outside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-433170" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000433170.jpg" 
+                             
+                             alt="433170" title="433170 - person reading a news paper on a bench outside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-469435" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000469435.jpg" 
+                             
+                             alt="469435" title="469435 - person reading a news paper on a bench outside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-493483" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000493483.jpg" 
+                             
+                             alt="493483" title="493483 - person reading a news paper on a bench outside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-507168" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000507168.jpg" 
+                             
+                             alt="507168" title="507168 - person reading a news paper on a bench outside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-526666" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000526666.jpg" 
+                             
+                             alt="526666" title="526666 - person reading a news paper on a bench outside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-5294" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000005294.jpg" 
+                             
+                             alt="5294" title="5294 - person reading a news paper on a bench outside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-533022" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000533022.jpg" 
+                             
+                             alt="533022" title="533022 - person reading a news paper on a bench outside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-576792" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000576792.jpg" 
+                             
+                             alt="576792" title="576792 - person reading a news paper on a bench outside"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-73773" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000073773.jpg" 
+                             
+                             alt="73773" title="73773 - person reading a news paper on a bench outside"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="6">
+            <div class="cluster-title">person reading news paper in bed</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-107571" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000107571.jpg" 
+                             
+                             alt="107571" title="107571 - person reading news paper in bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-127834" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000127834.jpg" 
+                             
+                             alt="127834" title="127834 - person reading news paper in bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-137387" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000137387.jpg" 
+                             
+                             alt="137387" title="137387 - person reading news paper in bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-154478" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000154478.jpg" 
+                             
+                             alt="154478" title="154478 - person reading news paper in bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-160712" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000160712.jpg" 
+                             
+                             alt="160712" title="160712 - person reading news paper in bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-201644" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000201644.jpg" 
+                             
+                             alt="201644" title="201644 - person reading news paper in bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-272034" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000272034.jpg" 
+                             
+                             alt="272034" title="272034 - person reading news paper in bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-318672" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000318672.jpg" 
+                             
+                             alt="318672" title="318672 - person reading news paper in bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-321169" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000321169.jpg" 
+                             
+                             alt="321169" title="321169 - person reading news paper in bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-345019" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000345019.jpg" 
+                             
+                             alt="345019" title="345019 - person reading news paper in bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-352011" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000352011.jpg" 
+                             
+                             alt="352011" title="352011 - person reading news paper in bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-36022" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000036022.jpg" 
+                             
+                             alt="36022" title="36022 - person reading news paper in bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-369936" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000369936.jpg" 
+                             
+                             alt="369936" title="369936 - person reading news paper in bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-418185" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000418185.jpg" 
+                             
+                             alt="418185" title="418185 - person reading news paper in bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-421433" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000421433.jpg" 
+                             
+                             alt="421433" title="421433 - person reading news paper in bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-429746" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000429746.jpg" 
+                             
+                             alt="429746" title="429746 - person reading news paper in bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-460916" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000460916.jpg" 
+                             
+                             alt="460916" title="460916 - person reading news paper in bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-461688" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000461688.jpg" 
+                             
+                             alt="461688" title="461688 - person reading news paper in bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-473499" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000473499.jpg" 
+                             
+                             alt="473499" title="473499 - person reading news paper in bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-536879" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000536879.jpg" 
+                             
+                             alt="536879" title="536879 - person reading news paper in bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-552545" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000552545.jpg" 
+                             
+                             alt="552545" title="552545 - person reading news paper in bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-571450" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000571450.jpg" 
+                             
+                             alt="571450" title="571450 - person reading news paper in bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-61414" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000061414.jpg" 
+                             
+                             alt="61414" title="61414 - person reading news paper in bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-6921" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000006921.jpg" 
+                             
+                             alt="6921" title="6921 - person reading news paper in bed"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-73009" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000073009.jpg" 
+                             
+                             alt="73009" title="73009 - person reading news paper in bed"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+</div>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="content has-text-centered">
+          <!-- <a class="icon-link" href="" class="external-link" disabled>
+            <i class="fab fa-github"></i>
+          </a> -->
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                Dataset and images provided by <a href="http://cocodataset.org">COCO Dataset</a> (Common Objects in Context), licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+</footer>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>
