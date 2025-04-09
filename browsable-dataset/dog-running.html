@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #pinco {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .images-for-query-by-clusters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+        .images-for-cluster-column-container {
+            background-color: #ffffff;
+            width: 380px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cluster-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .cluster-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px;
+        }
+        .coco-img-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .images-for-cluster-column-container:nth-child(5n) {
+            border-top: 5px solid #07730d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+1) {
+            border-top: 5px solid #2a51bb;
+        }
+        .images-for-cluster-column-container:nth-child(5n+2) {
+            border-top: 5px solid #b4c51d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+3) {
+            border-top: 5px solid #c51d1d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+4) {
+            border-top: 5px solid #1dc5c5;
+        }
+
+        .container {
+            width: 80%;
+            /* max-width: 800px; */
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .container-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .query-highlight {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            background-color: #e0f7f4;
+            padding: 0.2em 0.4em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="pinco">
+
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="../index.html">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Title Section -->
+ <div class="container-container">
+    <div class="container">
+        <h1>CroQS Dataset</h1>
+        <h3>Semantic Clusters for the Initial Query: <span class="query-highlight">dog running</span></h3>
+    </div>
+</div>
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="0">
+            <div class="cluster-title">dog running catching a frisbee</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-100583" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000100583.jpg" 
+                             
+                             alt="100583" title="100583 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-102598" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000102598.jpg" 
+                             
+                             alt="102598" title="102598 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-104421" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000104421.jpg" 
+                             
+                             alt="104421" title="104421 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-110673" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000110673.jpg" 
+                             
+                             alt="110673" title="110673 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-134597" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000134597.jpg" 
+                             
+                             alt="134597" title="134597 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-145312" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000145312.jpg" 
+                             
+                             alt="145312" title="145312 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-145815" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000145815.jpg" 
+                             
+                             alt="145815" title="145815 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-157099" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000157099.jpg" 
+                             
+                             alt="157099" title="157099 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-174042" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000174042.jpg" 
+                             
+                             alt="174042" title="174042 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-190211" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000190211.jpg" 
+                             
+                             alt="190211" title="190211 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-199641" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000199641.jpg" 
+                             
+                             alt="199641" title="199641 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-202807" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000202807.jpg" 
+                             
+                             alt="202807" title="202807 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-206636" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000206636.jpg" 
+                             
+                             alt="206636" title="206636 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-210259" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000210259.jpg" 
+                             
+                             alt="210259" title="210259 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-215113" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000215113.jpg" 
+                             
+                             alt="215113" title="215113 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-224567" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000224567.jpg" 
+                             
+                             alt="224567" title="224567 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-225398" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000225398.jpg" 
+                             
+                             alt="225398" title="225398 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-22599" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000022599.jpg" 
+                             
+                             alt="22599" title="22599 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-234454" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000234454.jpg" 
+                             
+                             alt="234454" title="234454 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-248682" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000248682.jpg" 
+                             
+                             alt="248682" title="248682 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-250380" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000250380.jpg" 
+                             
+                             alt="250380" title="250380 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-253988" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000253988.jpg" 
+                             
+                             alt="253988" title="253988 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-254976" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000254976.jpg" 
+                             
+                             alt="254976" title="254976 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-256657" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000256657.jpg" 
+                             
+                             alt="256657" title="256657 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-258176" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000258176.jpg" 
+                             
+                             alt="258176" title="258176 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-25989" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000025989.jpg" 
+                             
+                             alt="25989" title="25989 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-282590" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000282590.jpg" 
+                             
+                             alt="282590" title="282590 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-286932" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000286932.jpg" 
+                             
+                             alt="286932" title="286932 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-287331" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000287331.jpg" 
+                             
+                             alt="287331" title="287331 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-289972" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000289972.jpg" 
+                             
+                             alt="289972" title="289972 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-292302" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000292302.jpg" 
+                             
+                             alt="292302" title="292302 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-29509" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000029509.jpg" 
+                             
+                             alt="29509" title="29509 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-296833" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000296833.jpg" 
+                             
+                             alt="296833" title="296833 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-301895" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000301895.jpg" 
+                             
+                             alt="301895" title="301895 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-305142" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000305142.jpg" 
+                             
+                             alt="305142" title="305142 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-307531" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000307531.jpg" 
+                             
+                             alt="307531" title="307531 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-311596" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000311596.jpg" 
+                             
+                             alt="311596" title="311596 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-314953" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000314953.jpg" 
+                             
+                             alt="314953" title="314953 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-328304" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000328304.jpg" 
+                             
+                             alt="328304" title="328304 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-329012" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000329012.jpg" 
+                             
+                             alt="329012" title="329012 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-336459" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000336459.jpg" 
+                             
+                             alt="336459" title="336459 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-340276" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000340276.jpg" 
+                             
+                             alt="340276" title="340276 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-345380" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000345380.jpg" 
+                             
+                             alt="345380" title="345380 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-354729" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000354729.jpg" 
+                             
+                             alt="354729" title="354729 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-358650" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000358650.jpg" 
+                             
+                             alt="358650" title="358650 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-359840" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000359840.jpg" 
+                             
+                             alt="359840" title="359840 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-3623" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000003623.jpg" 
+                             
+                             alt="3623" title="3623 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-368970" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000368970.jpg" 
+                             
+                             alt="368970" title="368970 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-369279" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000369279.jpg" 
+                             
+                             alt="369279" title="369279 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-373847" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000373847.jpg" 
+                             
+                             alt="373847" title="373847 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-381127" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000381127.jpg" 
+                             
+                             alt="381127" title="381127 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-392972" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000392972.jpg" 
+                             
+                             alt="392972" title="392972 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-397842" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000397842.jpg" 
+                             
+                             alt="397842" title="397842 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-399031" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000399031.jpg" 
+                             
+                             alt="399031" title="399031 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-400568" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000400568.jpg" 
+                             
+                             alt="400568" title="400568 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-402778" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000402778.jpg" 
+                             
+                             alt="402778" title="402778 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-407809" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000407809.jpg" 
+                             
+                             alt="407809" title="407809 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-412835" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000412835.jpg" 
+                             
+                             alt="412835" title="412835 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-413704" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000413704.jpg" 
+                             
+                             alt="413704" title="413704 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-414008" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000414008.jpg" 
+                             
+                             alt="414008" title="414008 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-415723" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000415723.jpg" 
+                             
+                             alt="415723" title="415723 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-417766" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000417766.jpg" 
+                             
+                             alt="417766" title="417766 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-426151" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000426151.jpg" 
+                             
+                             alt="426151" title="426151 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-469274" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000469274.jpg" 
+                             
+                             alt="469274" title="469274 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-471483" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000471483.jpg" 
+                             
+                             alt="471483" title="471483 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-475711" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000475711.jpg" 
+                             
+                             alt="475711" title="475711 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-481101" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000481101.jpg" 
+                             
+                             alt="481101" title="481101 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-482314" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000482314.jpg" 
+                             
+                             alt="482314" title="482314 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-489328" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000489328.jpg" 
+                             
+                             alt="489328" title="489328 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-490336" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000490336.jpg" 
+                             
+                             alt="490336" title="490336 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-495699" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000495699.jpg" 
+                             
+                             alt="495699" title="495699 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-497014" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000497014.jpg" 
+                             
+                             alt="497014" title="497014 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-498346" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000498346.jpg" 
+                             
+                             alt="498346" title="498346 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-498657" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000498657.jpg" 
+                             
+                             alt="498657" title="498657 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-521697" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000521697.jpg" 
+                             
+                             alt="521697" title="521697 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-523418" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000523418.jpg" 
+                             
+                             alt="523418" title="523418 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-530059" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000530059.jpg" 
+                             
+                             alt="530059" title="530059 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-535981" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000535981.jpg" 
+                             
+                             alt="535981" title="535981 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-536112" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000536112.jpg" 
+                             
+                             alt="536112" title="536112 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-539265" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000539265.jpg" 
+                             
+                             alt="539265" title="539265 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-541961" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000541961.jpg" 
+                             
+                             alt="541961" title="541961 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-54655" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000054655.jpg" 
+                             
+                             alt="54655" title="54655 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-561390" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000561390.jpg" 
+                             
+                             alt="561390" title="561390 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-564264" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000564264.jpg" 
+                             
+                             alt="564264" title="564264 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-567850" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000567850.jpg" 
+                             
+                             alt="567850" title="567850 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-571903" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000571903.jpg" 
+                             
+                             alt="571903" title="571903 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-572825" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000572825.jpg" 
+                             
+                             alt="572825" title="572825 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-574208" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000574208.jpg" 
+                             
+                             alt="574208" title="574208 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-63214" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000063214.jpg" 
+                             
+                             alt="63214" title="63214 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-78593" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000078593.jpg" 
+                             
+                             alt="78593" title="78593 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-78699" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000078699.jpg" 
+                             
+                             alt="78699" title="78699 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-79407" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000079407.jpg" 
+                             
+                             alt="79407" title="79407 - dog running catching a frisbee"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-82709" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000082709.jpg" 
+                             
+                             alt="82709" title="82709 - dog running catching a frisbee"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="2">
+            <div class="cluster-title">dog running on the beach</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-107716" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000107716.jpg" 
+                             
+                             alt="107716" title="107716 - dog running on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-118277" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000118277.jpg" 
+                             
+                             alt="118277" title="118277 - dog running on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-132420" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000132420.jpg" 
+                             
+                             alt="132420" title="132420 - dog running on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-14681" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000014681.jpg" 
+                             
+                             alt="14681" title="14681 - dog running on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-147890" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000147890.jpg" 
+                             
+                             alt="147890" title="147890 - dog running on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-167501" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000167501.jpg" 
+                             
+                             alt="167501" title="167501 - dog running on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-212276" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000212276.jpg" 
+                             
+                             alt="212276" title="212276 - dog running on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-21514" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000021514.jpg" 
+                             
+                             alt="21514" title="21514 - dog running on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-250223" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000250223.jpg" 
+                             
+                             alt="250223" title="250223 - dog running on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-254609" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000254609.jpg" 
+                             
+                             alt="254609" title="254609 - dog running on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-307916" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000307916.jpg" 
+                             
+                             alt="307916" title="307916 - dog running on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-320020" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000320020.jpg" 
+                             
+                             alt="320020" title="320020 - dog running on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-331780" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000331780.jpg" 
+                             
+                             alt="331780" title="331780 - dog running on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-341900" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000341900.jpg" 
+                             
+                             alt="341900" title="341900 - dog running on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-378868" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000378868.jpg" 
+                             
+                             alt="378868" title="378868 - dog running on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-380143" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000380143.jpg" 
+                             
+                             alt="380143" title="380143 - dog running on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-380724" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000380724.jpg" 
+                             
+                             alt="380724" title="380724 - dog running on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-435294" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000435294.jpg" 
+                             
+                             alt="435294" title="435294 - dog running on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-439242" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000439242.jpg" 
+                             
+                             alt="439242" title="439242 - dog running on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-442672" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000442672.jpg" 
+                             
+                             alt="442672" title="442672 - dog running on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-447375" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000447375.jpg" 
+                             
+                             alt="447375" title="447375 - dog running on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-455161" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000455161.jpg" 
+                             
+                             alt="455161" title="455161 - dog running on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-465335" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000465335.jpg" 
+                             
+                             alt="465335" title="465335 - dog running on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-467339" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000467339.jpg" 
+                             
+                             alt="467339" title="467339 - dog running on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-479582" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000479582.jpg" 
+                             
+                             alt="479582" title="479582 - dog running on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-504313" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000504313.jpg" 
+                             
+                             alt="504313" title="504313 - dog running on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-507397" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000507397.jpg" 
+                             
+                             alt="507397" title="507397 - dog running on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-516146" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000516146.jpg" 
+                             
+                             alt="516146" title="516146 - dog running on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-534903" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000534903.jpg" 
+                             
+                             alt="534903" title="534903 - dog running on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-572050" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000572050.jpg" 
+                             
+                             alt="572050" title="572050 - dog running on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-5782" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000005782.jpg" 
+                             
+                             alt="5782" title="5782 - dog running on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-71128" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000071128.jpg" 
+                             
+                             alt="71128" title="71128 - dog running on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-77325" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000077325.jpg" 
+                             
+                             alt="77325" title="77325 - dog running on the beach"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-85092" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000085092.jpg" 
+                             
+                             alt="85092" title="85092 - dog running on the beach"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+</div>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="content has-text-centered">
+          <!-- <a class="icon-link" href="" class="external-link" disabled>
+            <i class="fab fa-github"></i>
+          </a> -->
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                Dataset and images provided by <a href="http://cocodataset.org">COCO Dataset</a> (Common Objects in Context), licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+</footer>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>

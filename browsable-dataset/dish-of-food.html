@@ -1,0 +1,1785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #pinco {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .images-for-query-by-clusters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+        .images-for-cluster-column-container {
+            background-color: #ffffff;
+            width: 380px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cluster-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .cluster-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px;
+        }
+        .coco-img-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .images-for-cluster-column-container:nth-child(5n) {
+            border-top: 5px solid #07730d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+1) {
+            border-top: 5px solid #2a51bb;
+        }
+        .images-for-cluster-column-container:nth-child(5n+2) {
+            border-top: 5px solid #b4c51d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+3) {
+            border-top: 5px solid #c51d1d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+4) {
+            border-top: 5px solid #1dc5c5;
+        }
+
+        .container {
+            width: 80%;
+            /* max-width: 800px; */
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .container-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .query-highlight {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            background-color: #e0f7f4;
+            padding: 0.2em 0.4em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="pinco">
+
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="../index.html">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Title Section -->
+ <div class="container-container">
+    <div class="container">
+        <h1>CroQS Dataset</h1>
+        <h3>Semantic Clusters for the Initial Query: <span class="query-highlight">dish of food</span></h3>
+    </div>
+</div>
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="0">
+            <div class="cluster-title">dish of main course</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-105102" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000105102.jpg" 
+                             
+                             alt="105102" title="105102 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-116182" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000116182.jpg" 
+                             
+                             alt="116182" title="116182 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-118344" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000118344.jpg" 
+                             
+                             alt="118344" title="118344 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-134144" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000134144.jpg" 
+                             
+                             alt="134144" title="134144 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-173185" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000173185.jpg" 
+                             
+                             alt="173185" title="173185 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-178221" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000178221.jpg" 
+                             
+                             alt="178221" title="178221 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-185236" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000185236.jpg" 
+                             
+                             alt="185236" title="185236 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-21268" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000021268.jpg" 
+                             
+                             alt="21268" title="21268 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-217378" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000217378.jpg" 
+                             
+                             alt="217378" title="217378 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-22104" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000022104.jpg" 
+                             
+                             alt="22104" title="22104 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-282868" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000282868.jpg" 
+                             
+                             alt="282868" title="282868 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-306288" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000306288.jpg" 
+                             
+                             alt="306288" title="306288 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-312368" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000312368.jpg" 
+                             
+                             alt="312368" title="312368 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-31286" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000031286.jpg" 
+                             
+                             alt="31286" title="31286 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-318386" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000318386.jpg" 
+                             
+                             alt="318386" title="318386 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-34582" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000034582.jpg" 
+                             
+                             alt="34582" title="34582 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-366094" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000366094.jpg" 
+                             
+                             alt="366094" title="366094 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-370763" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000370763.jpg" 
+                             
+                             alt="370763" title="370763 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-391972" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000391972.jpg" 
+                             
+                             alt="391972" title="391972 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-396029" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000396029.jpg" 
+                             
+                             alt="396029" title="396029 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-405579" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000405579.jpg" 
+                             
+                             alt="405579" title="405579 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-423362" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000423362.jpg" 
+                             
+                             alt="423362" title="423362 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-423984" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000423984.jpg" 
+                             
+                             alt="423984" title="423984 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-424582" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000424582.jpg" 
+                             
+                             alt="424582" title="424582 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-433288" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000433288.jpg" 
+                             
+                             alt="433288" title="433288 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-467500" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000467500.jpg" 
+                             
+                             alt="467500" title="467500 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-484280" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000484280.jpg" 
+                             
+                             alt="484280" title="484280 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-491330" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000491330.jpg" 
+                             
+                             alt="491330" title="491330 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-523669" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000523669.jpg" 
+                             
+                             alt="523669" title="523669 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-554996" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000554996.jpg" 
+                             
+                             alt="554996" title="554996 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-561547" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000561547.jpg" 
+                             
+                             alt="561547" title="561547 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-569722" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000569722.jpg" 
+                             
+                             alt="569722" title="569722 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-6595" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000006595.jpg" 
+                             
+                             alt="6595" title="6595 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-76606" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000076606.jpg" 
+                             
+                             alt="76606" title="76606 - dish of main course"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-87177" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000087177.jpg" 
+                             
+                             alt="87177" title="87177 - dish of main course"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="1">
+            <div class="cluster-title">dish of pizza</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-163309" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000163309.jpg" 
+                             
+                             alt="163309" title="163309 - dish of pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-173833" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000173833.jpg" 
+                             
+                             alt="173833" title="173833 - dish of pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-174048" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000174048.jpg" 
+                             
+                             alt="174048" title="174048 - dish of pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-223601" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000223601.jpg" 
+                             
+                             alt="223601" title="223601 - dish of pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-238029" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000238029.jpg" 
+                             
+                             alt="238029" title="238029 - dish of pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-299715" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000299715.jpg" 
+                             
+                             alt="299715" title="299715 - dish of pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-30526" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000030526.jpg" 
+                             
+                             alt="30526" title="30526 - dish of pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-328679" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000328679.jpg" 
+                             
+                             alt="328679" title="328679 - dish of pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-336385" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000336385.jpg" 
+                             
+                             alt="336385" title="336385 - dish of pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-357229" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000357229.jpg" 
+                             
+                             alt="357229" title="357229 - dish of pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-389391" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000389391.jpg" 
+                             
+                             alt="389391" title="389391 - dish of pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-393864" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000393864.jpg" 
+                             
+                             alt="393864" title="393864 - dish of pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-490264" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000490264.jpg" 
+                             
+                             alt="490264" title="490264 - dish of pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-513136" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000513136.jpg" 
+                             
+                             alt="513136" title="513136 - dish of pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-524518" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000524518.jpg" 
+                             
+                             alt="524518" title="524518 - dish of pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-554159" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000554159.jpg" 
+                             
+                             alt="554159" title="554159 - dish of pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-557324" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000557324.jpg" 
+                             
+                             alt="557324" title="557324 - dish of pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-577128" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000577128.jpg" 
+                             
+                             alt="577128" title="577128 - dish of pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-78478" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000078478.jpg" 
+                             
+                             alt="78478" title="78478 - dish of pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-83619" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000083619.jpg" 
+                             
+                             alt="83619" title="83619 - dish of pizza"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-97734" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000097734.jpg" 
+                             
+                             alt="97734" title="97734 - dish of pizza"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="2">
+            <div class="cluster-title">dish of vegetables</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-12231" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000012231.jpg" 
+                             
+                             alt="12231" title="12231 - dish of vegetables"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-160421" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000160421.jpg" 
+                             
+                             alt="160421" title="160421 - dish of vegetables"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-16848" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000016848.jpg" 
+                             
+                             alt="16848" title="16848 - dish of vegetables"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-180580" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000180580.jpg" 
+                             
+                             alt="180580" title="180580 - dish of vegetables"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-19981" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000019981.jpg" 
+                             
+                             alt="19981" title="19981 - dish of vegetables"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-209480" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000209480.jpg" 
+                             
+                             alt="209480" title="209480 - dish of vegetables"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-214030" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000214030.jpg" 
+                             
+                             alt="214030" title="214030 - dish of vegetables"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-245938" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000245938.jpg" 
+                             
+                             alt="245938" title="245938 - dish of vegetables"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-253432" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000253432.jpg" 
+                             
+                             alt="253432" title="253432 - dish of vegetables"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-256899" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000256899.jpg" 
+                             
+                             alt="256899" title="256899 - dish of vegetables"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-25708" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000025708.jpg" 
+                             
+                             alt="25708" title="25708 - dish of vegetables"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-283611" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000283611.jpg" 
+                             
+                             alt="283611" title="283611 - dish of vegetables"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-306281" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000306281.jpg" 
+                             
+                             alt="306281" title="306281 - dish of vegetables"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-306902" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000306902.jpg" 
+                             
+                             alt="306902" title="306902 - dish of vegetables"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-32126" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000032126.jpg" 
+                             
+                             alt="32126" title="32126 - dish of vegetables"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-32963" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000032963.jpg" 
+                             
+                             alt="32963" title="32963 - dish of vegetables"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-35397" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000035397.jpg" 
+                             
+                             alt="35397" title="35397 - dish of vegetables"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-369397" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000369397.jpg" 
+                             
+                             alt="369397" title="369397 - dish of vegetables"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-373294" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000373294.jpg" 
+                             
+                             alt="373294" title="373294 - dish of vegetables"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-380089" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000380089.jpg" 
+                             
+                             alt="380089" title="380089 - dish of vegetables"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-399298" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000399298.jpg" 
+                             
+                             alt="399298" title="399298 - dish of vegetables"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-399665" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000399665.jpg" 
+                             
+                             alt="399665" title="399665 - dish of vegetables"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-455381" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000455381.jpg" 
+                             
+                             alt="455381" title="455381 - dish of vegetables"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-471342" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000471342.jpg" 
+                             
+                             alt="471342" title="471342 - dish of vegetables"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-476175" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000476175.jpg" 
+                             
+                             alt="476175" title="476175 - dish of vegetables"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-479214" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000479214.jpg" 
+                             
+                             alt="479214" title="479214 - dish of vegetables"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-517985" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000517985.jpg" 
+                             
+                             alt="517985" title="517985 - dish of vegetables"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-532638" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000532638.jpg" 
+                             
+                             alt="532638" title="532638 - dish of vegetables"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-536474" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000536474.jpg" 
+                             
+                             alt="536474" title="536474 - dish of vegetables"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-540100" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000540100.jpg" 
+                             
+                             alt="540100" title="540100 - dish of vegetables"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-549962" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000549962.jpg" 
+                             
+                             alt="549962" title="549962 - dish of vegetables"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-568378" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000568378.jpg" 
+                             
+                             alt="568378" title="568378 - dish of vegetables"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-578497" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000578497.jpg" 
+                             
+                             alt="578497" title="578497 - dish of vegetables"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="3">
+            <div class="cluster-title">dish of food on a table</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-101968" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000101968.jpg" 
+                             
+                             alt="101968" title="101968 - dish of food on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-146711" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000146711.jpg" 
+                             
+                             alt="146711" title="146711 - dish of food on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-169808" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000169808.jpg" 
+                             
+                             alt="169808" title="169808 - dish of food on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-24702" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000024702.jpg" 
+                             
+                             alt="24702" title="24702 - dish of food on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-249365" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000249365.jpg" 
+                             
+                             alt="249365" title="249365 - dish of food on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-264697" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000264697.jpg" 
+                             
+                             alt="264697" title="264697 - dish of food on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-270605" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000270605.jpg" 
+                             
+                             alt="270605" title="270605 - dish of food on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-313113" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000313113.jpg" 
+                             
+                             alt="313113" title="313113 - dish of food on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-313956" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000313956.jpg" 
+                             
+                             alt="313956" title="313956 - dish of food on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-344758" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000344758.jpg" 
+                             
+                             alt="344758" title="344758 - dish of food on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-366648" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000366648.jpg" 
+                             
+                             alt="366648" title="366648 - dish of food on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-385339" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000385339.jpg" 
+                             
+                             alt="385339" title="385339 - dish of food on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-393730" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000393730.jpg" 
+                             
+                             alt="393730" title="393730 - dish of food on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-405543" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000405543.jpg" 
+                             
+                             alt="405543" title="405543 - dish of food on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-433217" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000433217.jpg" 
+                             
+                             alt="433217" title="433217 - dish of food on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-450914" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000450914.jpg" 
+                             
+                             alt="450914" title="450914 - dish of food on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-463140" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000463140.jpg" 
+                             
+                             alt="463140" title="463140 - dish of food on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-515202" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000515202.jpg" 
+                             
+                             alt="515202" title="515202 - dish of food on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-524881" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000524881.jpg" 
+                             
+                             alt="524881" title="524881 - dish of food on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-535151" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000535151.jpg" 
+                             
+                             alt="535151" title="535151 - dish of food on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-539777" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000539777.jpg" 
+                             
+                             alt="539777" title="539777 - dish of food on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-64634" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000064634.jpg" 
+                             
+                             alt="64634" title="64634 - dish of food on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-66632" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000066632.jpg" 
+                             
+                             alt="66632" title="66632 - dish of food on a table"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-67987" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000067987.jpg" 
+                             
+                             alt="67987" title="67987 - dish of food on a table"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="4">
+            <div class="cluster-title">table laden of dish of food</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-148898" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000148898.jpg" 
+                             
+                             alt="148898" title="148898 - table laden of dish of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-258517" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000258517.jpg" 
+                             
+                             alt="258517" title="258517 - table laden of dish of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-26294" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000026294.jpg" 
+                             
+                             alt="26294" title="26294 - table laden of dish of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-298172" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000298172.jpg" 
+                             
+                             alt="298172" title="298172 - table laden of dish of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-33034" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000033034.jpg" 
+                             
+                             alt="33034" title="33034 - table laden of dish of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-334789" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000334789.jpg" 
+                             
+                             alt="334789" title="334789 - table laden of dish of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-339356" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000339356.jpg" 
+                             
+                             alt="339356" title="339356 - table laden of dish of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-339579" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000339579.jpg" 
+                             
+                             alt="339579" title="339579 - table laden of dish of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-410345" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000410345.jpg" 
+                             
+                             alt="410345" title="410345 - table laden of dish of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-411223" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000411223.jpg" 
+                             
+                             alt="411223" title="411223 - table laden of dish of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-477903" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000477903.jpg" 
+                             
+                             alt="477903" title="477903 - table laden of dish of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-485397" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000485397.jpg" 
+                             
+                             alt="485397" title="485397 - table laden of dish of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-503416" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000503416.jpg" 
+                             
+                             alt="503416" title="503416 - table laden of dish of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-50556" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000050556.jpg" 
+                             
+                             alt="50556" title="50556 - table laden of dish of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-56326" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000056326.jpg" 
+                             
+                             alt="56326" title="56326 - table laden of dish of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-56480" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000056480.jpg" 
+                             
+                             alt="56480" title="56480 - table laden of dish of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-6220" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000006220.jpg" 
+                             
+                             alt="6220" title="6220 - table laden of dish of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-62279" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000062279.jpg" 
+                             
+                             alt="62279" title="62279 - table laden of dish of food"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="5">
+            <div class="cluster-title">dish of food with soup</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-13045" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000013045.jpg" 
+                             
+                             alt="13045" title="13045 - dish of food with soup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-140655" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000140655.jpg" 
+                             
+                             alt="140655" title="140655 - dish of food with soup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-177306" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000177306.jpg" 
+                             
+                             alt="177306" title="177306 - dish of food with soup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-20418" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000020418.jpg" 
+                             
+                             alt="20418" title="20418 - dish of food with soup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-210371" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000210371.jpg" 
+                             
+                             alt="210371" title="210371 - dish of food with soup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-216072" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000216072.jpg" 
+                             
+                             alt="216072" title="216072 - dish of food with soup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-247487" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000247487.jpg" 
+                             
+                             alt="247487" title="247487 - dish of food with soup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-250952" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000250952.jpg" 
+                             
+                             alt="250952" title="250952 - dish of food with soup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-263393" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000263393.jpg" 
+                             
+                             alt="263393" title="263393 - dish of food with soup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-279957" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000279957.jpg" 
+                             
+                             alt="279957" title="279957 - dish of food with soup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-283715" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000283715.jpg" 
+                             
+                             alt="283715" title="283715 - dish of food with soup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-315268" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000315268.jpg" 
+                             
+                             alt="315268" title="315268 - dish of food with soup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-333181" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000333181.jpg" 
+                             
+                             alt="333181" title="333181 - dish of food with soup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-350268" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000350268.jpg" 
+                             
+                             alt="350268" title="350268 - dish of food with soup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-356654" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000356654.jpg" 
+                             
+                             alt="356654" title="356654 - dish of food with soup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-374288" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000374288.jpg" 
+                             
+                             alt="374288" title="374288 - dish of food with soup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-391031" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000391031.jpg" 
+                             
+                             alt="391031" title="391031 - dish of food with soup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-415499" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000415499.jpg" 
+                             
+                             alt="415499" title="415499 - dish of food with soup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-435833" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000435833.jpg" 
+                             
+                             alt="435833" title="435833 - dish of food with soup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-443496" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000443496.jpg" 
+                             
+                             alt="443496" title="443496 - dish of food with soup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-508202" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000508202.jpg" 
+                             
+                             alt="508202" title="508202 - dish of food with soup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-517617" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000517617.jpg" 
+                             
+                             alt="517617" title="517617 - dish of food with soup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-519460" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000519460.jpg" 
+                             
+                             alt="519460" title="519460 - dish of food with soup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-538973" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000538973.jpg" 
+                             
+                             alt="538973" title="538973 - dish of food with soup"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-542777" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000542777.jpg" 
+                             
+                             alt="542777" title="542777 - dish of food with soup"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="6">
+            <div class="cluster-title">colorful dish of variety of food</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-10414" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000010414.jpg" 
+                             
+                             alt="10414" title="10414 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-116579" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000116579.jpg" 
+                             
+                             alt="116579" title="116579 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-117918" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000117918.jpg" 
+                             
+                             alt="117918" title="117918 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-118607" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000118607.jpg" 
+                             
+                             alt="118607" title="118607 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-129293" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000129293.jpg" 
+                             
+                             alt="129293" title="129293 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-143859" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000143859.jpg" 
+                             
+                             alt="143859" title="143859 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-144027" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000144027.jpg" 
+                             
+                             alt="144027" title="144027 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-148292" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000148292.jpg" 
+                             
+                             alt="148292" title="148292 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-151096" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000151096.jpg" 
+                             
+                             alt="151096" title="151096 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-18495" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000018495.jpg" 
+                             
+                             alt="18495" title="18495 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-21397" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000021397.jpg" 
+                             
+                             alt="21397" title="21397 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-216820" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000216820.jpg" 
+                             
+                             alt="216820" title="216820 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-246706" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000246706.jpg" 
+                             
+                             alt="246706" title="246706 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-249073" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000249073.jpg" 
+                             
+                             alt="249073" title="249073 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-272615" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000272615.jpg" 
+                             
+                             alt="272615" title="272615 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-27326" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000027326.jpg" 
+                             
+                             alt="27326" title="27326 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-285342" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000285342.jpg" 
+                             
+                             alt="285342" title="285342 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-316963" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000316963.jpg" 
+                             
+                             alt="316963" title="316963 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-323515" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000323515.jpg" 
+                             
+                             alt="323515" title="323515 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-32757" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000032757.jpg" 
+                             
+                             alt="32757" title="32757 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-399887" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000399887.jpg" 
+                             
+                             alt="399887" title="399887 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-435475" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000435475.jpg" 
+                             
+                             alt="435475" title="435475 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-442727" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000442727.jpg" 
+                             
+                             alt="442727" title="442727 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-448402" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000448402.jpg" 
+                             
+                             alt="448402" title="448402 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-458184" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000458184.jpg" 
+                             
+                             alt="458184" title="458184 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-481879" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000481879.jpg" 
+                             
+                             alt="481879" title="481879 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-503978" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000503978.jpg" 
+                             
+                             alt="503978" title="503978 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-518392" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000518392.jpg" 
+                             
+                             alt="518392" title="518392 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-531327" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000531327.jpg" 
+                             
+                             alt="531327" title="531327 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-540617" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000540617.jpg" 
+                             
+                             alt="540617" title="540617 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-566502" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000566502.jpg" 
+                             
+                             alt="566502" title="566502 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-577321" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000577321.jpg" 
+                             
+                             alt="577321" title="577321 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-69816" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000069816.jpg" 
+                             
+                             alt="69816" title="69816 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-71917" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000071917.jpg" 
+                             
+                             alt="71917" title="71917 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-72628" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000072628.jpg" 
+                             
+                             alt="72628" title="72628 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-77557" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000077557.jpg" 
+                             
+                             alt="77557" title="77557 - colorful dish of variety of food"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-81964" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000081964.jpg" 
+                             
+                             alt="81964" title="81964 - colorful dish of variety of food"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+</div>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="content has-text-centered">
+          <!-- <a class="icon-link" href="" class="external-link" disabled>
+            <i class="fab fa-github"></i>
+          </a> -->
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                Dataset and images provided by <a href="http://cocodataset.org">COCO Dataset</a> (Common Objects in Context), licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+</footer>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>

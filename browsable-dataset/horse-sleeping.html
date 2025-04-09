@@ -1,0 +1,1670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #pinco {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .images-for-query-by-clusters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+        .images-for-cluster-column-container {
+            background-color: #ffffff;
+            width: 380px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cluster-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .cluster-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px;
+        }
+        .coco-img-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .images-for-cluster-column-container:nth-child(5n) {
+            border-top: 5px solid #07730d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+1) {
+            border-top: 5px solid #2a51bb;
+        }
+        .images-for-cluster-column-container:nth-child(5n+2) {
+            border-top: 5px solid #b4c51d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+3) {
+            border-top: 5px solid #c51d1d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+4) {
+            border-top: 5px solid #1dc5c5;
+        }
+
+        .container {
+            width: 80%;
+            /* max-width: 800px; */
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .container-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .query-highlight {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            background-color: #e0f7f4;
+            padding: 0.2em 0.4em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="pinco">
+
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="../index.html">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Title Section -->
+ <div class="container-container">
+    <div class="container">
+        <h1>CroQS Dataset</h1>
+        <h3>Semantic Clusters for the Initial Query: <span class="query-highlight">horse sleeping</span></h3>
+    </div>
+</div>
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="0">
+            <div class="cluster-title">horse grazing in natural environment</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-102925" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000102925.jpg" 
+                             
+                             alt="102925" title="102925 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-109644" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000109644.jpg" 
+                             
+                             alt="109644" title="109644 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-116464" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000116464.jpg" 
+                             
+                             alt="116464" title="116464 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-123620" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000123620.jpg" 
+                             
+                             alt="123620" title="123620 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-124664" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000124664.jpg" 
+                             
+                             alt="124664" title="124664 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-127920" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000127920.jpg" 
+                             
+                             alt="127920" title="127920 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-135982" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000135982.jpg" 
+                             
+                             alt="135982" title="135982 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-147301" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000147301.jpg" 
+                             
+                             alt="147301" title="147301 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-161473" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000161473.jpg" 
+                             
+                             alt="161473" title="161473 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-176131" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000176131.jpg" 
+                             
+                             alt="176131" title="176131 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-184731" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000184731.jpg" 
+                             
+                             alt="184731" title="184731 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-19739" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000019739.jpg" 
+                             
+                             alt="19739" title="19739 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-201907" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000201907.jpg" 
+                             
+                             alt="201907" title="201907 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-202672" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000202672.jpg" 
+                             
+                             alt="202672" title="202672 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-209400" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000209400.jpg" 
+                             
+                             alt="209400" title="209400 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-21510" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000021510.jpg" 
+                             
+                             alt="21510" title="21510 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-223816" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000223816.jpg" 
+                             
+                             alt="223816" title="223816 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-230104" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000230104.jpg" 
+                             
+                             alt="230104" title="230104 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-234993" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000234993.jpg" 
+                             
+                             alt="234993" title="234993 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-238573" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000238573.jpg" 
+                             
+                             alt="238573" title="238573 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-250703" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000250703.jpg" 
+                             
+                             alt="250703" title="250703 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-251311" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000251311.jpg" 
+                             
+                             alt="251311" title="251311 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-281649" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000281649.jpg" 
+                             
+                             alt="281649" title="281649 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-289689" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000289689.jpg" 
+                             
+                             alt="289689" title="289689 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-294593" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000294593.jpg" 
+                             
+                             alt="294593" title="294593 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-311286" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000311286.jpg" 
+                             
+                             alt="311286" title="311286 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-315812" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000315812.jpg" 
+                             
+                             alt="315812" title="315812 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-333216" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000333216.jpg" 
+                             
+                             alt="333216" title="333216 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-352587" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000352587.jpg" 
+                             
+                             alt="352587" title="352587 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-35459" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000035459.jpg" 
+                             
+                             alt="35459" title="35459 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-363483" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000363483.jpg" 
+                             
+                             alt="363483" title="363483 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-368153" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000368153.jpg" 
+                             
+                             alt="368153" title="368153 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-370157" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000370157.jpg" 
+                             
+                             alt="370157" title="370157 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-370709" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000370709.jpg" 
+                             
+                             alt="370709" title="370709 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-378491" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000378491.jpg" 
+                             
+                             alt="378491" title="378491 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-393127" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000393127.jpg" 
+                             
+                             alt="393127" title="393127 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-411474" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000411474.jpg" 
+                             
+                             alt="411474" title="411474 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-439874" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000439874.jpg" 
+                             
+                             alt="439874" title="439874 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-443883" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000443883.jpg" 
+                             
+                             alt="443883" title="443883 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-449132" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000449132.jpg" 
+                             
+                             alt="449132" title="449132 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-488454" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000488454.jpg" 
+                             
+                             alt="488454" title="488454 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-505658" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000505658.jpg" 
+                             
+                             alt="505658" title="505658 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-510534" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000510534.jpg" 
+                             
+                             alt="510534" title="510534 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-519728" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000519728.jpg" 
+                             
+                             alt="519728" title="519728 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-528275" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000528275.jpg" 
+                             
+                             alt="528275" title="528275 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-544752" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000544752.jpg" 
+                             
+                             alt="544752" title="544752 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-546095" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000546095.jpg" 
+                             
+                             alt="546095" title="546095 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-546562" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000546562.jpg" 
+                             
+                             alt="546562" title="546562 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-553040" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000553040.jpg" 
+                             
+                             alt="553040" title="553040 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-556880" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000556880.jpg" 
+                             
+                             alt="556880" title="556880 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-78798" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000078798.jpg" 
+                             
+                             alt="78798" title="78798 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-81592" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000081592.jpg" 
+                             
+                             alt="81592" title="81592 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-91869" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000091869.jpg" 
+                             
+                             alt="91869" title="91869 - horse grazing in natural environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-98981" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000098981.jpg" 
+                             
+                             alt="98981" title="98981 - horse grazing in natural environment"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="1">
+            <div class="cluster-title">horse sleeping in stable</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-162993" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000162993.jpg" 
+                             
+                             alt="162993" title="162993 - horse sleeping in stable"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-185166" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000185166.jpg" 
+                             
+                             alt="185166" title="185166 - horse sleeping in stable"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-242915" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000242915.jpg" 
+                             
+                             alt="242915" title="242915 - horse sleeping in stable"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-266302" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000266302.jpg" 
+                             
+                             alt="266302" title="266302 - horse sleeping in stable"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-284987" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000284987.jpg" 
+                             
+                             alt="284987" title="284987 - horse sleeping in stable"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-314526" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000314526.jpg" 
+                             
+                             alt="314526" title="314526 - horse sleeping in stable"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-428786" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000428786.jpg" 
+                             
+                             alt="428786" title="428786 - horse sleeping in stable"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-432016" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000432016.jpg" 
+                             
+                             alt="432016" title="432016 - horse sleeping in stable"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-453520" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000453520.jpg" 
+                             
+                             alt="453520" title="453520 - horse sleeping in stable"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-493953" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000493953.jpg" 
+                             
+                             alt="493953" title="493953 - horse sleeping in stable"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-532555" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000532555.jpg" 
+                             
+                             alt="532555" title="532555 - horse sleeping in stable"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-63433" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000063433.jpg" 
+                             
+                             alt="63433" title="63433 - horse sleeping in stable"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-85162" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000085162.jpg" 
+                             
+                             alt="85162" title="85162 - horse sleeping in stable"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-96091" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000096091.jpg" 
+                             
+                             alt="96091" title="96091 - horse sleeping in stable"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="2">
+            <div class="cluster-title">zebra resting</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-10077" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000010077.jpg" 
+                             
+                             alt="10077" title="10077 - zebra resting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-106769" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000106769.jpg" 
+                             
+                             alt="106769" title="106769 - zebra resting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-348474" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000348474.jpg" 
+                             
+                             alt="348474" title="348474 - zebra resting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-373583" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000373583.jpg" 
+                             
+                             alt="373583" title="373583 - zebra resting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-410781" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000410781.jpg" 
+                             
+                             alt="410781" title="410781 - zebra resting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-416300" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000416300.jpg" 
+                             
+                             alt="416300" title="416300 - zebra resting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-42701" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000042701.jpg" 
+                             
+                             alt="42701" title="42701 - zebra resting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-457888" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000457888.jpg" 
+                             
+                             alt="457888" title="457888 - zebra resting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-475275" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000475275.jpg" 
+                             
+                             alt="475275" title="475275 - zebra resting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-491272" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000491272.jpg" 
+                             
+                             alt="491272" title="491272 - zebra resting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-576944" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000576944.jpg" 
+                             
+                             alt="576944" title="576944 - zebra resting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-577065" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000577065.jpg" 
+                             
+                             alt="577065" title="577065 - zebra resting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-66483" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000066483.jpg" 
+                             
+                             alt="66483" title="66483 - zebra resting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-94531" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000094531.jpg" 
+                             
+                             alt="94531" title="94531 - zebra resting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-95551" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000095551.jpg" 
+                             
+                             alt="95551" title="95551 - zebra resting"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-96064" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000096064.jpg" 
+                             
+                             alt="96064" title="96064 - zebra resting"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="3">
+            <div class="cluster-title">animal laying on the ground</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-145006" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000145006.jpg" 
+                             
+                             alt="145006" title="145006 - animal laying on the ground"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-15438" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000015438.jpg" 
+                             
+                             alt="15438" title="15438 - animal laying on the ground"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-219679" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000219679.jpg" 
+                             
+                             alt="219679" title="219679 - animal laying on the ground"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-256593" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000256593.jpg" 
+                             
+                             alt="256593" title="256593 - animal laying on the ground"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-277694" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000277694.jpg" 
+                             
+                             alt="277694" title="277694 - animal laying on the ground"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-280310" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000280310.jpg" 
+                             
+                             alt="280310" title="280310 - animal laying on the ground"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-343504" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000343504.jpg" 
+                             
+                             alt="343504" title="343504 - animal laying on the ground"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-393686" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000393686.jpg" 
+                             
+                             alt="393686" title="393686 - animal laying on the ground"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-404626" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000404626.jpg" 
+                             
+                             alt="404626" title="404626 - animal laying on the ground"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-412826" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000412826.jpg" 
+                             
+                             alt="412826" title="412826 - animal laying on the ground"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-457100" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000457100.jpg" 
+                             
+                             alt="457100" title="457100 - animal laying on the ground"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-470622" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000470622.jpg" 
+                             
+                             alt="470622" title="470622 - animal laying on the ground"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-471096" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000471096.jpg" 
+                             
+                             alt="471096" title="471096 - animal laying on the ground"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-484347" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000484347.jpg" 
+                             
+                             alt="484347" title="484347 - animal laying on the ground"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-50481" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000050481.jpg" 
+                             
+                             alt="50481" title="50481 - animal laying on the ground"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-50750" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000050750.jpg" 
+                             
+                             alt="50750" title="50750 - animal laying on the ground"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-52347" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000052347.jpg" 
+                             
+                             alt="52347" title="52347 - animal laying on the ground"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-524257" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000524257.jpg" 
+                             
+                             alt="524257" title="524257 - animal laying on the ground"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-530941" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000530941.jpg" 
+                             
+                             alt="530941" title="530941 - animal laying on the ground"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-542725" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000542725.jpg" 
+                             
+                             alt="542725" title="542725 - animal laying on the ground"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-67126" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000067126.jpg" 
+                             
+                             alt="67126" title="67126 - animal laying on the ground"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-69510" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000069510.jpg" 
+                             
+                             alt="69510" title="69510 - animal laying on the ground"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="4">
+            <div class="cluster-title">pet sleeping</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-130778" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000130778.jpg" 
+                             
+                             alt="130778" title="130778 - pet sleeping"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-137016" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000137016.jpg" 
+                             
+                             alt="137016" title="137016 - pet sleeping"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-236552" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000236552.jpg" 
+                             
+                             alt="236552" title="236552 - pet sleeping"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-267560" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000267560.jpg" 
+                             
+                             alt="267560" title="267560 - pet sleeping"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-268147" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000268147.jpg" 
+                             
+                             alt="268147" title="268147 - pet sleeping"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-283111" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000283111.jpg" 
+                             
+                             alt="283111" title="283111 - pet sleeping"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-440836" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000440836.jpg" 
+                             
+                             alt="440836" title="440836 - pet sleeping"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-453731" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000453731.jpg" 
+                             
+                             alt="453731" title="453731 - pet sleeping"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-64355" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000064355.jpg" 
+                             
+                             alt="64355" title="64355 - pet sleeping"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="6">
+            <div class="cluster-title">portrait of horse grazing in a fenced area</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-104149" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000104149.jpg" 
+                             
+                             alt="104149" title="104149 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-106895" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000106895.jpg" 
+                             
+                             alt="106895" title="106895 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-11825" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000011825.jpg" 
+                             
+                             alt="11825" title="11825 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-138350" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000138350.jpg" 
+                             
+                             alt="138350" title="138350 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-140278" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000140278.jpg" 
+                             
+                             alt="140278" title="140278 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-149199" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000149199.jpg" 
+                             
+                             alt="149199" title="149199 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-163107" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000163107.jpg" 
+                             
+                             alt="163107" title="163107 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-167712" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000167712.jpg" 
+                             
+                             alt="167712" title="167712 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-175715" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000175715.jpg" 
+                             
+                             alt="175715" title="175715 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-186626" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000186626.jpg" 
+                             
+                             alt="186626" title="186626 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-209320" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000209320.jpg" 
+                             
+                             alt="209320" title="209320 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-212629" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000212629.jpg" 
+                             
+                             alt="212629" title="212629 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-215485" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000215485.jpg" 
+                             
+                             alt="215485" title="215485 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-225330" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000225330.jpg" 
+                             
+                             alt="225330" title="225330 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-226258" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000226258.jpg" 
+                             
+                             alt="226258" title="226258 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-226494" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000226494.jpg" 
+                             
+                             alt="226494" title="226494 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-237715" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000237715.jpg" 
+                             
+                             alt="237715" title="237715 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-250798" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000250798.jpg" 
+                             
+                             alt="250798" title="250798 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-272953" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000272953.jpg" 
+                             
+                             alt="272953" title="272953 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-27739" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000027739.jpg" 
+                             
+                             alt="27739" title="27739 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-277918" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000277918.jpg" 
+                             
+                             alt="277918" title="277918 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-287682" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000287682.jpg" 
+                             
+                             alt="287682" title="287682 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-300192" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000300192.jpg" 
+                             
+                             alt="300192" title="300192 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-30645" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000030645.jpg" 
+                             
+                             alt="30645" title="30645 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-311957" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000311957.jpg" 
+                             
+                             alt="311957" title="311957 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-31376" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000031376.jpg" 
+                             
+                             alt="31376" title="31376 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-313983" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000313983.jpg" 
+                             
+                             alt="313983" title="313983 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-331049" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000331049.jpg" 
+                             
+                             alt="331049" title="331049 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-350051" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000350051.jpg" 
+                             
+                             alt="350051" title="350051 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-36397" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000036397.jpg" 
+                             
+                             alt="36397" title="36397 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-364586" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000364586.jpg" 
+                             
+                             alt="364586" title="364586 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-373849" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000373849.jpg" 
+                             
+                             alt="373849" title="373849 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-374266" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000374266.jpg" 
+                             
+                             alt="374266" title="374266 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-404854" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000404854.jpg" 
+                             
+                             alt="404854" title="404854 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-421109" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000421109.jpg" 
+                             
+                             alt="421109" title="421109 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-42124" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000042124.jpg" 
+                             
+                             alt="42124" title="42124 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-422608" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000422608.jpg" 
+                             
+                             alt="422608" title="422608 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-431855" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000431855.jpg" 
+                             
+                             alt="431855" title="431855 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-443934" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000443934.jpg" 
+                             
+                             alt="443934" title="443934 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-457097" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000457097.jpg" 
+                             
+                             alt="457097" title="457097 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-457305" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000457305.jpg" 
+                             
+                             alt="457305" title="457305 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-479611" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000479611.jpg" 
+                             
+                             alt="479611" title="479611 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-479929" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000479929.jpg" 
+                             
+                             alt="479929" title="479929 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-489266" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000489266.jpg" 
+                             
+                             alt="489266" title="489266 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-489906" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000489906.jpg" 
+                             
+                             alt="489906" title="489906 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-494182" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000494182.jpg" 
+                             
+                             alt="494182" title="494182 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-500977" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000500977.jpg" 
+                             
+                             alt="500977" title="500977 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-512431" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000512431.jpg" 
+                             
+                             alt="512431" title="512431 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-51250" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000051250.jpg" 
+                             
+                             alt="51250" title="51250 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-512918" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000512918.jpg" 
+                             
+                             alt="512918" title="512918 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-513918" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000513918.jpg" 
+                             
+                             alt="513918" title="513918 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-516827" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000516827.jpg" 
+                             
+                             alt="516827" title="516827 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-52020" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000052020.jpg" 
+                             
+                             alt="52020" title="52020 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-523681" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000523681.jpg" 
+                             
+                             alt="523681" title="523681 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-539984" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000539984.jpg" 
+                             
+                             alt="539984" title="539984 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-551597" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000551597.jpg" 
+                             
+                             alt="551597" title="551597 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-560853" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000560853.jpg" 
+                             
+                             alt="560853" title="560853 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-567055" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000567055.jpg" 
+                             
+                             alt="567055" title="567055 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-581929" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000581929.jpg" 
+                             
+                             alt="581929" title="581929 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-62337" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000062337.jpg" 
+                             
+                             alt="62337" title="62337 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-6347" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000006347.jpg" 
+                             
+                             alt="6347" title="6347 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-85086" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000085086.jpg" 
+                             
+                             alt="85086" title="85086 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-86094" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000086094.jpg" 
+                             
+                             alt="86094" title="86094 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-86442" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000086442.jpg" 
+                             
+                             alt="86442" title="86442 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-92711" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000092711.jpg" 
+                             
+                             alt="92711" title="92711 - portrait of horse grazing in a fenced area"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+</div>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="content has-text-centered">
+          <!-- <a class="icon-link" href="" class="external-link" disabled>
+            <i class="fab fa-github"></i>
+          </a> -->
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                Dataset and images provided by <a href="http://cocodataset.org">COCO Dataset</a> (Common Objects in Context), licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+</footer>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,1819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #pinco {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .images-for-query-by-clusters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+        .images-for-cluster-column-container {
+            background-color: #ffffff;
+            width: 380px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cluster-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .cluster-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px;
+        }
+        .coco-img-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .images-for-cluster-column-container:nth-child(5n) {
+            border-top: 5px solid #07730d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+1) {
+            border-top: 5px solid #2a51bb;
+        }
+        .images-for-cluster-column-container:nth-child(5n+2) {
+            border-top: 5px solid #b4c51d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+3) {
+            border-top: 5px solid #c51d1d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+4) {
+            border-top: 5px solid #1dc5c5;
+        }
+
+        .container {
+            width: 80%;
+            /* max-width: 800px; */
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .container-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .query-highlight {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            background-color: #e0f7f4;
+            padding: 0.2em 0.4em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="pinco">
+
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="../index.html">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Title Section -->
+ <div class="container-container">
+    <div class="container">
+        <h1>CroQS Dataset</h1>
+        <h3>Semantic Clusters for the Initial Query: <span class="query-highlight">a cat proud</span></h3>
+    </div>
+</div>
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="0">
+            <div class="cluster-title">a cat proud looking the window</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-110090" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000110090.jpg" 
+                             
+                             alt="110090" title="110090 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-127809" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000127809.jpg" 
+                             
+                             alt="127809" title="127809 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-140812" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000140812.jpg" 
+                             
+                             alt="140812" title="140812 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-146981" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000146981.jpg" 
+                             
+                             alt="146981" title="146981 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-168847" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000168847.jpg" 
+                             
+                             alt="168847" title="168847 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-206412" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000206412.jpg" 
+                             
+                             alt="206412" title="206412 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-243574" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000243574.jpg" 
+                             
+                             alt="243574" title="243574 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-259146" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000259146.jpg" 
+                             
+                             alt="259146" title="259146 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-259879" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000259879.jpg" 
+                             
+                             alt="259879" title="259879 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-260967" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000260967.jpg" 
+                             
+                             alt="260967" title="260967 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-26803" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000026803.jpg" 
+                             
+                             alt="26803" title="26803 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-283904" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000283904.jpg" 
+                             
+                             alt="283904" title="283904 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-292047" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000292047.jpg" 
+                             
+                             alt="292047" title="292047 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-317509" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000317509.jpg" 
+                             
+                             alt="317509" title="317509 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-346865" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000346865.jpg" 
+                             
+                             alt="346865" title="346865 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-359638" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000359638.jpg" 
+                             
+                             alt="359638" title="359638 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-36973" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000036973.jpg" 
+                             
+                             alt="36973" title="36973 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-384204" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000384204.jpg" 
+                             
+                             alt="384204" title="384204 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-393995" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000393995.jpg" 
+                             
+                             alt="393995" title="393995 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-39531" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000039531.jpg" 
+                             
+                             alt="39531" title="39531 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-397045" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000397045.jpg" 
+                             
+                             alt="397045" title="397045 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-408607" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000408607.jpg" 
+                             
+                             alt="408607" title="408607 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-442422" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000442422.jpg" 
+                             
+                             alt="442422" title="442422 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-473634" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000473634.jpg" 
+                             
+                             alt="473634" title="473634 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-476481" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000476481.jpg" 
+                             
+                             alt="476481" title="476481 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-477791" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000477791.jpg" 
+                             
+                             alt="477791" title="477791 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-483928" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000483928.jpg" 
+                             
+                             alt="483928" title="483928 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-508952" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000508952.jpg" 
+                             
+                             alt="508952" title="508952 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-510006" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000510006.jpg" 
+                             
+                             alt="510006" title="510006 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-517696" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000517696.jpg" 
+                             
+                             alt="517696" title="517696 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-522909" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000522909.jpg" 
+                             
+                             alt="522909" title="522909 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-547514" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000547514.jpg" 
+                             
+                             alt="547514" title="547514 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-555811" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000555811.jpg" 
+                             
+                             alt="555811" title="555811 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-56857" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000056857.jpg" 
+                             
+                             alt="56857" title="56857 - a cat proud looking the window"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-7665" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000007665.jpg" 
+                             
+                             alt="7665" title="7665 - a cat proud looking the window"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="1">
+            <div class="cluster-title">a cat watching itself in a mirror</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-122213" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000122213.jpg" 
+                             
+                             alt="122213" title="122213 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-130921" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000130921.jpg" 
+                             
+                             alt="130921" title="130921 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-14857" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000014857.jpg" 
+                             
+                             alt="14857" title="14857 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-15267" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000015267.jpg" 
+                             
+                             alt="15267" title="15267 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-173297" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000173297.jpg" 
+                             
+                             alt="173297" title="173297 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-185384" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000185384.jpg" 
+                             
+                             alt="185384" title="185384 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-189966" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000189966.jpg" 
+                             
+                             alt="189966" title="189966 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-1926" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000001926.jpg" 
+                             
+                             alt="1926" title="1926 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-225713" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000225713.jpg" 
+                             
+                             alt="225713" title="225713 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-251646" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000251646.jpg" 
+                             
+                             alt="251646" title="251646 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-264885" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000264885.jpg" 
+                             
+                             alt="264885" title="264885 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-276479" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000276479.jpg" 
+                             
+                             alt="276479" title="276479 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-30356" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000030356.jpg" 
+                             
+                             alt="30356" title="30356 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-318571" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000318571.jpg" 
+                             
+                             alt="318571" title="318571 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-350727" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000350727.jpg" 
+                             
+                             alt="350727" title="350727 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-379360" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000379360.jpg" 
+                             
+                             alt="379360" title="379360 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-404172" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000404172.jpg" 
+                             
+                             alt="404172" title="404172 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-410704" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000410704.jpg" 
+                             
+                             alt="410704" title="410704 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-429476" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000429476.jpg" 
+                             
+                             alt="429476" title="429476 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-433420" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000433420.jpg" 
+                             
+                             alt="433420" title="433420 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-434036" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000434036.jpg" 
+                             
+                             alt="434036" title="434036 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-439531" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000439531.jpg" 
+                             
+                             alt="439531" title="439531 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-447744" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000447744.jpg" 
+                             
+                             alt="447744" title="447744 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-447885" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000447885.jpg" 
+                             
+                             alt="447885" title="447885 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-463611" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000463611.jpg" 
+                             
+                             alt="463611" title="463611 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-467675" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000467675.jpg" 
+                             
+                             alt="467675" title="467675 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-486018" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000486018.jpg" 
+                             
+                             alt="486018" title="486018 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-490639" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000490639.jpg" 
+                             
+                             alt="490639" title="490639 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-519337" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000519337.jpg" 
+                             
+                             alt="519337" title="519337 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-523174" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000523174.jpg" 
+                             
+                             alt="523174" title="523174 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-549231" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000549231.jpg" 
+                             
+                             alt="549231" title="549231 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-55630" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000055630.jpg" 
+                             
+                             alt="55630" title="55630 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-563805" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000563805.jpg" 
+                             
+                             alt="563805" title="563805 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-77292" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000077292.jpg" 
+                             
+                             alt="77292" title="77292 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-87377" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000087377.jpg" 
+                             
+                             alt="87377" title="87377 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-95805" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000095805.jpg" 
+                             
+                             alt="95805" title="95805 - a cat watching itself in a mirror"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-97380" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000097380.jpg" 
+                             
+                             alt="97380" title="97380 - a cat watching itself in a mirror"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="2">
+            <div class="cluster-title">a cat with a television</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-10694" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000010694.jpg" 
+                             
+                             alt="10694" title="10694 - a cat with a television"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-14285" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000014285.jpg" 
+                             
+                             alt="14285" title="14285 - a cat with a television"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-143824" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000143824.jpg" 
+                             
+                             alt="143824" title="143824 - a cat with a television"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-150746" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000150746.jpg" 
+                             
+                             alt="150746" title="150746 - a cat with a television"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-171062" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000171062.jpg" 
+                             
+                             alt="171062" title="171062 - a cat with a television"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-180373" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000180373.jpg" 
+                             
+                             alt="180373" title="180373 - a cat with a television"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-186112" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000186112.jpg" 
+                             
+                             alt="186112" title="186112 - a cat with a television"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-188058" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000188058.jpg" 
+                             
+                             alt="188058" title="188058 - a cat with a television"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-254139" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000254139.jpg" 
+                             
+                             alt="254139" title="254139 - a cat with a television"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-313665" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000313665.jpg" 
+                             
+                             alt="313665" title="313665 - a cat with a television"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-318594" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000318594.jpg" 
+                             
+                             alt="318594" title="318594 - a cat with a television"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-325064" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000325064.jpg" 
+                             
+                             alt="325064" title="325064 - a cat with a television"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-349573" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000349573.jpg" 
+                             
+                             alt="349573" title="349573 - a cat with a television"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-36962" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000036962.jpg" 
+                             
+                             alt="36962" title="36962 - a cat with a television"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-378428" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000378428.jpg" 
+                             
+                             alt="378428" title="378428 - a cat with a television"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-37907" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000037907.jpg" 
+                             
+                             alt="37907" title="37907 - a cat with a television"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-395555" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000395555.jpg" 
+                             
+                             alt="395555" title="395555 - a cat with a television"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-423717" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000423717.jpg" 
+                             
+                             alt="423717" title="423717 - a cat with a television"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-45771" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000045771.jpg" 
+                             
+                             alt="45771" title="45771 - a cat with a television"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-465295" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000465295.jpg" 
+                             
+                             alt="465295" title="465295 - a cat with a television"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-471631" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000471631.jpg" 
+                             
+                             alt="471631" title="471631 - a cat with a television"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-512322" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000512322.jpg" 
+                             
+                             alt="512322" title="512322 - a cat with a television"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-536175" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000536175.jpg" 
+                             
+                             alt="536175" title="536175 - a cat with a television"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-76619" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000076619.jpg" 
+                             
+                             alt="76619" title="76619 - a cat with a television"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-80519" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000080519.jpg" 
+                             
+                             alt="80519" title="80519 - a cat with a television"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="3">
+            <div class="cluster-title">a proud cat in urban environment</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-100347" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000100347.jpg" 
+                             
+                             alt="100347" title="100347 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-122458" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000122458.jpg" 
+                             
+                             alt="122458" title="122458 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-124462" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000124462.jpg" 
+                             
+                             alt="124462" title="124462 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-1323" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000001323.jpg" 
+                             
+                             alt="1323" title="1323 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-134801" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000134801.jpg" 
+                             
+                             alt="134801" title="134801 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-136123" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000136123.jpg" 
+                             
+                             alt="136123" title="136123 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-148644" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000148644.jpg" 
+                             
+                             alt="148644" title="148644 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-168803" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000168803.jpg" 
+                             
+                             alt="168803" title="168803 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-176089" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000176089.jpg" 
+                             
+                             alt="176089" title="176089 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-17717" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000017717.jpg" 
+                             
+                             alt="17717" title="17717 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-188156" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000188156.jpg" 
+                             
+                             alt="188156" title="188156 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-190326" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000190326.jpg" 
+                             
+                             alt="190326" title="190326 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-207557" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000207557.jpg" 
+                             
+                             alt="207557" title="207557 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-21571" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000021571.jpg" 
+                             
+                             alt="21571" title="21571 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-228185" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000228185.jpg" 
+                             
+                             alt="228185" title="228185 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-228764" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000228764.jpg" 
+                             
+                             alt="228764" title="228764 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-246639" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000246639.jpg" 
+                             
+                             alt="246639" title="246639 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-25401" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000025401.jpg" 
+                             
+                             alt="25401" title="25401 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-267605" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000267605.jpg" 
+                             
+                             alt="267605" title="267605 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-271680" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000271680.jpg" 
+                             
+                             alt="271680" title="271680 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-275219" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000275219.jpg" 
+                             
+                             alt="275219" title="275219 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-291412" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000291412.jpg" 
+                             
+                             alt="291412" title="291412 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-307" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000000307.jpg" 
+                             
+                             alt="307" title="307 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-326698" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000326698.jpg" 
+                             
+                             alt="326698" title="326698 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-333443" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000333443.jpg" 
+                             
+                             alt="333443" title="333443 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-341270" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000341270.jpg" 
+                             
+                             alt="341270" title="341270 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-341659" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000341659.jpg" 
+                             
+                             alt="341659" title="341659 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-351203" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000351203.jpg" 
+                             
+                             alt="351203" title="351203 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-360510" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000360510.jpg" 
+                             
+                             alt="360510" title="360510 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-36124" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000036124.jpg" 
+                             
+                             alt="36124" title="36124 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-36559" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000036559.jpg" 
+                             
+                             alt="36559" title="36559 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-386291" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000386291.jpg" 
+                             
+                             alt="386291" title="386291 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-389969" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000389969.jpg" 
+                             
+                             alt="389969" title="389969 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-395290" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000395290.jpg" 
+                             
+                             alt="395290" title="395290 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-399102" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000399102.jpg" 
+                             
+                             alt="399102" title="399102 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-40359" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000040359.jpg" 
+                             
+                             alt="40359" title="40359 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-413650" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000413650.jpg" 
+                             
+                             alt="413650" title="413650 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-418168" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000418168.jpg" 
+                             
+                             alt="418168" title="418168 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-4282" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000004282.jpg" 
+                             
+                             alt="4282" title="4282 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-45941" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000045941.jpg" 
+                             
+                             alt="45941" title="45941 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-474208" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000474208.jpg" 
+                             
+                             alt="474208" title="474208 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-482561" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000482561.jpg" 
+                             
+                             alt="482561" title="482561 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-496959" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000496959.jpg" 
+                             
+                             alt="496959" title="496959 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-49758" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000049758.jpg" 
+                             
+                             alt="49758" title="49758 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-499028" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000499028.jpg" 
+                             
+                             alt="499028" title="499028 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-509018" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000509018.jpg" 
+                             
+                             alt="509018" title="509018 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-513743" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000513743.jpg" 
+                             
+                             alt="513743" title="513743 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-513971" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000513971.jpg" 
+                             
+                             alt="513971" title="513971 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-514668" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000514668.jpg" 
+                             
+                             alt="514668" title="514668 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-529968" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000529968.jpg" 
+                             
+                             alt="529968" title="529968 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-536738" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000536738.jpg" 
+                             
+                             alt="536738" title="536738 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-547413" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000547413.jpg" 
+                             
+                             alt="547413" title="547413 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-554564" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000554564.jpg" 
+                             
+                             alt="554564" title="554564 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-554731" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000554731.jpg" 
+                             
+                             alt="554731" title="554731 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-560923" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000560923.jpg" 
+                             
+                             alt="560923" title="560923 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-569249" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000569249.jpg" 
+                             
+                             alt="569249" title="569249 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-578072" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000578072.jpg" 
+                             
+                             alt="578072" title="578072 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-579016" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000579016.jpg" 
+                             
+                             alt="579016" title="579016 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-67106" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000067106.jpg" 
+                             
+                             alt="67106" title="67106 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-74268" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000074268.jpg" 
+                             
+                             alt="74268" title="74268 - a proud cat in urban environment"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-80208" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000080208.jpg" 
+                             
+                             alt="80208" title="80208 - a proud cat in urban environment"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="4">
+            <div class="cluster-title">a cat proud in a room</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-109106" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000109106.jpg" 
+                             
+                             alt="109106" title="109106 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-113810" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000113810.jpg" 
+                             
+                             alt="113810" title="113810 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-135158" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000135158.jpg" 
+                             
+                             alt="135158" title="135158 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-182995" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000182995.jpg" 
+                             
+                             alt="182995" title="182995 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-19308" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000019308.jpg" 
+                             
+                             alt="19308" title="19308 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-203022" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000203022.jpg" 
+                             
+                             alt="203022" title="203022 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-206656" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000206656.jpg" 
+                             
+                             alt="206656" title="206656 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-217521" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000217521.jpg" 
+                             
+                             alt="217521" title="217521 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-222195" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000222195.jpg" 
+                             
+                             alt="222195" title="222195 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-233786" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000233786.jpg" 
+                             
+                             alt="233786" title="233786 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-243734" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000243734.jpg" 
+                             
+                             alt="243734" title="243734 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-258499" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000258499.jpg" 
+                             
+                             alt="258499" title="258499 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-271112" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000271112.jpg" 
+                             
+                             alt="271112" title="271112 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-30068" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000030068.jpg" 
+                             
+                             alt="30068" title="30068 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-315073" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000315073.jpg" 
+                             
+                             alt="315073" title="315073 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-315156" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000315156.jpg" 
+                             
+                             alt="315156" title="315156 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-359037" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000359037.jpg" 
+                             
+                             alt="359037" title="359037 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-359283" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000359283.jpg" 
+                             
+                             alt="359283" title="359283 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-382710" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000382710.jpg" 
+                             
+                             alt="382710" title="382710 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-389788" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000389788.jpg" 
+                             
+                             alt="389788" title="389788 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-39716" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000039716.jpg" 
+                             
+                             alt="39716" title="39716 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-408362" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000408362.jpg" 
+                             
+                             alt="408362" title="408362 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-435792" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000435792.jpg" 
+                             
+                             alt="435792" title="435792 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-439085" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000439085.jpg" 
+                             
+                             alt="439085" title="439085 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-44022" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000044022.jpg" 
+                             
+                             alt="44022" title="44022 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-446626" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000446626.jpg" 
+                             
+                             alt="446626" title="446626 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-451744" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000451744.jpg" 
+                             
+                             alt="451744" title="451744 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-469902" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000469902.jpg" 
+                             
+                             alt="469902" title="469902 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-481028" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000481028.jpg" 
+                             
+                             alt="481028" title="481028 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-489257" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000489257.jpg" 
+                             
+                             alt="489257" title="489257 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-495996" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000495996.jpg" 
+                             
+                             alt="495996" title="495996 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-509115" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000509115.jpg" 
+                             
+                             alt="509115" title="509115 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-527979" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000527979.jpg" 
+                             
+                             alt="527979" title="527979 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-537444" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000537444.jpg" 
+                             
+                             alt="537444" title="537444 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-546378" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000546378.jpg" 
+                             
+                             alt="546378" title="546378 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-546944" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000546944.jpg" 
+                             
+                             alt="546944" title="546944 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-558467" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000558467.jpg" 
+                             
+                             alt="558467" title="558467 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-570423" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000570423.jpg" 
+                             
+                             alt="570423" title="570423 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-572754" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000572754.jpg" 
+                             
+                             alt="572754" title="572754 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-73260" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000073260.jpg" 
+                             
+                             alt="73260" title="73260 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-81639" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000081639.jpg" 
+                             
+                             alt="81639" title="81639 - a cat proud in a room"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-96517" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000096517.jpg" 
+                             
+                             alt="96517" title="96517 - a cat proud in a room"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+</div>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="content has-text-centered">
+          <!-- <a class="icon-link" href="" class="external-link" disabled>
+            <i class="fab fa-github"></i>
+          </a> -->
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                Dataset and images provided by <a href="http://cocodataset.org">COCO Dataset</a> (Common Objects in Context), licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+</footer>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>

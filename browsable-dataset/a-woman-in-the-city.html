@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #pinco {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .images-for-query-by-clusters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem;
+            /* max-width: 1200px; */
+            margin: auto;
+        }
+        .images-for-cluster-column-container {
+            background-color: #ffffff;
+            width: 380px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cluster-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .cluster-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px;
+        }
+        .coco-img-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .images-for-cluster-column-container:nth-child(5n) {
+            border-top: 5px solid #07730d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+1) {
+            border-top: 5px solid #2a51bb;
+        }
+        .images-for-cluster-column-container:nth-child(5n+2) {
+            border-top: 5px solid #b4c51d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+3) {
+            border-top: 5px solid #c51d1d;
+        }
+        .images-for-cluster-column-container:nth-child(5n+4) {
+            border-top: 5px solid #1dc5c5;
+        }
+
+        .container {
+            width: 80%;
+            /* max-width: 800px; */
+            margin-top: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .container-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .query-highlight {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            background-color: #e0f7f4;
+            padding: 0.2em 0.4em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="pinco">
+
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="../index.html">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                Home
+            </a>
+            <div class="navbar-item is-hoverable">
+                <a href="./index.html" class="navbar-link is-arrowless">Explore CroQS Dataset</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Title Section -->
+ <div class="container-container">
+    <div class="container">
+        <h1>CroQS Dataset</h1>
+        <h3>Semantic Clusters for the Initial Query: <span class="query-highlight">a woman in the city</span></h3>
+    </div>
+</div>
+<div class="images-for-query-by-clusters-container" id="images-by-cluster-container">
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="0">
+            <div class="cluster-title">a woman in the city at mobile phone</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-101319" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000101319.jpg" 
+                             
+                             alt="101319" title="101319 - a woman in the city at mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-117321" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000117321.jpg" 
+                             
+                             alt="117321" title="117321 - a woman in the city at mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-172501" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000172501.jpg" 
+                             
+                             alt="172501" title="172501 - a woman in the city at mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-192806" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000192806.jpg" 
+                             
+                             alt="192806" title="192806 - a woman in the city at mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-217327" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000217327.jpg" 
+                             
+                             alt="217327" title="217327 - a woman in the city at mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-225848" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000225848.jpg" 
+                             
+                             alt="225848" title="225848 - a woman in the city at mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-230133" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000230133.jpg" 
+                             
+                             alt="230133" title="230133 - a woman in the city at mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-259085" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000259085.jpg" 
+                             
+                             alt="259085" title="259085 - a woman in the city at mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-261829" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000261829.jpg" 
+                             
+                             alt="261829" title="261829 - a woman in the city at mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-265173" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000265173.jpg" 
+                             
+                             alt="265173" title="265173 - a woman in the city at mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-294426" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000294426.jpg" 
+                             
+                             alt="294426" title="294426 - a woman in the city at mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-317805" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000317805.jpg" 
+                             
+                             alt="317805" title="317805 - a woman in the city at mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-338317" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000338317.jpg" 
+                             
+                             alt="338317" title="338317 - a woman in the city at mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-341413" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000341413.jpg" 
+                             
+                             alt="341413" title="341413 - a woman in the city at mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-369446" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000369446.jpg" 
+                             
+                             alt="369446" title="369446 - a woman in the city at mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-370426" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000370426.jpg" 
+                             
+                             alt="370426" title="370426 - a woman in the city at mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-371114" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000371114.jpg" 
+                             
+                             alt="371114" title="371114 - a woman in the city at mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-403515" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000403515.jpg" 
+                             
+                             alt="403515" title="403515 - a woman in the city at mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-419193" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000419193.jpg" 
+                             
+                             alt="419193" title="419193 - a woman in the city at mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-474034" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000474034.jpg" 
+                             
+                             alt="474034" title="474034 - a woman in the city at mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-481325" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000481325.jpg" 
+                             
+                             alt="481325" title="481325 - a woman in the city at mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-489385" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000489385.jpg" 
+                             
+                             alt="489385" title="489385 - a woman in the city at mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-5336" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000005336.jpg" 
+                             
+                             alt="5336" title="5336 - a woman in the city at mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-552092" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000552092.jpg" 
+                             
+                             alt="552092" title="552092 - a woman in the city at mobile phone"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="1">
+            <div class="cluster-title">a woman in the city talking at phone</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-129462" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000129462.jpg" 
+                             
+                             alt="129462" title="129462 - a woman in the city talking at phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-141334" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000141334.jpg" 
+                             
+                             alt="141334" title="141334 - a woman in the city talking at phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-155160" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000155160.jpg" 
+                             
+                             alt="155160" title="155160 - a woman in the city talking at phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-159828" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000159828.jpg" 
+                             
+                             alt="159828" title="159828 - a woman in the city talking at phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-177950" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000177950.jpg" 
+                             
+                             alt="177950" title="177950 - a woman in the city talking at phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-204279" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000204279.jpg" 
+                             
+                             alt="204279" title="204279 - a woman in the city talking at phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-206235" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000206235.jpg" 
+                             
+                             alt="206235" title="206235 - a woman in the city talking at phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-209654" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000209654.jpg" 
+                             
+                             alt="209654" title="209654 - a woman in the city talking at phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-251496" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000251496.jpg" 
+                             
+                             alt="251496" title="251496 - a woman in the city talking at phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-268251" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000268251.jpg" 
+                             
+                             alt="268251" title="268251 - a woman in the city talking at phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-27371" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000027371.jpg" 
+                             
+                             alt="27371" title="27371 - a woman in the city talking at phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-278096" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000278096.jpg" 
+                             
+                             alt="278096" title="278096 - a woman in the city talking at phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-292519" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000292519.jpg" 
+                             
+                             alt="292519" title="292519 - a woman in the city talking at phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-334609" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000334609.jpg" 
+                             
+                             alt="334609" title="334609 - a woman in the city talking at phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-38411" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000038411.jpg" 
+                             
+                             alt="38411" title="38411 - a woman in the city talking at phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-389107" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000389107.jpg" 
+                             
+                             alt="389107" title="389107 - a woman in the city talking at phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-3988" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000003988.jpg" 
+                             
+                             alt="3988" title="3988 - a woman in the city talking at phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-405991" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000405991.jpg" 
+                             
+                             alt="405991" title="405991 - a woman in the city talking at phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-407131" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000407131.jpg" 
+                             
+                             alt="407131" title="407131 - a woman in the city talking at phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-410339" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000410339.jpg" 
+                             
+                             alt="410339" title="410339 - a woman in the city talking at phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-444830" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000444830.jpg" 
+                             
+                             alt="444830" title="444830 - a woman in the city talking at phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-456155" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000456155.jpg" 
+                             
+                             alt="456155" title="456155 - a woman in the city talking at phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-457609" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000457609.jpg" 
+                             
+                             alt="457609" title="457609 - a woman in the city talking at phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-466615" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000466615.jpg" 
+                             
+                             alt="466615" title="466615 - a woman in the city talking at phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-472654" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000472654.jpg" 
+                             
+                             alt="472654" title="472654 - a woman in the city talking at phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-474387" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000474387.jpg" 
+                             
+                             alt="474387" title="474387 - a woman in the city talking at phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-489207" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000489207.jpg" 
+                             
+                             alt="489207" title="489207 - a woman in the city talking at phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-509526" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000509526.jpg" 
+                             
+                             alt="509526" title="509526 - a woman in the city talking at phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-533955" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000533955.jpg" 
+                             
+                             alt="533955" title="533955 - a woman in the city talking at phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-553800" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000553800.jpg" 
+                             
+                             alt="553800" title="553800 - a woman in the city talking at phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-579267" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000579267.jpg" 
+                             
+                             alt="579267" title="579267 - a woman in the city talking at phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-65982" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000065982.jpg" 
+                             
+                             alt="65982" title="65982 - a woman in the city talking at phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-83642" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000083642.jpg" 
+                             
+                             alt="83642" title="83642 - a woman in the city talking at phone"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="2">
+            <div class="cluster-title">a woman in the city with umbrella</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-102989" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000102989.jpg" 
+                             
+                             alt="102989" title="102989 - a woman in the city with umbrella"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-144022" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000144022.jpg" 
+                             
+                             alt="144022" title="144022 - a woman in the city with umbrella"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-163442" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000163442.jpg" 
+                             
+                             alt="163442" title="163442 - a woman in the city with umbrella"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-168738" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000168738.jpg" 
+                             
+                             alt="168738" title="168738 - a woman in the city with umbrella"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-178666" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000178666.jpg" 
+                             
+                             alt="178666" title="178666 - a woman in the city with umbrella"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-19240" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000019240.jpg" 
+                             
+                             alt="19240" title="19240 - a woman in the city with umbrella"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-208189" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000208189.jpg" 
+                             
+                             alt="208189" title="208189 - a woman in the city with umbrella"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-219525" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000219525.jpg" 
+                             
+                             alt="219525" title="219525 - a woman in the city with umbrella"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-236239" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000236239.jpg" 
+                             
+                             alt="236239" title="236239 - a woman in the city with umbrella"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-260381" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000260381.jpg" 
+                             
+                             alt="260381" title="260381 - a woman in the city with umbrella"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-306412" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000306412.jpg" 
+                             
+                             alt="306412" title="306412 - a woman in the city with umbrella"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-323155" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000323155.jpg" 
+                             
+                             alt="323155" title="323155 - a woman in the city with umbrella"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-351386" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000351386.jpg" 
+                             
+                             alt="351386" title="351386 - a woman in the city with umbrella"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-378775" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000378775.jpg" 
+                             
+                             alt="378775" title="378775 - a woman in the city with umbrella"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-388847" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000388847.jpg" 
+                             
+                             alt="388847" title="388847 - a woman in the city with umbrella"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-416978" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000416978.jpg" 
+                             
+                             alt="416978" title="416978 - a woman in the city with umbrella"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-461983" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000461983.jpg" 
+                             
+                             alt="461983" title="461983 - a woman in the city with umbrella"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-465074" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000465074.jpg" 
+                             
+                             alt="465074" title="465074 - a woman in the city with umbrella"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-482858" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000482858.jpg" 
+                             
+                             alt="482858" title="482858 - a woman in the city with umbrella"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-501875" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000501875.jpg" 
+                             
+                             alt="501875" title="501875 - a woman in the city with umbrella"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-502894" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000502894.jpg" 
+                             
+                             alt="502894" title="502894 - a woman in the city with umbrella"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-547348" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000547348.jpg" 
+                             
+                             alt="547348" title="547348 - a woman in the city with umbrella"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-573898" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000573898.jpg" 
+                             
+                             alt="573898" title="573898 - a woman in the city with umbrella"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-577464" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000577464.jpg" 
+                             
+                             alt="577464" title="577464 - a woman in the city with umbrella"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="3">
+            <div class="cluster-title">a woman in the city walking and using mobile phone</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-105633" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000105633.jpg" 
+                             
+                             alt="105633" title="105633 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-110392" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000110392.jpg" 
+                             
+                             alt="110392" title="110392 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-175669" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000175669.jpg" 
+                             
+                             alt="175669" title="175669 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-184805" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000184805.jpg" 
+                             
+                             alt="184805" title="184805 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-196773" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000196773.jpg" 
+                             
+                             alt="196773" title="196773 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-219558" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000219558.jpg" 
+                             
+                             alt="219558" title="219558 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-256431" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000256431.jpg" 
+                             
+                             alt="256431" title="256431 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-270407" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000270407.jpg" 
+                             
+                             alt="270407" title="270407 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-272459" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000272459.jpg" 
+                             
+                             alt="272459" title="272459 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-282042" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000282042.jpg" 
+                             
+                             alt="282042" title="282042 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-290767" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000290767.jpg" 
+                             
+                             alt="290767" title="290767 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-310751" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000310751.jpg" 
+                             
+                             alt="310751" title="310751 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-330295" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000330295.jpg" 
+                             
+                             alt="330295" title="330295 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-345172" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000345172.jpg" 
+                             
+                             alt="345172" title="345172 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-357291" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000357291.jpg" 
+                             
+                             alt="357291" title="357291 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-377509" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000377509.jpg" 
+                             
+                             alt="377509" title="377509 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-381828" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000381828.jpg" 
+                             
+                             alt="381828" title="381828 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-391876" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000391876.jpg" 
+                             
+                             alt="391876" title="391876 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-403677" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000403677.jpg" 
+                             
+                             alt="403677" title="403677 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-406116" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000406116.jpg" 
+                             
+                             alt="406116" title="406116 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-431023" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000431023.jpg" 
+                             
+                             alt="431023" title="431023 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-432754" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000432754.jpg" 
+                             
+                             alt="432754" title="432754 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-437363" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000437363.jpg" 
+                             
+                             alt="437363" title="437363 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-441412" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000441412.jpg" 
+                             
+                             alt="441412" title="441412 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-45138" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000045138.jpg" 
+                             
+                             alt="45138" title="45138 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-460980" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000460980.jpg" 
+                             
+                             alt="460980" title="460980 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-466247" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000466247.jpg" 
+                             
+                             alt="466247" title="466247 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-468751" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000468751.jpg" 
+                             
+                             alt="468751" title="468751 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-478448" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000478448.jpg" 
+                             
+                             alt="478448" title="478448 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-48617" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000048617.jpg" 
+                             
+                             alt="48617" title="48617 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-498943" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000498943.jpg" 
+                             
+                             alt="498943" title="498943 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-52192" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000052192.jpg" 
+                             
+                             alt="52192" title="52192 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-55294" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000055294.jpg" 
+                             
+                             alt="55294" title="55294 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-565500" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000565500.jpg" 
+                             
+                             alt="565500" title="565500 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-60387" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000060387.jpg" 
+                             
+                             alt="60387" title="60387 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-64088" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000064088.jpg" 
+                             
+                             alt="64088" title="64088 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-96762" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000096762.jpg" 
+                             
+                             alt="96762" title="96762 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-96881" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000096881.jpg" 
+                             
+                             alt="96881" title="96881 - a woman in the city walking and using mobile phone"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+        
+        
+        <div class="images-for-cluster-column-container" currentCluster="4">
+            <div class="cluster-title">a woman in the city black and white</div>
+            
+            <div class="cluster-images-grid">
+                
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-102420" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000102420.jpg" 
+                             
+                             alt="102420" title="102420 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-110509" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000110509.jpg" 
+                             
+                             alt="110509" title="110509 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-130718" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000130718.jpg" 
+                             
+                             alt="130718" title="130718 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-158787" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000158787.jpg" 
+                             
+                             alt="158787" title="158787 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-17776" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000017776.jpg" 
+                             
+                             alt="17776" title="17776 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-177976" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000177976.jpg" 
+                             
+                             alt="177976" title="177976 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-186196" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000186196.jpg" 
+                             
+                             alt="186196" title="186196 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-198176" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000198176.jpg" 
+                             
+                             alt="198176" title="198176 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-205676" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000205676.jpg" 
+                             
+                             alt="205676" title="205676 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-211141" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000211141.jpg" 
+                             
+                             alt="211141" title="211141 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-224263" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000224263.jpg" 
+                             
+                             alt="224263" title="224263 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-230996" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000230996.jpg" 
+                             
+                             alt="230996" title="230996 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-244424" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000244424.jpg" 
+                             
+                             alt="244424" title="244424 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-284676" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000284676.jpg" 
+                             
+                             alt="284676" title="284676 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-289814" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000289814.jpg" 
+                             
+                             alt="289814" title="289814 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-29241" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000029241.jpg" 
+                             
+                             alt="29241" title="29241 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-311620" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000311620.jpg" 
+                             
+                             alt="311620" title="311620 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-31258" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000031258.jpg" 
+                             
+                             alt="31258" title="31258 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-320858" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000320858.jpg" 
+                             
+                             alt="320858" title="320858 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-327110" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000327110.jpg" 
+                             
+                             alt="327110" title="327110 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-328110" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000328110.jpg" 
+                             
+                             alt="328110" title="328110 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-336812" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000336812.jpg" 
+                             
+                             alt="336812" title="336812 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-344996" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000344996.jpg" 
+                             
+                             alt="344996" title="344996 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-348302" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000348302.jpg" 
+                             
+                             alt="348302" title="348302 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-349403" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000349403.jpg" 
+                             
+                             alt="349403" title="349403 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-35313" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000035313.jpg" 
+                             
+                             alt="35313" title="35313 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-365187" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000365187.jpg" 
+                             
+                             alt="365187" title="365187 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-374361" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000374361.jpg" 
+                             
+                             alt="374361" title="374361 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-374666" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000374666.jpg" 
+                             
+                             alt="374666" title="374666 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-384461" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000384461.jpg" 
+                             
+                             alt="384461" title="384461 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-393207" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000393207.jpg" 
+                             
+                             alt="393207" title="393207 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-394529" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000394529.jpg" 
+                             
+                             alt="394529" title="394529 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-395899" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000395899.jpg" 
+                             
+                             alt="395899" title="395899 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-397658" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000397658.jpg" 
+                             
+                             alt="397658" title="397658 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-423739" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000423739.jpg" 
+                             
+                             alt="423739" title="423739 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-427401" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000427401.jpg" 
+                             
+                             alt="427401" title="427401 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-434319" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000434319.jpg" 
+                             
+                             alt="434319" title="434319 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-438698" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000438698.jpg" 
+                             
+                             alt="438698" title="438698 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-463699" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000463699.jpg" 
+                             
+                             alt="463699" title="463699 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-499268" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000499268.jpg" 
+                             
+                             alt="499268" title="499268 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-532998" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000532998.jpg" 
+                             
+                             alt="532998" title="532998 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-541924" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000541924.jpg" 
+                             
+                             alt="541924" title="541924 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-556636" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000556636.jpg" 
+                             
+                             alt="556636" title="556636 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-558405" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000558405.jpg" 
+                             
+                             alt="558405" title="558405 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-577240" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000577240.jpg" 
+                             
+                             alt="577240" title="577240 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-59679" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000059679.jpg" 
+                             
+                             alt="59679" title="59679 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-65712" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000065712.jpg" 
+                             
+                             alt="65712" title="65712 - a woman in the city black and white"/>
+                    </div>
+                
+                    <div class="image-for-query-div">
+                        <img class="coco-img-preview image-96946" 
+                            
+                             src="http://images.cocodataset.org/train2017/000000096946.jpg" 
+                             
+                             alt="96946" title="96946 - a woman in the city black and white"/>
+                    </div>
+                
+            </div>
+        </div>
+    
+</div>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="content has-text-centered">
+          <!-- <a class="icon-link" href="" class="external-link" disabled>
+            <i class="fab fa-github"></i>
+          </a> -->
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                Dataset and images provided by <a href="http://cocodataset.org">COCO Dataset</a> (Common Objects in Context), licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+</footer>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the elements for the navbar burger and menu
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        // Add a click event to the burger icon
+        burger.addEventListener('click', () => {
+            // Toggle the `is-active` class on both the `navbar-burger` and the `navbar-menu`
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    });
+</script>
+</html>

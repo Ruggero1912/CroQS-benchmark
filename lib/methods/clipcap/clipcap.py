@@ -40,7 +40,7 @@ if os.getenv("CLIPCAP_ENABLED").lower() not in ["0", "", "no", "false"]:
 
     is_gpu = True
 
-    device = CUDA(1) if is_gpu else "cpu"
+    device = CUDA(0) if is_gpu else "cpu"
     clip_model, preprocess = clip.load("ViT-B/32", device=device, jit=False)
     gpt2_tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
 
@@ -61,7 +61,7 @@ if os.getenv("CLIPCAP_ENABLED").lower() not in ["0", "", "no", "false"]:
     #clipcap_model.load_state_dict(torch.load(model_path, map_location=CPU), strict=False) #, strict=False
 
     clipcap_model = clipcap_model.eval() 
-    device = CUDA(1) if is_gpu else "cpu"
+    device = CUDA(0) if is_gpu else "cpu"
     clipcap_model = clipcap_model.to(device)
 
     def get_generated_captions(embeddings_on_device, use_beam_search=False):
