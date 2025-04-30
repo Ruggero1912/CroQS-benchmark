@@ -1,15 +1,22 @@
 # Maybe you are looking for CroQS 🐊
 ## Cross-modal Query Suggestion for Text-to-Image Retrieval
 
-<span style="font-size: xx-large;">[Project page](https://paciosoft.com/CroQS-benchmark/) | [<img src="https://img.shields.io/badge/arXiv-2412.13834-b51b1b.svg" style="width: 180; margin-top: 15px;">](https://arxiv.org/abs/2412.13834) | <img src="https://img.shields.io/badge/ECIR%202025-Full%20Paper-blue" style="width: 180; margin-top: 15px;">
+<span style="font-size: xx-large;">[Project page](https://paciosoft.com/CroQS-benchmark/) | [<img src="https://img.shields.io/badge/arXiv-2412.13834-b51b1b.svg" style="width: 180; margin-top: 15px;">](https://arxiv.org/abs/2412.13834) | <img src="https://img.shields.io/badge/ECIR%202025-Full%20Paper-blue" style="width: 180; margin-top: 15px;"> | [![dataset](https://zenodo.org/badge/DOI/10.5281/zenodo.15276489.svg)](https://doi.org/10.5281/zenodo.15276489)
+
 
 Official repository of the paper "Maybe you are looking for CroQS 🐊 Cross-modal Query Suggestion for Text-to-Image Retrieval".
+
+**Project page**: [https://paciosoft.com/CroQS-benchmark/](https://paciosoft.com/CroQS-benchmark/)
+
+<p align="center">
+  <img src="images/example.gif" alt="CroQS Demo"/>
+    <br>
+    <em style='max-width:300px;'>We introduce CroQS, a benchmark for evaluating cross-modal query suggestion systems that generate textual queries guided by visual content. This enables a more intuitive exploration of image collections.</em>
+</p>
 
 #### Updates
 
 - 🔥 12/2024: "Maybe you are looking for CroQS 🐊 Cross-modal Query Suggestion for Text-to-Image Retrieval" has been accepted to ECIR2025 as a full paper
-
-![cross-modal query suggestion architecture schema](./images/cross-modal-query-suggestion-architecture.webp)
 
 ### Abstract
 
@@ -24,6 +31,7 @@ Baseline methods from related fields, such as image captioning and content summa
 
 Although relatively far from human performance, our experiments reveal that both LLM-based and captioning-based methods achieve competitive results on CroQS, improving the recall on cluster specificity by more than 115% and representativeness mAP by more than 52% with respect to the initial query.
 
+![cross-modal query suggestion architecture schema](./images/cross-modal-query-suggestion-architecture.webp)
 ---
 
 ## Repo content
@@ -41,6 +49,12 @@ In this repository you can find:
 Open in a browser the [CroQS browsable dataset index file](./browsable-dataset/index.html) and explore the queries and clusters.
 
 ![CroQS Browsable Dataset HTML View](./images/croqs-browsable-dataset-example.png)
+
+## 📦 Dataset
+
+The CroQS dataset is available on Zenodo:
+
+👉 [https://doi.org/10.5281/zenodo.15276489](https://doi.org/10.5281/zenodo.15276489)
 
 ## Setup
 
@@ -82,3 +96,22 @@ This work has received financial support by:
 - the FoReLab and CrossLab projects (Departments of Excellence), the NEREO PRIN project (Research Grant no. 2022AEFHAZ) funded by the Italian Ministry of Education and Research (MUR).
 
 Dataset and images provided by [COCO Dataset]("http://cocodataset.org") (Common Objects in Context), licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
+## 📄 Citation
+
+If you use this dataset or code, please cite our paper:
+
+```bibtex
+@InProceedings{10.1007/978-3-031-88711-6_9,
+  author    = "Pacini, Giacomo and Carrara, Fabio and Messina, Nicola and Tonellotto, Nicola and Amato, Giuseppe and Falchi, Fabrizio",
+  editor    = "Hauff, Claudia and Macdonald, Craig and Jannach, Dietmar and Kazai, Gabriella and Nardini, Franco Maria and Pinelli, Fabio and Silvestri, Fabrizio and Tonellotto, Nicola",
+  title     = "Maybe You Are Looking for CroQS: Cross-Modal Query Suggestion for Text-to-Image Retrieval",
+  booktitle = "Advances in Information Retrieval",
+  year      = "2025",
+  publisher = "Springer Nature Switzerland",
+  address   = "Cham",
+  pages     = "138--152",
+  isbn      = "978-3-031-88711-6",
+  doi       = "10.1007/978-3-031-88711-6_9"
+}
+```
