@@ -1,0 +1,853 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Wild Clusters Qualitative Examples</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #fafafa;
+            }
+            h1 {
+                color: #2196F3;
+                border-bottom: 3px solid #2196F3;
+                padding-bottom: 10px;
+            }
+            .stats {
+                background: white;
+                padding: 20px;
+                border-radius: 8px;
+                margin: 20px 0;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .query-section {
+                border: 2px solid #2196F3;
+                border-radius: 8px;
+                padding: 20px;
+                margin: 20px 0;
+                background-color: white;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            }
+            .cluster {
+                background: #f9f9f9;
+                border-radius: 6px;
+                padding: 15px;
+                margin: 15px 0;
+            }
+            .image-grid {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 5px;
+                margin: 10px 0;
+            }
+            .image-grid img {
+                object-fit: cover;
+                height: 80px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+            }
+            .suggestion {
+                margin: 8px 0;
+                padding: 10px;
+                background-color: #fff;
+                border-left: 4px solid;
+                border-radius: 3px;
+            }
+            .captioner { border-color: #4CAF50; }
+            .llm { border-color: #FF9800; }
+            .lmm { border-color: #9C27B0; }
+            .method-name {
+                font-weight: bold;
+                margin-right: 5px;
+            }
+            .captioner .method-name { color: #4CAF50; }
+            .llm .method-name { color: #FF9800; }
+            .lmm .method-name { color: #9C27B0; }
+            .legend {
+                display: flex;
+                gap: 20px;
+                margin: 20px 0;
+                padding: 15px;
+                background: white;
+                border-radius: 8px;
+            }
+            .legend-item {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            .legend-color {
+                width: 20px;
+                height: 20px;
+                border-radius: 3px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Wild Clusters Qualitative Examples</h1>
+        
+        <div class="stats">
+            <h2>Dataset Statistics</h2>
+            <p><strong>Total queries:</strong> 50</p>
+            <p><strong>Total clusters:</strong> 139</p>
+            <p><strong>Average clusters per query:</strong> 2.8</p>
+            <p><strong>Cluster sizes:</strong> Min=5, Max=157, Mean=64.2</p>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #4CAF50;"></div>
+                <span>Captioner (Decap)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #FF9800;"></div>
+                <span>LLM (Ministral-8B)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #9C27B0;"></div>
+                <span>LMM (Qwen2.5-VL-7B)</span>
+            </div>
+        </div>
+        
+        
+        <div class="query-section">
+            <h3>Initial Query: "dog running"</h3>
+            <p style="color: #666;"><strong>Number of discovered clusters:</strong> 2</p>
+        
+            <div class="cluster">
+                <h4>Cluster 0 (93 images)</h4>
+                <div class="image-grid">
+            <img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000100583.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000102598.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000104421.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000110673.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000134597.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000145312.jpg" width="120">
+                </div>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                    <strong>Suggested Queries:</strong>
+            
+                    <div class="suggestion captioner">
+                        <span class="method-name">Decap (Latent Captioner):</span>
+                        <span>"a dog running to catch a frisbee in its mouth"</span>
+                    </div>
+                    
+                    <div class="suggestion llm">
+                        <span class="method-name">Ministral-8B (LLM):</span>
+                        <span>"dog running with frisbee"</span>
+                    </div>
+                    
+                    <div class="suggestion lmm">
+                        <span class="method-name">Qwen2.5-VL-7B (LMM):</span>
+                        <span>"dog catching frisbee"</span>
+                    </div>
+                    </div></div>
+            <div class="cluster">
+                <h4>Cluster 1 (34 images)</h4>
+                <div class="image-grid">
+            <img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000107716.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000118277.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000132420.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000014681.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000147890.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000167501.jpg" width="120">
+                </div>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                    <strong>Suggested Queries:</strong>
+            
+                    <div class="suggestion captioner">
+                        <span class="method-name">Decap (Latent Captioner):</span>
+                        <span>"a dog running in the water to catch a beach"</span>
+                    </div>
+                    
+                    <div class="suggestion llm">
+                        <span class="method-name">Ministral-8B (LLM):</span>
+                        <span>"dog running on the beach"</span>
+                    </div>
+                    
+                    <div class="suggestion lmm">
+                        <span class="method-name">Qwen2.5-VL-7B (LMM):</span>
+                        <span>"dogs running on beach"</span>
+                    </div>
+                    </div></div></div>
+        <div class="query-section">
+            <h3>Initial Query: "person reading"</h3>
+            <p style="color: #666;"><strong>Number of discovered clusters:</strong> 2</p>
+        
+            <div class="cluster">
+                <h4>Cluster 0 (36 images)</h4>
+                <div class="image-grid">
+            <img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000064772.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000126707.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000127834.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000148193.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000154478.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000162282.jpg" width="120">
+                </div>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                    <strong>Suggested Queries:</strong>
+            
+                    <div class="suggestion captioner">
+                        <span class="method-name">Decap (Latent Captioner):</span>
+                        <span>"a person reading a book while sitting on a bed"</span>
+                    </div>
+                    
+                    <div class="suggestion llm">
+                        <span class="method-name">Ministral-8B (LLM):</span>
+                        <span>"person reading in bed"</span>
+                    </div>
+                    
+                    <div class="suggestion lmm">
+                        <span class="method-name">Qwen2.5-VL-7B (LMM):</span>
+                        <span>"person reading book"</span>
+                    </div>
+                    </div></div>
+            <div class="cluster">
+                <h4>Cluster 1 (139 images)</h4>
+                <div class="image-grid">
+            <img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000100535.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000110509.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000124903.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000134079.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000147958.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000155644.jpg" width="120">
+                </div>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                    <strong>Suggested Queries:</strong>
+            
+                    <div class="suggestion captioner">
+                        <span class="method-name">Decap (Latent Captioner):</span>
+                        <span>"a person sitting on a bench reading a book"</span>
+                    </div>
+                    
+                    <div class="suggestion llm">
+                        <span class="method-name">Ministral-8B (LLM):</span>
+                        <span>"person reading a book on a bench"</span>
+                    </div>
+                    
+                    <div class="suggestion lmm">
+                        <span class="method-name">Qwen2.5-VL-7B (LMM):</span>
+                        <span>"person reading newspaper"</span>
+                    </div>
+                    </div></div></div>
+        <div class="query-section">
+            <h3>Initial Query: "laptop near"</h3>
+            <p style="color: #666;"><strong>Number of discovered clusters:</strong> 2</p>
+        
+            <div class="cluster">
+                <h4>Cluster 0 (64 images)</h4>
+                <div class="image-grid">
+            <img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000100588.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000109629.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000121446.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000122390.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000123413.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000127799.jpg" width="120">
+                </div>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                    <strong>Suggested Queries:</strong>
+            
+                    <div class="suggestion captioner">
+                        <span class="method-name">Decap (Latent Captioner):</span>
+                        <span>"a cat is sitting on the laptop by a laptop"</span>
+                    </div>
+                    
+                    <div class="suggestion llm">
+                        <span class="method-name">Ministral-8B (LLM):</span>
+                        <span>"cat sitting on laptop"</span>
+                    </div>
+                    
+                    <div class="suggestion lmm">
+                        <span class="method-name">Qwen2.5-VL-7B (LMM):</span>
+                        <span>"cat on laptop"</span>
+                    </div>
+                    </div></div>
+            <div class="cluster">
+                <h4>Cluster 1 (136 images)</h4>
+                <div class="image-grid">
+            <img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000110518.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000113132.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000114729.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000141180.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000141263.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000151289.jpg" width="120">
+                </div>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                    <strong>Suggested Queries:</strong>
+            
+                    <div class="suggestion captioner">
+                        <span class="method-name">Decap (Latent Captioner):</span>
+                        <span>"a laptop and a desktop computer is on a desk"</span>
+                    </div>
+                    
+                    <div class="suggestion llm">
+                        <span class="method-name">Ministral-8B (LLM):</span>
+                        <span>"laptop on desk"</span>
+                    </div>
+                    
+                    <div class="suggestion lmm">
+                        <span class="method-name">Qwen2.5-VL-7B (LMM):</span>
+                        <span>"laptop near other laptops"</span>
+                    </div>
+                    </div></div></div>
+        <div class="query-section">
+            <h3>Initial Query: "car moving"</h3>
+            <p style="color: #666;"><strong>Number of discovered clusters:</strong> 4</p>
+        
+            <div class="cluster">
+                <h4>Cluster 0 (31 images)</h4>
+                <div class="image-grid">
+            <img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000150908.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000016486.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000428389.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000173001.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000253094.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000391721.jpg" width="120">
+                </div>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                    <strong>Suggested Queries:</strong>
+            
+                    <div class="suggestion captioner">
+                        <span class="method-name">Decap (Latent Captioner):</span>
+                        <span>"a vehicle that is driving in the road"</span>
+                    </div>
+                    
+                    <div class="suggestion llm">
+                        <span class="method-name">Ministral-8B (LLM):</span>
+                        <span>"car moving with luggage"</span>
+                    </div>
+                    
+                    <div class="suggestion lmm">
+                        <span class="method-name">Qwen2.5-VL-7B (LMM):</span>
+                        <span>"truck moving"</span>
+                    </div>
+                    </div></div>
+            <div class="cluster">
+                <h4>Cluster 1 (34 images)</h4>
+                <div class="image-grid">
+            <img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000213591.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000255155.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000292977.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000033124.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000340734.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000341659.jpg" width="120">
+                </div>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                    <strong>Suggested Queries:</strong>
+            
+                    <div class="suggestion captioner">
+                        <span class="method-name">Decap (Latent Captioner):</span>
+                        <span>"a car that is driving in the rear view"</span>
+                    </div>
+                    
+                    <div class="suggestion llm">
+                        <span class="method-name">Ministral-8B (LLM):</span>
+                        <span>"car moving with pet"</span>
+                    </div>
+                    
+                    <div class="suggestion lmm">
+                        <span class="method-name">Qwen2.5-VL-7B (LMM):</span>
+                        <span>"car in motion"</span>
+                    </div>
+                    </div></div>
+            <div class="cluster">
+                <h4>Cluster 2 (51 images)</h4>
+                <div class="image-grid">
+            <img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000162752.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000200274.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000020527.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000358266.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000203711.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000206622.jpg" width="120">
+                </div>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                    <strong>Suggested Queries:</strong>
+            
+                    <div class="suggestion captioner">
+                        <span class="method-name">Decap (Latent Captioner):</span>
+                        <span>"a car is driving in the road as traffic"</span>
+                    </div>
+                    
+                    <div class="suggestion llm">
+                        <span class="method-name">Ministral-8B (LLM):</span>
+                        <span>"car driving on a city street"</span>
+                    </div>
+                    
+                    <div class="suggestion lmm">
+                        <span class="method-name">Qwen2.5-VL-7B (LMM):</span>
+                        <span>"car in motion"</span>
+                    </div>
+                    </div></div>
+            <div class="cluster">
+                <h4>Cluster 3 (32 images)</h4>
+                <div class="image-grid">
+            <img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000123770.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000148802.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000192620.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000194331.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000214247.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000297046.jpg" width="120">
+                </div>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                    <strong>Suggested Queries:</strong>
+            
+                    <div class="suggestion captioner">
+                        <span class="method-name">Decap (Latent Captioner):</span>
+                        <span>"a truck is pulling a vehicle in the back of traffic"</span>
+                    </div>
+                    
+                    <div class="suggestion llm">
+                        <span class="method-name">Ministral-8B (LLM):</span>
+                        <span>"car being towed"</span>
+                    </div>
+                    
+                    <div class="suggestion lmm">
+                        <span class="method-name">Qwen2.5-VL-7B (LMM):</span>
+                        <span>"car being towed"</span>
+                    </div>
+                    </div></div></div>
+        <div class="query-section">
+            <h3>Initial Query: "small house"</h3>
+            <p style="color: #666;"><strong>Number of discovered clusters:</strong> 2</p>
+        
+            <div class="cluster">
+                <h4>Cluster 0 (64 images)</h4>
+                <div class="image-grid">
+            <img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000127406.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000014861.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000186090.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000202500.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000020527.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000226890.jpg" width="120">
+                </div>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                    <strong>Suggested Queries:</strong>
+            
+                    <div class="suggestion captioner">
+                        <span class="method-name">Decap (Latent Captioner):</span>
+                        <span>"a picture of a house that is near the doorway"</span>
+                    </div>
+                    
+                    <div class="suggestion llm">
+                        <span class="method-name">Ministral-8B (LLM):</span>
+                        <span>"small house with kitchen"</span>
+                    </div>
+                    
+                    <div class="suggestion lmm">
+                        <span class="method-name">Qwen2.5-VL-7B (LMM):</span>
+                        <span>"small rustic house"</span>
+                    </div>
+                    </div></div>
+            <div class="cluster">
+                <h4>Cluster 1 (136 images)</h4>
+                <div class="image-grid">
+            <img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000102625.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000110381.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000001526.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000162414.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000189565.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000193129.jpg" width="120">
+                </div>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                    <strong>Suggested Queries:</strong>
+            
+                    <div class="suggestion captioner">
+                        <span class="method-name">Decap (Latent Captioner):</span>
+                        <span>"a room with a small kitchen and a flat screen tv in the corner"</span>
+                    </div>
+                    
+                    <div class="suggestion llm">
+                        <span class="method-name">Ministral-8B (LLM):</span>
+                        <span>"small house with wooden floor"</span>
+                    </div>
+                    
+                    <div class="suggestion lmm">
+                        <span class="method-name">Qwen2.5-VL-7B (LMM):</span>
+                        <span>"cozy small house interior"</span>
+                    </div>
+                    </div></div></div>
+        <div class="query-section">
+            <h3>Initial Query: "horse sleeping"</h3>
+            <p style="color: #666;"><strong>Number of discovered clusters:</strong> 2</p>
+        
+            <div class="cluster">
+                <h4>Cluster 0 (50 images)</h4>
+                <div class="image-grid">
+            <img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000116464.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000443883.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000162993.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000242915.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000266302.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000284987.jpg" width="120">
+                </div>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                    <strong>Suggested Queries:</strong>
+            
+                    <div class="suggestion captioner">
+                        <span class="method-name">Decap (Latent Captioner):</span>
+                        <span>"a horse that is laying down near a horse"</span>
+                    </div>
+                    
+                    <div class="suggestion llm">
+                        <span class="method-name">Ministral-8B (LLM):</span>
+                        <span>"horse sleeping in a field"</span>
+                    </div>
+                    
+                    <div class="suggestion lmm">
+                        <span class="method-name">Qwen2.5-VL-7B (LMM):</span>
+                        <span>"zebra sleeping"</span>
+                    </div>
+                    </div></div>
+            <div class="cluster">
+                <h4>Cluster 1 (130 images)</h4>
+                <div class="image-grid">
+            <img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000102925.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000109644.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000123620.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000124664.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000127920.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000135982.jpg" width="120">
+                </div>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                    <strong>Suggested Queries:</strong>
+            
+                    <div class="suggestion captioner">
+                        <span class="method-name">Decap (Latent Captioner):</span>
+                        <span>"a horse with its horse graze in the grass"</span>
+                    </div>
+                    
+                    <div class="suggestion llm">
+                        <span class="method-name">Ministral-8B (LLM):</span>
+                        <span>"horse sleeping in a field"</span>
+                    </div>
+                    
+                    <div class="suggestion lmm">
+                        <span class="method-name">Qwen2.5-VL-7B (LMM):</span>
+                        <span>"horse resting"</span>
+                    </div>
+                    </div></div></div>
+        <div class="query-section">
+            <h3>Initial Query: "cat drinking"</h3>
+            <p style="color: #666;"><strong>Number of discovered clusters:</strong> 2</p>
+        
+            <div class="cluster">
+                <h4>Cluster 0 (57 images)</h4>
+                <div class="image-grid">
+            <img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000102670.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000011475.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000118889.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000196307.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000022041.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000263493.jpg" width="120">
+                </div>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                    <strong>Suggested Queries:</strong>
+            
+                    <div class="suggestion captioner">
+                        <span class="method-name">Decap (Latent Captioner):</span>
+                        <span>"a cat is drinking water from a toilet"</span>
+                    </div>
+                    
+                    <div class="suggestion llm">
+                        <span class="method-name">Ministral-8B (LLM):</span>
+                        <span>"cat drinking from toilet"</span>
+                    </div>
+                    
+                    <div class="suggestion lmm">
+                        <span class="method-name">Qwen2.5-VL-7B (LMM):</span>
+                        <span>"cat drinking water"</span>
+                    </div>
+                    </div></div>
+            <div class="cluster">
+                <h4>Cluster 1 (89 images)</h4>
+                <div class="image-grid">
+            <img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000218142.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000322353.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000123739.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000132654.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000152724.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000157397.jpg" width="120">
+                </div>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                    <strong>Suggested Queries:</strong>
+            
+                    <div class="suggestion captioner">
+                        <span class="method-name">Decap (Latent Captioner):</span>
+                        <span>"a cat drinking from a cup that is drinking"</span>
+                    </div>
+                    
+                    <div class="suggestion llm">
+                        <span class="method-name">Ministral-8B (LLM):</span>
+                        <span>"cat drinking from a bowl"</span>
+                    </div>
+                    
+                    <div class="suggestion lmm">
+                        <span class="method-name">Qwen2.5-VL-7B (LMM):</span>
+                        <span>"cats drinking water"</span>
+                    </div>
+                    </div></div></div>
+        <div class="query-section">
+            <h3>Initial Query: "factory"</h3>
+            <p style="color: #666;"><strong>Number of discovered clusters:</strong> 7</p>
+        
+            <div class="cluster">
+                <h4>Cluster 0 (19 images)</h4>
+                <div class="image-grid">
+            <img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000093139.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000228799.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000222961.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000043513.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000147551.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000166565.jpg" width="120">
+                </div>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                    <strong>Suggested Queries:</strong>
+            
+                    <div class="suggestion captioner">
+                        <span class="method-name">Decap (Latent Captioner):</span>
+                        <span>"a picture of the office is seen in this lot"</span>
+                    </div>
+                    
+                    <div class="suggestion llm">
+                        <span class="method-name">Ministral-8B (LLM):</span>
+                        <span>"factory with machinery"</span>
+                    </div>
+                    
+                    <div class="suggestion lmm">
+                        <span class="method-name">Qwen2.5-VL-7B (LMM):</span>
+                        <span>"industrial facility"</span>
+                    </div>
+                    </div></div>
+            <div class="cluster">
+                <h4>Cluster 1 (51 images)</h4>
+                <div class="image-grid">
+            <img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000112605.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000112739.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000126606.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000137745.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000178181.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000019624.jpg" width="120">
+                </div>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                    <strong>Suggested Queries:</strong>
+            
+                    <div class="suggestion captioner">
+                        <span class="method-name">Decap (Latent Captioner):</span>
+                        <span>"the street is seen in this image of the city"</span>
+                    </div>
+                    
+                    <div class="suggestion llm">
+                        <span class="method-name">Ministral-8B (LLM):</span>
+                        <span>"factory with machinery"</span>
+                    </div>
+                    
+                    <div class="suggestion lmm">
+                        <span class="method-name">Qwen2.5-VL-7B (LMM):</span>
+                        <span>"industrial building"</span>
+                    </div>
+                    </div></div>
+            <div class="cluster">
+                <h4>Cluster 2 (18 images)</h4>
+                <div class="image-grid">
+            <img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000240054.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000260604.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000112849.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000120827.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000030595.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000314855.jpg" width="120">
+                </div>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                    <strong>Suggested Queries:</strong>
+            
+                    <div class="suggestion captioner">
+                        <span class="method-name">Decap (Latent Captioner):</span>
+                        <span>"a train is in the industrial area of the time"</span>
+                    </div>
+                    
+                    <div class="suggestion llm">
+                        <span class="method-name">Ministral-8B (LLM):</span>
+                        <span>"factory with machinery"</span>
+                    </div>
+                    
+                    <div class="suggestion lmm">
+                        <span class="method-name">Qwen2.5-VL-7B (LMM):</span>
+                        <span>"industrial factory setting"</span>
+                    </div>
+                    </div></div>
+            <div class="cluster">
+                <h4>Cluster 3 (35 images)</h4>
+                <div class="image-grid">
+            <img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000011182.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000114077.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000125684.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000136186.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000149738.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000167506.jpg" width="120">
+                </div>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                    <strong>Suggested Queries:</strong>
+            
+                    <div class="suggestion captioner">
+                        <span class="method-name">Decap (Latent Captioner):</span>
+                        <span>"a picture of the building is in the urban area"</span>
+                    </div>
+                    
+                    <div class="suggestion llm">
+                        <span class="method-name">Ministral-8B (LLM):</span>
+                        <span>"factory building with smoke stack"</span>
+                    </div>
+                    
+                    <div class="suggestion lmm">
+                        <span class="method-name">Qwen2.5-VL-7B (LMM):</span>
+                        <span>"industrial building with smokestacks"</span>
+                    </div>
+                    </div></div>
+            <div class="cluster">
+                <h4>Cluster 4 (22 images)</h4>
+                <div class="image-grid">
+            <img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000147236.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000015678.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000174672.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000189666.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000224736.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000022863.jpg" width="120">
+                </div>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                    <strong>Suggested Queries:</strong>
+            
+                    <div class="suggestion captioner">
+                        <span class="method-name">Decap (Latent Captioner):</span>
+                        <span>"a kitchen is being prepared in this commercial machine"</span>
+                    </div>
+                    
+                    <div class="suggestion llm">
+                        <span class="method-name">Ministral-8B (LLM):</span>
+                        <span>"factory making donuts"</span>
+                    </div>
+                    
+                    <div class="suggestion lmm">
+                        <span class="method-name">Qwen2.5-VL-7B (LMM):</span>
+                        <span>"industrial factory setting with machinery and workers"</span>
+                    </div>
+                    </div></div>
+            <div class="cluster">
+                <h4>Cluster 5 (40 images)</h4>
+                <div class="image-grid">
+            <img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000117792.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000134863.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000144176.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000166903.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000180397.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000198943.jpg" width="120">
+                </div>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                    <strong>Suggested Queries:</strong>
+            
+                    <div class="suggestion captioner">
+                        <span class="method-name">Decap (Latent Captioner):</span>
+                        <span>"there is a image of an old train in the station"</span>
+                    </div>
+                    
+                    <div class="suggestion llm">
+                        <span class="method-name">Ministral-8B (LLM):</span>
+                        <span>"factory with machinery"</span>
+                    </div>
+                    
+                    <div class="suggestion lmm">
+                        <span class="method-name">Qwen2.5-VL-7B (LMM):</span>
+                        <span>"industrial building with windows and doors"</span>
+                    </div>
+                    </div></div>
+            <div class="cluster">
+                <h4>Cluster 6 (14 images)</h4>
+                <div class="image-grid">
+            <img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000124652.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000101643.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000132290.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000018317.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000237550.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000246265.jpg" width="120">
+                </div>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                    <strong>Suggested Queries:</strong>
+            
+                    <div class="suggestion captioner">
+                        <span class="method-name">Decap (Latent Captioner):</span>
+                        <span>"there are many motorcycles parked in the corner"</span>
+                    </div>
+                    
+                    <div class="suggestion llm">
+                        <span class="method-name">Ministral-8B (LLM):</span>
+                        <span>"motorcycles in a factory"</span>
+                    </div>
+                    
+                    <div class="suggestion lmm">
+                        <span class="method-name">Qwen2.5-VL-7B (LMM):</span>
+                        <span>"motorcycle factory"</span>
+                    </div>
+                    </div></div></div>
+        <div class="query-section">
+            <h3>Initial Query: "chair"</h3>
+            <p style="color: #666;"><strong>Number of discovered clusters:</strong> 4</p>
+        
+            <div class="cluster">
+                <h4>Cluster 0 (21 images)</h4>
+                <div class="image-grid">
+            <img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000115159.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000140821.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000163827.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000184435.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000020031.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000201686.jpg" width="120">
+                </div>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                    <strong>Suggested Queries:</strong>
+            
+                    <div class="suggestion captioner">
+                        <span class="method-name">Decap (Latent Captioner):</span>
+                        <span>"a toilet with its seat up in a small bathroom"</span>
+                    </div>
+                    
+                    <div class="suggestion llm">
+                        <span class="method-name">Ministral-8B (LLM):</span>
+                        <span>"toilet in bathroom"</span>
+                    </div>
+                    
+                    <div class="suggestion lmm">
+                        <span class="method-name">Qwen2.5-VL-7B (LMM):</span>
+                        <span>"furniture"</span>
+                    </div>
+                    </div></div>
+            <div class="cluster">
+                <h4>Cluster 1 (83 images)</h4>
+                <div class="image-grid">
+            <img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000228185.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000128942.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000199255.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000258191.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000029406.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000300124.jpg" width="120">
+                </div>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                    <strong>Suggested Queries:</strong>
+            
+                    <div class="suggestion captioner">
+                        <span class="method-name">Decap (Latent Captioner):</span>
+                        <span>"a bench that is sitting near a person"</span>
+                    </div>
+                    
+                    <div class="suggestion llm">
+                        <span class="method-name">Ministral-8B (LLM):</span>
+                        <span>"bench in park"</span>
+                    </div>
+                    
+                    <div class="suggestion lmm">
+                        <span class="method-name">Qwen2.5-VL-7B (LMM):</span>
+                        <span>"park bench"</span>
+                    </div>
+                    </div></div>
+            <div class="cluster">
+                <h4>Cluster 2 (40 images)</h4>
+                <div class="image-grid">
+            <img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000103940.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000014857.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000015567.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000178178.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000195815.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000216480.jpg" width="120">
+                </div>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                    <strong>Suggested Queries:</strong>
+            
+                    <div class="suggestion captioner">
+                        <span class="method-name">Decap (Latent Captioner):</span>
+                        <span>"a cat is sitting on a chair by the seat"</span>
+                    </div>
+                    
+                    <div class="suggestion llm">
+                        <span class="method-name">Ministral-8B (LLM):</span>
+                        <span>"cat sitting on chair"</span>
+                    </div>
+                    
+                    <div class="suggestion lmm">
+                        <span class="method-name">Qwen2.5-VL-7B (LMM):</span>
+                        <span>"furniture chair"</span>
+                    </div>
+                    </div></div>
+            <div class="cluster">
+                <h4>Cluster 3 (55 images)</h4>
+                <div class="image-grid">
+            <img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000086946.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000104683.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000109995.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000120780.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000136790.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000017399.jpg" width="120">
+                </div>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                    <strong>Suggested Queries:</strong>
+            
+                    <div class="suggestion captioner">
+                        <span class="method-name">Decap (Latent Captioner):</span>
+                        <span>"a chair and a table in a room"</span>
+                    </div>
+                    
+                    <div class="suggestion llm">
+                        <span class="method-name">Ministral-8B (LLM):</span>
+                        <span>"chair in living room"</span>
+                    </div>
+                    
+                    <div class="suggestion lmm">
+                        <span class="method-name">Qwen2.5-VL-7B (LMM):</span>
+                        <span>"wooden bear chair"</span>
+                    </div>
+                    </div></div></div>
+        <div class="query-section">
+            <h3>Initial Query: "classroom"</h3>
+            <p style="color: #666;"><strong>Number of discovered clusters:</strong> 3</p>
+        
+            <div class="cluster">
+                <h4>Cluster 0 (45 images)</h4>
+                <div class="image-grid">
+            <img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000010263.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000106901.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000110381.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000113668.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000119961.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000120780.jpg" width="120">
+                </div>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                    <strong>Suggested Queries:</strong>
+            
+                    <div class="suggestion captioner">
+                        <span class="method-name">Decap (Latent Captioner):</span>
+                        <span>"a room with a view of the furniture in it"</span>
+                    </div>
+                    
+                    <div class="suggestion llm">
+                        <span class="method-name">Ministral-8B (LLM):</span>
+                        <span>"classroom with wooden furniture"</span>
+                    </div>
+                    
+                    <div class="suggestion lmm">
+                        <span class="method-name">Qwen2.5-VL-7B (LMM):</span>
+                        <span>"classroom with desks and chairs"</span>
+                    </div>
+                    </div></div>
+            <div class="cluster">
+                <h4>Cluster 1 (40 images)</h4>
+                <div class="image-grid">
+            <img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000100111.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000101190.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000117721.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000126814.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000152664.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000188311.jpg" width="120">
+                </div>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                    <strong>Suggested Queries:</strong>
+            
+                    <div class="suggestion captioner">
+                        <span class="method-name">Decap (Latent Captioner):</span>
+                        <span>"a classroom with students and desks in a classroom"</span>
+                    </div>
+                    
+                    <div class="suggestion llm">
+                        <span class="method-name">Ministral-8B (LLM):</span>
+                        <span>"classroom with students and computers"</span>
+                    </div>
+                    
+                    <div class="suggestion lmm">
+                        <span class="method-name">Qwen2.5-VL-7B (LMM):</span>
+                        <span>"classroom with laptops and students working"</span>
+                    </div>
+                    </div></div>
+            <div class="cluster">
+                <h4>Cluster 2 (41 images)</h4>
+                <div class="image-grid">
+            <img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000101952.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000124709.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000001347.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000153524.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000164691.jpg" width="120"><img src="https://paciosoft.com/CroQS-benchmark/browsable-dataset/coco-images/000000166565.jpg" width="120">
+                </div>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+                    <strong>Suggested Queries:</strong>
+            
+                    <div class="suggestion captioner">
+                        <span class="method-name">Decap (Latent Captioner):</span>
+                        <span>"a desk with a computer and desktop computer"</span>
+                    </div>
+                    
+                    <div class="suggestion llm">
+                        <span class="method-name">Ministral-8B (LLM):</span>
+                        <span>"classroom with computers"</span>
+                    </div>
+                    
+                    <div class="suggestion lmm">
+                        <span class="method-name">Qwen2.5-VL-7B (LMM):</span>
+                        <span>"office setup"</span>
+                    </div>
+                    </div></div></div>
+        
+        <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center; color: #888;">
+            <p>Generated from CroQS Wild Clusters Evaluation</p>
+        </footer>
+    </body>
+    </html>
+    
