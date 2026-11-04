@@ -114,4 +114,12 @@ If you use this dataset or code, please cite our paper:
   isbn      = "978-3-031-88711-6",
   doi       = "10.1007/978-3-031-88711-6_9"
 }
+
+@article{pacini2026query,
+  author  = {Pacini, Giacomo and Carrara, Fabio and Messina, Nicola and Tonellotto, Nicola and Amato, Giuseppe and Falchi, Fabrizio},
+  title   = {Query Suggestion for Text-to-Image Retrieval},
+  journal = {ACM Transactions on Multimedia Computing, Communications, and Applications},
+  year    = {2026},
+  doi     = {10.1145/3843238}
+}
 ```
