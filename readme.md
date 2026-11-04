@@ -15,7 +15,7 @@ Official repository of the paper "Maybe you are looking for CroQS 🐊 Cross-mod
 </p>
 
 #### Updates
-
+- 🔥 11/2026: Our extended journal version 'Query Suggestion for Text-to-Image Retrieval' is accepted at ACM TOMM!
 - 🔥 12/2024: "Maybe you are looking for CroQS 🐊 Cross-modal Query Suggestion for Text-to-Image Retrieval" has been accepted to ECIR2025 as a full paper
 
 ### Abstract
